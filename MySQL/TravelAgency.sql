@@ -34,32 +34,31 @@ CREATE TABLE Tour (
 
 LOCK TABLES `Tour` WRITE;
 INSERT INTO `Tour` VALUES 
-(1, 'Tour 1', 'Hành trình mạo hiểm khám phá thiên nhiên hoang sơ tại Tam Đảo.', 100.00, '2023-05-01', '2023-05-05', 5, 'mạo hiểm'), 
-(2, 'Tour 2', 'Tour nghỉ dưỡng tại resort 5 sao bên bờ biển Bắc Giang.', 200.00, '2023-05-06', '2023-05-10', 7, 'nghỉ dưỡng'), 
-(3, 'Tour 3', 'Khám phá những địa danh nổi tiếng tại thành phố Đà Lạt mộng mơ.', 150.00, '2023-05-11', '2023-05-15', 6, 'khám phá'), 
-(4, 'Tour 4', 'Thử thách bản thân với hành trình mạo hiểm tại Quy Nhơn.', 300.00, '2023-05-16', '2023-05-20', 8, 'mạo hiểm'), 
-(5, 'Tour 5', 'Trải nghiệm kỳ nghỉ sang trọng tại Đà Nẵng với dịch vụ đẳng cấp.', 250.00, '2023-05-21', '2023-05-25', 4, 'nghỉ dưỡng'),
-(6, 'Tour 6', 'Khám phá các di sản văn hóa và thiên nhiên tại Đà Lạt.', 180.00, '2023-05-26', '2023-05-30', 6, 'khám phá'), 
-(7, 'Tour 7', 'Hành trình mạo hiểm tại Eo Gió - Quy Nhơn, điểm đến hoang sơ.', 220.00, '2023-05-31', '2023-06-04', 7, 'mạo hiểm'), 
-(8, 'Tour 8', 'Thư giãn tại các khu nghỉ dưỡng hàng đầu ở Đà Nẵng.', 190.00, '2023-06-05', '2023-06-09', 5, 'nghỉ dưỡng'), 
-(9, 'Tour 9', 'Khám phá vẻ đẹp kỳ vĩ của Vịnh Hạ Long với các hang động nổi tiếng.', 280.00, '2023-06-10', '2023-06-14', 8, 'khám phá'), 
-(10, 'Tour 10', 'Tham gia tour mạo hiểm leo núi và cắm trại tại Sa Pa.', 160.00, '2023-06-15', '2023-06-19', 6, 'mạo hiểm'),
-(11, 'Tour 11', 'Nghỉ dưỡng tại vịnh Hạ Long với du thuyền sang trọng.', 240.00, '2023-06-20', '2023-06-24', 7, 'nghỉ dưỡng'), 
-(12, 'Tour 12', 'Trải nghiệm văn hóa và ẩm thực đặc sắc tại Hà Nội.', 190.00, '2023-06-25', '2023-06-29', 5, 'khám phá'), 
-(13, 'Tour 13', 'Hành trình mạo hiểm tại đỉnh Fansipan với cảnh sắc hùng vĩ.', 270.00, '2023-06-30', '2023-07-04', 8, 'mạo hiểm'), 
-(14, 'Tour 14', 'Nghỉ dưỡng giữa thiên nhiên yên bình tại Hội An.', 150.00, '2023-07-05', '2023-07-09', 6, 'nghỉ dưỡng'), 
-(15, 'Tour 15', 'Khám phá nét đẹp cổ kính và văn hóa độc đáo của Hội An.', 220.00, '2023-07-10', '2023-07-14', 7, 'khám phá'), 
-(16, 'Tour 16', 'Tour mạo hiểm đến các điểm đến kỳ thú tại Quảng Bình.', 180.00, '2023-07-15', '2023-07-19', 5, 'mạo hiểm'), 
-(17, 'Tour 17', 'Nghỉ dưỡng và thư giãn tại bãi biển Nha Trang tuyệt đẹp.', 260.00, '2023-07-20', '2023-07-24', 8, 'nghỉ dưỡng'), 
-(18, 'Tour 18', 'Khám phá các làng chài và đảo hoang sơ tại Lý Sơn.', 140.00, '2023-07-25', '2023-07-29', 6, 'khám phá'), 
-(19, 'Tour 19', 'Thử thách bản thân với hành trình trekking tại Huế.', 210.00, '2023-07-30', '2023-08-03', 7, 'mạo hiểm'), 
-(20, 'Tour 20', 'Kỳ nghỉ dưỡng lý tưởng với dịch vụ cao cấp tại Đà Nẵng.', 170.00, '2023-08-04', '2023-08-08', 5, 'nghỉ dưỡng'),
-(21, 'Tour 21', 'Khám phá vẻ đẹp thơ mộng của vùng cao Sa Pa.', 200.00, '2023-08-09', '2023-08-13', 5, 'khám phá'), 
-(22, 'Tour 22', 'Nghỉ dưỡng và tham quan hang động nổi tiếng ở Quảng Bình.', 180.00, '2023-08-14', '2023-08-18', 5, 'nghỉ dưỡng'), 
-(23, 'Tour 23', 'Trải nghiệm đời sống văn hóa độc đáo tại Quảng Ngãi.', 160.00, '2023-08-19', '2023-08-23', 5, 'khám phá'), 
-(24, 'Tour 24', 'Hành trình khám phá thành phố hiện đại Sài Gòn.', 300.00, '2023-08-24', '2023-08-28', 5, 'khám phá'), 
-(25, 'Tour 25', 'Tour nghỉ dưỡng tại bãi biển xanh mát của Phú Quốc.', 320.00, '2023-08-29', '2023-09-02', 5, 'nghỉ dưỡng');
-
+(1, 'Hơi Thở Tam Đảo', 'Khung cảnh núi rừng tuyệt đẹp tại Tam Đảo.', 100.00, '2023-05-01', '2023-05-05', 5, 'mạo hiểm'), 
+(2, 'Hành Trình Tây Yên', 'Trải nghiệm văn hóa chùa Tây Yến Tử và thiên nhiên Bắc Giang.', 200.00, '2023-05-06', '2023-05-10', 7, 'Khám phá'), 
+(3, 'Hương Đà Lạt', 'Khám phá những địa danh nổi tiếng tại thành phố Đà Lạt mộng mơ.', 150.00, '2023-05-11', '2023-05-15', 6, 'khám phá'), 
+(4, 'Tình Ca Xuân Hương', 'Thành phố mộng mơ Đà Lạt với hồ Xuân Hương.', 300.00, '2023-05-16', '2023-05-20', 8, 'nghĩ dưỡng'), 
+(5, 'Rồng Đỏ Đà Nẵng', 'Cầu Rồng rực rỡ tại Đà Nẵng.', 250.00, '2023-05-21', '2023-05-25', 4, 'khám phá'), 
+(6, 'Vàng Giữa Trời', 'Cầu Vàng hùng vĩ tại Đà Nẵng.', 180.00, '2023-05-26', '2023-05-30', 6, 'khám phá'), 
+(7, 'Phiêu Lưu Eo Gió', 'Hành trình mạo hiểm tại Eo Gió - Quy Nhơn, điểm đến hoang sơ.', 220.00, '2023-05-31', '2023-06-04', 7, 'mạo hiểm'), 
+(8, 'Nóc Nhà Đông Dương', 'Đỉnh Fansipan – Nóc nhà Đông Dương.', 190.00, '2023-06-05', '2023-06-09', 5, 'mạo hiểm'), 
+(9, 'Sắc Sống Hải Phòng', 'Hải Phòng – Thành phố cảng năng động.', 280.00, '2023-06-10', '2023-06-14', 8, 'khám phá'), 
+(10, 'Kỳ Quan Hạ Long', 'Vịnh Hạ Long – Di sản thiên nhiên thế giới.', 160.00, '2023-06-15', '2023-06-19', 6, 'khám phá'), 
+(11, 'Huyền Bí Long Động', 'Khám phá hang động kỳ thú tại Hạ Long.', 240.00, '2023-06-20', '2023-06-24', 7, 'mạo hiểm'), 
+(12, 'Hồn Xưa Thăng Long', 'Hồ Gươm, là một trong những danh thắng nổi tiếng và biểu tượng của thủ đô Hà Nội, Việt Nam.', 190.00, '2023-06-25', '2023-06-29', 5, 'nghỉ dưỡng'), 
+(13, 'Hồn Phố Cổ', 'Phố cổ Hà Nội – Nét đẹp văn hóa truyền thống.', 270.00, '2023-06-30', '2023-07-04', 8, 'nghỉ dưỡng'), 
+(14, 'Lung Linh Hội An', 'Phố cổ Hội An lung linh đèn lồng.', 150.00, '2023-07-05', '2023-07-09', 6, 'nghỉ dưỡng'), 
+(15, 'Văn Hóa Hội An', 'Khám phá nét đẹp cổ kính và văn hóa độc đáo của Hội An.', 220.00, '2023-07-10', '2023-07-14', 7, 'khám phá'), 
+(16, 'Chùa Cầu Hội An', 'Tham quan chùa Cầu tại Hội An.', 180.00, '2023-07-15', '2023-07-19', 5, 'khám phá'), 
+(17, 'Huế Trầm Mặc', 'Cố đô Huế với vẻ đẹp trầm mặc.', 260.00, '2023-07-20', '2023-07-24', 8, 'khám phá'), 
+(18, 'Thiên Đường Lý Sơn', 'Đảo Lý Sơn – Thiên đường giữa biển khơi.', 140.00, '2023-07-25', '2023-07-29', 6, 'nghỉ dưỡng'), 
+(19, 'Sôi Động Nha Trang', 'Nha Trang – Thành phố biển sôi động.', 210.00, '2023-07-30', '2023-08-03', 7, 'nghỉ dưỡng'), 
+(20, 'Hoàng Hôn Nha Trang', 'Công viên Nha Trang với khung cảnh vui nhộn và hoang hôn, tuyệt đẹp.', 170.00, '2023-08-04', '2023-08-08', 5, 'khám phá'), 
+(21, 'Biển Yên Bình', 'Vùng biển yên bình tuyệt đẹp tại Nha Trang.', 200.00, '2023-08-09', '2023-08-13', 5, 'nghỉ dưỡng'), 
+(22, 'Quảng Bình Mộng Mơ', 'Quảng Bình – Vương quốc của những cây cầu và hồ tây thơ mộng.', 180.00, '2023-08-14', '2023-08-18', 5, 'khám phá'), 
+(23, 'Độc Đáo Quảng Ngãi', 'Trải nghiệm đời sống văn hóa độc đáo tại Quảng Ngãi.', 160.00, '2023-08-19', '2023-08-23', 5, 'khám phá'), 
+(24, 'Sài Gòn Sôi Động', 'Sài Gòn – Thành phố không ngủ.', 300.00, '2023-08-24', '2023-08-28', 5, 'nghỉ dưỡng'), 
+(25, 'Mờ Sương Sa Pa', 'Sa Pa – Thị trấn mờ sương với ruộng bậc thang.', 320.00, '2023-08-29', '2023-09-02', 5, 'mạo hiểm'); 
 UNLOCK TABLES;
 
         -- Bảng Itinerary
@@ -85,33 +84,32 @@ CREATE TABLE TourImage (
     FOREIGN KEY (tour_id) REFERENCES Tour(tour_id) ON DELETE CASCADE
 );ENGINE=MyISAM DEFAULT CHARSET=latin1;
 LOCK TABLES `admin` WRITE;
-INSERT INTO `TourImage` VALUES
+INSERT INTO `TourImage` VALUES 
 (1, 1, 'assets/images/TamDao.jpg', 'Khung cảnh núi rừng tuyệt đẹp tại Tam Đảo'),
-(2, 2, 'assets/images/BacGiang.jpg', 'Trải nghiệm văn hóa và thiên nhiên Bắc Giang'),
-(3, 3, 'assets/images/DaLat1.jpg', 'Thành phố mộng mơ Đà Lạt với hồ Xuân Hương'),
-(4, 4, 'assets/images/DaLat2.jpg', 'Vườn hoa Đà Lạt đầy màu sắc'),
-(5, 5, 'assets/images/ĐaNang.jpg', 'Biển Mỹ Khê – Đà Nẵng tuyệt đẹp'),
-(6, 6, 'assets/images/DaNang1.jpg', 'Cầu Rồng rực rỡ tại Đà Nẵng'),
+(2, 2, 'assets/images/BacGiang.jpg', 'Trải nghiệm văn hóa chùa Tây Yến Tử và thiên nhiên Bắc Giang'),
+(3, 3, 'assets/images/DaLat1.jpg', 'Vườn hoa thơ mộng và khung cảnh tuyệt đẹp tại Đà Lạt'),
+(4, 4, 'assets/images/DaLat2.jpg', 'Thành phố mộng mơ Đà Lạt với hồ Xuân Hương'),
+(5, 5, 'assets/images/ĐaNang.jpg', 'Cầu Rồng rực rỡ tại Đà Nẵng'),
+(6, 6, 'assets/images/DaNang1.jpg', 'Cầu Vàng hùng vĩ tại Đà Nẵng'),
 (7, 7, 'assets/images/EoGio_QuyNhon.jpg', 'Khám phá Eo Gió – Quy Nhơn hoang sơ'),
 (8, 8, 'assets/images/Fansipan.jpg', 'Đỉnh Fansipan – Nóc nhà Đông Dương'),
 (9, 9, 'assets/images/HaiPhong.jpg', 'Hải Phòng – Thành phố cảng năng động'),
 (10, 10, 'assets/images/halong.jpg', 'Vịnh Hạ Long – Di sản thiên nhiên thế giới'),
 (11, 11, 'assets/images/Halong.jpg', 'Khám phá hang động kỳ thú tại Hạ Long'),
-(12, 12, 'assets/images/Hanoi.jpg', 'Hà Nội cổ kính và hiện đại'),
+(12, 12, 'assets/images/Hanoi.jpg', 'Hồ Gươm, là một trong những danh thắng nổi tiếng và biểu tượng của thủ đô Hà Nội, Việt Nam. '),
 (13, 13, 'assets/images/HaNoi2.jpg', 'Phố cổ Hà Nội – Nét đẹp văn hóa truyền thống'),
 (14, 14, 'assets/images/HoiAn.jpg', 'Phố cổ Hội An lung linh đèn lồng'),
-(15, 15, 'assets/images/HoiAn1.jpg', 'Hội An – Di sản văn hóa thế giới'),
+(15, 15, 'assets/images/HoiAn1.jpg', 'Khám phá nét đẹp cổ kính và văn hóa độc đáo của Hội An'),
 (16, 16, 'assets/images/HoiAn2.jpg', 'Tham quan chùa Cầu tại Hội An'),
 (17, 17, 'assets/images/Hue.jpg', 'Cố đô Huế với vẻ đẹp trầm mặc'),
 (18, 18, 'assets/images/LySon.jpg', 'Đảo Lý Sơn – Thiên đường giữa biển khơi'),
 (19, 19, 'assets/images/nhatrang.jpg', 'Nha Trang – Thành phố biển sôi động'),
-(20, 20, 'assets/images/NhaTrang.jpg', 'Biển Nha Trang trong xanh, tuyệt đẹp'),
-(21, 21, 'assets/images/NhaTrang1.jpg', 'Tháp Bà Ponagar – Nét văn hóa Chăm tại Nha Trang'),
-(22, 22, 'assets/images/QuangBinh.jpg', 'Quảng Bình – Vương quốc của hang động'),
-(23, 23, 'assets/images/QuangNgai.jpg', 'Quảng Ngãi – Vẻ đẹp miền Trung mộc mạc'),
+(20, 20, 'assets/images/NhaTrang.jpg', 'Công viên Nha Trang với khung cảnh vui nhộn và hoang hôn, tuyệt đẹp'),
+(21, 21, 'assets/images/NhaTrang1.jpg', 'Vùng biển yên bình tuyệt đẹp tại Nha Trang'),
+(22, 22, 'assets/images/QuangBinh.jpg', 'Quảng Bình – Vương quốc của những cây cầu và hồ tây thơ mộng'),
+(23, 23, 'assets/images/QuangNgai.jpg', 'Trải nghiệm đời sống văn hóa độc đáo tại Quảng Ngãi'),
 (24, 24, 'assets/images/SaiGon.jpg', 'Sài Gòn – Thành phố không ngủ'),
 (25, 25, 'assets/images/SaPa.jpg', 'Sa Pa – Thị trấn mờ sương với ruộng bậc thang');
-
 UNLOCK TABLES;
 
 
