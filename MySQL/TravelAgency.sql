@@ -33,26 +33,32 @@ CREATE TABLE Tour (
 );ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `Tour` WRITE;
-INSERT INTO `Tour` VALUES (1,'Tour 1','Description 1',100.00,'2023-05-01','2023-05-05',5,'mạo hiểm'), 
-(2,'Tour 2','Description 2',200.00,'2023-05-06','2023-05-10',7,'nghỉ dưỡng'), 
-(3,'Tour 3','Description 3',150.00,'2023-05-11','2023-05-15',6,'khám phá'), 
-(4,'Tour 4','Description 4',300.00,'2023-05-16','2023-05-20',8,'mạo hiểm'), 
-(5,'Tour 5','Description 5',250.00,'2023-05-21','2023-05-25',4,'nghỉ dưỡng'),
-(6,'Tour 6','Description 6',180.00,'2023-05-26','2023-05-30',6,'khám phá'), 
-(7,'Tour 7','Description 7',220.00,'2023-05-31','2023-06-04',7,'mạo hiểm'), 
-(8,'Tour 8','Description 8',190.00,'2023-06-05','2023-06-09',5,'nghỉ dưỡng'), 
-(9,'Tour 9','Description 9',280.00,'2023-06-10','2023-06-14',8,'khám phá'), 
-(10,'Tour 10','Description 10',160.00,'2023-06-15','2023-06-19',6,'mạo hiểm'),
-(11,'Tour 11','Description 11',240.00,'2023-06-20','2023-06-24',7,'nghỉ dưỡng'), 
-(12,'Tour 12','Description 12',190.00,'2023-06-25','2023-06-29',5,'khám phá'), 
-(13,'Tour 13','Description 13',270.00,'2023-06-30','2023-07-04',8,'mạo hiểm'), 
-(14,'Tour 14','Description 14',150.00,'2023-07-05','2023-07-09',6,'nghị dụng'), 
-(15,'Tour 15','Description 15',220.00,'2023-07-10','2023-07-14',7,'khám phá'), 
-(16,'Tour 16','Description 16',180.00,'2023-07-15','2023-07-19',5,'mạo hiểm'), 
-(17,'Tour 17','Description 17',260.00,'2023-07-20','2023-07-24',8,'nghị dụng'), 
-(18,'Tour 18','Description 18',140.00,'2023-07-25','2023-07-29',6,'khám phá'), 
-(19,'Tour 19','Description 19',210.00,'2023-07-30','2023-08-03',7,'mạo hiểm'), 
-(20,'Tour 20','Description 20',170.00,'2023-08-04','2023-08-08',5,'nghị dụng');
+INSERT INTO `Tour` VALUES 
+(1, 'Hơi Thở Tam Đảo', 'Khung cảnh núi rừng tuyệt đẹp tại Tam Đảo.', 100.00, '2023-05-01', '2023-05-05', 5, 'mạo hiểm'), 
+(2, 'Hành Trình Tây Yên', 'Trải nghiệm văn hóa chùa Tây Yến Tử và thiên nhiên Bắc Giang.', 200.00, '2023-05-06', '2023-05-10', 7, 'Khám phá'), 
+(3, 'Hương Đà Lạt', 'Khám phá những địa danh nổi tiếng tại thành phố Đà Lạt mộng mơ.', 150.00, '2023-05-11', '2023-05-15', 6, 'khám phá'), 
+(4, 'Tình Ca Xuân Hương', 'Thành phố mộng mơ Đà Lạt với hồ Xuân Hương.', 300.00, '2023-05-16', '2023-05-20', 8, 'nghĩ dưỡng'), 
+(5, 'Rồng Đỏ Đà Nẵng', 'Cầu Rồng rực rỡ tại Đà Nẵng.', 250.00, '2023-05-21', '2023-05-25', 4, 'khám phá'), 
+(6, 'Vàng Giữa Trời', 'Cầu Vàng hùng vĩ tại Đà Nẵng.', 180.00, '2023-05-26', '2023-05-30', 6, 'khám phá'), 
+(7, 'Phiêu Lưu Eo Gió', 'Hành trình mạo hiểm tại Eo Gió - Quy Nhơn, điểm đến hoang sơ.', 220.00, '2023-05-31', '2023-06-04', 7, 'mạo hiểm'), 
+(8, 'Nóc Nhà Đông Dương', 'Đỉnh Fansipan – Nóc nhà Đông Dương.', 190.00, '2023-06-05', '2023-06-09', 5, 'mạo hiểm'), 
+(9, 'Sắc Sống Hải Phòng', 'Hải Phòng – Thành phố cảng năng động.', 280.00, '2023-06-10', '2023-06-14', 8, 'khám phá'), 
+(10, 'Kỳ Quan Hạ Long', 'Vịnh Hạ Long – Di sản thiên nhiên thế giới.', 160.00, '2023-06-15', '2023-06-19', 6, 'khám phá'), 
+(11, 'Huyền Bí Long Động', 'Khám phá hang động kỳ thú tại Hạ Long.', 240.00, '2023-06-20', '2023-06-24', 7, 'mạo hiểm'), 
+(12, 'Hồn Xưa Thăng Long', 'Hồ Gươm, là một trong những danh thắng nổi tiếng và biểu tượng của thủ đô Hà Nội, Việt Nam.', 190.00, '2023-06-25', '2023-06-29', 5, 'nghỉ dưỡng'), 
+(13, 'Hồn Phố Cổ', 'Phố cổ Hà Nội – Nét đẹp văn hóa truyền thống.', 270.00, '2023-06-30', '2023-07-04', 8, 'nghỉ dưỡng'), 
+(14, 'Lung Linh Hội An', 'Phố cổ Hội An lung linh đèn lồng.', 150.00, '2023-07-05', '2023-07-09', 6, 'nghỉ dưỡng'), 
+(15, 'Văn Hóa Hội An', 'Khám phá nét đẹp cổ kính và văn hóa độc đáo của Hội An.', 220.00, '2023-07-10', '2023-07-14', 7, 'khám phá'), 
+(16, 'Chùa Cầu Hội An', 'Tham quan chùa Cầu tại Hội An.', 180.00, '2023-07-15', '2023-07-19', 5, 'khám phá'), 
+(17, 'Huế Trầm Mặc', 'Cố đô Huế với vẻ đẹp trầm mặc.', 260.00, '2023-07-20', '2023-07-24', 8, 'khám phá'), 
+(18, 'Thiên Đường Lý Sơn', 'Đảo Lý Sơn – Thiên đường giữa biển khơi.', 140.00, '2023-07-25', '2023-07-29', 6, 'nghỉ dưỡng'), 
+(19, 'Sôi Động Nha Trang', 'Nha Trang – Thành phố biển sôi động.', 210.00, '2023-07-30', '2023-08-03', 7, 'nghỉ dưỡng'), 
+(20, 'Hoàng Hôn Nha Trang', 'Công viên Nha Trang với khung cảnh vui nhộn và hoang hôn, tuyệt đẹp.', 170.00, '2023-08-04', '2023-08-08', 5, 'khám phá'), 
+(21, 'Biển Yên Bình', 'Vùng biển yên bình tuyệt đẹp tại Nha Trang.', 200.00, '2023-08-09', '2023-08-13', 5, 'nghỉ dưỡng'), 
+(22, 'Quảng Bình Mộng Mơ', 'Quảng Bình – Vương quốc của những cây cầu và hồ tây thơ mộng.', 180.00, '2023-08-14', '2023-08-18', 5, 'khám phá'), 
+(23, 'Độc Đáo Quảng Ngãi', 'Trải nghiệm đời sống văn hóa độc đáo tại Quảng Ngãi.', 160.00, '2023-08-19', '2023-08-23', 5, 'khám phá'), 
+(24, 'Sài Gòn Sôi Động', 'Sài Gòn – Thành phố không ngủ.', 300.00, '2023-08-24', '2023-08-28', 5, 'nghỉ dưỡng'), 
+(25, 'Mờ Sương Sa Pa', 'Sa Pa – Thị trấn mờ sương với ruộng bậc thang.', 320.00, '2023-08-29', '2023-09-02', 5, 'mạo hiểm'); 
 UNLOCK TABLES;
 
         -- Bảng Itinerary
@@ -78,26 +84,32 @@ CREATE TABLE TourImage (
     FOREIGN KEY (tour_id) REFERENCES Tour(tour_id) ON DELETE CASCADE
 );ENGINE=MyISAM DEFAULT CHARSET=latin1;
 LOCK TABLES `admin` WRITE;
-INSERT INTO `TourImage` VALUES (1,'Tour 1','https://example.com/image1.jpg','Description 1'),
-(2,'Tour 2','https://example.com/image2.jpg','Description 2'),
-(3,'Tour 3','https://example.com/image3.jpg','Description 3'),
-(4,'Tour 4','https://example.com/image4.jpg','Description 4'),
-(5,'Tour 5','https://example.com/image5.jpg','Description 5'),
-(6,'Tour 6','https://example.com/image6.jpg','Description 6'),
-(7,'Tour 7','https://example.com/image7.jpg','Description 7'),
-(8,'Tour 8','https://example.com/image8.jpg','Description 8'),
-(9,'Tour 9','https://example.com/image9.jpg','Description 9'),
-(10,'Tour 10','https://example.com/image10.jpg','Description 10'),
-(11,'Tour 11','https://example.com/image11.jpg','Description 11'),
-(12,'Tour 12','https://example.com/image12.jpg','Description 12'),
-(13,'Tour 13','https://example.com/image13.jpg','Description 13'),
-(14,'Tour 14','https://example.com/image14.jpg','Description 14'),
-(15,'Tour 15','https://example.com/image15.jpg','Description 15'),
-(16,'Tour 16','https://example.com/image16.jpg','Description 16'),
-(17,'Tour 17','https://example.com/image17.jpg','Description 17'),
-(18,'Tour 18','https://example.com/image18.jpg','Description 18'),
-(19,'Tour 19','https://example.com/image19.jpg','Description 19'),
-(20,'Tour 20','https://example.com/image20.jpg','Description 20');
+INSERT INTO `TourImage` VALUES 
+(1, 1, 'assets/images/TamDao.jpg', 'Khung cảnh núi rừng tuyệt đẹp tại Tam Đảo'),
+(2, 2, 'assets/images/BacGiang.jpg', 'Trải nghiệm văn hóa chùa Tây Yến Tử và thiên nhiên Bắc Giang'),
+(3, 3, 'assets/images/DaLat1.jpg', 'Vườn hoa thơ mộng và khung cảnh tuyệt đẹp tại Đà Lạt'),
+(4, 4, 'assets/images/DaLat2.jpg', 'Thành phố mộng mơ Đà Lạt với hồ Xuân Hương'),
+(5, 5, 'assets/images/ĐaNang.jpg', 'Cầu Rồng rực rỡ tại Đà Nẵng'),
+(6, 6, 'assets/images/DaNang1.jpg', 'Cầu Vàng hùng vĩ tại Đà Nẵng'),
+(7, 7, 'assets/images/EoGio_QuyNhon.jpg', 'Khám phá Eo Gió – Quy Nhơn hoang sơ'),
+(8, 8, 'assets/images/Fansipan.jpg', 'Đỉnh Fansipan – Nóc nhà Đông Dương'),
+(9, 9, 'assets/images/HaiPhong.jpg', 'Hải Phòng – Thành phố cảng năng động'),
+(10, 10, 'assets/images/halong.jpg', 'Vịnh Hạ Long – Di sản thiên nhiên thế giới'),
+(11, 11, 'assets/images/Halong.jpg', 'Khám phá hang động kỳ thú tại Hạ Long'),
+(12, 12, 'assets/images/Hanoi.jpg', 'Hồ Gươm, là một trong những danh thắng nổi tiếng và biểu tượng của thủ đô Hà Nội, Việt Nam. '),
+(13, 13, 'assets/images/HaNoi2.jpg', 'Phố cổ Hà Nội – Nét đẹp văn hóa truyền thống'),
+(14, 14, 'assets/images/HoiAn.jpg', 'Phố cổ Hội An lung linh đèn lồng'),
+(15, 15, 'assets/images/HoiAn1.jpg', 'Khám phá nét đẹp cổ kính và văn hóa độc đáo của Hội An'),
+(16, 16, 'assets/images/HoiAn2.jpg', 'Tham quan chùa Cầu tại Hội An'),
+(17, 17, 'assets/images/Hue.jpg', 'Cố đô Huế với vẻ đẹp trầm mặc'),
+(18, 18, 'assets/images/LySon.jpg', 'Đảo Lý Sơn – Thiên đường giữa biển khơi'),
+(19, 19, 'assets/images/nhatrang.jpg', 'Nha Trang – Thành phố biển sôi động'),
+(20, 20, 'assets/images/NhaTrang.jpg', 'Công viên Nha Trang với khung cảnh vui nhộn và hoang hôn, tuyệt đẹp'),
+(21, 21, 'assets/images/NhaTrang1.jpg', 'Vùng biển yên bình tuyệt đẹp tại Nha Trang'),
+(22, 22, 'assets/images/QuangBinh.jpg', 'Quảng Bình – Vương quốc của những cây cầu và hồ tây thơ mộng'),
+(23, 23, 'assets/images/QuangNgai.jpg', 'Trải nghiệm đời sống văn hóa độc đáo tại Quảng Ngãi'),
+(24, 24, 'assets/images/SaiGon.jpg', 'Sài Gòn – Thành phố không ngủ'),
+(25, 25, 'assets/images/SaPa.jpg', 'Sa Pa – Thị trấn mờ sương với ruộng bậc thang');
 UNLOCK TABLES;
 
 
@@ -194,4 +206,3 @@ CREATE TABLE Blog (
 
 LOCK TABLES `admin` WRITE;
 UNLOCK TABLES;
-    
