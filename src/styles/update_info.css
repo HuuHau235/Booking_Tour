@@ -1,0 +1,38 @@
+/* Form cập nhật thông tin */
+.container{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.title-frm{
+    font-size: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.btn_update{
+    display: flex;
+    justify-content: center !important;
+    gap: 20px;
+}
+.btn-warning{
+    color:white;
+}
+.btn-warning, .btn-success,.btn-danger{
+    background-color: #5EA1A3;
+    border: none;
+}
+.btn-warning:hover, .btn-success:hover, .btn-danger:hover{
+    background-color: #5EA1b2;
+    color:black;
+}
+body{
+    background-image: url('../assets/images/DaNang1.jpg');
+    font-family: "Tinos", serif;
+}

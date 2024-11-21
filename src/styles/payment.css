@@ -1,0 +1,69 @@
+body {
+    /* background: linear-gradient(to bottom right, #f8f9fa, #e0eaff); */
+    font-family: "Tinos", serif;
+    background: url('../assets/images/SaiGon.jpg') no-repeat center center/cover;
+}
+.payment-header {
+    /* background-color: #5EA1A3; */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    border-radius:15px;
+    /* border-bottom: 4px solid #0056b3; */
+    margin-top:25px;
+}
+.payment-header h1 {
+    font-size: 44px;
+    font-weight: bold;
+}
+.payment-header p{
+    font-size:20px;
+} 
+.card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    height: 468px;
+}
+.card_left{
+    margin-bottom:20px;
+}
+.card-header {
+    background-color: #5EA1A3;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+.btn-primary {
+    background-color: #5EA1A3;
+    border: none;
+    padding: 12px;
+    font-size: 17px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #5EA1A3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+.form-control:focus {
+    border-color: #5EA1A3;
+    box-shadow: 0 0 5px rgba(102, 16, 242, 0.5);
+}
+.form-select:focus {
+    border-color: #5EA1A3;
+    box-shadow: 0 0 5px rgba(102, 16, 242, 0.5);
+}
+.tour-image {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+    height: 250px;
+}
+.col_detail{
+    margin-bottom: 0 !important;
+}

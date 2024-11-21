@@ -178,16 +178,6 @@ LOCK TABLES `admin` WRITE;
 UNLOCK TABLES;
 
 
-        -- Bảng Wishlist
-DROP TABLE IF EXISTS `Wishlist`;
-CREATE TABLE Wishlist (
-    wishlist_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    tour_id INT NOT NULL,
-    added_date DATE NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (tour_id) REFERENCES Tour(tour_id) ON DELETE CASCADE
-);ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 LOCK TABLES `admin` WRITE;
 UNLOCK TABLES;
