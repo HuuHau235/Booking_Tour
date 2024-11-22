@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 // Các tour tương tự
     // Truy vấn dữ liệu
-    $sql = "SELECT t.tour_id, t.name AS tour_name, t.description, t.price, ti.image_url
+    $sql = "SELECT t.tour_id, t.name AS tour_name, t.description, t.price, ti.image_url, t.description
         FROM Tour t
         JOIN TourImage ti ON t.tour_id = ti.tour_id
         LIMIT 24;";
@@ -57,7 +57,21 @@ if ($conn->connect_error) {
 
 // echo json_encode($reviews);
 // $stmt->close();
-$conn->close();
+// Lấy tour_id từ URL
+  // $tour_id = $_GET['tour_id'];
+
+  // // Truy vấn lấy lịch trình của tour
+  // $sql = "SELECT day, description FROM Itinerary WHERE tour_id = $tour_id ORDER BY day ASC";
+  // $result = $conn->query($sql);
+
+  // // Kiểm tra kết quả
+  // $itineraries = [];
+  // if ($result->num_rows > 0) {
+  //     while ($row = $result->fetch_assoc()) {
+  //         $itineraries[] = $row;
+  //     }
+  // }
+  // $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -81,8 +95,8 @@ $conn->close();
         <div class="col-md-7">
           <div class="position-relative">
             <img src="https://i.pinimg.com/736x/19/3d/51/193d51c4ad777673cb57cea2170efd51.jpg" class="img-fluid rounded-start" alt="Tour Image">
-            <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2 fs-6">9.2 Tuyệt vời</span>
-            <span class="badge bg-secondary position-absolute bottom-0 start-0 m-3 p-2 fs-6">112 đánh giá</span>
+            <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2 fs-6">9.2 Great</span>
+            <span class="badge bg-secondary position-absolute bottom-0 start-0 m-3 p-2 fs-6">112 Evaluate</span>
           </div>
         </div>
         <!-- Nội dung -->
@@ -102,23 +116,23 @@ $conn->close();
               <span class="text-danger fs-4 fw-bold">8.240.000₫</span>
               <span class="badge bg-warning text-dark ms-2">+ 82.400 điểm</span>
             </div class = "nav-links">
-            <button class="btn btn-danger w-100 mb-2" id="openForm">Gửi yêu cầu</button>
+            <button class="btn btn-danger w-100 mb-2" id="openForm">Send request</button>
             <div id="requestForm" class="modal" style="display: none;">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title">Yêu cầu tư vấn</h4>
+                    <h4 class="modal-title">Ask for advice</h4>
                     <button type="button" class="btn-close" id="closeForm">&times;</button>
                   </div>
                   <div class="modal-body">
                     <form id="formRequest">
                       <div class="row">
                         <div class="col-md-6 mb-3">
-                          <h5><label for="departureDate" class="form-label">Ngày khởi hành:</label></h5>
+                          <h5><label for="departureDate" class="form-label">Departure date:</label></h5>
                           <input type="date" class="form-control" id="departureDate" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                          <h5><label for="departurePlace" class="form-label">Điểm khởi hành:</label></h5>
+                          <h5><label for="departurePlace" class="form-label">Departure point:</label></h5>
                           <select id="departurePlace" class="form-select" required>
                             <option value="Hà Nội">Hà Nội</option>
                             <option value="Hải Phòng">Hải Phòng</option>
@@ -143,7 +157,7 @@ $conn->close();
                       </div>
                       <div class="row">
                         <div class="col-md-4 mb-3">
-                          <h5><label for="adults" class="form-label">Người lớn:</label></h5>
+                          <h5><label for="adults" class="form-label">Adult:</label></h5>
                           <select id="adults" class="form-select">
                             <option>1</option>
                             <option>2</option>
@@ -156,7 +170,7 @@ $conn->close();
                           </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                         <h5> <label for="children" class="form-label">Trẻ em (2-12):</label></h5>
+                         <h5> <label for="children" class="form-label">Children (2-12):</label></h5>
                           <select id="children" class="form-select">
                             <option>0</option>
                             <option>1</option>
@@ -170,7 +184,7 @@ $conn->close();
                           </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                          <h5> <label for="infants" class="form-label">Em bé (&lt;2):</label></h5>
+                          <h5> <label for="infants" class="form-label">Baby (&lt;2):</label></h5>
                           <select id="infants" class="form-select">
                             <option>0</option>
                             <option>1</option>
@@ -178,21 +192,21 @@ $conn->close();
                         </div>
                       </div>
                       <div class="col-md-4 mb-3">
-                        <h5><label for="infants" class="form-label">Quý:</label></h5>
+                        <h5><label for="infants" class="form-label">Quarterly:</label></h5>
                         <select id="infants" class="form-select">
-                          <option>Ông</option>
-                          <option>Bà</option>
-                          <option>Anh</option>
-                          <option>Chị</option>
+                          <option>Grandfather</option>
+                          <option>Grandma</option>
+                          <option>Brother</option>
+                          <option>Sister</option>
                         </select>
                       </div>
                       <div class="row">
                         <div class="col-md-6 mb-3">
-                          <h5><label for="name" class="form-label">Họ tên:</label></h5>
+                          <h5><label for="name" class="form-label">Name:</label></h5>
                           <input type="text" class="form-control" id="name" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                          <h5><label for="phone" class="form-label">Số điện thoại:</label></h5>
+                          <h5><label for="phone" class="form-label">Phone number:</label></h5>
                           <input type="tel" class="form-control" id="phone" required>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -201,10 +215,10 @@ $conn->close();
                         </div>
                       </div>
                       <div class="mb-3">
-                        <h5><label for="specialRequests" class="form-label">Yêu cầu đặc biệt:</label></h5>
+                        <h5><label for="specialRequests" class="form-label">Special requirements:</label></h5>
                         <textarea class="form-control" id="specialRequests" rows="3"></textarea>
                       </div>
-                      <button type="submit" class="btn btn-primary w-100">Gửi yêu cầu</button>
+                      <button type="submit" class="btn btn-primary w-100">Send request:</button>
                     </form>
                   </div>
                 </div>
@@ -218,188 +232,131 @@ $conn->close();
      
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link" href="#gioi-thieu">Giới thiệu</a>
+        <a class="nav-link" href="#gioi-thieu">Introduce</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#lich-trinh">Lịch trình</a>
+        <a class="nav-link" href="#lich-trinh">Schedule</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#bang-gia">Bảng giá</a>
+        <a class="nav-link" href="#bang-gia">Price list</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#nhan-xet">Đánh giá</a>
+        <a class="nav-link" href="#nhan-xet">Review</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#Tour-du-lich">Tour du lịch tương tự</a>
+        <a class="nav-link" href="#Tour-du-lich">Similar tours</a>
       </li>
     </ul>
     <div class="tab-content mt-4" id="tourTabsContent">
       <!-- Tab Giới thiệu -->
       <div class="tab-pane fade show active" id="gioi-thieu" role="tabpanel" aria-labelledby="gioi-thieu-tab">
-        <p>
-          Chuyến hành trình <strong>Đà Nẵng dài 5 ngày 4 đêm: Hà Nội - Hải Phòng - Bắc Giang - Quãng Nam - Đà Nẵng </strong> 
-        </p>
-        <h6 class="fw-bold">Điểm nổi bật</h6>
+        <h6 class="fw-bold">Highlightst</h6>
         <ul>
-          <li>✅ Tour Đà Nẵng xuất phát từ Hà Nội</li>
-          <li>✅ Trải nghiệm massage Hải Phòng cổ truyền thư giãn, sảng khoái</li>
-          <li>✅ Tặng bữa Buffet tại Bắc Giang sang trọng</li>
-          <li>✅ Sống ảo cực "chất" tại quần thể kiến trúc cổ Quãng Nam</li>
-          <li>✅ Thưởng thức show diễn hoành tráng của các vũ công </li>
+          <li>✅ Tours are designed to provide experiences that match travelers' preferences, from exploring nature and relaxing to learning about culture and history.</li>
+          <li>✅ Includes dedicated tour guides, comfortable transportation, and engaging activities at the destinations.</li>
+          <li>✅ Schedules are arranged to ensure travelers can fully enjoy their experience, whether it’s an adventurous journey or peaceful relaxation.</li>
+          <li>✅ Tours offer opportunities to explore new places, meet fellow travelers, and create unforgettable memories.</li>
+          <li>✅ An ideal choice for those seeking a fully equipped trip filled with meaningful experiences.</li>
         </ul>
-        <p><strong>Chủ đề:</strong> Tour đoàn, Văn hóa, Lễ hội, Mua sắm, Khám phá, Mạo hiểm.</p>
       </div>
       <!-- Tab Lịch trình -->
       <section id="lich-trinh">
-        <h2 class="fw-bold">Lịch trình tour</h2>
+        <h2 class="fw-bold">Schedule</h2>
         <div class="accordion" id="tourSchedule">
-          <!-- Ngày 1 -->
-          <div class="timeline-item">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="day1-heading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day1" aria-expanded="false" aria-controls="day1">
-                  Ngày 1: Hà Nội
-                </button>
-              </h2>
-              <div id="day1" class="accordion-collapse collapse" aria-labelledby="day1-heading" data-bs-parent="#tourSchedule">
-                <div class="accordion-body">
-                  Khởi hành từ Hà Nội đến Hải Phòng, sau đó bay đến Bắc Giang. Tiếp tục di chuyển tới Quãng Nam.
+            <?php foreach ($itineraries as $item): ?>
+            <div class="timeline-item">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="day<?= $item['day'] ?>-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#day<?= $item['day'] ?>" 
+                                aria-expanded="false" aria-controls="day<?= $item['day'] ?>">
+                            Date <?= $item['day'] ?>
+                        </button>
+                    </h2>
+                    <div id="day<?= $item['day'] ?>" 
+                        class="accordion-collapse collapse" 
+                        aria-labelledby="day<?= $item['day'] ?>-heading" 
+                        data-bs-parent="#tourSchedule">
+                        <div class="accordion-body">
+                            <?= $item['description'] ?>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <!-- Ngày 2 -->
-          <div class="timeline-item">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="day2-heading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day2" aria-expanded="false" aria-controls="day2">
-                  Ngày 2: Hải Phòng
-                </button>
-              </h2>
-              <div id="day2" class="accordion-collapse collapse" aria-labelledby="day2-heading" data-bs-parent="#tourSchedule">
-                <div class="accordion-body">
-                  Tham quan Hải Phòng với câu ca dao " Hải Phòng là không lòng vòng".
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Ngày 3 -->
-          <div class="timeline-item">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="day3-heading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day3" aria-expanded="false" aria-controls="day3">
-                  Ngày 3: Bắc Giang
-                </button>
-              </h2>
-              <div id="day3" class="accordion-collapse collapse" aria-labelledby="day3-heading" data-bs-parent="#tourSchedule">
-                <div class="accordion-body">
-                  Tham quan quần thể kiến trúc cổ. Mua sắm và tham quan trung tâm Thành Phố.
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Ngày 4 -->
-          <div class="timeline-item">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="day4-heading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day4" aria-expanded="false" aria-controls="day4">
-                  Ngày 4: Quãng Nam
-                </button>
-              </h2>
-              <div id="day4" class="accordion-collapse collapse" aria-labelledby="day4-heading" data-bs-parent="#tourSchedule">
-                <div class="accordion-body">
-                  Sống ảo cực "chất" tại quần thể kiến trúc cổ Quãng Nam
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Ngày 5 -->
-          <div class="timeline-item">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="day5-heading">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day5" aria-expanded="false" aria-controls="day5">
-                  Ngày 5: Đà Nẵng
-                </button>
-              </h2>
-              <div id="day5" class="accordion-collapse collapse" aria-labelledby="day5-heading" data-bs-parent="#tourSchedule">
-                <div class="accordion-body">
-                  Trả phòng khách sạn, di chuyển ra sân bay về Hà Nội.
-                </div>
-              </div>
-            </div>
-          </div>
+            <?php endforeach; ?>
         </div>
-      </div>
       </section>
+
       <!-- Tab Bảng giá -->
         <div id="bang-gia" role="tabpanel" aria-labelledby="bang-gia-tab">
-          <h2>Bảng giá</h2>
+          <h2>Price list</h2>
           <div class="table-responsive">
             <table class="table table-bordered text-center align-middle">
-              <thead class="table-warning">
-                <tr>
-                  <th>Ngày khởi hành</th>
-                  <th>Hạng tour</th>
-                  <th>Giá tour</th>
-                  <th>Điểm thưởng</th>
-                  <th>Trạng thái</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Hàng 1 -->
-                <tr>
-                  <td>22/11/2024</td>
-                  <td>Vietjet Air</td>
-                  <td class="text-danger fw-bold">5.990.000₫</td>
-                  <td>+ 79.900 điểm</td>
-                  <td><span class="badge bg-secondary">Kín chỗ</span></td>
-                </tr>
-                <!-- Hàng 2 -->
-                <tr>
-                  <td>06/12/2024 <span class="text-danger"></span></td>
-                  <td>Vietjet Air</td>
-                  <td>
-                    <span class="text-muted text-decoration-line-through">7.990.000₫</span><br>
-                    <span class="text-danger fw-bold">7.490.000₫</span>
-                  </td>
-                  <td>+ 74.900 điểm</td>
-                  <td>
-                    <button class="btn btn-outline-primary btn-sm btn-hold">Giữ chỗ ngay</button>
-                  </td>
-                </tr>
-                <!-- Hàng 3 -->
-                <tr>
-                  <td>13/12/2024 <span class="text-danger"></span></td>
-                  <td>Vietjet Air</td>
-                  <td>
-                    <span class="text-muted text-decoration-line-through">4.990.000₫</span><br>
-                    <span class="text-danger fw-bold">5.490.000₫</span>
-                  </td>
-                  <td>+ 74.900 điểm</td>
-                  <td>
-                    <button class="btn btn-outline-primary btn-sm btn-hold">Giữ chỗ ngay</button>
-                  </td>
-                </tr>
-                <!-- Hàng 4 -->
-                <tr>
-                  <td>20/12/2024 <span class="text-danger"></span></td>
-                  <td>Vietjet Air</td>
-                  <td>
-                    <span class="text-muted text-decoration-line-through">6.990.000₫</span><br>
-                    <span class="text-danger fw-bold">8.490.000₫</span>
-                  </td>
-                  <td>+ 74.900 điểm</td>
-                  <td>
-                    <button class="btn btn-outline-primary btn-sm btn-hold">Giữ chỗ ngay</button>
-                  </td>
-                  </tr>
-              </tbody>
+                <thead class="table-warning">
+                    <tr>
+                        <th>Departure Date</th>
+                        <th>Tour Class</th>
+                        <th>Tour Price</th>
+                        <th>Reward Points</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Row 1 -->
+                    <tr>
+                        <td>22/11/2024</td>
+                        <td>Vietjet Air</td>
+                        <td class="text-danger fw-bold">5,990,000₫</td>
+                        <td>+ 79,900 points</td>
+                        <td><span class="badge bg-secondary">Fully Booked</span></td>
+                    </tr>
+                    <!-- Row 2 -->
+                    <tr>
+                        <td>06/12/2024 <span class="text-danger"></span></td>
+                        <td>Vietjet Air</td>
+                        <td>
+                            <span class="text-muted text-decoration-line-through">7,990,000₫</span><br>
+                            <span class="text-danger fw-bold">7,490,000₫</span>
+                        </td>
+                        <td>+ 74,900 points</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm btn-hold">Hold Now</button>
+                        </td>
+                    </tr>
+                    <!-- Row 3 -->
+                    <tr>
+                        <td>13/12/2024 <span class="text-danger"></span></td>
+                        <td>Vietjet Air</td>
+                        <td>
+                            <span class="text-muted text-decoration-line-through">4,990,000₫</span><br>
+                            <span class="text-danger fw-bold">5,490,000₫</span>
+                        </td>
+                        <td>+ 74,900 points</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm btn-hold">Hold Now</button>
+                        </td>
+                    </tr>
+                    <!-- Row 4 -->
+                    <tr>
+                        <td>20/12/2024 <span class="text-danger"></span></td>
+                        <td>Vietjet Air</td>
+                        <td>
+                            <span class="text-muted text-decoration-line-through">6,990,000₫</span><br>
+                            <span class="text-danger fw-bold">8,490,000₫</span>
+                        </td>
+                        <td>+ 74,900 points</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm btn-hold">Hold Now</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-          </div>
+        </div>
+
           
     <section id="nhan-xet">
         <div class="mt-5">
-            <h2>Đánh giá</h2>
+            <h2>Review</h2>
             <ul class="list-group mb-3" id="reviewList"></ul>
             <form id="reviewForm">
                 <div class="mb-3">
@@ -426,7 +383,7 @@ $conn->close();
         </div>
     </section>
     <section id="Tour-du-lich">
-    <h2>Tour du lịch tương tự</h2>
+    <h2>Similar Tours</h2>
     <div class="tour-list">
         <?php foreach ($tours as $tour): ?>
         <div class="tour-item">
