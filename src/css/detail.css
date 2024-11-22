@@ -1,3 +1,7 @@
+body {
+  font-family: "Tinos", serif;
+}
+
 .timeline-item::before {
     content: "●";
     color: #FFA500;
@@ -200,6 +204,86 @@
 .btn-primary {
   padding: 10px 20px;
   font-size: 1.1rem;
+}
+
+/* Bố cục danh sách */
+#Tour-du-lich .tour-list {
+  display: flex;
+  flex-wrap: wrap; /* Các mục xuống dòng nếu không đủ không gian */
+  gap: 16px; /* Khoảng cách giữa các mục */
+  justify-content: center; /* Căn giữa danh sách */
+}
+
+/* Mỗi mục tour */
+#Tour-du-lich .tour-item {
+  max-width: 300px; /* Đặt kích thước tối đa cho khung */
+  border: 1px solid #ddd; /* Đường viền nhạt xung quanh */
+  border-radius: 8px; /* Bo góc mềm mại */
+  overflow: hidden; /* Cắt nội dung thừa (nếu có) */
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+#Tour-du-lich .tour-item:hover {
+  transform: translateY(-5px); /* Hiệu ứng nổi khi hover */
+}
+
+/* Khung chứa ảnh */
+#Tour-du-lich .tour-image {
+  width: 100%;
+  height: 200px; /* Cố định chiều cao */
+  overflow: hidden;
+}
+
+#Tour-du-lich .tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh giữ tỉ lệ và cắt phần thừa */
+}
+
+/* Nội dung */
+#Tour-du-lich .tour-content {
+  padding: 16px;
+  text-align: center;
+}
+
+#Tour-du-lich .tour-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#Tour-du-lich .tour-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* Giá và nút */
+#Tour-du-lich .tour-price {
+  margin-bottom: 16px;
+}
+
+#Tour-du-lich .tour-price .new-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+#Tour-du-lich .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#Tour-du-lich .btn:hover {
+  background-color: #2980b9;
 }
 
 @media (max-width: 768px) {
