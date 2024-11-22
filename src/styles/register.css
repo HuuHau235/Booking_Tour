@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../assets/images/SaPa.jpg'); /* Thay bằng ảnh nền của bạn */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Tinos", serif;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+.title-frm{
+    font-size: 27px;
+    text-transform: uppercase;
+}
+
+.btn-custom {
+    background-color: #5EA1A3; /* Màu nút chính */
+    color: white;
+    border: none;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.btn-custom:hover {
+    background-color: #5EAFB2;
+}
+
+/* .divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #999;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.google-btn {
+    background-color: #dc4e41;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.google-btn:hover {
+    background-color: #c23321;
+} */
+
+.img_logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    /* text-align: center; */
+    margin-left: 130px;
+}
