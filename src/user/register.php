@@ -19,10 +19,18 @@
             <img src="../assets/logo/Logo.jpg" alt="Logo" class="img-fluid mb-2 img_logo">
             <h2 class="title-frm text-center mb-4">Register Your Account</h2>
             <!-- Form -->
-            <form>
+            <form class="frm_register">
                 <div class="mb-3">
                     <label for="username" class="form-label">Full Name</label>
                     <input type="text" class="form-control" id="username" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
