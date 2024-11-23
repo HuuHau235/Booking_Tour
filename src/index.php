@@ -482,22 +482,26 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 item">
-                      <div class="card-body2">
-                        <h5 class="card-title1">SIGN UP</h5>
-                      <p class="card-text2">-- to get newsletter <br>& receive our best offer.</p>
-                      <form>
-                        <div class="mb-3">
-                          <input type="email" class="form-control" placeholder="E-mail Address">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100" style="background-color: #5FB3B3;border-radius: 20px;width: 100px;
-                        border: 1px solid black; ">
-                          SIGN UP
-                        </button>
-                      </form>
-                      </div>
-                   
+
+                <div class="col-md-4">
+                  <div class="card travel-card p-3">
+                    <img src="assets/images/danang.png" class="card-img-top rounded" alt="Da Nang">
+                    <div class="card-body">
+                      <p class="mb-2">
+                        <small>
+                          <i class="fa fa-calendar-day"></i> 05/12/2024 &nbsp;
+                          <i class="fa fa-comment"></i> 23 Comments &nbsp;
+                          <i class="fa fa-share-alt"></i> 73 Shares
+                        </small>
+                      </p>
+                      <h5 class="card-title">Cau Vang - Da Nang</h5>
+                      <p class="card-text text-muted">
+                        Cau Vang, is famed for its pristine nature and clear beaches.
+                      </p>
+                      <a href="#" class="btn btn-primary">Book now</a>
+                    </div>
                   </div>
+                </div>
     
     <!-- test -->
                   <!-- <div class="container d-flex justify-content-center mt-5">
