@@ -1,3 +1,4 @@
+<?php require_once('../../MySQL/Createdatabase.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,29 +20,42 @@
             <img src="../assets/logo/Logo.jpg" alt="Logo" class="img-fluid mb-2 img_logo">
             <h2 class="title-frm text-center mb-4">Register Your Account</h2>
             <!-- Form -->
-            <form>
+            <form action="register-back.php" method="POST" name="myForm" onsubmit="return validateForm();">
                 <div class="mb-3">
                     <label for="username" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter your full name" required>
+                    <input type="text" class="form-control" id="username" name="fullname" placeholder="Enter your full name" required>
                 </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength ="9" maxlength="11" 
+                    class="form-control" id="phone" name="phonenumber" placeholder="Enter your phone number" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
+                </div>
+
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                 </div>
+
                 <div class="mb-3">
                     <label for="confirm-password" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirm-password" placeholder="Re-enter your password" required>
+                    <input type="password" class="form-control" id="confirm-password" name="confirmpassword" placeholder="Re-enter your password" tabindex="6" required>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-custom">Register</button>
+                    <button type="submit" class="btn btn-custom" name="submit">Register</button>
                 </div>
             </form>
             <div class="text-center mt-3">
-                Already have an account? <a href="#" class="text-primary">Log in here</a>
+                Already have an account? <a href="log_in.php" class="text-primary">Log in here</a>
             </div>
         </div>
     </div>

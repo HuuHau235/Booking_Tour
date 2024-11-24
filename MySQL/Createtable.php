@@ -1,5 +1,5 @@
 <?php
-    $mysqli = new mysqli("localhost", "root", "", "TravelAgency");
+    $mysqli = new mysqli("localhost", "root", "", "HappyTrips");
 
     if($mysqli == FALSE){
         die ("ERROR: Could not connect.". $mysqli -> connect_error);
