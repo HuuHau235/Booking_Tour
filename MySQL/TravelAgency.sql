@@ -595,13 +595,4 @@ CREATE TABLE Payment (
     FOREIGN KEY (booking_id) REFERENCES Booking(booking_id) ON DELETE CASCADE
 );
 
--- Bảng Blog
-DROP TABLE IF EXISTS `blog`;
-CREATE TABLE Blog (
-    blog_id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
-    author VARCHAR(255) NOT NULL,
-    published_date DATE NOT NULL,
-    category ENUM('mẹo du lịch', 'điểm đến') NOT NULL
-);
+
