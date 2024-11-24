@@ -1,15 +1,15 @@
 <?php
-    $mysqli = new mysqli("localhost", "root", "");
+$servername = "localhost"; 
+$username = "root";        
+$password = "";          
+$dbName = "HappyTrips";       
 
-    if($mysqli == FALSE){
-        die ("ERROR: Could not connect.". $mysqli -> connect_error);
-    }
+$conn = new mysqli($servername, $username, $password, $dbName);
 
-    $sql = "CREATE DATABASE TravelAgency";
-    if ($mysqli -> query($sql)=== true){
-        echo "Database created successfully";
-    }
-    else{
-        echo "ERROR: Could not able to excute $sql.". $mysqli -> error;
-    }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// echo "Connected successfully to the database '$dbName'";
+
 ?>
