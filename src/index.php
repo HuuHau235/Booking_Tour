@@ -465,7 +465,7 @@
           
                 <div class="col-md-4">
                   <div class="card travel-card p-3">
-                    <img src="./assets/images/LySon.jpeg" class="card-img-top rounded" alt="Ly Son">
+                    <img src="./assets/images/LySon.jpg" class="card-img-top rounded" alt="Ly Son">
                     <div class="card-body">
                       <p class="mb-2">
                         <small>

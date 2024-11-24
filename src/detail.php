@@ -366,11 +366,11 @@ $conn->close();
                   <label for="reviewRating" class="form-label">Xếp hạng:</label>
                   <select class="form-select" id="reviewRating" required>
                       <option value="" disabled selected>Chọn đánh giá</option>
-                      <option value="1">★</option>
-                      <option value="2">★★</option>
-                      <option value="3">★★★</option>
-                      <option value="4">★★★★</option>
-                      <option value="5">★★★★★</option>
+                      <option value="1">⭐</option>
+                      <option value="2">⭐⭐</option>
+                      <option value="3">⭐⭐⭐</option>
+                      <option value="4">⭐⭐⭐⭐</option>
+                      <option value="5">⭐⭐⭐⭐⭐</option>
                   </select>
               </div>
                 <div class="mb-3">
