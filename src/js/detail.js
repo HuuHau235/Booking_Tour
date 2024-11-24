@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     holdButtons.forEach((button) => {
       button.addEventListener("click", () => {
         // Thay đổi nội dung nút thành "Đã giữ chỗ"
-        button.textContent = "Đã giữ chỗ";
+        button.textContent = "Seat reserved";
         // Thay đổi kiểu dáng nút
         button.classList.remove("btn-outline-primary");
         button.classList.add("btn-success");
