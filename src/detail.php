@@ -1,77 +1,88 @@
 <?php
-// Kết nối cơ sở dữ liệu
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "travel"; // Thay bằng tên database của bạn
+$dbname = "travel";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
-// Các tour tương tự
-    // Truy vấn dữ liệu
-    $sql = "SELECT t.tour_id, t.name AS tour_name, t.description, t.price, ti.image_url, t.description
+
+// Truy vấn dữ liệu tour
+$sql = "SELECT t.tour_id, t.name AS tour_name, t.description, t.price, ti.image_url 
         FROM Tour t
         JOIN TourImage ti ON t.tour_id = ti.tour_id
-        LIMIT 24;";
-    $result = $conn->query($sql);
+        LIMIT 4 OFFSET 4;";
+$result = $conn->query($sql);
 
-    // Tạo mảng chứa dữ liệu
-    $tours = [];
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $tours[] = $row;
-        }
+// Tạo mảng chứa dữ liệu các tour
+$tours = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $tours[] = $row;
     }
-// // Lấy dữ liệu từ AJAX
-// $tour_id = $_POST['tour_id'];  // ID của tour
-// $user_id = $_POST['user_id'];  // ID người dùng
-// $rating = $_POST['rating'];    // Số sao (1-5)
-// $comment = $_POST['comment'];  // Nội dung đánh giá
+}
 
-// // Lưu dữ liệu vào bảng Review
-// $sql = "INSERT INTO Review (tour_id, user_id, rating, comment) VALUES (?, ?, ?, ?)";
-// $stmt = $conn->prepare($sql);
-// $stmt->bind_param("iiis", $tour_id, $user_id, $rating, $comment);
+// Kiểm tra xem có dữ liệu từ AJAX gửi đến không
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Lấy dữ liệu từ AJAX (POST)
+    $tour_id = isset($_POST['tour_id']) ? $_POST['tour_id'] : null;  
+    $user_id = isset($_POST['user_id']) ? $_POST['user_id'] : null;  
+    $rating = isset($_POST['rating']) ? $_POST['rating'] : null;   
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';  
 
-// if ($stmt->execute()) {
-//     echo json_encode(["status" => "success", "message" => "Đánh giá đã được lưu!"]);
-// } else {
-//     echo json_encode(["status" => "error", "message" => "Lưu đánh giá thất bại."]);
-// }
-// $tour_id = $_GET['tour_id']; // ID của tour cần lấy đánh giá
-// $sql = "SELECT r.rating, r.comment, u.username 
-//         FROM Review r 
-//         JOIN User u ON r.user_id = u.user_id 
-//         WHERE r.tour_id = ?";
-// $stmt = $conn->prepare($sql);
-// $stmt->bind_param("i", $tour_id);
-// $stmt->execute();
-// $result = $stmt->get_result();
+    // Kiểm tra dữ liệu có hợp lệ không
+    if ($tour_id && $user_id && $rating && $comment) {
+        // Lưu đánh giá vào bảng Review
+        $sql = "INSERT INTO Review (tour_id, user_id, rating, comment) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iiis", $tour_id, $user_id, $rating, $comment);
 
-// $reviews = [];
-// while ($row = $result->fetch_assoc()) {
-//     $reviews[] = $row;
-// }
+        if ($stmt->execute()) {
+            echo json_encode(["status" => "success", "message" => "Đánh giá đã được lưu!"]);
+        } else {
+            echo json_encode(["status" => "error", "message" => "Lưu đánh giá thất bại."]);
+        }
+        $stmt->close();
+    } else {
+        echo json_encode(["status" => "error", "message" => "Dữ liệu không hợp lệ."]);
+    }
+}
+// Lấy tour_id từ URL nếu có
+$tour_id = isset($_GET['tour_id']) ? $_GET['tour_id'] : 0;
 
-// echo json_encode($reviews);
-// $stmt->close();
-// Lấy tour_id từ URL
-  // $tour_id = $_GET['tour_id'];
+// Truy vấn lấy thông tin chi tiết của tour
+$sql = "SELECT t.tour_id, t.name, t.description, t.price, t.duration, t.start_date, t.type, ti.image_url
+        FROM Tour t
+        JOIN TourImage ti ON t.tour_id = ti.tour_id
+        WHERE t.tour_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $tour_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-  // // Truy vấn lấy lịch trình của tour
-  // $sql = "SELECT day, description FROM Itinerary WHERE tour_id = $tour_id ORDER BY day ASC";
-  // $result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    $tour = $result->fetch_assoc();
+} else {
+    echo "Không tìm thấy tour.";
+}
 
-  // // Kiểm tra kết quả
-  // $itineraries = [];
-  // if ($result->num_rows > 0) {
-  //     while ($row = $result->fetch_assoc()) {
-  //         $itineraries[] = $row;
-  //     }
-  // }
-  // $conn->close();
+// Truy vấn lấy lịch trình của tour
+$sql = "SELECT day, description FROM Itinerary WHERE tour_id = ? ORDER BY day ASC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $tour_id);
+$stmt->execute();
+$itinerary_result = $stmt->get_result();
+
+// Tạo mảng chứa lịch trình
+$itinerary = [];
+while ($row = $itinerary_result->fetch_assoc()) {
+    $itinerary[] = $row;
+}
+
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -87,136 +98,128 @@ if ($conn->connect_error) {
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container my-5">
-    <!-- Card phần thông tin tour -->
-    <div class="card mb-4">
-      <div class="row g-0">
-        <!-- Hình ảnh -->
-        <div class="col-md-7">
-          <div class="position-relative">
-            <img src="https://i.pinimg.com/736x/19/3d/51/193d51c4ad777673cb57cea2170efd51.jpg" class="img-fluid rounded-start" alt="Tour Image">
-            <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2 fs-6">9.2 Great</span>
-            <span class="badge bg-secondary position-absolute bottom-0 start-0 m-3 p-2 fs-6">112 Evaluate</span>
+<div class="container my-5">
+    <?php if (isset($tour))?>
+      <div class="card mb-4">
+        <div class="row g-0">
+          <!-- Hình ảnh -->
+          <div class="col-md-7">
+            <img src="<?= $tour['image_url'] ?>" class="img-fluid rounded-start" alt="<?= $tour['name'] ?>">
           </div>
-        </div>
-        <!-- Nội dung -->
-        <div class="col-md-5">
-          <div class="card-body">
-            <h5 class="card-title text-primary fw-bold">Du lịch Đà Nẵng</h5>
-            <ul class="list-unstyled my-3">
-              <li><i class="bi bi-clock"></i> <strong>Thời gian:</strong> 5 ngày 4 đêm</li>
-              <li><i class="bi bi-calendar"></i> <strong>Khởi hành:</strong> 
-                <span class="text-danger">Tháng 11: 22</span>, 
-                <span class="text-danger">Tháng 12: 6, 13, 20, 27</span>
-              </li>
-              <li><i class="bi bi-geo-alt"></i> <strong>Lịch trình:</strong> Hà Nội - Hải Phòng - Bắc Giang - Quãng Nam - Đà Nẵng</li>
-            </ul>
-            <div class="mb-3">
-              <span class="text-muted text-decoration-line-through">9.240.000₫</span>
-              <span class="text-danger fs-4 fw-bold">8.240.000₫</span>
-              <span class="badge bg-warning text-dark ms-2">+ 82.400 điểm</span>
-            </div class = "nav-links">
-            <button class="btn btn-danger w-100 mb-2" id="openForm">Send request</button>
-            <div id="requestForm" class="modal" style="display: none;">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">Ask for advice</h4>
-                    <button type="button" class="btn-close" id="closeForm">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <form id="formRequest">
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <h5><label for="departureDate" class="form-label">Departure date:</label></h5>
-                          <input type="date" class="form-control" id="departureDate" required>
+          <!-- Nội dung -->
+          <div class="col-md-5">
+            <div class="card-body">
+              <h3 class="card-title text-danger fw-bold"><?= $tour['name'] ?></h3>
+              <p class="card-text"><?= $tour['description'] ?></p>
+              <ul class="list-unstyled my-3">
+                <li><i class="bi bi-clock"></i> <strong>Time:</strong> <?= $tour['duration'] ?> date</li>
+                <li><i class="bi bi-calendar"></i> <strong>Depart:</strong> <?= $tour['start_date'] ?></li>
+                <li><i class="bi bi-geo-alt"></i> <strong>Type:</strong> <?= $tour['type'] ?></li>
+              </ul>
+              <div class="mb-3">
+                <span class="text-danger fs-4 fw-bold"><?= number_format($tour['price'], 0, ',', '.') ?>₫</span>
+              </div>
+                <button class="btn btn-danger w-100 mb-2" id="openForm">Send request</button>
+              <div id="requestForm" class="modal" style="display: none;">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Ask for advice</h4>
+                      <button type="button" class="btn-close" id="closeForm">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="formRequest">
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <h5><label for="departureDate" class="form-label">Departure date:</label></h5>
+                            <input type="date" class="form-control" id="departureDate" required>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <h5><label for="departurePlace" class="form-label">Departure point:</label></h5>
+                            <select id="departurePlace" class="form-select" required>
+                              <option value="Hà Nội">Hà Nội</option>
+                              <option value="Hải Phòng">Hải Phòng</option>
+                              <option value="Bắc Giang">Bắc Giang</option>
+                              <option value="Bắc Giang">Đà Nẵng</option>
+                              <option value="Bắc Giang">Hồ Chí Minh</option>
+                              <option value="Bắc Giang">Đà Lạt</option>
+                              <option value="Bắc Giang">Hải Phòng</option>
+                              <option value="Bắc Giang">Hạ Long</option>
+                              <option value="Bắc Giang">Nha Trang</option>
+                              <option value="Bắc Giang">Quảng Bình</option>
+                              <option value="Bắc Giang">Quảng Ngãi</option>
+                              <option value="Bắc Giang">Hội An</option>
+                              <option value="Bắc Giang">Huế</option>
+                              <option value="Bắc Giang">Tam Đảo</option>
+                              <option value="Bắc Giang">Sài Gòn</option>
+                              <option value="Bắc Giang">Lý Sơn</option>
+                              <option value="Bắc Giang">Quy Nhơn</option>
+                              <option value="Bắc Giang">Sa Pa</option>
+                            </select>
+                          </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                          <h5><label for="departurePlace" class="form-label">Departure point:</label></h5>
-                          <select id="departurePlace" class="form-select" required>
-                            <option value="Hà Nội">Hà Nội</option>
-                            <option value="Hải Phòng">Hải Phòng</option>
-                            <option value="Bắc Giang">Bắc Giang</option>
-                            <option value="Bắc Giang">Đà Nẵng</option>
-                            <option value="Bắc Giang">Hồ Chí Minh</option>
-                            <option value="Bắc Giang">Đà Lạt</option>
-                            <option value="Bắc Giang">Hải Phòng</option>
-                            <option value="Bắc Giang">Hạ Long</option>
-                            <option value="Bắc Giang">Nha Trang</option>
-                            <option value="Bắc Giang">Quảng Bình</option>
-                            <option value="Bắc Giang">Quảng Ngãi</option>
-                            <option value="Bắc Giang">Hội An</option>
-                            <option value="Bắc Giang">Huế</option>
-                            <option value="Bắc Giang">Tam Đảo</option>
-                            <option value="Bắc Giang">Sài Gòn</option>
-                            <option value="Bắc Giang">Lý Sơn</option>
-                            <option value="Bắc Giang">Quy Nhơn</option>
-                            <option value="Bắc Giang">Sa Pa</option>
-                          </select>
+                        <div class="row">
+                          <div class="col-md-4 mb-3">
+                            <h5><label for="adults" class="form-label">Adult:</label></h5>
+                            <select id="adults" class="form-select">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                          <h5> <label for="children" class="form-label">Children (2-12):</label></h5>
+                            <select id="children" class="form-select">
+                              <option>0</option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <h5> <label for="infants" class="form-label">Baby (&lt;2):</label></h5>
+                            <select id="infants" class="form-select">
+                              <option>0</option>
+                              <option>1</option>
+                            </select>
+                          </div>
                         </div>
-                      </div>
-                      <div class="row">
                         <div class="col-md-4 mb-3">
-                          <h5><label for="adults" class="form-label">Adult:</label></h5>
-                          <select id="adults" class="form-select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                         <h5> <label for="children" class="form-label">Children (2-12):</label></h5>
-                          <select id="children" class="form-select">
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                          <h5> <label for="infants" class="form-label">Baby (&lt;2):</label></h5>
+                          <h5><label for="infants" class="form-label">Quarterly:</label></h5>
                           <select id="infants" class="form-select">
-                            <option>0</option>
-                            <option>1</option>
+                            <option>Grandfather</option>
+                            <option>Grandma</option>
+                            <option>Brother</option>
+                            <option>Sister</option>
                           </select>
                         </div>
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <h5><label for="infants" class="form-label">Quarterly:</label></h5>
-                        <select id="infants" class="form-select">
-                          <option>Grandfather</option>
-                          <option>Grandma</option>
-                          <option>Brother</option>
-                          <option>Sister</option>
-                        </select>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <h5><label for="name" class="form-label">Name:</label></h5>
-                          <input type="text" class="form-control" id="name" required>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <h5><label for="name" class="form-label">Name:</label></h5>
+                            <input type="text" class="form-control" id="name" required>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <h5><label for="phone" class="form-label">Phone number:</label></h5>
+                            <input type="tel" class="form-control" id="phone" required>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <h5><label for="phone" class="form-label">Email:</label></h5>
+                            <input type="tel" class="form-control" id="phone" required>
+                          </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                          <h5><label for="phone" class="form-label">Phone number:</label></h5>
-                          <input type="tel" class="form-control" id="phone" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <h5><label for="phone" class="form-label">Email:</label></h5>
-                          <input type="tel" class="form-control" id="phone" required>
-                        </div>
-                      </div>
-                      <div class="mb-3">
-                        <h5><label for="specialRequests" class="form-label">Special requirements:</label></h5>
-                        <textarea class="form-control" id="specialRequests" rows="3"></textarea>
+                        <div class="mb-3">
+                          <h5><label for="specialRequests" class="form-label">Special requirements:</label></h5>
+                          <textarea class="form-control" id="specialRequests" rows="3"></textarea>
                       </div>
                       <button type="submit" class="btn btn-primary w-100">Send request:</button>
                     </form>
@@ -258,34 +261,31 @@ if ($conn->connect_error) {
           <li>✅ Tours offer opportunities to explore new places, meet fellow travelers, and create unforgettable memories.</li>
           <li>✅ An ideal choice for those seeking a fully equipped trip filled with meaningful experiences.</li>
         </ul>
-      </div>
+      </div><br>
+
       <!-- Tab Lịch trình -->
       <section id="lich-trinh">
-        <h2 class="fw-bold">Schedule</h2>
-        <div class="accordion" id="tourSchedule">
-            <?php foreach ($itineraries as $item): ?>
-            <div class="timeline-item">
-                <div class="accordion-item">
+            <h2>Schedule</h2>
+              <div class="accordion" id="tourSchedule">
+                <?php foreach ($itinerary as $item): ?>
+                  <div class="accordion-item">
                     <h2 class="accordion-header" id="day<?= $item['day'] ?>-heading">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#day<?= $item['day'] ?>" 
-                                aria-expanded="false" aria-controls="day<?= $item['day'] ?>">
-                            Date <?= $item['day'] ?>
-                        </button>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                              data-bs-target="#day<?= $item['day'] ?>" 
+                              aria-expanded="false" aria-controls="day<?= $item['day'] ?>">
+                        Date <?= $item['day'] ?>
+                      </button>
                     </h2>
-                    <div id="day<?= $item['day'] ?>" 
-                        class="accordion-collapse collapse" 
-                        aria-labelledby="day<?= $item['day'] ?>-heading" 
-                        data-bs-parent="#tourSchedule">
-                        <div class="accordion-body">
-                            <?= $item['description'] ?>
-                        </div>
+                    <div id="day<?= $item['day'] ?>" class="accordion-collapse collapse" 
+                         aria-labelledby="day<?= $item['day'] ?>-heading" data-bs-parent="#tourSchedule">
+                      <div class="accordion-body">
+                        <?= $item['description'] ?>
+                      </div>
                     </div>
-                </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-      </section>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+      </section><br><br>
 
       <!-- Tab Bảng giá -->
         <div id="bang-gia" role="tabpanel" aria-labelledby="bang-gia-tab">
@@ -353,7 +353,6 @@ if ($conn->connect_error) {
             </table>
         </div>
 
-          
     <section id="nhan-xet">
         <div class="mt-5">
             <h2>Review</h2>
@@ -367,11 +366,11 @@ if ($conn->connect_error) {
                   <label for="reviewRating" class="form-label">Xếp hạng:</label>
                   <select class="form-select" id="reviewRating" required>
                       <option value="" disabled selected>Chọn đánh giá</option>
-                      <option value="1">★</option>
-                      <option value="2">★★</option>
-                      <option value="3">★★★</option>
-                      <option value="4">★★★★</option>
-                      <option value="5">★★★★★</option>
+                      <option value="1">⭐</option>
+                      <option value="2">⭐⭐</option>
+                      <option value="3">⭐⭐⭐</option>
+                      <option value="4">⭐⭐⭐⭐</option>
+                      <option value="5">⭐⭐⭐⭐⭐</option>
                   </select>
               </div>
                 <div class="mb-3">
@@ -381,30 +380,30 @@ if ($conn->connect_error) {
                 <button type="submit" class="btn btn-success">Gửi đánh giá</button>
             </form>
         </div>
-    </section>
+    </section><br><br>
+
     <section id="Tour-du-lich">
-    <h2>Similar Tours</h2>
-    <div class="tour-list">
-        <?php foreach ($tours as $tour): ?>
-        <div class="tour-item">
-            <div class="tour-image">
-                <img src="<?= $tour['image_url'] ?>" alt="<?= $tour['tour_name'] ?>" />
-            </div>
-            <div class="tour-content">
-                <h3><?= $tour['tour_name'] ?></h3>
-                <p><?= $tour['description'] ?></p>
-                <div class="tour-price">
-                    <span class="new-price"><?= number_format($tour['price'], 0, ',', '.') ?>đ</span>
+      <h2>Similar Tours</h2>
+        <div class="tour-list">
+            <?php foreach ($tours as $tour): ?>
+            <div class="tour-item">
+                <div class="tour-image">
+                    <img src="<?= $tour['image_url'] ?>" alt="<?= $tour['tour_name'] ?>" />
                 </div>
-                <a href="detail.php?tour_id=<?= $tour['tour_id'] ?>" class="btn btn-primary">Chi tiết</a>
+                <div class="tour-content">
+                    <h3><?= $tour['tour_name'] ?></h3>
+                    <p><?= $tour['description'] ?></p>
+                    <div class="tour-price">
+                        <span class="new-price"><?= number_format($tour['price'], 0, ',', '.') ?>đ</span>
+                    </div>
+                    <a href="detail.php?tour_id=<?= $tour['tour_id'] ?>" class="btn btn-primary">Detail</a>
+                </div>
             </div>
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
-    </div>
-</section>
+    </section>
 
-
-<link rel="stylesheet" href="css/detail.css">
+<link rel="stylesheet" href="styles/detail.css">
 <script src="js/detail.js"></script>
        <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

@@ -93,7 +93,7 @@ body {
   .btn {
     display: inline-block;
     padding: 8px 12px;
-    background-color: #007bff;
+    background-color: #f91b32;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -102,7 +102,7 @@ body {
   }
   
   .btn:hover {
-    background-color: #0056b3;
+    background-color: #0cb185;
   }
   
   .form-label.required::after {
@@ -274,7 +274,7 @@ body {
 #Tour-du-lich .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3498db;
+  background-color: #ee0202;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -283,7 +283,55 @@ body {
 }
 
 #Tour-du-lich .btn:hover {
-  background-color: #2980b9;
+  background-color: #eb2549;
+}
+
+.itinerary-item {
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.itinerary-description {
+  display: none;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+h2{
+  color: #0cb185;
+}
+.nav-link {
+  color: #5ac010;
+}
+
+#openForm {
+  background-color: #dba920; /* Màu nền (xanh lá) */
+  color: #fff; /* Màu chữ */
+  border: none; /* Loại bỏ viền */
+  padding: 10px 20px; /* Khoảng cách bên trong */
+  border-radius: 5px; /* Bo góc nút */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+#openForm:hover {
+  background-color: #4aecf5; /* Màu nền khi rê chuột */
+}
+
+.col-md-7 {
+  width: 50%; /* Chiếm toàn bộ chiều rộng khung chứa */
+  height: 300px; /* Chiều cao cố định của khung chứa */
+  overflow: hidden; /* Ẩn phần hình ảnh vượt ra ngoài khung */
+  border-radius: 10px; /* Bo góc cho khung chứa */
+  display: flex;
+  justify-content: center; /* Căn giữa hình ảnh theo chiều ngang */
+  align-items: center; /* Căn giữa hình ảnh theo chiều dọc */
+  background-color: #f5f5f5; /* Màu nền khung chứa (tùy chọn) */
+}
+
+.image-container img {
+  max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng khung */
+  max-height: 100%; /* Đảm bảo hình ảnh không vượt quá chiều cao khung */
+  object-fit: cover; /* Cắt ảnh để vừa khung mà vẫn giữ tỉ lệ */
 }
 
 @media (max-width: 768px) {
