@@ -101,6 +101,70 @@
                                 </button>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>102</td>
+                            <td>Nguyễn Văn B</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-warning">Chưa xác nhận</span></td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>103</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-danger">Đã yêu cầu</span></td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>104</td>
+                            <td>Nguyễn Văn D</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-success">Đã xác nhận</span></td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>105</td>
+                            <td>Nguyễn Văn E</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-success">Đã xác nhận</span></td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

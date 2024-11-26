@@ -89,6 +89,30 @@
                             <td>2024-11-20</td>
                             <td><span class="badge bg-success">Đã xác nhận</span></td>
                         </tr>
+
+                        <tr>
+                            <td>102</td>
+                            <td>Nguyễn Văn B</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-warning">Chưa xác nhận</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>103</td>
+                            <td>Nguyễn Văn C</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-danger">Đã yêu cầu</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>104</td>
+                            <td>Nguyễn Văn D</td>
+                            <td>Hà Nội - Hạ Long</td>
+                            <td>2024-11-20</td>
+                            <td><span class="badge bg-success">Đã xác nhận</span></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
