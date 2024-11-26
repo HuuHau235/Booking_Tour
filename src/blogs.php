@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
   <title>Blog</title>
-  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="./styles/blog.css">
 </head>
 <body>
   <!-- Header -->
@@ -27,7 +27,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="hea.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Tour</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Destination</a></li>
@@ -70,7 +70,7 @@
             "title" => "18 tips for traveling on a budget",
             "description" => "Ever wondered how to travel for cheap? If so, here’s good news: There are lots of ways to economize while still checking destinations off your travel bucket list.
 Whether you’re thinking about ...",
-            "image" => "../images_blog/Tietkiem.jpg",
+            "image" => "./images_blog/Tietkiem.jpg",
             "link" => "https://www.capitalone.com/learn-grow/more-than-money/budget-travel-tips/"
           ],
           [
@@ -78,7 +78,7 @@ Whether you’re thinking about ...",
             "category" => "diem-den",
             "title" => "12 of the best places to visit in Vietnam",
             "description" => "Enjoy Hanoi and Halong Bay — then step beyond the tourist trail to find more magic in the highlands, islands, history and culture of this captivating nation....",
-            "image" => "../images_blog/Best_destination.jpg",
+            "image" => "./images_blog/Best_destination.jpg",
             "link" => "https://www.thetimes.com/travel/destinations/asia-travel/vietnam/best-places-to-visit-in-vietnam-p3jfppb7t"
           ],
           [
@@ -86,7 +86,7 @@ Whether you’re thinking about ...",
             "category" => "meo-du-lich",
             "title" => "20 Travel-ready packing tips for travelling on short notice",
             "description" => "Are you ready to grab an attractive travel deal at a moment’s notice? Are you occasionally asked to pack your bags for an unexpected trip...",
-            "image" => "../images_blog/prepa.jpeg",
+            "image" => "./images_blog/prepa.jpeg",
             "link" => "https://packinglighttravel.com/travel-tips/luggage-and-packing/travel-ready-packing-tips/"
           ],
           [
@@ -95,7 +95,7 @@ Whether you’re thinking about ...",
             "title" => "Top 24 Most Beautiful and Famous Tourist Destinations in Hà Giang ",
             "description" => "A busy life sometimes makes you forget about relaxation. Travel to find balance and joy again. This article will help you choose a suitable trip,
 For those...",
-            "image" => "../images_blog/hà_giang.jpg",
+            "image" => "./images_blog/hà_giang.jpg",
             "link" => "https://mytour.vn/en/blog/bai-viet/top-24-most-beautiful-and-famous-tourist-destinations-in-ha-giang.html"
           ],
           [
@@ -103,7 +103,7 @@ For those...",
             "category" => "diem-den",
             "title" => "Top 6 tourist destinations in Da Nang",
             "description" => "Welcome to Da Nang, Vietnam, where modern architecture meets natural beauty. Bridge is a unique testament to modern engineering. The record belonged to a bridge that is now surpassed by this modern …",
-            "image" => "../images_blog/Đà_nẵng.jpg",
+            "image" => "./images_blog/Đà_nẵng.jpg",
             "link" => "https://houserentaldanang.com/best-places-to-visit-in-da-nang/"
           ],
           [
@@ -112,7 +112,7 @@ For those...",
             "title" => "10 Travel Skin Care Tips",
             "description" => "If you are forever dipped in wanderlust, you need to know some travel skin care tips!
               Traveling is stressful, even when you are flying to some exotic location. All of the stress associated with travel can ....",
-            "image" => "../images_blog/skincare.jpg",
+            "image" => "./images_blog/skincare.jpg",
             "link" => "https://www.stylecraze.com/articles/travel-skin-care-tips/"
           ],
           [
@@ -120,7 +120,7 @@ For those...",
             "category" => "meo-du-lich",
             "title" => "Plan Your First Trip to Vietnam",
             "description" => "Visiting Vietnam offers an unparalleled experience, combining stunning landscapes, rich cultural heritage, and exquisite cuisine. Travel Off Path, a world-leading indie travel news source has named Vietnam the safest country to visit in Asia for 2024....",
-            "image" => "../images/plan_firs.jpeg",
+            "image" => "./images_blog/plan_firs.jpeg",
             "link" => "https://oxalisadventure.com/plan-your-first-trip-to-vietnam/"
           ],
           [
@@ -128,7 +128,7 @@ For those...",
             "category" => "meo-du-lich",
             "title" => "The Beginner’s Guide to Exploring Vietnam",
             "description" => "Now here's a country that breaks the mold of your typical Asian destination. Vietnam's not just famous for its stunning landscape and unique culture. It gets way quirkier than that—we're talking egg coffee ...",
-            "image" => "../images_blog/Beginer.jpeg",
+            "image" => "./images_blog/Beginer.jpeg",
             "link" => "https://www.atlys.com/blog/beginners-guide-vietnam"
           ],
           [
@@ -136,7 +136,7 @@ For those...",
             "category" => "diem-den",
             "title" => "7 places in Vietnam for families ",
             "description" => "Picking the right destination for a family holiday can be tricky, but the pay-off is well worth it. Sharing a gorgeous view with those closest to you, or watching the kids be amazed by new experiences is simply wonderful....",
-            "image" => "../images_blog/vietnam travel for families.jpg",
+            "image" => "./images_blog/vietnam travel for families.jpg",
             "link" => "https://vietnam.travel/things-to-do/vietnam-for-families"
           ]
         ];
