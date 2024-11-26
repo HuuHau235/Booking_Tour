@@ -122,9 +122,5 @@ style="width:200px;">
   </div>
   </div>
   </div>
-
-  <div class="conten">
-    <P>Hi loo ain chao</P>
-  </div>
 </body>
 </html>
