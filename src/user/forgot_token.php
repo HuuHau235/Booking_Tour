@@ -6,6 +6,97 @@ require_once('../model/phpmailer/PHPMailer.php');
 require_once('../model/phpmailer/SMTP.php');
 require_once('../model/function.php'); 
 
+// Hàm để lấy dữ liệu flash
+function getFlashData($key) {
+    if (isset($_SESSION[$key])) {
+        $data = $_SESSION[$key];
+        unset($_SESSION[$key]); // Xóa dữ liệu flash sau khi đã lấy
+        return $data;
+    }
+    return null;
+}
+
+// Hàm để set dữ liệu flash
+function setFlashData($key, $value) {
+    $_SESSION[$key] = $value;
+}
+
+
+// Hàm kiểm tra xem yêu cầu có phải POST không
+function isPost() {
+    return $_SERVER['REQUEST_METHOD'] === 'POST';
+}
+
+// Hàm lọc và làm sạch dữ liệu đầu vào(email)
+function filter() {
+    return [
+        'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)
+    ];
+}
+
+// Hàm hiển thị thông báo
+function getMsg($msg, $msg_type) {
+    $class = $msg_type === 'danger' ? 'alert-danger' : 'alert-success';
+    echo "<div class='alert $class' role='alert'>$msg</div>";
+
+}
+
+function oneraw($sql) {
+    global $conn; // Sử dụng kết nối toàn cục
+
+    // Kiểm tra xem kết nối có hợp lệ không
+    if ($conn === null) {
+        die("Database connection is not established.");
+    }
+
+    // Thực thi câu truy vấn
+    $result = $conn->query($sql);
+
+    // Kiểm tra xem truy vấn có trả về kết quả không
+    if ($result && $result->num_rows > 0) {
+        // Lấy một dòng đầu tiên trong kết quả
+        return $result->fetch_assoc(); // Trả về một mảng kết hợp của dòng đầu tiên
+    } else {
+        return null; // Trả về null nếu không có kết quả
+    }
+}
+
+function update($table, $data, $condition) {
+    global $conn; // Kết nối DB
+    $setClause = [];
+    foreach ($data as $key => $value) {
+        $setClause[] = "$key = '" . mysqli_real_escape_string($conn, $value) . "'";
+    }
+
+    $setClause = implode(', ', $setClause);
+    $sql = "UPDATE $table SET $setClause WHERE $condition";
+
+    $result = mysqli_query($conn, $sql);
+
+    // Kiểm tra kết quả
+    if ($result) {
+        // Kiểm tra nếu có dòng nào thực sự bị thay đổi
+        return mysqli_affected_rows($conn) >= 0;
+    } else {
+        return false; // Nếu lỗi
+    }
+}
+
+
+// Hàm để hiển thị lỗi cho từng trường
+function form_error($field, $before = '', $after = '', $errors = []) {
+    if (isset($errors[$field])) {
+        $error_messages = $errors[$field];
+        // In ra lỗi nếu có
+        return $before . implode('<br>', $error_messages) . $after;
+    }
+    return '';
+}
+
+function redirect($url){
+    header('Location: ' . $url);
+    exit();
+} 
 
 $msg = getFlashData('msg'); // Lấy thông báo từ session
 $msg_type = getFlashData('msg_type'); // Lấy kiểu thông báo
@@ -28,7 +119,7 @@ if (isPost()) {
             $updateStatus = update('User', $dataUpdate, "user_id = $userId");
             if ($updateStatus){
                 // Tạo link reset khôi phục mật khẩu
-                $link_reset ="http://localhost:8080/BOOKING%20TOUR/Booking_Tour/src/user/reset_password.php?token=$forgotToken";
+                $link_reset ="http://localhost:8080/BOOKING%20TOUR/Booking_Tour/src/user/resetPassword.php?token=$forgotToken";
                 // Gửi email
                 $subject = "Reset Account Password";
                 $message = "
@@ -103,7 +194,7 @@ if (isPost()) {
             }
             ?>
 
-            <form method="POST" action="">
+            <form method="POST" action="forgot_token.php">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
