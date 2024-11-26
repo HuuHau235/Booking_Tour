@@ -44,7 +44,7 @@
     <div class="d-flex">
         <!-- Sidebar -->
         <nav class="sidebar">
-            <h4><i class="bi bi-gear-fill"></i> Admin Panel</h4>
+            <h4><i class="bi bi-gear-fill"></i> Admin</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
                     <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Quản lý Tour</a>
@@ -59,7 +59,7 @@
                     <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Thanh toán & Hóa đơn</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá & Phản hồi</a>
+                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá</a>
                 </li>
             </ul>
         </nav>

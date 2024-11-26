@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đánh giá & Phản hồi</title>
+    <title>Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
@@ -44,7 +44,7 @@
     <div class="d-flex">
         <!-- Sidebar -->
         <nav class="sidebar">
-            <h4><i class="bi bi-gear-fill"></i> Admin Panel</h4>
+            <h4><i class="bi bi-gear-fill"></i> Admin</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
                     <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Quản lý Tour</a>
@@ -59,36 +59,15 @@
                     <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Thanh toán & Hóa đơn</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá & Phản hồi</a>
+                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Đánh giá & Phản hồi</h1>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên Khách hàng</th>
-                            <th>Tour</th>
-                            <th>Đánh giá</th>
-                            <th>Ngày gửi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>Hà Nội - Sapa</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                            <td>2024-01-20</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h1>Chào mừng đến với Admin Panel</h1>
+            <p>Chọn một trong các mục bên trái để quản lý.</p>
             <footer>
             </footer>
         </div>
