@@ -47,7 +47,7 @@
     <div class="d-flex">
         <!-- Sidebar -->
         <nav class="sidebar">
-            <h4><i class="bi bi-gear-fill"></i> Admin Panel</h4>
+            <h4><i class="bi bi-gear-fill"></i> Admin</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
                     <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Quản lý Tour</a>
