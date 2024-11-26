@@ -38,6 +38,10 @@
                         <label for="phone" class="form-label"><i class="bi bi-telephone-fill"></i> Phone Number</label>
                         <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
                     </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label"><i class="bi bi-house-door-fill"></i> Address</label>
+                        <input type="tel" class="form-control" id="address" placeholder="Enter your address">
+                    </div>
                     <div class="btn_update d-flex justify-content-between">
                         <button type="button" class="btn btn-warning"><i class="bi bi-key-fill"></i> Change Password</button>
                         <button type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i>Update</button>
@@ -47,33 +51,5 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="mt-5">
-        <div class="container shadow-lg">
-            <div class="card-header bg-secondary text-white">
-                <h5 class="mb-0">Thay Đổi Mật Khẩu</h5>
-            </div>
-            <div class="card-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="current-password" class="form-label"><i class="bi bi-key"></i> Mật Khẩu Cũ</label>
-                        <input type="password" class="form-control" id="current-password" placeholder="Nhập mật khẩu cũ">
-                    </div>
-                    <div class="mb-3">
-                        <label for="new-password" class="form-label"><i class="bi bi-lock-fill"></i> Mật Khẩu Mới</label>
-                        <input type="password" class="form-control" id="new-password" placeholder="Nhập mật khẩu mới">
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirm-new-password" class="form-label"><i class="bi bi-lock-fill"></i> Xác Nhận Mật Khẩu Mới</label>
-                        <input type="password" class="form-control" id="confirm-new-password" placeholder="Xác nhận mật khẩu mới">
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-success"><i class="bi bi-check-circle"></i> Cập Nhật</button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Hủy Bỏ</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> -->
 </body>
 </html>

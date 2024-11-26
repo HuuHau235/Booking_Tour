@@ -17,7 +17,7 @@ body {
     padding: 30px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 500px !important;
 }
 .title-frm{
     font-size: 27px;
@@ -75,5 +75,5 @@ body {
     height: 70px;
     border-radius: 100%;
     /* text-align: center; */
-    margin-left: 130px;
+    margin-left: 180px;
 }

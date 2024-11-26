@@ -40,28 +40,27 @@
 
 
             <!-- Email & Password Form -->
-            <form>
+            <form method="POST" action="log_in-back.php">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>"  required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password"  value="<?php echo isset($_COOKIE['password']) ? $_COOKIE['password'] : ''; ?>"  required>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div>
-                        <input type="checkbox" id="rememberMe" class="form-check-input">
+                        <input type="checkbox" name="remember_me" id="remember_me" class="form-check-input" <?php echo isset($_COOKIE['email']) ? 'checked' : ''; ?>>
                         <label for="rememberMe" class="form-check-label">Remember me</label>
                     </div>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <a href="forgot_token.php">Forgot Password?</a>
                 </div>
-                <button type="submit" class="btn login-btn w-100">LOG IN</button>
+                <button type="submit" name="submit" class="btn login-btn w-100">LOG IN</button>
             </form>
 
-
             <!-- Create Account -->
-            <p class="text-center mt-3 create-account">Don't have an account? <a href="#">Create new account</a></p>
+            <p class="text-center mt-3 create-account">Don't have an account? <a href="register.php">Create new account</a></p>
         </div>
     </div>
 
