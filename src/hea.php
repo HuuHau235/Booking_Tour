@@ -60,7 +60,7 @@
   <div class="content">
     <div class="card custom-card"
 style="width:200px;">
-  <img src="./images_blog/Ha_noi.png" class="card-img-top" alt="...">
+  <img src="./images_blog/Ha_noi.png" class="card-img-top1" alt="...">
   <div class="card-body">
     <p class="card-text">Trip to Ha Noi.</p>
     <p class="text-icon">
@@ -70,7 +70,7 @@ style="width:200px;">
 </div>
 <div class="card custom-card"
 style="width:200px;">  
-<img src="./images_blog/Đa_nang.jpg" class="card-img-top" alt="...">
+<img src="./images_blog/Đa_nang.jpg" class="card-img-top1" alt="...">
   <div class="card-body">
     <p class="card-text">Trip to Đà Nẵng</p>
     <p class="text-icon">
@@ -80,7 +80,7 @@ style="width:200px;">
 </div>
 <div class="card custom-card"
 style="width:200px;">
-  <img src="./images_blog/Nha_trang.png" class="card-img-top" alt="...">
+  <img src="./images_blog/Nha_trang.png" class="card-img-top1" alt="...">
   <div class="card-body">
     <p class="card-text">Trip to Nha Trang </p>
     <p class="text-icon">

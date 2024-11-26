@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./styles/homepage.css">
     </head>
     <body>
+    <?php include 'hea.php' ?>
+
         <!-- ABOUT US SECTION -->
         <section class="about-us py-5">
           <div class="container">
@@ -583,6 +585,7 @@
                   
             </div>
           </section>
+          <?php include 'footer.php'; ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       </body>
     </html>
