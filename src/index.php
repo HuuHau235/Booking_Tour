@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./styles/homepage.css">
     </head>
     <body>
+        <link rel="stylesheet" href="hea.php">
         <!-- ABOUT US SECTION -->
         <section class="about-us py-5">
           <div class="container">
@@ -465,7 +466,7 @@
           
                 <div class="col-md-4">
                   <div class="card travel-card p-3">
-                    <img src="./assets/images/LySon.jpeg" class="card-img-top rounded" alt="Ly Son">
+                    <img src="./assets/images/LySon.jpg" class="card-img-top rounded" alt="Ly Son">
                     <div class="card-body">
                       <p class="mb-2">
                         <small>
@@ -502,26 +503,6 @@
                     </div>
                   </div>
                 </div>
-    
-    <!-- test -->
-                  <!-- <div class="container d-flex justify-content-center mt-5">
-                    <div class="card1 text-center p-4" style="width: 18rem; border: 1px solid #ccc; border-radius: 10px;">
-                      <h5 class="card-title1">SIGN UP</h5>
-                      <p class="card-text2">-- to get newsletter <br>& receive our best offer.</p>
-                      <form>
-                        <div class="mb-3">
-                          <input type="email" class="form-control" placeholder="E-mail Address">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100" style="background-color: #5FB3B3;border-radius: 20px;width: 100px;
-                        border: 1px solid black; ">
-                          SIGN UP
-                        </button>
-                      </form>
-                    </div>
-                  </div> -->
-                  
-    
-                
                   <div class="row g-4">
                     <div class="col-md-4">
                       <div class="card travel-card p-3 border-0">
@@ -575,7 +556,8 @@
                             </p>
                             <h5 class="card-title">SAPA</h5>
                             <p class="card-text text-muted">
-                                Sa Pa (also spelled Sapa) is a town in Lao Cai province, Vietnam.                        </p>
+                                Sa Pa (also spelled Sapa) is a town in Lao Cai province, Vietnam.
+                            </p>
                             <a href="#" class="btn btn-primary">Book now</a>
                           </div>
                         </div>
@@ -583,6 +565,7 @@
                   
             </div>
           </section>
+          <link rel="stylesheet" href="footer.php">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       </body>
     </html>

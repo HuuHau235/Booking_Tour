@@ -1,4 +1,13 @@
 /* Đảm bảo rằng các card có cùng chiều cao */
+
+body{
+    background-color: #5EA1A3;
+    font-family: "Tinos", serif !important;
+    color: white;
+    font-size: 18px;
+
+}
+
 .card {
     display: flex;
     flex-direction: column;
