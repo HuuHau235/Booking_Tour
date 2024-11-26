@@ -6,6 +6,7 @@
     <title>Quản lý Booking</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,6 +39,9 @@
             text-align: center;
             margin-top: 30px;
         }
+        .btn-warning, .btn-danger {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -67,11 +71,21 @@
         <!-- Main Content -->
         <div class="main-content">
             <h1>Quản lý Booking</h1>
-            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
-                <i class="bi bi-plus-circle"></i> Thêm Booking mới
-            </button>
+
+            <!-- Tìm kiếm và Lọc -->
+            <div class="d-flex mb-3">
+                <input type="text" id="searchBooking" class="form-control me-2" placeholder="Tìm kiếm theo tên khách hàng...">
+                <select id="filterStatus" class="form-select me-2">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="Đã xác nhận">Đã xác nhận</option>
+                    <option value="Chưa xác nhận">Chưa xác nhận</option>
+                    <option value="Đã hủy">Đã hủy</option>
+                </select>
+            </div>
+
+            <!-- Bảng danh sách booking -->
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" id="bookingTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -79,6 +93,7 @@
                             <th>Tour</th>
                             <th>Ngày đặt</th>
                             <th>Trạng thái</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,95 +102,94 @@
                             <td>Nguyễn Văn A</td>
                             <td>Hà Nội - Hạ Long</td>
                             <td>2024-11-20</td>
-                            <td><span class="badge bg-success">Đã xác nhận</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>102</td>
-                            <td>Nguyễn Văn B</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-warning">Chưa xác nhận</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>103</td>
-                            <td>Nguyễn Văn C</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-danger">Đã yêu cầu</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>104</td>
-                            <td>Nguyễn Văn D</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-success">Đã xác nhận</span></td>
+                            <td>
+                                <select class="form-select" onchange="updateBookingStatus(this, 101)">
+                                    <option value="Đã xác nhận" selected>Đã xác nhận</option>
+                                    <option value="Chưa xác nhận">Chưa xác nhận</option>
+                                    <option value="Đã hủy">Đã hủy</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="btn btn-info btn-sm" onclick="viewDetails(101)">
+                                    <i class="bi bi-info-circle"></i> Chi tiết
+                                </button>
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <footer>
-            </footer>
         </div>
     </div>
 
-    <!-- Modal Thêm Booking -->
-    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <!-- Modal Chi tiết Booking -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="bookingModalLabel">Thêm Booking</h5>
+                    <h5 class="modal-title" id="detailsModalLabel">Chi tiết Booking</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form id="bookingForm">
-                        <div class="mb-3">
-                            <label for="customerName" class="form-label">Tên Khách hàng</label>
-                            <input type="text" class="form-control" id="customerName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tourSelect" class="form-label">Chọn Tour</label>
-                            <select class="form-select" id="tourSelect" required>
-                                <option value="">Chọn Tour</option>
-                                <option value="Hà Nội - Sapa">Hà Nội - Sapa</option>
-                                <option value="Hà Nội - Hạ Long">Hà Nội - Hạ Long</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="bookingDate" class="form-label">Ngày đặt</label>
-                            <input type="date" class="form-control" id="bookingDate" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button> -->
-                    <!-- <button type="button" class="btn btn-primary" onclick="saveBooking()">Lưu</button> -->
-                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-dismiss="#bookingModal">Đóng</button>
-                    <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#savebookingModal">Lưu</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Xác nhận Khóa Khách hàng -->
-        <div class="modal fade" id="savebookingModal" tabindex="-1" aria-labelledby="savebookingModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="savebookingModal">Xác nhận khóa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Bạn có chắc chắn muốn khóa khách hàng này không?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-                        <button type="button" class="btn btn-danger">Khóa</button>
-                    </div>
+                <div class="modal-body" id="detailsContent">
+                    <!-- Nội dung chi tiết sẽ được hiển thị ở đây -->
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Tìm kiếm và lọc dữ liệu
+        document.getElementById('searchBooking').addEventListener('input', filterBookings);
+        document.getElementById('filterStatus').addEventListener('change', filterBookings);
+
+        function filterBookings() {
+            const searchValue = document.getElementById('searchBooking').value.toLowerCase();
+            const statusValue = document.getElementById('filterStatus').value;
+            const rows = document.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const name = row.children[1].innerText.toLowerCase();
+                const status = row.children[4].querySelector('select').value;
+
+                if (
+                    (name.includes(searchValue) || searchValue === '') &&
+                    (status === statusValue || statusValue === '')
+                ) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function updateBookingStatus(selectElement, bookingId) {
+            const newStatus = selectElement.value;
+            alert(`Trạng thái Booking ${bookingId} đã được cập nhật thành "${newStatus}"`);
+        }
+
+        function viewDetails(bookingId) {
+            const bookingDetails = {
+                101: { customer: 'Nguyễn Văn A', tour: 'Hà Nội - Hạ Long', date: '2024-11-20', status: 'Đã xác nhận' },
+            };
+
+            const details = bookingDetails[bookingId];
+            const detailsHTML = `
+                <p><strong>Tên khách hàng:</strong> ${details.customer}</p>
+                <p><strong>Tour:</strong> ${details.tour}</p>
+                <p><strong>Ngày đặt:</strong> ${details.date}</p>
+                <p><strong>Trạng thái:</strong> ${details.status}</p>
+            `;
+
+            document.getElementById('detailsContent').innerHTML = detailsHTML;
+            const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+            detailsModal.show();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

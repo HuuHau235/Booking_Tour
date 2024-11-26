@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý Booking</title>
+    <title>Quản lý Tours</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
@@ -38,9 +38,6 @@
             text-align: center;
             margin-top: 30px;
         }
-        .btn-warning, .btn-danger {
-            margin-left: 5px; /* Adds some space between buttons */
-        }
     </style>
 </head>
 <body>
@@ -69,200 +66,105 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Quản lý Booking</h1>
-            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#bookingModal">
-                <i class="bi bi-plus-circle"></i> Thêm Booking mới
+            <h1>Quản lý Tours</h1>
+            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addTourModal">
+                <i class="bi bi-plus-circle"></i> Thêm Tour mới
             </button>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tên Khách hàng</th>
-                            <th>Tour</th>
-                            <th>Ngày đặt</th>
+                            <th>Tên Tour</th>
+                            <th>Lịch trình</th>
+                            <th>Giá</th>
                             <th>Trạng thái</th>
-                            <th>Hành động</th> <!-- New column for actions -->
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>101</td>
-                            <td>Nguyễn Văn A</td>
+                            <td>1</td>
                             <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-success">Đã xác nhận</span></td>
+                            <td>3 ngày 2 đêm</td>
+                            <td>3,500,000 VND</td>
+                            <td><span class="badge bg-success">Đang hoạt động</span></td>
                             <td>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="bi bi-pencil"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class="bi bi-trash"></i> Xóa
-                                </button>
+                                <button class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i> Sửa</button>
+                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(1)"><i class="bi bi-trash"></i> Xóa</button>
                             </td>
                         </tr>
-
                         <tr>
-                            <td>102</td>
-                            <td>Nguyễn Văn B</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-warning">Chưa xác nhận</span></td>
+                            <td>2</td>
+                            <td>Hà Nội - Sapa</td>
+                            <td>4 ngày 3 đêm</td>
+                            <td>5,200,000 VND</td>
+                            <td><span class="badge bg-danger">Ngừng hoạt động</span></td>
                             <td>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="bi bi-pencil"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class="bi bi-trash"></i> Xóa
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>103</td>
-                            <td>Nguyễn Văn C</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-danger">Đã yêu cầu</span></td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="bi bi-pencil"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class="bi bi-trash"></i> Xóa
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>104</td>
-                            <td>Nguyễn Văn D</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-success">Đã xác nhận</span></td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="bi bi-pencil"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class="bi bi-trash"></i> Xóa
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>105</td>
-                            <td>Nguyễn Văn E</td>
-                            <td>Hà Nội - Hạ Long</td>
-                            <td>2024-11-20</td>
-                            <td><span class="badge bg-success">Đã xác nhận</span></td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="bi bi-pencil"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class="bi bi-trash"></i> Xóa
-                                </button>
+                                <button class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i> Sửa</button>
+                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(2)"><i class="bi bi-trash"></i> Xóa</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <footer>
-            </footer>
         </div>
     </div>
 
-    <!-- Modal Thêm Booking -->
-    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <!-- Modal Thêm Tour -->
+    <div class="modal fade" id="addTourModal" tabindex="-1" aria-labelledby="addTourModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="bookingModalLabel">Thêm Booking</h5>
+                    <h5 class="modal-title" id="addTourModalLabel">Thêm Tour Mới</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="bookingForm">
+                    <form id="addTourForm">
                         <div class="mb-3">
-                            <label for="customerName" class="form-label">Tên Khách hàng</label>
-                            <input type="text" class="form-control" id="customerName" required>
+                            <label for="tourName" class="form-label">Tên Tour</label>
+                            <input type="text" class="form-control" id="tourName" required>
                         </div>
                         <div class="mb-3">
-                            <label for="tourSelect" class="form-label">Chọn Tour</label>
-                            <select class="form-select" id="tourSelect" required>
-                                <option value="">Chọn Tour</option>
-                                <option value="Hà Nội - Sapa">Hà Nội - Sapa</option>
-                                <option value="Hà Nội - Hạ Long">Hà Nội - Hạ Long</option>
+                            <label for="tourSchedule" class="form-label">Lịch trình</label>
+                            <input type="text" class="form-control" id="tourSchedule" placeholder="VD: 3 ngày 2 đêm" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tourPrice" class="form-label">Giá</label>
+                            <input type="number" class="form-control" id="tourPrice" placeholder="VD: 3500000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tourStatus" class="form-label">Trạng thái</label>
+                            <select class="form-select" id="tourStatus" required>
+                                <option value="active">Đang hoạt động</option>
+                                <option value="inactive">Ngừng hoạt động</option>
                             </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="bookingDate" class="form-label">Ngày đặt</label>
-                            <input type="date" class="form-control" id="bookingDate" required>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary" onclick="saveTour()">Lưu</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Sửa Booking -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Sửa Booking</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editForm">
-                        <div class="mb-3">
-                            <label for="editCustomerName" class="form-label">Tên Khách hàng</label>
-                            <input type="text" class="form-control" id="editCustomerName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editTourSelect" class="form-label">Chọn Tour</label>
-                            <select class="form-select" id="editTourSelect" required>
-                                <option value="">Chọn Tour</option>
-                                <option value="Hà Nội - Sapa">Hà Nội - Sapa</option>
-                                <option value="Hà Nội - Hạ Long">Hà Nội - Hạ Long</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editBookingDate" class="form-label">Ngày đặt</label>
-                            <input type="date" class="form-control" id="editBookingDate" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary">Lưu</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- JavaScript -->
+    <script>
+        function confirmDelete(tourId) {
+            const confirmed = confirm(`Bạn có chắc chắn muốn xóa tour có ID ${tourId} không?`);
+            if (confirmed) {
+                alert(`Tour có ID ${tourId} đã được xóa thành công!`);
+                // Thêm logic xóa khỏi cơ sở dữ liệu hoặc DOM
+            }
+        }
 
-    <!-- Modal Xác nhận Xóa Booking -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Xác nhận xóa</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Bạn có chắc chắn muốn xóa booking này không?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-                    <button type="button" class="btn btn-danger">Xóa</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        function saveTour() {
+            alert("Chức năng thêm tour đang được phát triển!");
+            // Thêm logic lưu tour mới
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
