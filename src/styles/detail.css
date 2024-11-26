@@ -93,7 +93,7 @@ body {
   .btn {
     display: inline-block;
     padding: 8px 12px;
-    background-color: #f91b32;
+    background-color: #f46b15;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -102,7 +102,7 @@ body {
   }
   
   .btn:hover {
-    background-color: #0cb185;
+    background-color: #eb2549;
   }
   
   .form-label.required::after {
@@ -110,11 +110,11 @@ body {
     color: red;
   }
   .btn-submit {
-    background-color: #f27000;
+    background-color: #f46b15;
     color: white;
   }
   .btn-submit:hover {
-    background-color: #d45a00;
+    background-color: #eb2549;
   }
   .modal {
     position: fixed;
@@ -161,19 +161,17 @@ body {
     overflow-y: auto;
   }
   
-  /* Tăng kích thước modal */
 .modal-dialog {
-  max-width: 800px; /* Tăng chiều rộng */
-  width: 90%; /* Đảm bảo responsive */
+  max-width: 800px; 
+  width: 90%;
 }
 
 .modal-content {
-  padding: 20px; /* Thêm không gian bên trong */
-  border-radius: 10px; /* Góc bo tròn */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+  padding: 20px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
-/* Điều chỉnh phần tiêu đề */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -181,7 +179,6 @@ body {
   border-bottom: 2px solid #eee;
 }
 
-/* Nút đóng */
 .modal-header .btn-close {
   background: none;
   border: none;
@@ -195,54 +192,49 @@ body {
   color: #000;
 }
 
-/* Căn chỉnh form bên trong */
 .modal-body {
   font-size: 1rem;
 }
 
-/* Nút gửi */
 .btn-primary {
   padding: 10px 20px;
   font-size: 1.1rem;
 }
 
-/* Bố cục danh sách */
 #Tour-du-lich .tour-list {
   display: flex;
-  flex-wrap: wrap; /* Các mục xuống dòng nếu không đủ không gian */
-  gap: 16px; /* Khoảng cách giữa các mục */
-  justify-content: center; /* Căn giữa danh sách */
+  flex-wrap: wrap; 
+  gap: 16px; 
+  justify-content: center;
 }
 
-/* Mỗi mục tour */
 #Tour-du-lich .tour-item {
-  max-width: 300px; /* Đặt kích thước tối đa cho khung */
-  border: 1px solid #ddd; /* Đường viền nhạt xung quanh */
-  border-radius: 8px; /* Bo góc mềm mại */
-  overflow: hidden; /* Cắt nội dung thừa (nếu có) */
+  max-width: 300px; 
+  border: 1px solid #ddd; 
+  border-radius: 8px;
+  overflow: hidden; 
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
 #Tour-du-lich .tour-item:hover {
-  transform: translateY(-5px); /* Hiệu ứng nổi khi hover */
+  transform: translateY(-5px); 
 }
 
-/* Khung chứa ảnh */
 #Tour-du-lich .tour-image {
   width: 100%;
-  height: 200px; /* Cố định chiều cao */
+  height: 200px; 
   overflow: hidden;
 }
 
 #Tour-du-lich .tour-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Đảm bảo ảnh giữ tỉ lệ và cắt phần thừa */
+  object-fit: cover; 
 }
 
-/* Nội dung */
+
 #Tour-du-lich .tour-content {
   padding: 16px;
   text-align: center;
@@ -260,7 +252,6 @@ body {
   margin-bottom: 12px;
 }
 
-/* Giá và nút */
 #Tour-du-lich .tour-price {
   margin-bottom: 16px;
 }
@@ -274,7 +265,7 @@ body {
 #Tour-du-lich .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #ee0202;
+  background-color: #f46b15;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -298,46 +289,50 @@ body {
 }
 
 h2{
-  color: #0cb185;
+  color: #fc0000;
 }
+
 .nav-link {
-  color: #5ac010;
+  color: #f46b15;
+}
+
+.nav-link:hover {
+  color: #15f4d6;
 }
 
 #openForm {
-  background-color: #dba920; /* Màu nền (xanh lá) */
-  color: #fff; /* Màu chữ */
-  border: none; /* Loại bỏ viền */
-  padding: 10px 20px; /* Khoảng cách bên trong */
-  border-radius: 5px; /* Bo góc nút */
-  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+  background-color: #f46b15;
+  color: #fff; 
+  padding: 10px 20px; 
+  border-radius: 5px;
+  transition: background-color 0.3s ease; 
 }
 
 #openForm:hover {
-  background-color: #4aecf5; /* Màu nền khi rê chuột */
+  background-color: #eb2549; 
 }
 
 .col-md-7 {
-  width: 50%; /* Chiếm toàn bộ chiều rộng khung chứa */
-  height: 300px; /* Chiều cao cố định của khung chứa */
-  overflow: hidden; /* Ẩn phần hình ảnh vượt ra ngoài khung */
-  border-radius: 10px; /* Bo góc cho khung chứa */
+  width: 50%; 
+  height: 300px; 
+  overflow: hidden; 
+  border-radius: 10px;
   display: flex;
-  justify-content: center; /* Căn giữa hình ảnh theo chiều ngang */
-  align-items: center; /* Căn giữa hình ảnh theo chiều dọc */
-  background-color: #f5f5f5; /* Màu nền khung chứa (tùy chọn) */
+  justify-content: center; 
+  align-items: center; 
+  background-color: #f5f5f5; 
 }
 
 .image-container img {
-  max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng khung */
-  max-height: 100%; /* Đảm bảo hình ảnh không vượt quá chiều cao khung */
-  object-fit: cover; /* Cắt ảnh để vừa khung mà vẫn giữ tỉ lệ */
+  max-width: 100%; 
+  max-height: 100%; 
+  object-fit: cover; 
 }
 
 @media (max-width: 768px) {
   .modal-dialog {
     max-width: 100%;
-    width: 95%; /* Chiều rộng gần toàn màn hình */
+    width: 95%;
   }
 
   .modal-content {
