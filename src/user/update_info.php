@@ -25,27 +25,27 @@
         <div class="container shadow-lg">
             <h5 class="title-frm mb-0">Personal Information</h5>
             <div class="card-body">
-                <form>
+                <form action="update_info-back.php" method="POST">
                     <div class="mb-3">
                         <label for="fullname" class="form-label"><i class="bi bi-person-fill"></i> Full Name</label>
-                        <input type="text" class="form-control" id="fullname" placeholder="Enter your full name">
+                        <input type="text" class="form-control" id="fullname" placeholder="Enter your full name" value="<?php echo $user['name'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label"><i class="bi bi-envelope-fill"></i> Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" value="<?php echo $user['email'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label"><i class="bi bi-telephone-fill"></i> Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" value="<?php echo $user['phone'] ?>">
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label"><i class="bi bi-house-door-fill"></i> Address</label>
-                        <input type="tel" class="form-control" id="address" placeholder="Enter your address">
+                        <input type="tel" class="form-control" id="address" placeholder="Enter your address" value="<?php echo $user['address'] ?>">
                     </div>
                     <div class="btn_update d-flex justify-content-between">
-                        <button type="button" class="btn btn-warning"><i class="bi bi-key-fill"></i> Change Password</button>
-                        <button type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i>Update</button>
-                        <button type="button" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i>Log Out</button>
+                        <button onclick="window.location.href='changePassword.php'" class="btn btn-warning"><i class="bi bi-key-fill"></i> Change Password</button>
+                        <button type="submit" class="btn btn-success"><i class="bi bi-pencil-square"></i>Update</button>
+                        <button onclick="window.location.href='log_out.php'" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i>Log Out</button>
                     </div>
                 </form>
             </div>

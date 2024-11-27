@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";  // hoặc tên người dùng của bạn
 $password = "";  // hoặc mật khẩu của bạn
-$dbname = "travel";  // thay thế bằng tên cơ sở dữ liệu của bạn
+$dbname = "HappyTrips";  // thay thế bằng tên cơ sở dữ liệu của bạn
 
 // Kết nối cơ sở dữ liệu
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,6 +31,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="styles/list_tour.css">
 </head>
 <body>
+    <?php include 'hea.php'; ?>
     <div class="container my-5">
         <h2 class="text-center mb-4">Danh Sách Tour</h2>
         <div class="row">
@@ -63,7 +64,7 @@ $result = $conn->query($sql);
             ?>
         </div>
     </div>
-
+    <?php include 'footer.php'; ?>
     <!-- Thêm Bootstrap JS và Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

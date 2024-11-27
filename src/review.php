@@ -2,7 +2,7 @@
 $servername = "localhost"; // Thay đổi nếu cần
 $username = "root";        // Tài khoản database
 $password = "";            // Mật khẩu database
-$dbname = "TravelAgency"; // Tên database của bạn
+$dbname = "HappyTrips"; // Tên database của bạn
 
 // Kết nối cơ sở dữ liệu
 $conn = new mysqli($servername, $username, $password, $dbname);
