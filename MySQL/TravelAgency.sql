@@ -1,4 +1,4 @@
-drop database if exists travel;
+drop database if exists HappyTrips;
 create database travel;
 use travel;
 
