@@ -1,8 +1,11 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "travel";
+$dbname = "HappyTrips";
+
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -50,6 +53,7 @@ while ($row = $itinerary_result->fetch_assoc()) {
     $itinerary[] = $row;
 }
 
+
 $stmt->close();
 $conn->close();
 ?>
@@ -59,7 +63,7 @@ $conn->close();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tour Details</title>
+  <title>HappyTrips</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
