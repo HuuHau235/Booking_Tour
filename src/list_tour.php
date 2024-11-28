@@ -1,3 +1,26 @@
+
+<?php
+$servername = "localhost";
+$username = "root";  // hoặc tên người dùng của bạn
+$password = "";  // hoặc mật khẩu của bạn
+$dbname = "HappyTrips";  // thay thế bằng tên cơ sở dữ liệu của bạn
+
+// Kết nối cơ sở dữ liệu
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Kiểm tra kết nối
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// Truy vấn lấy danh sách tour và hình ảnh liên quan
+$sql = "SELECT t.tour_id, t.name, t.description, t.price, t.start_date, t.end_date, t.duration, t.type, ti.image_url, ti.caption 
+        FROM Tour t 
+        LEFT JOIN TourImage ti ON t.tour_id = ti.tour_id";
+
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
