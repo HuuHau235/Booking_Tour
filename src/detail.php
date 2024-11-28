@@ -116,27 +116,26 @@ $conn->close();
                             <input type="date" class="form-control" id="endDate" required>
                         </div>
                           <div class="col-md-6 mb-3">
-                              <h5><label for="departurePlace" class="form-label">Departure point:</label></h5>
-                              <select id="departurePlace" class="form-select" required>
-                                  <<option value="Hà Nội">Hà Nội</option>
-                                  <option value="Hải Phòng">Hải Phòng</option>
-                                  <option value="Bắc Giang">Bắc Giang</option>
-                                  <option value="Bắc Giang">Đà Nẵng</option>
-                                  <option value="Bắc Giang">Hồ Chí Minh</option>
-                                  <option value="Bắc Giang">Đà Lạt</option>
-                                  <option value="Bắc Giang">Hải Phòng</option>
-                                  <option value="Bắc Giang">Hạ Long</option>
-                                  <option value="Bắc Giang">Nha Trang</option>
-                                  <option value="Bắc Giang">Quảng Bình</option>
-                                  <option value="Bắc Giang">Quảng Ngãi</option>
-                                  <option value="Bắc Giang">Hội An</option>
-                                  <option value="Bắc Giang">Huế</option>
-                                  <option value="Bắc Giang">Tam Đảo</option>
-                                  <option value="Bắc Giang">Sài Gòn</option>
-                                  <option value="Bắc Giang">Lý Sơn</option>
-                                  <option value="Bắc Giang">Quy Nhơn</option>
-                                  <option value="Bắc Giang">Sa Pa</option>
-                              </select>
+                            <h5><label for="departurePlace" class="form-label">Departure point:</label></h5>
+                            <select id="departurePlace" class="form-select" required>
+                            <option value="Hà Nội">Hà Nội</option>
+                            <option value="Hải Phòng">Hải Phòng</option>
+                            <option value="Bắc Giang">Bắc Giang</option>
+                            <option value="Đà Nẵng">Đà Nẵng</option>
+                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                            <option value="Đà Lạt">Đà Lạt</option>
+                            <option value="Hạ Long">Hạ Long</option>
+                            <option value="Nha Trang">Nha Trang</option>
+                            <option value="Quảng Bình">Quảng Bình</option>
+                            <option value="Quảng Ngãi">Quảng Ngãi</option>
+                            <option value="Hội An">Hội An</option>
+                            <option value="Huế">Huế</option>
+                            <option value="Tam Đảo">Tam Đảo</option>
+                            <option value="Sài Gòn">Sài Gòn</option>
+                            <option value="Lý Sơn">Lý Sơn</option>
+                            <option value="Quy Nhơn">Quy Nhơn</option>
+                            <option value="Sa Pa">Sa Pa</option>
+                            </select>
                           </div>
                       </div>
                       <div class="row">
