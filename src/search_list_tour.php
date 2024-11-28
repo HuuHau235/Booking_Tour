@@ -42,7 +42,6 @@
 </head>
     <div class="d-flex">
         <!-- Main Content -->
-         <a href="hea.php">header</a>
         <div class="content p-4">
             <!-- Header -->
             <div class="d-flex justify-content-between align-items-center mb-4">

@@ -51,9 +51,7 @@
         <section class="features py-5">
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2>FLASH DEAL</h2>
-                <a href="#" class="view-all">VIEW ALL ></a>
-                
+                <h2>FLASH DEAL</h2>           
               </div>
               <p>Our best fast minutes offers. Book new and get</p>
               <div class="d-flex flex-wrap">

@@ -31,8 +31,8 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="styles/list_tour.css">
 </head>
 <body>
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Danh Sách Tour</h2>
+<div class="container my-5">
+        <h2 class="text-center mb-4">List Tour</h2>
         <div class="row">
             <?php
             if ($result->num_rows > 0) {
@@ -52,7 +52,7 @@ $result = $conn->query($sql);
                                 <p class="card-text">' . substr($row['description'], 0, 100) . '...</p>
                                 <p><strong>Giá:</strong> ' . number_format($row['price'], 2) . '₫</p>
                                 <p><strong>Loại tour:</strong> ' . $row['type'] . '</p>
-                                <a href="detail.php?tour_id=' . $row['tour_id'] . '" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="detail.php?tour_id=' . $row['tour_id'] . '" class="btn_btn">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>';
