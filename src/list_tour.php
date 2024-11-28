@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";  // hoặc tên người dùng của bạn
 $password = "kimhien123";  // hoặc mật khẩu của bạn
-$dbname = "travel";  // thay thế bằng tên cơ sở dữ liệu của bạn
+$dbname = "HappyTrips";  // thay thế bằng tên cơ sở dữ liệu của bạn
 
 // Kết nối cơ sở dữ liệu
 $conn = new mysqli($servername, $username, $password, $dbname);
