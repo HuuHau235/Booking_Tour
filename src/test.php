@@ -1,133 +1,114 @@
-<?php
-// Dữ liệu về các chuyến đi
-$trips = [
-    [
-        "image" => "./assets/images/danang.png",
-        "title" => "2 days 3 nights trip to Da Nang",
-        "rating" => "⭐⭐⭐⭐",
-        "price" => "$350"
-    ],
-    [
-        "image" => "./assets/images/haiphong.png",
-        "title" => "2 days 3 nights trip to Hai Phong",
-        "rating" => "⭐⭐⭐⭐",
-        "price" => "$230"
-    ],
-    [
-        "image" => "./assets/images/sapa.png",
-        "title" => "2 days 3 nights trip to Sa Pa",
-        "rating" => "⭐⭐⭐⭐⭐",
-        "price" => "$270"
-    ],
-    [
-        "image" => "./assets/images/hoian.png",
-        "title" => "2 days 3 nights trip to Hoi An",
-        "rating" => "⭐⭐⭐⭐⭐",
-        "price" => "$220"
-    ],
-    [
-        "image" => "./assets/images/danang.png",
-        "title" => "2 days 3 nights trip to Da Nang Again",
-        "rating" => "⭐⭐⭐⭐⭐",
-        "price" => "$400"
-    ]
-];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flash Deal</title>
+    <title>Danh Sách Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/list_tour.css">
     <style>
-        .card {
-            position: relative;
-            width: 100%;
-            max-width: 300px; /* Bạn có thể điều chỉnh kích thước */
-            margin: 15px;
-            border-radius: 10px;
-            overflow: hidden; /* Ẩn phần ảnh tràn ra ngoài */
-        }
-
+        /* Căn chỉnh ảnh trong card */
         .card img {
-            width: 100%;
-            height: auto; /* Đảm bảo ảnh không bị méo */
-            object-fit: cover; /* Đảm bảo ảnh lấp đầy thẻ mà không bị méo */
+            max-height: 200px;
+            object-fit: cover;
         }
 
-        .card-img-over {
-            position: absolute;
-            bottom: 0; /* Đặt chữ ở phía dưới cùng của ảnh */
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Nền bán trong suốt */
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+        /* Đặt lề mặc định */
+        body {
+            margin: 0;
+            padding: 0;
         }
-
-        .price-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-        }
-
-        .slider-wrapper{
-            display: flex;
-        }
-
     </style>
 </head>
 <body>
-    <section class="features py-5">
-        <div class="container">
-            <h2>FLASH DEAL</h2>
-            <p>Our best fast minutes offers. Book now and get</p>
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <?php foreach ($trips as $trip): ?>
-                        <div class="card">
-                            <img src="<?php echo $trip['image']; ?>" class="card-img" alt="<?php echo $trip['title']; ?>">
-                            <span class="price-badge"><?php echo $trip['price']; ?></span>
-                            <div class="card-content">
-                                <h5 class="card-title"><?php echo $trip['title']; ?></h5>
-                                <p class="card-text"><?php echo $trip['rating']; ?></p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="slider-controls">
-                    <button class="btn-prev">&lt;</button>
-                    <button class="btn-next">&gt;</button>
-                </div>
-            </div>
+<div class="container py-5">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Danh Sách Tour</h2>
+        <div class="d-flex">
+            <input type="search" class="form-control me-2" placeholder="Tìm kiếm...">
+            <button class="btn btn-primary">Tìm kiếm</button>
         </div>
-    </section>
+    </div>
 
-    <script>
-        const slider = document.querySelector('.slider');
-        const btnNext = document.querySelector('.btn-next');
+    <!-- Bộ lọc -->
+    <form class="row mb-4">
+        <div class="col-md-3">
+            <label for="tour" class="form-label">Tour</label>
+            <select id="tour" class="form-select">
+                <option value="">All</option>
+                <option>Hà Nội</option>
+                <option>Đà Nẵng</option>
+                <option>TP. Hồ Chí Minh</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" id="price" class="form-control" placeholder="e.g. 100-500">
+        </div>
+        <div class="col-md-3">
+            <label for="type" class="form-label">Loại Tour</label>
+            <select id="type" class="form-select">
+                <option value="">All</option>
+                <option selected>Exploration</option>
+                <option>Relaxation</option>
+                <option>Adventure</option>
+            </select>
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+            <button type="submit" class="btn btn-success w-100">Filter</button>
+        </div>
+    </form>
 
-        let currentIndex = 0; // Vị trí hiện tại
-        const cardWidth = slider.querySelector('.card').offsetWidth + 15; // Chiều rộng mỗi thẻ (bao gồm khoảng cách)
-        const totalCards = slider.querySelectorAll('.card').length;
-        const cardsPerView = 4; // Số thẻ hiển thị trong 1 hàng
+    <!-- Danh sách tour -->
+    <div class="row">
+        <?php
+        // Kết nối cơ sở dữ liệu
+        $servername = "localhost";
+        $username = "root";
+        $password = "kimhien123";
+        $dbname = "travel";
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Khi nhấn nút Next (>)
-        btnNext.addEventListener('click', () => {
-            if (currentIndex < totalCards - cardsPerView) {
-                currentIndex++;
-                slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        if ($conn->connect_error) {
+            die("Kết nối thất bại: " . $conn->connect_error);
+        }
+
+        // Truy vấn danh sách tour
+        $sql = "SELECT t.tour_id, t.name, t.description, t.price, t.start_date, t.end_date, t.duration, t.type, ti.image_url, ti.caption 
+                FROM Tour t 
+                LEFT JOIN TourImage ti ON t.tour_id = ti.tour_id";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $imageHtml = '';
+                if ($row['image_url']) {
+                    $imageHtml = '<img src="' . $row['image_url'] . '" alt="' . htmlspecialchars($row['caption']) . '" class="img-fluid">';
+                }
+                echo '
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        ' . $imageHtml . '
+                        <div class="card-body">
+                            <h5 class="card-title">' . htmlspecialchars($row['name']) . '</h5>
+                            <p class="card-text">' . htmlspecialchars(substr($row['description'], 0, 100)) . '...</p>
+                            <p><strong>Giá:</strong> ' . number_format($row['price'], 0, '.', ',') . '₫</p>
+                            <p><strong>Loại:</strong> ' . htmlspecialchars($row['type']) . '</p>
+                            <a href="detail.php?tour_id=' . htmlspecialchars($row['tour_id']) . '" class="btn btn-primary">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>';
             }
-        });
+        } else {
+            echo "<p class='text-center'>Không có tour nào.</p>";
+        }
 
-    </script>
+        $conn->close();
+        ?>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

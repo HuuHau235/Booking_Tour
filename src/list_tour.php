@@ -32,7 +32,6 @@ $result = $conn->query($sql);
 </head>
 <body>
 <div class="container my-5">
-        <h2 class="text-center mb-4">List Tour</h2>
         <div class="row">
             <?php
             if ($result->num_rows > 0) {

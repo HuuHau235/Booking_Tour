@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,9 +28,9 @@
             color: #fff;
         }
 
-        .content {
+        /* .content {
             margin-left: 250px;
-        }
+        } */
 
         .filter-section {
             background: #f8f9fa;
@@ -42,7 +41,7 @@
 </head>
     <div class="d-flex">
         <!-- Main Content -->
-        <div class="content p-4">
+        <div class="content">
             <!-- Header -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>List Tours</h2>
@@ -80,15 +79,18 @@
                     <div class="col-md-3">
                         <label for="type" class="form-label">Type</label>
                         <select id="type" class="form-select">
-                            <option selected>Mạo Hiểm</option>
-                            <option>Nghỉ Dưỡng</option>
+                            <option selected>Exploration</option>
+                            <option>Relaxation</option>
+                            <option>Adventure</option>
                     </div>
                     <div class="col-md-3 d-flex align-items-end">
                         <button type="submit" class="btn btn-success w-100">Filter</button>
                     </div>
                 </form>
         </div>
-        </div>
+    </div>      
+    <div>
+        <p>sưqdfgfytfjrj</p>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
