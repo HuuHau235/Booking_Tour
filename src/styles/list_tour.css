@@ -1,3 +1,7 @@
+body{
+background-color: #5EA1A3 !important;
+    font-family: "Tinos", serif !important;
+}
 /* Đảm bảo rằng các card có cùng chiều cao */
 .card {
     display: flex;
@@ -70,13 +74,8 @@
 }
 
 /* Đảm bảo hình ảnh có thể hiển thị đúng */
-.img-fluid {
+.img-fluid{
     border-radius: 15px;
-    transition: transform 0.3s ease;
-}
-
-.img-fluid:hover {
-    transform: scale(1.05);
 }
 
 /* Đặt style cho container để có khoảng cách hợp lý */
@@ -93,11 +92,13 @@
 
 /* Đặt hiệu ứng xuất hiện cho các card */
 .card {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 0.6s forwards;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
 }
 
+.card:hover {
+    transform: scale(1.05);
+}
 @keyframes fadeIn {
     100% {
         opacity: 1;
