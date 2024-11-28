@@ -433,14 +433,12 @@
          </section>
     
          <!-- TRAVEL TRIP -->
-         <section class="features py-5" >
-            
+         <section class="features py-5" >          
             </div><div class="container">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <h2>TRAVEL TRIP</h2>
                   <a href="#" class="view-all">VIEW ALL ></a>
                 </div>
-          
               <div class="row g-4">
                 <div class="col-md-4">
                   <div class="card travel-card p-3 border-0">
@@ -559,8 +557,7 @@
                             <a href="#" class="btn btn-primary">Book now</a>
                           </div>
                         </div>
-                      </div>
-                  
+                      </div>               
             </div>
           </section>
           <link rel="stylesheet" href="footer.php">
