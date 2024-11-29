@@ -56,15 +56,11 @@
             exit();
         }
         
-        // Mã hóa mật khẩu
-        $hashed_password = md5($password);  // Có thể thay thế bằng password_hash() để an toàn hơn
-        
-        // Thực hiện chèn dữ liệu vào bảng User
-        $sql = "INSERT INTO User (name, email, password, phone, address, role) 
-                VALUES (?, ?, ?, ?, ?, 1)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssss", $name, $email, $hashed_password, $phone, $address);
-        $res = $stmt->execute();
+         // Chèn dữ liệu vào bảng users trong database
+        $sql = "INSERT INTO User (name, email, password, phone, address, role)
+        VALUES ('$name', '$email', md5('$password'), '$phone', '$address', 1)";
+        $res = mysqli_query($conn, $sql);
+
 
         // Nội dung của email sẽ gửi
         $subject = "Confirm Receipt of Successful Account Registration";
