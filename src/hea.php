@@ -22,92 +22,104 @@
 <body>
   <!-- Header -->
   <div class="header">
-    <!-- Navbar -->
+  <!-- Navigation Bar -->
+  <div class="navbar-section">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="custom-brand">
+            <img
+                class="brand-logo"
+                src="./images_blog/Logo.png"
+                alt="Gogo" />
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="list_tour.php">Tour</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Destination</a>
+              <a class="nav-link" href="#">Tour</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="blogs.php">Blog</a>
             </li>
+          </ul>
+          
+          <!-- Icon tài khoản bên phải -->
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-user" id="icon_user" aria-hidden="true"></i> <!-- Icon tài khoản -->
+                <i class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
               </a>
-          </li>
-         </ul>
+              <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="#" id="openRegisterBtn">Register</a></li>
+                <li><a class="dropdown-item" href="#" id="openLoginBtn">Log in</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
-  <h1 class="text12"> Spend your vocation<br> with our activities</h1>
-  <h1 class="text1"> Most popular</h1>
+  </div>
 
-  <div class="content">
-    <div class="card custom-card"
-style="width:200px;">
-  <img src="./images_blog/Ha_noi.png" class="card-img-top1" alt="...">
-  <div class="card-body">
-    <p class="card-text">Trip to Ha Noi.</p>
-    <p class="text-icon">
-  <i class="fa-solid fa-users icon-blue"></i> 30 People going
-</p>
+  <!-- Content Section -->
+  <div class="content-section">
+    <h1 class="text12">Spend your vocation<br> with our activities</h1>
+    <h1 class="text1">Most popular</h1>
+
+    <div class="content">
+      <div class="card custom-card" style="width:200px;">
+        <img src="./images_blog/Ha_noi.png" class="card-img-top1" alt="...">
+        <div class="card-body">
+          <p class="card-text">Trip to Ha Noi.</p>
+          <p class="text-icon">
+            <i class="fa-solid fa-users icon-blue"></i> 30 People going
+          </p>
+        </div>
+      </div>
+      <div class="card custom-card" style="width:200px;">
+        <img src="./images_blog/Đa_nang.jpg" class="card-img-top1" alt="...">
+        <div class="card-body">
+          <p class="card-text">Trip to Đà Nẵng</p>
+          <p class="text-icon">
+            <i class="fa-solid fa-users icon-blue"></i> 10 People going
+          </p>
+        </div>
+      </div>
+      <div class="card custom-card" style="width:200px;">
+        <img src="./images_blog/Nha_trang.png" class="card-img-top1" alt="...">
+        <div class="card-body">
+          <p class="card-text">Trip to Nha Trang</p>
+          <p class="text-icon">
+            <i class="fa-solid fa-users icon-blue"></i> 25 People going
+          </p>
+        </div>
+      </div>
     </div>
-</div>
-<div class="card custom-card"
-style="width:200px;">  
-<img src="./images_blog/Đa_nang.jpg" class="card-img-top1" alt="...">
-  <div class="card-body">
-    <p class="card-text">Trip to Đà Nẵng</p>
-    <p class="text-icon">
-  <i class="fa-solid fa-users icon-blue"></i> 10 People going
-</p>
-  </div>
-</div>
-<div class="card custom-card"
-style="width:200px;">
-  <img src="./images_blog/Nha_trang.png" class="card-img-top1" alt="...">
-  <div class="card-body">
-    <p class="card-text">Trip to Nha Trang </p>
-    <p class="text-icon">
-  <i class="fa-solid fa-users icon-blue"></i> 25 People going
-</p>
-  </div>
-</div>
-  </div>
-  <div class="search-bar">
-  <input type="text" placeholder="Search" class="search-input">
-  <select class="search-select">
+
+    <div class="search-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="Search">
+    <ul class="dropdown-menu" id="suggestionList" style="display: none">
+      <li><a class="dropdown-item" href="#">Hội An</a></li>
+      <li><a class="dropdown-item" href="#">Đà Nẵng</a></li>
+      <li><a class="dropdown-item" href="#">Huế</a></li>
+      <li><a class="dropdown-item" href="#">Đà Lạt</a></li>
+      <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+      <li><a class="dropdown-item" href="#">Quảng Bình</a></li>
+      <li><a class="dropdown-item" href="#">Nha Trang</a></li>
+      <li><a class="dropdown-item" href="#">Bắc Giang</a></li>
+    </ul>
+    <select class="search-select">
       <option>Activity</option>
       <option>Adventure</option>
       <option>Vacation</option>
       <option>Explore</option>
-    </select>
-    <select class="search-select">
-      <option>Destination</option>
-      <option>Hà Nội</option>
-      <option>Nha Trang</option>
-      <option>Đà Lạt</option>
-      <option>Bắc Giang</option>
-      <option>Hải Phòng</option>
-      <option>Quảng Bình</option>
-      <option>Huế</option>
-      <option>Đà Nẵng</option>
-      <option>TP.Hồ Chí Minh</option>
     </select>
     <select class="search-select">
       <option>Duration</option>
@@ -115,30 +127,59 @@ style="width:200px;">
       <option>2-4 Day Tour</option>
       <option>5-7 Day Tour</option>
       <option>7+ Day Tour</option>
-
     </select>
     <input type="date" class="search-input">
     <button class="search-button">Search</button>
   </div>
-  </div>
-  </div>
-  <script>
-    const clickIcon = document.getElementById('icon_user');
-    clickIcon.addEventListener('click', () => {
-    fetch('./user/check_login_status.php')
-      .then(response => response.json())
-      .then(data => {
-        if (data.logged_in) {
-          window.location.href = './user/update_info.php';
-        } else {
-          alert("Bạn chưa đăng nhập. Vui lòng đăng nhập trước khi thực hiện!");
-          window.location.href = './user/log_in.php';
-        }
-    })
-    .catch(error => {
-      console.error("Lỗi khi lấy trạng thái đăng nhập:", error);
-    });
+</div>
+
+<script>
+ const searchInput = document.getElementById('searchInput');
+const suggestionList = document.getElementById('suggestionList');
+const suggestions = suggestionList.querySelectorAll('.dropdown-item');
+
+// Hiển thị danh sách gợi ý khi focus
+searchInput.addEventListener('focus', function () {
+  updateSuggestions(); // Kiểm tra và cập nhật danh sách mỗi khi focus
+});
+
+// Lọc danh sách gợi ý khi nhập
+searchInput.addEventListener('input', function () {
+  updateSuggestions();
+});
+
+// Cập nhật danh sách gợi ý
+function updateSuggestions() {
+  const filter = searchInput.value.trim().toLowerCase();
+  let hasMatch = false;
+
+  suggestions.forEach((item) => {
+    if (item.textContent.toLowerCase().includes(filter)) {
+      item.style.display = 'block'; // Hiển thị mục phù hợp
+      hasMatch = true;
+    } else {
+      item.style.display = 'none'; // Ẩn mục không phù hợp
+    }
   });
-  </script>
+
+  // Ẩn danh sách nếu không có mục nào phù hợp
+  suggestionList.style.display = hasMatch ? 'block' : 'none';
+}
+
+// Ẩn danh sách khi nhấp ra ngoài
+document.addEventListener('click', function (event) {
+  if (!searchInput.contains(event.target) && !suggestionList.contains(event.target)) {
+    suggestionList.style.display = 'none';
+  }
+});
+
+// Xử lý sự kiện chọn gợi ý
+suggestionList.addEventListener('click', function (event) {
+  if (event.target.classList.contains('dropdown-item')) {
+    searchInput.value = event.target.textContent; // Điền vào ô tìm kiếm
+    suggestionList.style.display = 'none'; // Ẩn danh sách sau khi chọn
+  }
+});
+</script>
 </body>
 </html>
