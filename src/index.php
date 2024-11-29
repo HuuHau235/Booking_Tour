@@ -16,12 +16,12 @@
     </head>
     <body>
         <link rel="stylesheet" href="hea.php">
-
+        <?php include 'hea.php' ?>
         <!-- ABOUT US SECTION -->
         <section class="about-us py-5">
           <div class="container">
             <div class="row align-items-center">
-              <div class="col-lg-6 mb-4 mb-lg-0">
+              <div class="col-lg-6 mb-4 mb-lg-0 text-white">
                 <h2>ABOUT US</h2>
                 <p>We are an agency specializing in organizing quality tours, helping you discover the cultural, natural and human beauty of each destination. With a dedicated team and attentive service, we are committed to bringing you memorable, fulfilling and meaningful travel experiences.            </p>
                 <ul class="features-list list-unstyled">
@@ -49,7 +49,7 @@
         </section>
     
         <!-- FLASH DEAL SECTION -->
-        <section class="features py-5">
+        <section class="features py-5 text-white">
             <div class="container">
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>FLASH DEAL</h2>           
@@ -139,7 +139,7 @@
             </div>
           </section>
         <!-- WHY TRAVEL WITH TRAVEL -->
-        <section class="features py-5">
+        <section class="features py-5 text-white">
             <div class="container">
               <h2>WHY TRAVEL WITH TRAVEL</h2>
               <div class="row mt-4">
@@ -170,7 +170,7 @@
         <!-- POPULAR TOUR -->
         <section class="popular-tours py-5">
           <div class="container">
-            <h2>POPULAR TOUR</h2>
+            <h2 class="title text-white">POPULAR TOUR</h2>
             <div class="row g-4">
                 <!-- Card 1 -->
                 <div class="col-md-4 col-sm-6">
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn book-btn">Book Now</a>
+                                    <a href="#" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -214,7 +214,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn book-btn">Book Now</a>
+                                    <a href="#" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -238,7 +238,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn book-btn">Book Now</a>
+                                    <a href="#" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -263,7 +263,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn book-btn">Book Now</a>
+                                    <a href="#" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -287,7 +287,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn book-btn">Book Now</a>
+                                    <a href="#" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -311,7 +311,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn book-btn">Book Now</a>
+                                    <a href="#" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -325,7 +325,7 @@
         <!-- CHOOSE YOUR DESTINATIONS -->
          <section class="features py-5">
           <div class="container">
-            <h2>CHOOSE YOUR DESTINATIONS</h2>
+            <h2 class="title text-white">CHOOSE YOUR DESTINATIONS</h2>
             <div id="destinationCarousel" class="carousel slide" data-bs-ride="carousel">
                 <!-- Carousel items -->
                 <div class="carousel-inner">
@@ -434,15 +434,16 @@
          </section>
     
          <!-- TRAVEL TRIP -->
-         <section class="features py-5" >
-            
-            </div><div class="container">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h2>TRAVEL TRIP</h2>
-                  <a href="#" class="view-all">VIEW ALL ></a>
-                </div>
-          
+         <section class="features py-5">
+            <div class="container">
+              <!-- Header -->
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="title text-white">TRAVEL TRIP</h2>
+              </div>
+              
+              <!-- Cards Section -->
               <div class="row g-4">
+                <!-- Card 1 -->
                 <div class="col-md-4">
                   <div class="card travel-card p-3 border-0">
                     <img src="./assets/images/TamDao1.jpg" class="card-img-top rounded" alt="Tam Dao">
@@ -458,11 +459,12 @@
                       <p class="card-text text-muted">
                         Tam Dao - Vinh Phuc, is a cool-climate tourist spot with stunning mountains.
                       </p>
-                      <a href="#" class="btn btn-primary">Book now</a>
+                      <a href="#" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
-          
+                
+                <!-- Card 2 -->
                 <div class="col-md-4">
                   <div class="card travel-card p-3">
                     <img src="./assets/images/LySon.jpg" class="card-img-top rounded" alt="Ly Son">
@@ -478,11 +480,12 @@
                       <p class="card-text text-muted">
                         Ly Son - Quang Ngai, is famed for its pristine nature and clear beaches.
                       </p>
-                      <a href="#" class="btn btn-primary">Book now</a>
+                      <a href="#" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
-
+                
+                <!-- Card 3 -->
                 <div class="col-md-4">
                   <div class="card travel-card p-3">
                     <img src="assets/images/danang.png" class="card-img-top rounded" alt="Da Nang">
@@ -494,77 +497,84 @@
                           <i class="fa fa-share-alt"></i> 73 Shares
                         </small>
                       </p>
-                      <h5 class="card-title">Cau Vang - Da Nang</h5>
+                      <h5 class="card-title">CAU VANG - DA NANG</h5>
                       <p class="card-text text-muted">
                         Cau Vang, is famed for its pristine nature and clear beaches.
                       </p>
-                      <a href="#" class="btn btn-primary">Book now</a>
+                      <a href="#" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
-                  <div class="row g-4">
-                    <div class="col-md-4">
-                      <div class="card travel-card p-3 border-0">
-                        <img src="./assets/images/nhatrang.jpg" class="card-img-top rounded" alt="nhatrang">
-                        <div class="card-body">
-                          <p class="mb-2">
-                            <small>
-                              <i class="fa fa-calendar-day"></i> 25/12/2024 &nbsp;
-                              <i class="fa fa-comment"></i> 78 Comments &nbsp;
-                              <i class="fa fa-share-alt"></i> 43 Shares
-                            </small>
-                          </p>
-                          <h5 class="card-title">NHA TRANG - KHANH HOA</h5>
-                          <p class="card-text text-muted">
-                            Guests are free to swim and observe coral and marine life while snorkeling.
-                          </p>
-                          <a href="#" class="btn btn-primary">Book now</a>
-                        </div>
-                      </div>
+              </div>
+
+              <!-- Additional Row -->
+              <div class="row g-4 mt-4">
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                  <div class="card travel-card p-3 border-0">
+                    <img src="./assets/images/nhatrang.jpg" class="card-img-top rounded" alt="Nha Trang">
+                    <div class="card-body">
+                      <p class="mb-2">
+                        <small>
+                          <i class="fa fa-calendar-day"></i> 25/12/2024 &nbsp;
+                          <i class="fa fa-comment"></i> 78 Comments &nbsp;
+                          <i class="fa fa-share-alt"></i> 43 Shares
+                        </small>
+                      </p>
+                      <h5 class="card-title">NHA TRANG - KHANH HOA</h5>
+                      <p class="card-text text-muted">
+                        Guests are free to swim and observe coral and marine life while snorkeling.
+                      </p>
+                      <a href="#" class="btn">Book now</a>
                     </div>
-              
-                    <div class="col-md-4">
-                      <div class="card travel-card p-3">
-                        <img src="./assets/images/QuangBinh.jpg" class="card-img-top rounded" alt="QuangBinh">
-                        <div class="card-body">
-                          <p class="mb-2">
-                            <small>
-                              <i class="fa fa-calendar-day"></i> 15/12/2024 &nbsp;
-                              <i class="fa fa-comment"></i> 35 Comments &nbsp;
-                              <i class="fa fa-share-alt"></i> 93 Shares
-                            </small>
-                          </p>
-                          <h5 class="card-title">QUANG BINH</h5>
-                          <p class="card-text text-muted">
-                             Quang Binh is a coastal province in the south of the North Central Coast. 
-                          </p>
-                          <a href="#" class="btn btn-primary">Book now</a>
-                        </div>
-                      </div>
+                  </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                  <div class="card travel-card p-3">
+                    <img src="./assets/images/QuangBinh.jpg" class="card-img-top rounded" alt="Quang Binh">
+                    <div class="card-body">
+                      <p class="mb-2">
+                        <small>
+                          <i class="fa fa-calendar-day"></i> 15/12/2024 &nbsp;
+                          <i class="fa fa-comment"></i> 35 Comments &nbsp;
+                          <i class="fa fa-share-alt"></i> 93 Shares
+                        </small>
+                      </p>
+                      <h5 class="card-title">QUANG BINH</h5>
+                      <p class="card-text text-muted">
+                        Quang Binh is a coastal province in the south of the North Central Coast.
+                      </p>
+                      <a href="#" class="btn">Book now</a>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card travel-card p-3">
-                          <img src="./assets/images/SaPa.jpg" class="card-img-top rounded" alt="SaPa">
-                          <div class="card-body">
-                            <p class="mb-2">
-                              <small>
-                                <i class="fa fa-calendar-day"></i> 15/12/2024 &nbsp;
-                                <i class="fa fa-comment"></i> 38 Comments &nbsp;
-                                <i class="fa fa-share-alt"></i> 81 Shares
-                              </small>
-                            </p>
-                            <h5 class="card-title">SAPA</h5>
-                            <p class="card-text text-muted">
-                                Sa Pa (also spelled Sapa) is a town in Lao Cai province, Vietnam.
-                            </p>
-                            <a href="#" class="btn btn-primary">Book now</a>
-                          </div>
-                        </div>
-                      </div>
-                  
+                  </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                  <div class="card travel-card p-3">
+                    <img src="./assets/images/SaPa.jpg" class="card-img-top rounded" alt="SaPa">
+                    <div class="card-body">
+                      <p class="mb-2">
+                        <small>
+                          <i class="fa fa-calendar-day"></i> 15/12/2024 &nbsp;
+                          <i class="fa fa-comment"></i> 38 Comments &nbsp;
+                          <i class="fa fa-share-alt"></i> 81 Shares
+                        </small>
+                      </p>
+                      <h5 class="card-title">SAPA</h5>
+                      <p class="card-text text-muted">
+                        Sa Pa (also spelled Sapa) is a town in Lao Cai province, Vietnam.
+                      </p>
+                      <a href="#" class="btn">Book now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
-          <link rel="stylesheet" href="footer.php">
+          <?php include 'footer.php'?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       </body>
