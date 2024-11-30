@@ -2,10 +2,8 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "kimhien123";
+$password = "";
 $dbname = "HappyTrips";
-
-
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -53,8 +51,73 @@ while ($row = $itinerary_result->fetch_assoc()) {
     $itinerary[] = $row;
 }
 
+if (!$tour) {
+  echo "<p>Không tìm thấy tour. <a href='list_tour.php'>Quay lại danh sách tour</a></p>";
+  exit;
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['form_type'])) {
+      if ($_POST['form_type'] == 'review') {
+          // Xử lý form đánh giá
+          if (!isset($_SESSION['user_id'])) {
+              $loginMessage = "Bạn cần đăng nhập để đánh giá.";
+          } else {
+              $user_id = $_SESSION['user_id'];
+              $rating = intval($_POST['rating']);
+              $comment = htmlspecialchars($_POST['comment'], ENT_QUOTES, 'UTF-8');
 
-$stmt->close();
+              $stmt = $conn->prepare("INSERT INTO Review (tour_id, user_id, rating, comment) VALUES (?, ?, ?, ?)");
+              $stmt->bind_param("iiis", $tour_id, $user_id, $rating, $comment);
+
+              if ($stmt->execute()) {
+                  $successMessage = "Đánh giá đã được lưu thành công!";
+              } else {
+                  echo "Lỗi: " . $stmt->error;
+              }
+
+              $stmt->close();
+          }
+      } elseif ($_POST['form_type'] == 'booking') {
+          // Xử lý form đặt tour
+          $user_id = $_SESSION['user_id'] ?? 0;
+          $adults = (int) ($_POST['adults'] ?? 0);
+          $children = (int) ($_POST['children'] ?? 0);
+          $infants = (int) ($_POST['infants'] ?? 0);
+          $special_requests = trim($_POST['special_requests'] ?? '');
+
+          // Kiểm tra đăng nhập và các dữ liệu khác
+          if ($user_id <= 0) {
+              echo "<p>Vui lòng đăng nhập để đặt tour.</p>";
+              exit;
+          }
+
+          if ($adults < 1) {
+              echo "<p>Số người lớn phải ít nhất là 1.</p>";
+              exit;
+          }
+
+          $num_people = $adults + $children + $infants;
+
+          $sql = "INSERT INTO Booking (tour_id, user_id, num_people, special_requirements) VALUES (?, ?, ?, ?)";
+          $stmt = $conn->prepare($sql);
+          $stmt->bind_param("iiis", $tour_id, $user_id, $num_people, $special_requests);
+
+          if ($stmt->execute()) {
+              echo "<p></p>";
+          } else {
+              echo "<p>Đặt tour thất bại: " . $stmt->error . "</p>";
+          }
+      }
+  }
+}
+
+// Lấy tất cả đánh giá cho tour hiện tại
+$sql = "SELECT r.rating, r.comment, u.name FROM Review r JOIN User u ON r.user_id = u.user_id";
+$result = $conn->query($sql);
+if (!$result) {
+    die("Lỗi truy vấn lấy đánh giá: " . $conn->error);
+}
+
 $conn->close();
 ?>
 
@@ -71,10 +134,28 @@ $conn->close();
   <link rel="stylesheet" href="./styles/header_footer.css">
   <link rel="stylesheet" href="styles/detail.css">
 </head>
-<body>
-  <?php include('hea.php') ?>
-<div class="container my-5">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
 
+.main-content {
+    flex: 1;
+}
+
+footer {
+    background-color: #f1f1f1; /* Màu nền footer */
+    padding: 20px;
+    text-align: center;
+}
+
+</style>
+<body>
+<?php include('hea.php') ?>
+<div class="container my-5">
     <?php if (isset($tour))?>
       <div class="card mb-4">
         <div class="row g-0">
@@ -94,54 +175,21 @@ $conn->close();
                 <span class="text-danger fs-4 fw-bold"><?= number_format($tour['price'], 0, ',', '.') ?>₫</span>
               </div>
                 <button class="btn btn-danger w-100 mb-2" id="openForm">Send request</button>
-              <div id="requestForm" class="modal" style="display: none;">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                <div id="requestForm" class="modal" style="display: none;">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
                       <h4 class="modal-title">Ask for advice</h4>
                       <button type="button" class="btn-close" id="closeForm">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                    <form id="formRequest">
-                      <input type="hidden" id="tourId" value="1"> <!-- Thay giá trị tour_id bằng giá trị thật -->
-                      <input type="hidden" id="userId" value="1"> <!-- Thay giá trị user_id bằng ID người dùng đã đăng nhập -->
-
-                      <div class="row">
-                          <div class="col-md-6 mb-3">
-                            <h5><label for="startDate" class="form-label">Start Date:</label></h5>
-                            <input type="date" class="form-control" id="startDate" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <h5><label for="endDate" class="form-label">End Date:</label></h5>
-                            <input type="date" class="form-control" id="endDate" required>
-                        </div>
-                          <div class="col-md-6 mb-3">
-                            <h5><label for="departurePlace" class="form-label">Departure point:</label></h5>
-                            <select id="departurePlace" class="form-select" required>
-                            <option value="Hà Nội">Hà Nội</option>
-                            <option value="Hải Phòng">Hải Phòng</option>
-                            <option value="Bắc Giang">Bắc Giang</option>
-                            <option value="Đà Nẵng">Đà Nẵng</option>
-                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-                            <option value="Đà Lạt">Đà Lạt</option>
-                            <option value="Hạ Long">Hạ Long</option>
-                            <option value="Nha Trang">Nha Trang</option>
-                            <option value="Quảng Bình">Quảng Bình</option>
-                            <option value="Quảng Ngãi">Quảng Ngãi</option>
-                            <option value="Hội An">Hội An</option>
-                            <option value="Huế">Huế</option>
-                            <option value="Tam Đảo">Tam Đảo</option>
-                            <option value="Sài Gòn">Sài Gòn</option>
-                            <option value="Lý Sơn">Lý Sơn</option>
-                            <option value="Quy Nhơn">Quy Nhơn</option>
-                            <option value="Sa Pa">Sa Pa</option>
-                            </select>
-                          </div>
-                      </div>
+                  </div>
+                  <div class="modal-body">
+                      <!-- Form gửi yêu cầu đặt tour -->
+                  <form id="formRequest" method="POST">
+                  <input type="hidden" name="form_type" value="booking">
                       <div class="row">
                           <div class="col-md-4 mb-3">
                               <h5><label for="adults" class="form-label">Adult:</label></h5>
-                              <select id="adults" class="form-select">
+                              <select id="adults" class="form-select" name="adults">
                                   <option>1</option>
                                   <option>2</option>
                                   <option>3</option>
@@ -152,9 +200,10 @@ $conn->close();
                                   <option>8</option>
                               </select>
                           </div>
+
                           <div class="col-md-4 mb-3">
                               <h5><label for="children" class="form-label">Children (2-8):</label></h5>
-                              <select id="children" class="form-select">
+                              <select id="children" class="form-select" name="children">
                                   <option>0</option>
                                   <option>1</option>
                                   <option>2</option>
@@ -166,32 +215,21 @@ $conn->close();
                                   <option>8</option>
                               </select>
                           </div>
+
                           <div class="col-md-4 mb-3">
                               <h5><label for="infants" class="form-label">Baby (&lt;2):</label></h5>
-                              <select id="infants" class="form-select">
+                              <select id="infants" class="form-select" name="infants">
                                   <option>0</option>
                                   <option>1</option>
                               </select>
                           </div>
                       </div>
-                      <div class="row">
-                          <div class="col-md-6 mb-3">
-                              <h5><label for="name" class="form-label">Name:</label></h5>
-                              <input type="text" class="form-control" id="name" required>
-                          </div>
-                          <div class="col-md-6 mb-3">
-                              <h5><label for="phone" class="form-label">Phone number:</label></h5>
-                              <input type="tel" class="form-control" id="phone" required>
-                          </div>
-                          <div class="col-md-6 mb-3">
-                              <h5><label for="email" class="form-label">Email:</label></h5>
-                              <input type="email" class="form-control" id="email" required>
-                          </div>
-                      </div>
+
                       <div class="mb-3">
-                          <h5><label for="specialRequests" class="form-label">Special requirements:</label></h5>
-                          <textarea class="form-control" id="specialRequests" rows="3"></textarea>
+                          <h5><label for="special_requests" class="form-label">Special requirements:</label></h5>
+                          <textarea class="form-control" id="special_requests" name="special_requests" rows="3"></textarea>
                       </div>
+
                       <button type="submit" class="btn btn-primary w-100">Send request</button>
                   </form>
                   </div>
@@ -201,8 +239,8 @@ $conn->close();
           </div>
         </div>
       </div>
-    </div>     
-    <ul class="nav nav-tabs">
+    </div>           
+     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link" href="#gioi-thieu">Introduce</a>
       </li>
@@ -297,6 +335,7 @@ $conn->close();
     <?php include 'review.php'; ?>
     <?php include 'similar_tour.php'; ?>
     <?php include 'footer.php'; ?>
+
 <script src="js/detail.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
