@@ -37,11 +37,6 @@
     /* Màu viền nút toggle */
 }
 
-.navbar-toggler-icon {
-    /* background-color: white; */
-    /* Màu biểu tượng toggle */
-}
-
 .card-container {
     display: flex;
     justify-content: center;
