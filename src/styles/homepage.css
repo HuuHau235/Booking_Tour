@@ -4,27 +4,22 @@ body {
     color: white;
     font-size: 18px;
 }
-
 .features-list {
-    display: flex;
-    flex-wrap: wrap;
-    /* Cho phép các mục xuống dòng khi cần thiết */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    /* Khoảng cách giữa các mục */
     padding: 0;
 }
-
 .features-list i {
     margin-right: 10px;
-    /* Khoảng cách giữa icon và text */
     font-size: 20px;
-    /* Đảm bảo kích thước biểu tượng không quá nhỏ */
     color: white;
 }
-
-
+.features-list list-unstyled{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 /* FLASH DEAL */
-
 .price-badge {
     position: absolute;
     top: 10px;
@@ -35,30 +30,21 @@ body {
     border-radius: 5px;
     font-size: 14px;
 }
-
-
-/* .features-list i {
-color: #0d6efd;
-margin-right: 8px;
-} */
-
 .view-all {
     color: #0d6efd;
     font-weight: bold;
     text-decoration: none;
 }
-
 .view-all:hover {
     text-decoration: underline;
 }
-
 .card {
-    position: relative;
-    margin-right: 1rem;
-    gap: 15px;
-    margin: 10px;
-}
+position: relative;
+margin-right: 1rem;
+gap: 15px;
+margin: 10px;
 
+}
 .card-img-over {
     position: absolute;
     bottom: 0;
@@ -67,18 +53,19 @@ margin-right: 8px;
     padding: 10px;
     border-radius: 5px;
 }
-
-
+.card {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+}
 /* WHY TRAVEL WITH TRAVEL */
-
 .feature-icon img {
     height: 100px;
     object-fit: cover;
 }
-
-
 /* POPULAR TOUR */
-
 .hot-tour {
     position: absolute;
     top: 10px;
@@ -90,61 +77,30 @@ margin-right: 8px;
     padding: 5px 10px;
     border-radius: 5px;
 }
-
 .price {
     color: #00bcd4;
     font-weight: bold;
 }
-
-.book-btn {
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 15px;
-}
-
-.book-btn:hover {
-    background-color: #f57c00;
-}
-
 .card-img-top {
     object-fit: cover;
     height: 200px;
 }
-
 .text-warning {
     width: 50px;
     height: 50px;
 }
-
-
 /* CHOOSE YOUR DESTINATIONS */
-
 .card-body1 {
     position: absolute;
     bottom: 0;
     left: 5px;
     color: white;
 }
-
 .slider {
     height: 388px;
     object-fit: cover;
 }
-
-.tour {
-    right: 0;
-}
-
-
 /* <!-- TRAVEL TRIP --> */
-
-.item {
-    position: relative;
-    background-image: url(./assets/images/SaPa.jpg);
-}
-
 .card-body2 {
     position: absolute;
     background-color: white;
@@ -155,7 +111,6 @@ margin-right: 8px;
     left: 30px;
     transform: translate(-50%, -50%);
 }
-
 .card1 {
     border: 1px solid black;
     border-radius: 10px;
@@ -164,7 +119,6 @@ margin-right: 8px;
     text-align: center;
     margin: 20px auto;
 }
-
 .form-control {
     width: 150px;
     border: 1px solid black;
@@ -175,15 +129,22 @@ margin-right: 8px;
     text-align: center;
     font-size: 1rem;
 }
-
 .card-title1 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
-
 .card-text1 {
     font-size: 1rem;
     color: #333;
     margin-bottom: 20px;
+}
+.btn{
+    background-color: #ff9800 !important;
+    color: white !important;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+.btn:hover {
+    background-color: #f57c00 !important;
 }
