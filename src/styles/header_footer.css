@@ -1,21 +1,18 @@
 .header {
+    
     background-image: url("../images_blog/image.png");
     background-size: cover;
     /* Căn chỉnh kích thước ảnh */
     background-position: center;
     /* Căn giữa ảnh */
-    height: 650px;
+    height: 690px;
     /* Chiều cao tàn màn hình */
     color: white;
     font-family: "Tinos", serif;
+    padding-top: 10px;
+    padding-bottom: 100px;
 }
 
-.navbar {
-    /* background-color: transparent !important; */
-    /* Làm trong suốt hoàn toàn */
-    box-shadow: none;
-    /* Loại bỏ bóng */
-}
 
 .navbar .nav-link {
     color: white !important;
@@ -25,10 +22,10 @@
     /* Hiệu ứng khi hover */
     font-size: 26px;
     margin-right: 15px;
+    margin-top: 10px;
 }
-
 .navbar .nav-link:hover {
-    color: red !important;
+    color: orangered!important;
     /* Màu vàng khi hover */
 }
 
@@ -36,6 +33,64 @@
     border-color: white;
     /* Màu viền nút toggle */
 }
+
+
+
+  /* Căn chỉnh logo */
+ .custom-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Thay bằng 'flex-start' hoặc 'flex-end' nếu muốn đổi vị trí */
+}
+
+.brand-logo {
+    width: 210px; /* Điều chỉnh kích thước logo */
+    height: auto;
+    margin-top: 18px;
+}
+
+.custom-brand img:hover {
+    transform: scale(1.2); /* Phóng to logo 20% */
+    transition: transform 0.3s ease; /* Hiệu ứng mượt mà */
+  }
+
+/* Thanh điều hướng */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Thay bằng 'space-between' nếu muốn khoảng cách đều */
+}
+
+.navbar {
+  background-color: #5EA1A3;
+    height: 100px;
+    padding-top:  4px;
+    width: 100%;
+    position: fixed; /* Đảm bảo navbar không bị cuộn */
+    top: 0; /* Gắn navbar ở đầu trang */
+    left: 0; /* Vị trí bên trái */
+    z-index: 900; /* Đảm bảo navbar nằm trên tất cả các phần tử khác */
+    margin-bottom: 20px;
+    
+}
+
+.content-section {
+  margin-top: 120px; /* Thêm khoảng cách lớn hơn nếu cần */
+  margin-bottom: 30px;
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar-toggler {
+    border: none;
+    color: #fff;
+}
+
+/* Icon tài khoản */
+.navbar-nav.ms-auto {
+    margin-left: auto;
+}
+
 
 .card-container {
     display: flex;
@@ -88,7 +143,7 @@
 }
 
 .text1 {
-    margin-top: 20px;
+    margin-top: 30px;
     /* Giảm khoảng cách phía trên */
     font-size: 40px;
     /* Tùy chỉnh kích thước chữ */
@@ -96,7 +151,7 @@
 }
 
 .text12 {
-    margin-top: 15px;
+    margin-top: 30px;
     /* Giảm khoảng cách phía trên */
     font-size: 45px;
     /* Tùy chỉnh kích thước chữ */
@@ -237,11 +292,7 @@ dropdown-menu li {
 }
 
 .dropdown-menu li a:hover {
-    color: red;
-    /* Chữ màu vàng */
-    background-color: #e0e0e0;
-    /* Cam nhạt */
-    transition: background-color 0.3s, color 0.3s;
+    color:orangered;
 }
 
 
@@ -249,6 +300,32 @@ dropdown-menu li {
 
 .nav-item:hover .dropdown-menu {
     display: block;
+}
+
+
+  #suggestionList {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 260px;
+  /* Đảm bảo danh sách gợi ý có chiều rộng khớp với ô input */
+  max-height: 200px;
+  /* Giới hạn chiều cao nếu danh sách quá dài */
+  overflow-y: auto;
+  /* Thêm cuộn nếu danh sách dài */
+  margin-top: 50px;
+  margin-right: 1000px;
+}
+
+#suggestionList .dropdown-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}  va cai nay body {
+  background-color: #5EA1A3 !important;
+  font-family: "Tinos", serif !important;
+  color: white;
+  font-size: 18px;
 }
 
 
@@ -323,7 +400,7 @@ body {
 }
 
 .footer .box a:hover {
-    color: red;
+    color: orangered;
 }
 
 
