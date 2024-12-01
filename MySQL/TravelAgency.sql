@@ -1,6 +1,6 @@
 drop database if exists HappyTrips;
-create database travel;
-use travel;
+create database HappyTrips;
+use HappyTrips;
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
@@ -608,10 +608,8 @@ CREATE TABLE Booking (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
     tour_id INT NOT NULL, 
     user_id INT NOT NULL,
-    booking_date DATE NOT NULL,
-    travel_date DATE NOT NULL,
     num_people INT NOT NULL,
-    status ENUM('pending', 'confirmed', 'canceled') NOT NULL,
+	Special requirements varchar(100),
     FOREIGN KEY (tour_id) REFERENCES Tour(tour_id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE 
 );
