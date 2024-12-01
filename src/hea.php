@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
@@ -43,12 +47,8 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
+                  <i class="fa fa-user" id="icon_user" aria-hidden="true"></i> <!-- Icon tài khoản -->
               </a>
-              <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                  <li><a class="dropdown-item" href="#" id="openRegisterBtn">Register</a></li>
-                  <li><a class="dropdown-item" href="#" id="openLoginBtn">Log in</a></li>
-              </ul>
           </li>
          </ul>
         </div>
@@ -122,5 +122,23 @@ style="width:200px;">
   </div>
   </div>
   </div>
+  <script>
+    const clickIcon = document.getElementById('icon_user');
+    clickIcon.addEventListener('click', () => {
+    fetch('./user/check_login_status.php')
+      .then(response => response.json())
+      .then(data => {
+        if (data.logged_in) {
+          window.location.href = './user/update_info.php';
+        } else {
+          alert("Bạn chưa đăng nhập. Vui lòng đăng nhập trước khi thực hiện!");
+          window.location.href = './user/log_in.php';
+        }
+    })
+    .catch(error => {
+      console.error("Lỗi khi lấy trạng thái đăng nhập:", error);
+    });
+  });
+  </script>
 </body>
 </html>
