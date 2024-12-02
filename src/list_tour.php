@@ -162,8 +162,8 @@ $tours = getTours($conn, $filters);
         // Kết nối cơ sở dữ liệu
         $servername = "localhost";
         $username = "root";
-        $password = "kimhien123";
-        $dbname = "travel";
+        $password = "";
+        $dbname = "HappyTrips";
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         if ($conn->connect_error) {
