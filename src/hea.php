@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
   <title>Navbar Inside Header</title>
-  <link rel="stylesheet" href="./styles/header_footer.css">
+  <link rel="stylesheet" href="./styles/header.css">
 </head>
 <body>
   <!-- Header -->
@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
@@ -44,7 +44,7 @@
               <a class="nav-link" href="#">Tour</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blogs.php">Blog</a>
+              <a class="nav-link" href="index_blog.php">Blog</a>
             </li>
           </ul>
           

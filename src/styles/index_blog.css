@@ -1,0 +1,132 @@
+      /* Header Blogs */
+      .header_blogs {
+        background-image: url("../images/blogs_header.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 600px;
+        color: white;
+        font-family: "Tinos", serif !important;
+        padding-top: 10px; 
+        margin-bottom: 100px; 
+    }
+
+    .navbar {
+        background-color: transparent !important;
+        box-shadow: none;
+    }
+
+    .navbar .nav-link {
+        color: white !important;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        font-size: 26px;
+        margin-right: 20px;
+    }
+
+    .navbar .nav-link:hover {
+        color: orangered!important;
+    }
+
+    .navbar-toggler {
+        border-color: white;
+    }
+
+    .navbar-toggler-icon {
+        background-color: white;
+    }
+
+    .card {
+        margin-bottom: 20px; 
+    }
+
+    .card-img-top {
+        cursor: pointer; 
+        height: 260px;
+    }
+
+    .btn {
+        font-size: 15;
+        background-color: orange;
+        border: #fff;
+        font-size: 18px;
+    }
+
+    .btn:hover {
+        background-color: orangered;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .text {
+        font-size: 85px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 150px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-text {
+        font-size: 18px;
+        color: #555;
+    }
+    .card-author {
+        margin-left:280px;
+        font-size: 18px;
+        color:red;
+    }
+
+    .navbar .nav-item.dropdown .dropdown-toggle::after {
+        display: none; 
+    }
+
+    .navbar .nav-item.dropdown .dropdown-menu {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        border: none; 
+    }
+
+    .dropdown-menu { 
+        display: none;
+        position: absolute;
+        right: -10px;
+        background-color: #fff;
+        list-style: none;
+        width: 180px;
+    }
+
+    .dropdown-menu li {
+        padding: 5px;
+        margin-right: 18px;
+    }
+
+    .dropdown-menu li a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #333;
+        display: block;
+        transition: color 0.3s, background-color 0.3s;
+    }
+
+    .dropdown-menu li a:hover {
+        color: orangered; 
+        background-color: #e0e0e0; 
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-item:hover .dropdown-menu {
+        display: block;
+    } 
