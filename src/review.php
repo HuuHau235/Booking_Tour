@@ -9,7 +9,6 @@ if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
 
-// Kiểm tra tour_id từ URL
 if (isset($_GET['tour_id']) && is_numeric($_GET['tour_id'])) {
     $tour_id = intval($_GET['tour_id']);
     $checkTourSQL = "SELECT tour_id FROM Tour WHERE tour_id = $tour_id";
@@ -32,25 +31,19 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>HappyTrips</title>
     <style>
-        /* Ẩn phần đánh giá khi mới tải trang */
         .reviews-list {
             display: none;
         }
     </style>
 </head>
 <body>
+<section id="nhan-xet">
 <div class="container my-5">
     <h2>Đánh giá Tour</h2>
-
-    <!-- Hiển thị thông báo thành công nếu có -->
     <?php if ($successMessage): ?>
         <div class="alert alert-success"><?php echo htmlspecialchars($successMessage); ?></div>
     <?php endif; ?>
-
-    <!-- Nút xem tất cả đánh giá -->
     <button id="showReviewsButton" class="btn btn-primary mb-3">Ẩn tất cả đánh giá</button>
-
-    <!-- Danh sách đánh giá -->
     <ul class="list-group mb-3 reviews-list" id="reviewsList">
         <?php if ($result && $result->num_rows > 0): ?>
             <?php while ($row = $result->fetch_assoc()): ?>
@@ -64,9 +57,8 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
             <li class="list-group-item">Chưa có đánh giá nào!</li>
         <?php endif; ?>
     </ul>
-<!-- Form gửi đánh giá -->
 <form method="POST">
-    <input type="hidden" name="form_type" value="review"> <!-- Thêm hidden field để phân biệt -->
+    <input type="hidden" name="form_type" value="review">
     <div class="mb-3">
         <label for="reviewRating" class="form-label">Xếp hạng:</label>
         <select class="form-select" id="reviewRating" name="rating" required>
@@ -85,18 +77,16 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
     <button type="submit" class="btn btn-success">Gửi đánh giá</button>
 </form>
 </div>
-
+</section>
 <script>
-    // Lắng nghe sự kiện nhấn nút "Xem tất cả đánh giá"
     document.getElementById('showReviewsButton').addEventListener('click', function() {
         var reviewsList = document.getElementById('reviewsList');
-        // Kiểm tra nếu danh sách đánh giá đang ẩn, thì hiển thị
         if (reviewsList.style.display === 'none' || reviewsList.style.display === '') {
             reviewsList.style.display = 'block';
-            this.textContent = 'Ẩn tất cả đánh giá'; // Đổi tên nút thành "Ẩn tất cả đánh giá"
+            this.textContent = 'Ẩn tất cả đánh giá'; 
         } else {
             reviewsList.style.display = 'none';
-            this.textContent = 'Xem tất cả đánh giá'; // Đổi tên nút thành "Xem tất cả đánh giá"
+            this.textContent = 'Xem tất cả đánh giá'; 
         }
     });
 </script>
