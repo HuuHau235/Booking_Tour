@@ -54,8 +54,8 @@
                 <i class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
               </a>
               <ul class="dropdown-menu" aria-labelledby="userDropdown">
-<li><a class="dropdown-item" href="#" id="openRegisterBtn">Register</a></li>
-                <li><a class="dropdown-item" href="#" id="openLoginBtn">Log in</a></li>
+                <li><a class="dropdown-item" href="user/register.php" id="openRegisterBtn">Register</a></li>
+                <li><a class="dropdown-item" href="user/log_in.php" id="openLoginBtn">Log in</a></li>
               </ul>
             </li>
           </ul>
