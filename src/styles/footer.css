@@ -1,0 +1,116 @@
+/* css footer */
+
+body {
+    font-family: "Tinos", serif !important;
+}
+
+.footer {
+    background-color: #D9D9D9;
+    color: black;
+    text-align: center;
+    font-family: "Tinos", serif !important;
+}
+
+.footer .box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin-left: 170px;
+}
+
+.footer .box {
+    width: 22%;
+    text-align: left;
+    margin-right: 11px;
+}
+
+.footer .box h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: black;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.footer .box p {
+    display: flex;
+    align-items: center;
+    /* Căn giữa icon và văn bản */
+    font-size: 20px;
+    margin: 10px 0;
+    /* Thêm khoảng cách giữa các dòng */
+}
+
+.footer .box p i {
+    font-size: 18px;
+    /* Kích thước icon */
+    color: #5EA1A3;
+    /* Màu xanh của icon */
+    margin-right: 10px;
+    /* Khoảng cách giữa icon và văn bản */
+}
+
+.footer .box a {
+    color: black;
+    text-decoration: none;
+    font-size: 21px;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer .box ul li {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer .box a:hover {
+    color: orangered;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .footer .box-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer .box {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+.footer-content {
+    display: flex;
+    background-color: #5EA1A3;
+    height: 55px;
+    padding: 0 20px;
+    /* Khoảng cách hai bên */
+    color: white;
+    /* Màu chữ */
+    font-size: 15px;
+    /* Kích thước chữ */
+}
+
+.social-section {
+    margin-left: 750px;
+    padding: 15px;
+}
+
+.footer-content span {
+    font-size: 18px;
+    /* Kích thước chữ */
+    padding: 15px;
+    margin-left: 35px;
+}
+
+.footer-content i {
+    color: white;
+    padding-right: 10px;
+}
