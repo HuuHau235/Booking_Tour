@@ -1,5 +1,7 @@
 <?php
 $servername = "localhost";
+
+// Kết nối cơ sở dữ liệu
 $username = "root";
 $password = "";
 $dbname = "HappyTrips";
