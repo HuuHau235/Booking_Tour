@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("formRequest").addEventListener("submit", (e) => {
-      alert("Yêu cầu đã được gửi. Chúng tôi sẽ liên hệ với bạn sớm nhất!");
+      alert("Yêu cầu đã được gửi!");
       requestFormModal.style.display = "none"; 
     });
 });
