@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
 
 $tour_id = isset($_GET['tour_id']) ? $_GET['tour_id'] : 0;
 
-$sql = "SELECT t.tour_id, t.name, t.description, t.price, t.duration, t.start_date, t.type, ti.image_url
+$sql = "SELECT t.tour_id, t.name, t.description, t.price, t.duration, t.end_date, t.start_date, t.type, ti.image_url
         FROM Tour t
         JOIN TourImage ti ON t.tour_id = ti.tour_id
         WHERE t.tour_id = ?";
@@ -58,7 +58,6 @@ if (!$tour) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['form_type'])) {
       if ($_POST['form_type'] == 'review') {
-          // Xử lý form đánh giá
           if (!isset($_SESSION['user_id'])) {
               $loginMessage = "Bạn cần đăng nhập để đánh giá.";
           } else {
@@ -78,14 +77,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               $stmt->close();
           }
       } elseif ($_POST['form_type'] == 'booking') {
-          // Xử lý form đặt tour
           $user_id = $_SESSION['user_id'] ?? 0;
           $adults = (int) ($_POST['adults'] ?? 0);
           $children = (int) ($_POST['children'] ?? 0);
           $infants = (int) ($_POST['infants'] ?? 0);
           $special_requests = trim($_POST['special_requests'] ?? '');
 
-          // Kiểm tra đăng nhập và các dữ liệu khác
           if ($user_id <= 0) {
               echo "<p>Vui lòng đăng nhập để đặt tour.</p>";
               exit;
@@ -111,7 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-// Lấy tất cả đánh giá cho tour hiện tại
 $sql = "SELECT r.rating, r.comment, u.name FROM Review r JOIN User u ON r.user_id = u.user_id";
 $result = $conn->query($sql);
 if (!$result) {
@@ -134,25 +130,33 @@ $conn->close();
   <link rel="stylesheet" href="./styles/header_footer.css">
   <link rel="stylesheet" href="styles/detail.css">
 </head>
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
 
-.main-content {
-    flex: 1;
-}
+    .main-content {
+        flex: 1;
+    }
 
-footer {
-    background-color: #f1f1f1; /* Màu nền footer */
-    padding: 20px;
-    text-align: center;
-}
-
-</style>
+    footer {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+    }
+    ul {
+        list-style: none; 
+        padding: 0;
+    }
+    ul li {
+        font-size: 16px;
+        color: black; 
+        margin: 10px 0;
+    }
+    </style>
 <body>
 <?php include('hea.php') ?>
 <div class="container my-5">
@@ -168,7 +172,8 @@ footer {
               <p class="card-text"><?= $tour['description'] ?></p>
               <ul class="list-unstyled my-3">
                 <li><i class="bi bi-clock"></i> <strong>Time:</strong> <?= $tour['duration'] ?> date</li>
-                <li><i class="bi bi-calendar"></i> <strong>Depart:</strong> <?= $tour['start_date'] ?></li>
+                <li><i class="bi bi-calendar"></i> <strong>Start:</strong> <?= $tour['start_date'] ?></li>
+                <li><i class="bi bi-calendar"></i> <strong>End:</strong> <?= $tour['end_date'] ?></li>
                 <li><i class="bi bi-geo-alt"></i> <strong>Type:</strong> <?= $tour['type'] ?></li>
               </ul>
               <div class="mb-3">
@@ -183,8 +188,8 @@ footer {
                       <button type="button" class="btn-close" id="closeForm">&times;</button>
                   </div>
                   <div class="modal-body">
-                      <!-- Form gửi yêu cầu đặt tour -->
-                  <form id="formRequest" method="POST">
+                    <!-- dd -->
+                  <form id="formRequest" method="POST"> 
                   <input type="hidden" name="form_type" value="booking">
                       <div class="row">
                           <div class="col-md-4 mb-3">
@@ -259,7 +264,7 @@ footer {
     </ul>
     <div class="tab-content mt-4" id="tourTabsContent">
       <div class="tab-pane fade show active" id="gioi-thieu" role="tabpanel" aria-labelledby="gioi-thieu-tab">
-        <h6 class="fw-bold">Highlightst</h6>
+        <h2>Highlightst</h2>
         <ul>
           <li>✅ Tours are designed to provide experiences that match travelers' preferences, from exploring nature and relaxing to learning about culture and history.</li>
           <li>✅ Includes dedicated tour guides, comfortable transportation, and engaging activities at the destinations.</li>

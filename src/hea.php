@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +13,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
   <title>Navbar Inside Header</title>
-  <link rel="stylesheet" href="./styles/header_footer.css">
+  <link rel="stylesheet" href="./styles/header.css">
 </head>
 <body>
   <!-- Header -->
-  <div class="header">
+  <div id="header">
   <!-- Navigation Bar -->
   <div class="navbar-section">
     <nav class="navbar navbar-expand-lg">
@@ -35,16 +34,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tour</a>
+              <a class="nav-link" href="list_tour.php">Tour</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blogs.php">Blog</a>
+              <a class="nav-link" href="index_blog.php">Blog</a>
             </li>
           </ul>
           
@@ -55,8 +54,8 @@
                 <i class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
               </a>
               <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="#" id="openRegisterBtn">Register</a></li>
-                <li><a class="dropdown-item" href="#" id="openLoginBtn">Log in</a></li>
+                <li><a class="dropdown-item" href="user/register.php" id="openRegisterBtn">Register</a></li>
+                <li><a class="dropdown-item" href="user/log_in.php" id="openLoginBtn">Log in</a></li>
               </ul>
             </li>
           </ul>
@@ -70,11 +69,11 @@
     <h1 class="text12">Spend your vocation<br> with our activities</h1>
     <h1 class="text1">Most popular</h1>
 
-    <div class="content">
+    <div id="trip-page">
       <div class="card custom-card" style="width:200px;">
         <img src="./images_blog/Ha_noi.png" class="card-img-top1" alt="...">
-        <div class="card-body">
-          <p class="card-text">Trip to Ha Noi.</p>
+        <div class="trip-body">
+          <p class="trip-text">Trip to Ha Noi.</p>
           <p class="text-icon">
             <i class="fa-solid fa-users icon-blue"></i> 30 People going
           </p>
@@ -82,8 +81,8 @@
       </div>
       <div class="card custom-card" style="width:200px;">
         <img src="./images_blog/Đa_nang.jpg" class="card-img-top1" alt="...">
-        <div class="card-body">
-          <p class="card-text">Trip to Đà Nẵng</p>
+        <div class="trip-body">
+          <p class="trip-text">Trip to Đà Nẵng</p>
           <p class="text-icon">
             <i class="fa-solid fa-users icon-blue"></i> 10 People going
           </p>
@@ -91,8 +90,8 @@
       </div>
       <div class="card custom-card" style="width:200px;">
         <img src="./images_blog/Nha_trang.png" class="card-img-top1" alt="...">
-        <div class="card-body">
-          <p class="card-text">Trip to Nha Trang</p>
+        <div class="trip-body">
+          <p class="trip-text">Trip to Nha Trang</p>
           <p class="text-icon">
             <i class="fa-solid fa-users icon-blue"></i> 25 People going
           </p>
@@ -100,7 +99,7 @@
       </div>
     </div>
 
-    <div class="search-bar">
+  <div id="search-bar">
     <input type="text" class="search-input" id="searchInput" placeholder="Search">
     <ul class="dropdown-menu" id="suggestionList" style="display: none">
       <li><a class="dropdown-item" href="#">Hội An</a></li>
