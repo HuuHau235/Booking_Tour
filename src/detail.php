@@ -189,7 +189,7 @@ $conn->close();
                   </div>
                   <div class="modal-body">
                     <!-- dd -->
-                  <form action="payment_information.php" id="formRequest" method="POST"> 
+                  <form id="formRequest" method="POST"> 
                   <input type="hidden" name="form_type" value="booking">
                       <div class="row">
                           <div class="col-md-4 mb-3">

@@ -617,11 +617,11 @@ CREATE TABLE Booking (
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE Payment (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
+	user_id INT NOT NULL,
     booking_id INT NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
-    payment_date DATE NOT NULL,
-    payment_method ENUM('tiền mặt', 'chuyển khoản') NOT NULL,
-    FOREIGN KEY (booking_id) REFERENCES Booking(booking_id) ON DELETE CASCADE
+    payment_method varchar(50) NULL,
+    FOREIGN KEY (booking_id) REFERENCES Booking(booking_id) ON DELETE CASCADE,
+	FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 -- 1. Tạo bảng blogs

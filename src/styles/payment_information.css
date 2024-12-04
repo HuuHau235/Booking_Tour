@@ -32,6 +32,7 @@ body {
     border-top-right-radius: 10px;
     width: 100%;
     height: 330px;
+    object-fit: center;
 }
 .card-header{
     background-color: #5EA1A3;
