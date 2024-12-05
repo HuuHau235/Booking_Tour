@@ -10,9 +10,7 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `admin` VALUES (1,'hau','hau12345');
-
-DROP TABLE IF EXISTS `tour`;
+INSERT INTO `admin` (username, password) VALUES ('kinle2005@gmail.com', MD5('king12345'));
 
 -- Tạo bảng Tour
 DROP TABLE IF EXISTS `tour`;
@@ -28,31 +26,31 @@ CREATE TABLE Tour (
 );
 
 INSERT INTO `Tour` VALUES 
-(1, 'The Breath of Tam Dao', 'Magnificent mountain scenery in Tam Dao.', 100.00, '2023-05-01', '2023-05-05', 5, 'adventure'), 
-(2, 'Journey to Tay Yen', 'Experience the culture of Tay Yen Tu Pagoda and the nature of Bac Giang.', 200.00, '2023-05-06', '2023-05-10', 7, 'exploration'), 
-(3, 'Da Lat Fragrance', 'Discover the famous landmarks of dreamy Da Lat city.', 150.00, '2023-05-11', '2023-05-15', 6, 'exploration'), 
-(4, 'Xuan Huong Serenade', 'The dreamy city of Da Lat with Xuan Huong Lake.', 300.00, '2023-05-16', '2023-05-20', 8, 'relaxation'), 
-(5, 'Red Dragon Da Nang', 'The brilliant Dragon Bridge in Da Nang.', 250.00, '2023-05-21', '2023-05-25', 4, 'exploration'), 
-(6, 'Golden in the Sky', 'The majestic Golden Bridge in Da Nang.', 180.00, '2023-05-26', '2023-05-30', 6, 'exploration'), 
-(7, 'Eo Gio Adventure', 'An adventurous journey to Eo Gio – a pristine destination in Quy Nhon.', 220.00, '2023-05-31', '2023-06-04', 7, 'adventure'), 
-(8, 'The Roof of Indochina', 'Fansipan Summit – the Roof of Indochina.', 190.00, '2023-06-05', '2023-06-09', 5, 'adventure'), 
-(9, 'Vibrant Hai Phong', 'Hai Phong – A dynamic port city.', 280.00, '2023-06-10', '2023-06-14', 8, 'exploration'), 
-(10, 'Ha Long Wonder', 'Ha Long Bay – A world natural heritage site.', 160.00, '2023-06-15', '2023-06-19', 6, 'exploration'), 
-(11, 'Mysterious Long Cave', 'Explore the magnificent caves in Ha Long.', 240.00, '2023-06-20', '2023-06-24', 7, 'adventure'), 
-(12, 'Ancient Thang Long', 'Hoan Kiem Lake, one of the most famous landmarks and symbols of Hanoi, Vietnam.', 190.00, '2023-06-25', '2023-06-29', 5, 'relaxation'), 
-(13, 'Old Quarter Spirit', 'Hanoi Old Quarter – A glimpse of traditional culture.', 270.00, '2023-06-30', '2023-07-04', 8, 'relaxation'), 
-(14, 'Sparkling Hoi An', 'Hoi An Ancient Town illuminated by lanterns.', 150.00, '2023-07-05', '2023-07-09', 6, 'relaxation'), 
-(15, 'Hoi An Culture', 'Explore the ancient beauty and unique culture of Hoi An.', 220.00, '2023-07-10', '2023-07-14', 7, 'exploration'), 
-(16, 'Hoi An Bridge Pagoda', 'Visit the iconic Bridge Pagoda in Hoi An.', 180.00, '2023-07-15', '2023-07-19', 5, 'exploration'), 
-(17, 'Tranquil Hue', 'The imperial city of Hue with its serene beauty.', 260.00, '2023-07-20', '2023-07-24', 8, 'exploration'), 
-(18, 'Paradise Ly Son', 'Ly Son Island – A paradise in the ocean.', 140.00, '2023-07-25', '2023-07-29', 6, 'relaxation'), 
-(19, 'Vibrant Nha Trang', 'Nha Trang – A lively coastal city.', 210.00, '2023-07-30', '2023-08-03', 7, 'relaxation'), 
-(20, 'Nha Trang Sunset', 'Nha Trang Park with its vibrant atmosphere and beautiful sunsets.', 170.00, '2023-08-04', '2023-08-08', 5, 'exploration'), 
-(21, 'Peaceful Beach', 'The serene and stunning beaches of Nha Trang.', 200.00, '2023-08-09', '2023-08-13', 5, 'relaxation'), 
-(22, 'Dreamy Quang Binh', 'Quang Binh – The kingdom of bridges and poetic lakes.', 180.00, '2023-08-14', '2023-08-18', 5, 'exploration'), 
-(23, 'Unique Quang Ngai', 'Experience the unique cultural lifestyle in Quang Ngai.', 160.00, '2023-08-19', '2023-08-23', 5, 'exploration'), 
-(24, 'Dynamic Saigon', 'Saigon – The city that never sleeps.', 300.00, '2023-08-24', '2023-08-28', 5, 'relaxation'), 
-(25, 'Misty Sa Pa', 'Sa Pa – The misty town with terraced fields.', 320.00, '2023-08-29', '2023-09-02', 5, 'adventure');
+(1, 'The Breath of Tam Dao', 'Magnificent mountain scenery in Tam Dao.', 100.00, '2024-05-01', '2024-05-05', 5, 'adventure'), 
+(2, 'Journey to Tay Yen', 'Experience the culture of Tay Yen Tu Pagoda and the nature of Bac Giang.', 200.00, '2024-05-06', '2024-05-10', 7, 'exploration'), 
+(3, 'Da Lat Fragrance', 'Discover the famous landmarks of dreamy Da Lat city.', 150.00, '2024-05-11', '2024-05-15', 6, 'exploration'), 
+(4, 'Xuan Huong Serenade', 'The dreamy city of Da Lat with Xuan Huong Lake.', 300.00, '2024-05-16', '2024-05-20', 8, 'relaxation'), 
+(5, 'Red Dragon Da Nang', 'The brilliant Dragon Bridge in Da Nang.', 250.00, '2024-05-21', '2024-05-25', 4, 'exploration'), 
+(6, 'Golden in the Sky', 'The majestic Golden Bridge in Da Nang.', 180.00, '2024-05-26', '2024-05-30', 6, 'exploration'), 
+(7, 'Eo Gio Adventure', 'An adventurous journey to Eo Gio – a pristine destination in Quy Nhon.', 220.00, '2024-05-31', '2024-06-04', 7, 'adventure'), 
+(8, 'The Roof of Indochina', 'Fansipan Summit – the Roof of Indochina.', 190.00, '2024-06-05', '2024-06-09', 5, 'adventure'), 
+(9, 'Vibrant Hai Phong', 'Hai Phong – A dynamic port city.', 280.00, '2024-06-10', '2024-06-14', 8, 'exploration'), 
+(10, 'Ha Long Wonder', 'Ha Long Bay – A world natural heritage site.', 160.00, '2024-06-15', '2024-06-19', 6, 'exploration'), 
+(11, 'Mysterious Long Cave', 'Explore the magnificent caves in Ha Long.', 240.00, '2024-06-20', '2024-06-24', 7, 'adventure'), 
+(12, 'Ancient Thang Long', 'Hoan Kiem Lake, one of the most famous landmarks and symbols of Hanoi, Vietnam.', 190.00, '2024-06-25', '2024-06-29', 5, 'relaxation'), 
+(13, 'Old Quarter Spirit', 'Hanoi Old Quarter – A glimpse of traditional culture.', 270.00, '2024-06-30', '2024-07-04', 8, 'relaxation'), 
+(14, 'Sparkling Hoi An', 'Hoi An Ancient Town illuminated by lanterns.', 150.00, '2024-07-05', '2024-07-09', 6, 'relaxation'), 
+(15, 'Hoi An Culture', 'Explore the ancient beauty and unique culture of Hoi An.', 220.00, '2024-07-10', '2024-07-14', 7, 'exploration'), 
+(16, 'Hoi An Bridge Pagoda', 'Visit the iconic Bridge Pagoda in Hoi An.', 180.00, '2024-07-15', '2024-07-19', 5, 'exploration'), 
+(17, 'Tranquil Hue', 'The imperial city of Hue with its serene beauty.', 260.00, '2024-07-20', '2024-07-24', 8, 'exploration'), 
+(18, 'Paradise Ly Son', 'Ly Son Island – A paradise in the ocean.', 140.00, '2024-07-25', '2024-07-29', 6, 'relaxation'), 
+(19, 'Vibrant Nha Trang', 'Nha Trang – A lively coastal city.', 210.00, '2024-07-30', '2024-08-03', 7, 'relaxation'), 
+(20, 'Nha Trang Sunset', 'Nha Trang Park with its vibrant atmosphere and beautiful sunsets.', 170.00, '2024-08-04', '2024-08-08', 5, 'exploration'), 
+(21, 'Peaceful Beach', 'The serene and stunning beaches of Nha Trang.', 200.00, '2024-08-09', '2024-08-13', 5, 'relaxation'), 
+(22, 'Dreamy Quang Binh', 'Quang Binh – The kingdom of bridges and poetic lakes.', 180.00, '2024-08-14', '2024-08-18', 5, 'exploration'), 
+(23, 'Unique Quang Ngai', 'Experience the unique cultural lifestyle in Quang Ngai.', 160.00, '2024-08-19', '2024-08-23', 5, 'exploration'), 
+(24, 'Dynamic Saigon', 'Saigon – The city that never sleeps.', 300.00, '2024-08-24', '2024-08-28', 5, 'relaxation'), 
+(25, 'Misty Sa Pa', 'Sa Pa – The misty town with terraced fields.', 320.00, '2024-08-29', '2024-09-02', 5, 'adventure');
  
 
 -- Bảng Itinerary
@@ -581,16 +579,16 @@ INSERT INTO `TourImage` VALUES
 -- Bảng User
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE User (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT AUTO_INCREMENT PRIMARY KEY,--     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(15),
     address VARCHAR(255),
-	role int(11),
-	forgot_token varchar(100)
+	role int(11),--     role INT DEFAULT 1,
+	forgot_token varchar(100),
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
         -- Bảng review
 DROP TABLE IF EXISTS `review`;
 CREATE TABLE Review (
@@ -608,7 +606,7 @@ CREATE TABLE Booking (
     booking_id INT AUTO_INCREMENT PRIMARY KEY,
     tour_id INT NOT NULL, 
     user_id INT NOT NULL,
-    num_people INT NOT NULL,
+    num_people INT NOT NULL,	
 	Special requirements varchar(100),
     FOREIGN KEY (tour_id) REFERENCES Tour(tour_id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE 

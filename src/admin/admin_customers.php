@@ -1,3 +1,16 @@
+<?php
+require_once('../../MySQL/Createdatabase.php'); // Kết nối cơ sở dữ liệu
+
+// Truy vấn dữ liệu khách hàng
+$sql = "SELECT * FROM User";
+$res = mysqli_query($conn, $sql);
+
+if (!$res) {
+    echo "Lỗi khi truy vấn cơ sở dữ liệu.";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,9 +80,7 @@
         <!-- Main Content -->
         <div class="main-content">
             <h1>Quản lý Khách hàng</h1>
-            <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#customerModal">
-                <i class="bi bi-plus-circle"></i> Thêm Khách hàng mới
-            </button>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -78,99 +89,40 @@
                             <th>Tên</th>
                             <th>Email</th>
                             <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Ngày tham gia</th>
+                            <th>Quyền</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Trần Văn B</td>
-                            <td>tranb@example.com</td>
-                            <td>0912345678</td>
-                            <td>
-                                <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewCustomerModal" data-customer-name="Trần Văn B" data-customer-email="tranb@example.com" data-customer-phone="0912345678">Xem</button>
-                                <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#confirmLockModal">Khóa</button>
-                            </td>
-                        </tr>
+                        <?php
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            echo "<tr>
+                                <td>{$row['id']}</td>
+                                <td>{$row['name']}</td>
+                                <td>{$row['email']}</td>
+                                <td>{$row['phone']}</td>
+                                <td>{$row['address']}</td>
+                                <td>{$row['created_at']}</td>
+                                <td>" . ($row['role'] == 1 ? "User" : "Admin") . "</td>
+                                <td>
+                                    <button class='btn btn-sm btn-info' data-bs-toggle='modal' data-bs-target='#viewCustomerModal' 
+                                    data-customer-name='{$row['name']}' data-customer-email='{$row['email']}' data-customer-phone='{$row['phone']}'>Xem</button>
+                                    <button class='btn btn-sm btn-warning' data-bs-toggle='modal' data-bs-target='#confirmLockModal' data-customer-id='{$row['id']}'>Khóa/Mở</button>
+                                    <button class='btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#confirmDeleteModal' data-customer-id='{$row['id']}'>Xóa</button>
+                                </td>
+                            </tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
-            </div>
-            <footer>
-            </footer>
-        </div>
-    </div>
-
-    <!-- Modal Thêm Khách hàng -->
-    <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="customerModalLabel">Thêm Khách hàng</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="customerForm">
-                        <div class="mb-3">
-                            <label for="customerName" class="form-label">Tên</label>
-                            <input type="text" class="form-control" id="customerName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="customerEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="customerEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="customerPhone" class="form-label">Số điện thoại</label>
-                            <input type="text" class="form-control" id="customerPhone" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary">Lưu</button>
-                </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Xem thông tin Khách hàng -->
-    <div class="modal fade" id="viewCustomerModal" tabindex="-1" aria-labelledby="viewCustomerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="viewCustomerModalLabel">Thông tin Khách hàng</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p><strong>Tên:</strong> <span id="viewCustomerName"></span></p>
-                    <p><strong>Email:</strong> <span id="viewCustomerEmail"></span></p>
-                    <p><strong>Số điện thoại:</strong> <span id="viewCustomerPhone"></span></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Xác nhận Khóa Khách hàng -->
-    <div class="modal fade" id="confirmLockModal" tabindex="-1" aria-labelledby="confirmLockModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmLockModalLabel">Xác nhận khóa</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Bạn có chắc chắn muốn khóa khách hàng này không?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-                    <button type="button" class="btn btn-danger">Khóa</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Đoạn Modal không thay đổi từ code của bạn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

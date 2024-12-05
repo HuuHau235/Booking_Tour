@@ -79,13 +79,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>Hà Nội - Sapa</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                            <td>2024-01-20</td>
-                        </tr>
+                        <?php if ($reviewsResult->num_rows > 0): ?>
+                            <?php while ($row = $reviewsResult->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['tour_name']); ?></td>
+                                    <td><?php echo str_repeat('⭐', $row['rating']); ?></td>
+                                    <td><?php echo $row['created_at']; ?></td>
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr><td colspan="5">Chưa có đánh giá nào.</td></tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
