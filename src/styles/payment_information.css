@@ -1,0 +1,96 @@
+body {
+    font-family: "Tinos", serif;
+    background: url('../assets/images/SaiGon.jpg') no-repeat center center/cover;
+}
+/* header */
+.payment-header {
+    /* background-color: #5EA1A3; */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    border-radius:15px;
+    /* border-bottom: 4px solid #0056b3; */
+    margin-top:25px;
+}
+.payment-header h1 {
+    font-size: 44px;
+    font-weight: bold;
+}
+.payment-header p{
+    font-size:20px;
+} 
+
+/* tour detail */
+.card-detail{
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.tour-image{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 330px;
+    object-fit: center;
+}
+.card-header{
+    background-color: #5EA1A3;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    padding-block: 4px;
+}
+.card-body{
+    margin: 10px 12px;
+}
+.card-item{
+    margin-bottom: 10px !important;
+    font-size: 17px;
+}
+.card-item.final{
+    padding-bottom: 10px;
+}
+
+/* card paymentInformation */
+.card-paymentInformation{
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.card-header.paymentInformation{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.card-body.paymentInformation{
+    padding-inline: 12px;
+}
+.frm-item{
+    margin-bottom: 10px !important;
+}
+
+/* card bank transfer information */
+.title_frm.bank_transferInformation{
+    text-align: center;
+}
+
+.card-header.bank_transferInformation{
+    margin-top: 20px !important;
+}
+/* nút btn btn-primary */
+.btn-primary {
+    background-color: #5EA1A3;
+    border: none;
+    padding: 12px;
+    font-size: 17px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    margin-left:38%;
+}
+
+.btn-primary:hover {
+    background-color: #5EA1A3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+}

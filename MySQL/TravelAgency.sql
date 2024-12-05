@@ -615,11 +615,683 @@ CREATE TABLE Booking (
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE Payment (
     payment_id INT AUTO_INCREMENT PRIMARY KEY,
+	user_id INT NOT NULL,
     booking_id INT NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
-    payment_date DATE NOT NULL,
-    payment_method ENUM('tiền mặt', 'chuyển khoản') NOT NULL,
-    FOREIGN KEY (booking_id) REFERENCES Booking(booking_id) ON DELETE CASCADE
+    payment_method varchar(50) NULL,
+    FOREIGN KEY (booking_id) REFERENCES Booking(booking_id) ON DELETE CASCADE,
+	FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
+
+-- 1. Tạo bảng blogs
+
+CREATE TABLE Blogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    excerpt TEXT NOT NULL,
+    content TEXT NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    post_date DATE
+);
+
+CREATE TABLE Blog_image (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    blog_id INT NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+    FOREIGN KEY (blog_id) REFERENCES Blogs(id) ON DELETE CASCADE
+);
+
+
+--  Thêm dữ liệu vào bảng 'blog' 
+INSERT INTO Blogs (id,title,excerpt, content, author, category, post_date)
+VALUES
+     (1,'18 tips for traveling on a budget', 'Ever wondered how to travel for cheap? If so, here is good news: There are lots of ways to economize while still checking destinations off your travel bucket list.Whether you’re thinking about ...', '1. Plan early to optimize your travel budget
+        It can be a good idea to start planning your travel at least 10 months in advance—that includes starting to track the price of flights. There are a number of websites, like Capital One Travel, that allow travelers to set fare alerts and watch for the best time to buy plane tickets. 
+
+        Another important planning step is to assemble any documentation you will need. You may want to get a passport well in advance, if you dont already have one—or renew yours if it is close to expiring. If you have to rush the process, the fees can rack up quickly. And if you need travel visas, you’ll probably want to make sure those are in order, too.
+
+        If you think you will need travel insurance, it can help to set that up in advance, too. You could also keep an eye on travel advisories from the U.S. Department of State.
+
+        2. Travel when others are not 
+        This can apply to both seasons and days of the week. Once you know where you want to go, you can figure out when your destination is shoulder season is—that is the period when there may be fewer visitors. During that time, you may be able to take advantage of cheap travel deals, save money on flights and hotels, and have a less-crowded experience. For example, if you want to go to Greece, try traveling in May or October instead of the peak summer months.
+
+        Also, check out your options around your desired travel dates. If you are planning spring break and all of the Saturday-to-Saturday flights are expensive, maybe look at Friday-to-Friday flights instead. Flying on major holidays instead of the day before can work well, too.
+
+        A photo of a person in Rome, saving money by traveling off-season during a cold-weather month.
+        3. Consider an extra stop to reduce flight costs
+        When you are researching flight options, keep in mind that there may be low-cost carriers that you are not seeing in your search results, simply because they don not fly your entire route. If you are finding that a ticket from Point A to Point B is too expensive, you could grab a map and look for a Point C—possibly a cheaper destination to fly to—and then arrange alternate transportation to your desired destination.
+
+        For example, say you want to fly from California to Venice but the price is high. Instead, you could fly to Budapest and spend two days there, then fly with a low-cost airline from Budapest to Venice. That option could cost less than a ticket directly to Venice. This strategy can also be a way to add another destination to your vacation—and one that you may not have thought about before.
+
+        4. Combine destinations 
+        Are there several places on your travel wish list? If your vacation time is flexible, you could combine numerous destinations into one trip. That may save overall flight time and money compared to visiting one destination. If you have a destination that you know is not budget-friendly, consider combining the trip with another cheaper destination to visit. This could allow you to check items off your bucket list without breaking the bank. 
+
+        Heading to the Caribbean? Think about visiting several islands. Have you wanted to see London, Stockholm and Rome? Consider seeing all of them on the same trip. Check out low-cost airlines around the world that might be fairly economical for short one-way trips. Or go even farther. You might want to come up with an itinerary that touches 6 or 7 countries on 4 continents in just a few weeks.
+
+        5. Contact hotels directly
+        If there is a hotel you want to stay at but its rates are high in your online search, think about calling the hotel directly. Ask what its value dates are or whether there is a time frame when a stay could work with your budget. Hotels can be more flexible with their rates than you might realize, especially during periods of low expected occupancy. 
+
+        A photo of a person checking into a hotel, talking with an agent at the reservation desk.
+        6. Stay consistent
+        If you generally fly more than a couple of times a year, directing your miles to one airline or travel rewards credit card could pay off nicely. Advantages could include extra rewards, better ticket prices, better flying experiences, shorter lines, preferred boarding and upgrades.
+
+        Staying loyal to one airline could come with other advantages. For example, fees to check your bags could be waived—the same might apply when you check bags that are slightly over the airline is weight limit. It could also mean perks like exclusive access to airport lounges.
+
+        7. Collect and use frequent flier miles
+        You may be able to increase the amount of travel you can afford by using frequent flier miles whenever you can. You can sometimes earn frequent flier miles through traveling, like when you buy an airline ticket. You could also earn them by using a travel rewards credit card for your everyday purchases.
+
+        With Capital One travel rewards cards, you can earn unlimited miles on every purchase you make. Some cards, like VentureOne, might even offer bonus miles to new cardholders. You could also earn extra rewards on trips booked through Capital One Travel using eligible cards.
+
+        8. Pay in local currency to avoid fees
+        Some credit card companies charge foreign transaction fees when you make a purchase in a foreign currency using their card. Typically, the fee is about 3% of the purchase.
+
+        Whether you are charged a foreign transaction fee can depend on your credit card. Some card issuers do not charge those fees—that includes Capital One is U.S.-issued credit cards.
+
+        In addition to bringing a credit card on your trip, you may want to carry both cash and a bank debit card for getting cash at ATMs.
+
+        9. Pack smart and stay organized
+        Planning ahead can be an important part of budget travel, like when you are packing. For example, it can prevent you from buying unnecessary items for your trip. It might also help you avoid paying to check a bag on your flight—that’s if you pack economically enough to carry your bag with you onto the plane. 
+
+        As a rule of thumb, bring only what you need. And double check that you have not forgotten any critical items before leaving home.
+
+        10. Use public transportation
+        Using public transportation instead of renting a car or paying for taxis can be a great way to save money while traveling. The good news is that cities around the world have transportation networks that make it relatively easy to get around without a car. You may find that studying the train, bus and subway routes for your intended destination before you arrive can be time well spent. 
+
+        A photo of a person relaxing, reading and eating a meal while traveling by train.
+        11. Find free attractions along the way
+        It is a given that many activities will cost money when you are traveling, especially if you ảre headed to a popular destination. But it is possible to find free or low-cost attractions to work into your budget travel. For example, museums and parks are often free to the public and can reduce overall travel costs. 
+
+        12. Take advantage of special discounts
+        If you are a senior or a student, using discounts can make it easier to travel on a budget. For example, these savings may be offered at restaurants, retail stores, grocery stores, movie theaters, museums and other attractions at your destination.
+
+        13. Travel to small towns
+        Adventures are not necessarily restricted to big cities. Try traveling to small towns where you may be able to vacation more economically. Small towns can offer cost-effective accommodations, authentic local food, and free or low-cost activities, like parks and historical sites. 
+
+        An added benefit is that smaller, less crowded destinations can mean a more relaxing getaway.
+
+        A photo of a small-town street lined with storefronts under a blue sky.
+        14. Try traveling locally
+        If you need to travel on a budget, consider seeing local sights rather than planning a trip far from home. Taking day trips in your area can be a rewarding experience that is affordable, too. 
+
+        Or you could take a weeklong staycation with all kinds of options for enjoying your free time—everything from camping in the backyard with the kids to starting to learn a new language. 
+
+        15. Dine creatively
+        Creative dining can be a big part of an affordable family vacation.
+
+        For example, consider picnicking outdoors or cooking in the kitchen of your hotel room or short-term rental. These options might be more kid friendly than sit-down meals in restaurants—and more economical. Eating simply can help extend your vacation money and allow you to spend it on other things, like must-see attractions.
+
+        16. Cook some meals yourself
+        If you are taking a trip that will last several days, you will naturally want to eat out and sample the local cuisine. But you can economize by shopping at a nearby supermarket and making some meals yourself from fresh, local ingredients. 
+
+        You may also want to carry a water bottle with you on your travels. That way, you can avoid buying bottled water and other drinks while you are out and about.
+
+        A photo of a person economizing by eating a meal they made for themselves while on a vacation.
+        17. Work while traveling
+        Does your job accommodate remote work? If so, working while traveling can be a great way to see new sights without officially taking time off. 
+
+        If you have flexibility in where you live and work, consider seasonal employment—for instance, waiting on tables or maintaining the grounds at a youth hostel. Living in a different part of the country—or halfway around the world—can give you great life experiences and make seeing new places more affordable. 
+
+        18. Travel where your money goes the furthest
+        Some destinations just tend to be more expensive to visit than others. So adhering to your budget might mean traveling where your money goes the furthest. 
+
+        You could think about what is important to you and prioritize your spending accordingly. Are great accommodations a must? Or are you more interested in experiencing the local cuisine? The key to traveling on a budget may be knowing yourself and deciding where to save—and where to splurge. 
+
+        Budget travel tips in a nutshell
+        If you need to travel on a budget, there are ways to make that happen. Creating a budget and sticking to it can help you economize. So can using money-saving strategies like booking hotels and flights early and avoiding foreign transaction fees.
+
+        While you are exploring ways to save on your next trip, you could also consider a travel rewards credit card from Capital One. You will earn unlimited miles on every purchase you make—then you can use them for flights, hotels, rental cars and more.',
+             'Happy_Trips',
+             'Reisetipps',
+             '2024-11-01'),
+
+        (2,'10 of the best places to visit in Vietnam', 'Enjoy Hanoi and Halong Bay — then step beyond the tourist trail to find more magic in the highlands, islands, history and culture of this captivating nation....', ' With 99 million souls and a coastline that wrinkles 2,000 miles along the country from north to south, there are plenty of people to meet and a lot to see, do and eat in Vietnam. I first visited in 2004 and have returned many times since. It is easy to follow the tourist trail of historic Hanoi, ethereal Halong Bay, shopping emporium Hoi An and buzzy Ho Chi Minh City, but push a little further and you will be rewarded with some dazzling and memorable experiences.
+
+        Mine have been when I have gone the extra mile, quite literally: a magical three-day cruise to the outer battlements of Halong Bay; a thrilling motorbike trip through the sugarloaf peaks and beyond in remote mountainous Ha Giang; meeting the last wild elephant catcher in Yok Don National Park. Taking in the elaborate mausoleums and sites of Vietnam is last imperial dynasty deepened my understanding; sighting the endemic, critically endangered Cat Ba langur on Cat Ba island was exciting; and I loved exploring the history, food and pristine beaches of Con Dao island. And of course the irresistible, fragrant food, delicious coffee, craft cocktails and beer will lead you everywhere. These are the best places to visit in Vietnam.
+        If you only have . . .
+        One week Hanoi, a boat trip to Halong Bay and the rice fields of the Mai Chau Valley
+        Two weeks After Hanoi, Halong Bay and Mai Chau, hop on trains and domestic flights to visit imperial Hue, the DMZ, the ruins of My Son, gorgeous Hoi An and energetic Ho Chi Minh City
+        Three weeks Take in Ha Giang in the far north, Dalat in the Central Highlands or the caves of Phong Nha-Ke Bang National Park, a beach break, and a boat trip along the Mekong Delta or a couple of days on remote Con Dao island
+        A tight budget Balance domestic flights with long-distance train journeys and Vietnams excellent network of hop-on hop-off “open tickets” on air-conditioned minibuses
+
+        1. Hanoi
+        Street food vendors in the night markets of Hanoi is Old Quarter
+        Hanoi is noisy, traffic-choked and beautiful all at once. The thousand-year-old city of lakes, founded on a bend of the Red River, is full of history, charm, museums, shops, markets and wonderful street food. Don’t miss the Old Quarter, the heart of the city, where you’ll find lots of food, hotels and temples cheek-by-jowl with shops. Learn how to dodge the motorbikes while on a street-food tour or exploring the ochre-hued French colonial villas, Ho Chi Minh is Mausoleum, the Temple of Literature, the “Hanoi Hilton” prison museum of Hoa Lo and the Vietnam Museum of Ethnology.
+        Make it happen
+        The Sofitel Legend Metropole is where Graham Greene stayed in 1951 while working for Paris Match. Its the citys top address and is elegant throughout
+
+        2. Ha Giang
+        Ha Giang is Vietnam is northernmost region, pushing up against the border with China. Its an otherworldly landscape of sugarloaf peaks, mountain passes and rice paddies carved into impossibly steep mountains. Find villages of Red Dzao, Flower Hmong and other local minorities, markets, eco-stays and a window into a rural world of timeless traditions such as weaving. Don’t miss the palace of the Hmong king who raked in revenue from opium farming. En route, stop at the dazzling rice paddy region of Mu Cang Chai.
+
+        Inside Asia is 11-day Vietnam is Northern Soul is an in-depth exploration of the region taking in trekking, rice paddies, tea terraces, markets and visits to remote villages
+
+        3. Pu Luong and Mai Chau
+        Not too far from Hanoi are these idyllic retreats found amid neon-green rice paddies. At Pu Luong nature reserve, with its homestays and eco-retreats, trek past the paddies and orchards of the Muong people and cruise down a river on a traditional bamboo raft in a landscape woven with traditional water wheels. This area is home to rare Asian black bear, Owston’s palm civet and endangered Delacour’s langur. North is the exceptionally beautiful Mai Chau Valley, a serene landscape of rice paddies. Stay at the lovely Avana Retreat, built by local Hmong, White Thai and Black Thai people.
+        Adventures" 11-day Vietnam: Hanoi, Halong Bay and trekking Pu Luong tour is one of few that takes in trekking in Pu Luong, an overnight stay, and a barbecue lunch made by local chefs
+
+        4. Bai Tu Long Bay, Halong Bay
+        Boats — from junks to elegant luxury vessels — cruise through the waters of Unesco-protected Halong Bay, which is studded with thousands of craggy limestone outcrops. It is an ethereal landscape and with each turn of weather can bring dense fog or crisp blue skies. It wont matter — its all enchanting. To make the most of it, head out on a boat for at least two nights to cruise to the outer “fortress” of towers — Bai Tu Long Bay. It’s more magical and it escapes the crowds of one-day and one-night boats.
+
+        5. Hue and the DMZ
+        Hue was the cultural and political power base of the Nguyen emperors, Vietnam is last imperial dynasty. They built a citadel, gilded in bronze, enamel and lacquer, with gates for themselves, elephants and their minions, based on the Forbidden City of Beijing. They lived in extravagant regal splendour surrounded by concubines and eunuchs. And they fashioned their last resting places, all gothic-meets-Confucius and geomantic in design, landscaped with streams, statues and elaborate graves that trace the serpentine route of Hue’s Perfume River. This city is often overlooked in favour of Hoi An as a central Vietnam stop, but don’t miss it. The thousand-plus dishes of the imperial household are still eaten, too. From here, explore the Demilitarized Zone marking the border established in 1954 between the communist north and the US-backed south.
+
+        Original Travel is 12-day An intro to Vietnam, North to South includes an in-depth tour of Hue is imperial past as well as other significant buildings
+        originaltravel.co.uk
+
+        6. Danang and China beach
+        The fire-breathing Dragon Bridge in Danang
+        China beach, an 18-mile curve of golden sand along the sea, was made famous by thousands of American GIs who would sunbathe here for R&R during the Vietnam War. Today, it’s more fabulous, with some top hotel retreats, such as the Four Seasons and, hidden amid the forest of monkeys on a small peninsula, the outstanding InterContinental Danang Sun Peninsula designed by Asia-based architect Bill Bensley. But there is more — the incomparable Museum of Cham Sculpture with its beautiful carved sandstone works, the nearby Unesco-protected ruins of My Son, the spiritual capital of the Cham, an Indianised culture, and Danang’s fire-breathing Dragon Bridge.
+
+        Explore is 14-day Inside Vietnam is one of few tours taking in the Cham museum, the My Son ruins and an optional visit to My Lai, site of a wartime massacre
+
+        7. Hoi An
+        The old town of Hoi An
+        Yes, it is touristy, but that is because it is gorgeous. The ancient port of Hoi An is filled with Chinese temples, large merchant houses, and hundreds of tailors and craft shops. One-storey ochre-coloured homes line the small lantern-lit streets along the Unesco-protected town is Thu Bon river. Come for the atmosphere, tailor-made clothes, and the delicious street food including some tantalising local dishes. Nearby An Bang beach provides downtime, too.
+
+        Make it happen
+        The Four Seasons Nam Hai is a sublime beachfront property. Large, gorgeous villas dot the peaceful gardens, where pools and coconut palms facing the sea
+
+        Wendy Wus 12-day Vietnam at a Glance ensures time spent immersed in Hoi An, meeting artisans and visiting a farming village — plus plenty left for tailoring
+
+        8. Ninh Van Bay
+        The beach at Ninh Van Bay
+        Ninh Van Bay is a divine little hideaway close to the major seaside resort of Nha Trang. Escape from the city to this peninsula, just north, for some serious beach time. An Lam Retreats Ninh Van Bay is dreamy with a boho vibe, while Six Senses Ninh Van Bay is on a sublime stretch of sand with villas tucked away between and behind huge boulders. It’s just you, the beach, the restaurant and your butler at Six Senses Ninh Van Bay. The waterfalls and forests of the peninsula can be explored too.
+
+        Make it happen
+        Six Senses Ninh Van Bay is a barefoot getaway with villas and their private pools perched on huge biscuit-coloured boulders facing the sea. It’s boho, supremely beautiful and comes with butler service
+
+        Scott Dunn is 11-night luxury Limitless Vietnam indulges with four nights at Ninh Van Bay and organised activities
+        scottdunn.com
+
+        9. Dalat
+        A 1930s railway station in Dalat
+        Dalat is a quirky place. A former French hill station up in the pine-scented highlands with a central lake, it is ringed by attractive early 20th-century homes and villas (some hotels, some museums), markets, flower gardens and waterfalls. There’s even a golf course. Today, the city is filled with bars and cute cafés and is a great base from which to explore a load of kooky spots including the Crazy House homestay, cactus and coffee playground Kombi Land and a dragon statue made from thousands of glass bottles. Don’t miss checking out the French-built railway station, a Wes Anderson shoo-in.
+
+        Intrepid Travel is 15-day Premium Vietnam in Depth offers plenty of time to explore Dalat, its quirky sites and coffee culture
+
+        10. Ho Chi Minh City
+        Cao Dai cathedral at Tay Ninh
+        Ho Chi Minh is a heady city of nine million people and eight million motorbikes. It has brilliant street food, is draped in a fantastic array of fairy lights and is fuelled by a growing craft beer, spirit and cocktail scene and a thrilling, infectious energy. What two decades ago was a fairly low-rise city has now been dwarfed by an army of high rises. Don’t miss exploring the city on the back of a motorbike, visiting the top sites, and taking a trip out to the Viet Cong tunnels at Cu Chi and the fantastically decorated Cao Dai cathedral at Tay Ninh. Sampling the food and coffee goes without saying.
+
+        Make it happen
+        The Park Hyatt Saigon is not the best-looking from the outside. Step inside, though, and it is a dazzler. Its restaurants and bars are top city addresses and the lovely pool is a boon on humid days. It’s right in the heart of the city, too, just behind the opera house.
+        Riviera Travel is 16-day Vietnam and Cambodia tour three night-stay in Ho Chi Minh City ensures plenty of time to take in the sites and the food and explore the tunnels at Cu Chi',
+         'Happy_Trips', 
+         'Destination', 
+         '2023-11-19'),
+         
+         (3,'5 Travel-ready packing tips for travelling on short notice', 'Are you ready to grab an attractive travel deal at a moment is notice? Are you occasionally asked to pack your bags for an unexpected trip..', '5 Travel-ready packing tips
+        You may be a consummate planner who starts packing several weeks before a trip. In that case, the following tips will undoubtedly enhance your approaches to planning and preparation. If you’re a last-minute packer, integrating some of these strategies will allow you to pack faster and smarter. If you agree, please let me know in the comments.
+
+        1. Identify a consistent place to stow travel gear
+        When packing for previous trips, have you wasted time searching for items destined for your travel bag? If so, it might help to have designated places to store luggage, stash packing aids, hang travel clothing, store shoes set aside for travel, file a passport and related documentation, maintain a selection of travel-sized containers, and stow items packed for most trips.
+
+        For dedicated travel stuff, travel drawers or shelves work for many people. Or use a tote box or two, each one with a lid. Being ready to travel on short notice means not wondering where something is or having to search for it. In this regard, I’m impressed by Mat Tee’s use of shelves stacked with labelled containers and other travel aids. 
+
+        organized-travel-geat-storagePhoto credit: Mat Tee, used with permission
+
+        Also, make being travel-ready part of your everyday activities. Be on the lookout for solid alternatives to liquid toiletries and suggestions on travel clothing. Collect travel-sized containers to add to your collection. Do the same with pouches, zip-top bags, or other packing organizers. Having a selection means finding the right one for decanting purposes or storing related or miscellaneous items in a purse or bag.
+
+        Launder travel underwear from the last trip, pack it in its designated packing organizer, and add it to your travel drawer or partially packed travel bag.
+
+        Reach for your travel umbrella or packable, lightweight rain jacket if rain is in the forecast. Put your hands on a hands-free travel organizer containing your passport, trusted traveller card, emergency contact card, and laminated emergency medical insurance policy card.
+
+        2. Be vigilant about the critical items
+        An expired or damaged passport is a liability. Or one that is not valid for at least six months beyond an intended stay or has enough empty pages to be stamped. So is a soon-to-be expired prescription for medication that’s vital to your well-being. These are scenarios that may be difficult to overcome without adequate notice.
+
+        3. Work with a packing list
+        I find a master packing list works best, unlike separate lists by season, destination, or type of trip. As much as 80 per cent of what you’ll pack applies to all trips, so create an electronic version. My obsessively comprehensive list has every possibility for past and future trips, including brand names, sizes, and weight in some cases. It’s amended regularly to eliminate discards and add new products.
+
+        Print a copy and check off items as they are packed. Working with a hard copy offers more opportunities to quickly add handwritten notes or flag items to be packed within the last few hours of departure. Having a checklist for reference makes last-minute packing more efficient and less stressful.
+
+        4. Know your limits
+        If you’re a member of an airline is frequent flyer loyalty program, you will likely travel on that airline or one of its partners. Remain up to date on baggage allowance policies regarding dimensions and weight. If it’s helpful, keep a record in a Notes app on your phone, along with the exact dimensions of your luggage. Purchase a portable luggage scale. Ensure your luggage strictly adheres to baggage allowances and pack accordingly. It’s too late when you reach the gate and encounter a hefty fee for checking a bag because your bag was too large for the luggage sizer.
+
+        portable-luggage-scale
+
+        5. Be prepared with emergency medical insurance
+        Travelling without emergency medical insurance coverage is never a risk worth taking. Does your existing policy make you travel-ready? Is it valid for the length of your trip and covers pre-existing conditions related to recent health issues?
+
+        If your policy has lapsed, how quickly will you be able to obtain coverage online or over the phone? Do you travel enough to make an annual multi-trip plan a worthwhile investment? You may be surprised to discover that an annual plan may be slightly more expensive than a single-trip one.
+        ', 'Happy_Tríp', 'Reisetipps', '2023-09-25'),
+
+        (4,'Top 10 Most Beautiful and Famous Tourist Destinations in Hà Giang', 'A busy life sometimes makes you forget about relaxation. Travel to find balance and joy again. This article will help you choose a suitable trip,
+        For those...','The Most Famous Tourist Destinations in Hà Giang
+        1. Hoàng Su Phì
+        Hoàng Su Phì is a renowned tourist destination in Hà Giang known for its stunning terraced rice fields that turn golden every harvest season. Here, you not only get to admire the landscapes but also have the opportunity to learn about the local people is livelihoods, customs, and culture. The terraced fields here are often likened to shining golden staircases leading to heaven.
+
+        Immerse yourself in the breathtaking scenery at dawn and dusk, where you can feel the tranquility and peace in your soul. In this vast area of forests and mountains, expansive terraced fields, and glimpses of stilt houses in the hazy smoke, visitors are captivated. When traveling to Hoàng Su Phì, Hà Giang, tourists often visit villages like Luốc, Nậm Ty, Sán Sả Hồ, Phùng, Hồ Thầu, and Thông Nguyên.
+
+        Among them, Bản Luốc and Bản Phùng are two prominent terraced field viewing spots in Hoàng Su Phì, resembling stacked layers of white silver when viewed from below. The Hoàng Su Phì terraced fields have been recognized as a national monument since 2012. According to travel tips for Hoàng Su Phì, you should visit during the harvest season (September - October) to witness the magnificent scenery like a golden carpet of newly harvested rice.
+
+        2. Mã Pí Lèng Pass
+        Who doesn not love adventure without knowing about the breathtaking Mã Pí Lèng Pass - the most beautiful road on the rocky plateau? If you are wondering what makes Hà Giang so attractive, then you absolutely mustn not miss the experience of driving on this winding pass with one side overlooking deep abysses and the other side towering mountains. You will be mesmerized by the stunning scenery of Hà Giang amidst the drifting clouds, enchanted by the meandering Nho Quế River below, resembling a silk ribbon. For adventure enthusiasts, Mã Pí Lèng Pass is undoubtedly one of the most enticing tourist destinations in Hà Giang.
+
+
+        In the face of such magnificent and majestic natural beauty, you will feel incredibly small. After experiencing the thrilling journey over the pass, you can explore Mèo Vạc tourism in Hà Giang and then continue your journey back to Yên Minh or Bắc Mê to visit more beautiful landscapes.
+
+        3. Đồng Văn Karst Plateau
+        Among the domestic tourist destinations, the Dong Van Karst Plateau has long been a renowned geological park both domestically and internationally. Here, you will not only find breathtaking natural scenery but also immerse yourself in the rich culture of various ethnic groups such as the H"Mong, Dao, Pu Péo, and Lô Lô. There are numerous scenic spots to explore in Dong Van including the Lũng Cú Flagpole, Dong Van Ancient Town, and the Twin Mountains of Quan Bạ.
+
+
+        However, if you are simply exploring Dong Van, venturing into the impressive karst plateaus here is already a fantastic idea. So, you don not need to fuss over finding check-in spots in Ha Giang at Dong Van, just pack your backpack and go.
+
+        4. Tham Ma Slope
+        For novice drivers, tackling the Tham Ma Slope to reach the Dong Van Karst Plateau might seem daunting. In the past, this slope was used to test the skill of horses carrying goods and food. Nowadays, itis particularly attractive to adventurous souls and travelers from far and wide.
+
+
+        During the journey to conquer this slope, you will experience a fresh and pristine environment while admiring the majestic natural scenery and the winding, beautiful road. Is not that why many people want to stay in Ha Giang longer?
+
+        5. Pho Bang
+        Somewhere in the remote area of Ha Giang lies a town that has been asleep for hundreds of years called Pho Bang. This beautiful tourist destination in Ha Giang is located in the Yen Minh area, where you can admire unique, ancient architectural beauty and history.
+
+        During the buckwheat flower season, the experience of Ha Giang in Pho Bang leaves a lasting impression on visitors with its pure buckwheat flowers. When you come across a valley of roses, you will be completely captivated by that romantic beauty amidst the land and sky.
+
+
+        To reach this place, you need to pass through Tham Ma Pass to Pho Cao and then turn left. After about 8km, you will encounter a wonderful Pho Bang amidst the mountains and plateaus, full of allure.
+
+        6. Sung La Valley
+        On a beautiful day, when you step into Sung La Valley, you will understand what timeless beauty truly means. Amidst the rocky plateau, you will find a bit of tranquility, simplicity, and romance of colorful flower gardens and humble houses. Each season, when the corn returns with lush green fields and the characteristic buckwheat flowers bloom, you will easily lose yourself and forget the way back.
+
+
+        In Sung La, you can find Lung Cam Village, where H mong and Lolo people reside. The rustic and simple beauty of this place became famous when it served as the backdrop for the famous film Story of Pao with its nearly century-old house. During January and February, this area is filled with cherry blossoms, apricot blossoms, plum blossoms, and beautiful rose valleys amidst the vast mountains.
+
+        Book now anoi to Ha Giang 3 days 2 nights Tour
+
+        7. Vuong Family Mansion
+        Owning unique architectural features, the Vuong Family Mansion has long been an attractive tourist destination in Ha Giang for many travelers. The special point is that this mansion, belonging to the Hmong ethnic group, bears influences from French architecture and Chinese culture.
+
+
+        Perched atop a small hill and recognized as a national heritage site since 1993, the mansion offers panoramic views of the stunning valley from above. Visiting the mansion, you have the opportunity to admire the beauty of Ha Giang from a different perspective.
+
+        8. Lung Cu Flagpole
+        When it comes to the must-visit spots in Ha Giang, Lung Cu Flagpole surely cannot be missed. With an altitude of over 2000 meters above sea level, you can witness the beautiful national flag amidst the mountains and forests, capturing memorable photos filled with radiant smiles and amazing experiences. The Lolo people inhabit Lung Cu, known for their friendliness and hospitality, so you need not worry if you plan to embark on an adventure to this place.
+
+
+        9. Yen Minh Pine Forest
+        If you have fallen in love with the Yen Minh Pine Forest, located just about 40 kilometers from the twin mountains of Quan Ba, upon arriving at this tourist destination in Ha Giang, the cool air and the towering green pine trees on the hillsides will amaze you. Of course, during this journey, you will not hesitate to explore this wonderful pine forest with friendly guides or team up with fellow travelers for some forest adventures and photo ops, won not you?
+
+
+        10. Quan Ba Twin Mountains
+        For a long time, the name Quan Ba Twin Mountains has been frequently mentioned by tourists on budget tours to Ha Giang. Regardless of the season, the landscape of Quan Ba Twin Mountains never fails to mesmerize visitors. Especially during the rice harvest season, Quan Ba Twin Mountains appear like a fairy donning a new gown. Standing atop the mountain and gazing downwards, you wll witness a shimmering golden hue enveloping the land and sky. So, if you ever visit Ha Giang, don not forget to explore this beautiful mountain range resembling the ample bosom of a maiden!
+
+
+        11. Forbidden Mountain
+        Forbidden Mountain is considered a famous tourist destination in Ha Giang, standing proudly amidst the earth and sky. Upon one visit, you will be captivated by the majestic mountain cliffs that seem to touch the clouds. In the past, the journey to Forbidden Mountain was extremely perilous and challenging due to the lack of tourism development. However, with the construction of a large television tower on the mountain, the path has become much safer and more accessible.
+
+
+        The scenery on both sides of the road is quite rugged and mysterious, so if you go by motorbike or car, stop halfway up the mountain and stroll to admire the high mountains. Moreover, this place is also a sacred land for local residents. Following the winding staircases among the mountains, you will reach a deep cave called the skylight, which is closely associated with a legend about battles in the years 1870-1875 between the yellow flag army and the white flag army.
+
+        ⇒Budget-Friendly 5-Day 4-Night Tour from Cao Bang to Ha Giang
+
+        12. Lung Khuy Cave
+        Dubbed as the number one cave of Ha Giang, Lung Khuy Cave boasts a pristine beauty with numerous magnificent stalactites and peculiar shapes that stimulate the imagination of travelers. Visitors can easily navigate through the cave as the pathways are constructed with sturdy iron frames.
+
+
+        You can observe on the cave ceiling the stalactites formed over hundreds of years. The multi-colored lights make it easy for us to observe the magical stalactites with various shapes, stimulating the imagination of travelers. With its pristine beauty, Lung Khuy Cave is rated as one of the most beautiful caves in the Dong Van Karst Plateau.
+
+        13. The Lonely Tree
+        The Lonely Tree in Ha Giang is one of the most beautiful lonely trees in Vietnam. Its location is in the area of Can Ty commune, Quan Ba district, on the way from Quan Ba to Dong Van. The special feature of this Ha Giang lonely tree is its large size, with the trunk standing tall with one side facing the mountain pass and the other side facing the deep abyss. Therefore, it is gradually becoming a popular check-in spot in Ha Giang, attracting many young people and adventure travelers.
+
+
+        14. Pho Cao
+        Pho Cao is renowned as the humble and serene land of the mountains and forests of Ha Giang, where there are no modern facilities to weary you in daily life. It is a valley in the northwest highlands, belonging to Dong Van district, Ha Giang province. Visitors who come to Pho Cao will feel the pristine and rustic charm of this place. The majority of Pho Cao residents are Mong ethnic people, and despite their impoverished lives, they are very friendly. They welcome guests from afar with warm smiles, always opening their doors to invite guests into their homes.
+
+
+        The Mong ethnic group makes up over 90% of Pho Cao is population, so this land also carries the strong cultural characteristics of the Mong people. The beauty of Pho Cao is created by the vast fields of buckwheat flowers and the small wall houses nestled against the mountainside. The rows of houses are built from large stone blocks taken from the Dong Van Karst Plateau, stacked into solid and sturdy structures, capable of withstanding weather and natural disasters. This unique characteristic has made Pho Cao one of the most attractive destinations in Ha Giang in the eyes of tourists.
+
+        15. Pao is House
+        The famous house featured in the movie Pao is Story is chosen as a destination by many budget travelers on cheap Ha Giang tours. Pao is House was built about 80 years ago and is a traditional house of the Mong ethnic people. From the entrance gate, visitors can feel the different architectural style here, with a wooden gate, stone pillars and walls, and yin-yang tiled roofs bearing the marks of time.
+
+
+        Right after the house gate stands a forest peach tree, creating a solemn atmosphere. When spring arrives and the flowers bloom, the scenery here transforms into a beautiful painting. If you have the opportunity to visit Ha Giang, don not forget to visit Pao is house to experience the difference in landscapes of the Northeast highlands.
+
+        ','Happy_Trips','Destination', '2022-11-30'),
+       
+       
+       (5,'Top 6 tourist destinations in Da Nang','Welcome to Da Nang, Vietnam, where modern architecture meets natural beauty. Bridge is a unique testament to modern engineering. The record belonged to a bridge that is now surpassed by this modern …', 'My Khe Beach – The 1st place to visit in Da Nang
+        Side-by-side images of a city beach with high-rise buildings on the left and a crowded beach with mountains in the background on the right, promoting House Rental Danang—the ideal choice for experiencing the best places to visit in Da Nang.
+
+        My Khe Beach – The 1st place to visit in Da Nang
+
+        Da Nang is a coastal city located in the middle of Vietnam, and one of its most famous attractions is My Khe Beach. This pristine stretch of sand has been recognized by Forbes Magazine as one of the most beautiful beaches in the world, and it’s easy to see why. My Khe Beach has a long history dating back to the Vietnam War when American soldiers would come here for rest and relaxation. Today, it’s a popular destination for both locals and tourists who come to enjoy its crystal-clear waters, soft white sand, and breathtaking views.
+
+        Located just six kilometers from Da Nang’s city center, My Khe Beach is easily accessible by taxi or motorbike. The best time to visit is from May to August when the weather is warm and sunny with calm waters perfect for swimming or water sports like jet skiing or parasailing.
+
+        For those who prefer a more relaxed experience with attractions in Da Nang, there are also plenty of sun loungers available for rent where you can soak up some rays while enjoying refreshing drinks from nearby beach bars. You can also take leisurely strolls along the beach while admiring picturesque views of Son Tra Peninsula’s lush greenery in the distance.
+
+        One unique feature that sets My Khe Beach in Da Nang that is different from other beaches in Vietnam is its cleanliness. The local government invests heavily in keeping this treasure spot free from pollution, so visitors can enjoy pristine waters without worrying about litter or debris ruining their fun. If you’re interested in history, you can visit nearby sites like the Marble Mountains or Linh Ung Pagoda located on Son Tra Peninsula, a favorite destination in Da Nang. These attractions offer incredible views of Da Nang Bay while also providing insight into Vietnamese culture and spirituality.
+
+        Maps: https://maps.app.goo.gl/rVactvktdptpvqmT9
+
+        Marble Mountains
+        Triptych image showcasing the best places to visit in Da Nang. Left: People exploring a large cave. Top right: Aerial view of a rocky hill with buildings below. Bottom right: Sunlight streaming into a cave with temple structures, all promoting House Rental Danang.
+
+        Marble Mountains
+
+        The Marble Mountains, also known as Ngu Hanh Son, are a cluster of five limestone and marble hills situated in the south of Da Nang. These mountains are not only a popular tourist attraction but also have significant spiritual and cultural value.
+
+        The name “Marble Mountains” of the city comes from the fact that the mountains were once seabeds that rose above sea level due to geological activity. The composition of these mountains is mainly limestone and marble with different shades when visiting Da Nang such as white, gray, pink, and green. For centuries these mountains have been a source for fine arts carving.
+
+        Each mountain has its unique features and attractions:
+
+        Thuy Son (Water Mountain) is the largest mountain among all five by the sea. It has several caves like Huyen Khong Cave which is famous for an ancient Buddhist temple with natural light from a hole in the ceiling where visitors can witness Buddhist ceremonies.
+        Kim Son (Metal Mountain) is said to be one of the places that represent metal or iron in Da Nang for  its steep cliffs made for adventurous tourists to climb up to enjoy stunning views of Da Nang city or Non Nuoc Beach.
+        Moc Son (Wood Mountain) has various beautiful pagodas built since the 17th century such as Am Phu Pagoda in Vietnam that means “Hell” or “Underworld” Pagoda decorated with sculptures depicting scenes from hell according to Buddhism beliefs.
+        Thuy Long Son (Dragon Mountain) offers one of the best panoramic views around Da Nang city as it stands at an altitude of about 600 meters above sea level. This mountain also includes several pagodas like Tam Thai Pagoda where visitors can enjoy incense burning ceremonies or learn about ancient Vietnamese architecture.
+        Hoa Son (Fire Mountain) has unique tunnels that were used by Viet Cong soldiers during the Vietnam War era making it an interesting historical site to visit Da Nang for those interested in learning more about Vietnam’s past.
+        Visitors can explore these mountains by themselves or join a guided tour to learn more about the history and culture of each mountain. Tickets are available at the entrance gate with different prices depending on the type of tour and activities.
+
+        Maps: https://maps.app.goo.gl/akhRuumceNoimKwL7
+
+        Ba Na Hills
+        Two images: The top shows a pedestrian bridge held by giant stone hands in a lush, hilly area. The bottom shows colorful cable cars labeled "Sun World" with a castle-like structure in the background, highlighting two of the best places to visit in Da Nang.
+
+        Ba Na Hills
+
+        Ba Na Hills is a mountain resort located 1,487 meters above sea level in the Truong Son Mountains. It was originally built by French colonists as a hill station in the early 1900s, but it has since been transformed into a popular tourist destination with many attractions to see and activities to do.
+
+        One of the main attractions at Ba Na Hills is the cable car ride. The cable car system holds several Guinness World Records, including the longest single cable car system and the highest difference between departure and arrival stations. During the ride, you’ll be able to see stunning views of Da Nang city and its surrounding areas.
+
+        Once you arrive at Ba Na Hills, there are many things to explore. One of them is Debay Wine Cellar which was built during French colonial times but has now been renovated for visitors to learn about wine-making techniques while enjoying some tastings. Another must-see attraction is Golden Bridge which is held up by two giant hands that emerge from the ground. It offers breathtaking views of the surrounding area from an unforgettable perspective.
+
+        If you have kids or just enjoy amusement parks, Fantasy Park is another attraction worth visiting at Ba Na Hills. It’s home to several rides like roller coasters and giant swings as well as carnival games such as basketball hoops or ring tosses. Most tourists will spend at least half a day here so it’s important to know how much time you’ll need for each activity before starting your journey up there because ticket prices are quite expensive if you’re not careful with your planning.
+
+        During peak season (from May-August), it can get crowded so it is best to arrive early in order to avoid long lines or waiting times for attractions. You may also want to consider visiting during off-season months when crowds are smaller and ticket prices are lower.
+
+        Maps: https://maps.app.goo.gl/3ooaj6sjkaGjGYvYA
+
+        You can buy your ticket at this location: https://maps.app.goo.gl/2SnECcjPxJPUp6vw7
+
+        Read more: When is the Best Time to Visit Danang? An overview of monthly weather in Danang
+
+        Dragon Bridge
+        A vibrant nighttime cityscape of Da Nang, Vietnam, showcases some of the best places to visit in Da Nang with illuminated bridges and buildings adorned with colorful lights and fireworks dancing above the river.
+
+        Dragon Bridge
+
+        As one of the most iconic landmarks in Da Nang, Vietnam, the Dragon Bridge is a must-see attraction for any traveler visiting the city. This impressive bridge not only serves as a functional transportation route but also stands out as a symbol of Vietnamese culture and architecture.
+
+        The Dragon Bridge stretches across the Han River, connecting Da Nang is main city center to its eastern districts. The bridge’s unique design features two dragon heads at each end that can breathe fire or water during special events at night. This feature alone is enough to captivate visitors and make them feel like they are witnessing something truly magical.
+
+        Aside from its striking appearance, the Dragon Bridge also serves an important function as it allows ships to pass underneath it. The bridge has a span of 666 meters and is illuminated with colorful LED lights that change color throughout the night. One of the best times to visit Dragon Bridge is during major events such as fireworks festivals when crowds gather to watch spectacular displays light up the sky. These events make for an unforgettable experience that shouldn’t be missed if you’re in town.
+
+        In addition to admiring its exterior beauty, there are plenty of things to do around Dragon Bridge such as exploring nearby restaurants or cafes for some local Vietnamese cuisine. Don’t forget to try some Banh Xeo, a savory pancake filled with shrimp and bean sprouts that’s popular in Da Nang. If you’re interested in learning more about Vietnamese history and culture, take a stroll down Tran Hung Dao Street towards the Museum of Cham Sculpture which showcases ancient artifacts from Cham civilization that once lived here before being conquered by Vietnam in 1471 AD.
+
+        Maps: https://maps.app.goo.gl/f43s4oYuyQjZnYTQ9
+
+        Son Tra Peninsula
+        Aerial view of a large statue in a coastal area with surrounding buildings (left). Stone statue of an elderly man playing a board game (right). House Rental Danang company details included in the image. One of the Best Places to Visit in Da nang.
+
+        Son Tra Peninsula
+
+        The Son Tra Peninsula, also known as Monkey Mountain, is a hidden gem that should not be missed when visiting Da Nang. With its pristine beaches, dense forests, and unique wildlife, it offers visitors an unforgettable experience.
+
+        The peninsula is located just a few kilometers northeast of Da Nang city center and covers an area of over 4,400 hectares. It was designated a nature reserve in 1977 to protect its diverse flora and fauna. The peninsula’s highest peak stands at 693 meters above sea level to walk, offering breathtaking views of the surrounding landscape. One of the most notable features of Son Tra Peninsula is the red-shanked douc langur monkey. This rare primate species can only be found in Vietnam and Laos and is considered endangered due to habitat loss and hunting. The peninsula’s forested areas provide a safe haven for these amazing creatures.
+
+        Visitors can explore the peninsula by following one of the many hiking trails that lead through the forested hillsides. Along the way, hikers will have opportunities to spot monkeys swinging from tree to tree or take in sweeping views of pristine beaches below. One popular destination on Son Tra Peninsula is also an amazing spot in this city, which is Linh Ung Pagoda, which features a towering statue of Lady Buddha that stands over 70 meters tall. Visitors can climb up inside her body for panoramic views over My Khe Beach and Da Nang Bay.
+
+        Another must-visit location on Son Tra Peninsula is Tien Sa Beach with its crystal-clear waters perfect for swimming or snorkeling. The beach also boasts some excellent seafood restaurants where visitors can enjoy fresh catches from local fishermen while taking in stunning ocean views. It’s important to note that since much of Son Tra Peninsula falls within protected areas or military zones access may be limited depending on regulations at any given time so it’s best to check before planning your trip.
+
+        Maps: https://maps.app.goo.gl/P7dBRB3dGiJ4ynZCA
+
+        Han Market
+        Exterior and interior views of Chợ Hàn market in Danang, one of the best places to visit in Da Nang, displaying the entrance and various stalls inside.
+
+        Han Market
+
+        As you explore the bustling city of Da Nang, you will inevitably come across Han Market in the morning. This vibrant market is a one-stop shop for all your souvenir and street food needs for tourists to enjoy. The place is where tourists flock, but it’s also where locals go to buy fresh produce and other necessities. The market has been around since the French colonial period and has undergone several renovations over the years. It’s located in the heart of Da Nang, making it easily accessible to visitors staying in nearby hotels or apartments.
+
+        As soon as you step inside Han Market, your senses are immediately overwhelmed with an array of sights, sounds, and smells. The market is divided into different sections, with each offering unique products such as clothing, jewelry, handicrafts, shoes, and textiles. You’ll find vendors selling everything from traditional Vietnamese clothing like ao dai to modern fashion pieces. One of the best things about Han Market is very crowded with street food. Here you can indulge in some delicious local cuisine at affordable prices – perfect for budget travelers! You’ll find vendors selling popular dishes like banh mi sandwiches or bun cha ca noodles soup served at nearby street vendors.
+
+        If you’re planning on shopping at Han Market, be prepared to haggle! Bargaining is a normal part of Vietnamese culture and expected at markets like this one. However, make sure to do so respectfully without insulting or offending the sellers. While wandering through Han Market’s maze-like corridors filled with stalls and shops can be overwhelming at times – there are a few tips that can help make your experience more enjoyable:
+
+        Firstly: Visit early in the day when crowds are thinner if possible since it gets busy later on.
+        Secondly: Try not to carry too much cash with you since pickpocketing may occur.
+        Thirdly: Take note of where you entered since navigating through this maze-like market may throw off your sense of direction.
+        Lastly: Do not be afraid to ask the vendors questions about their products or for recommendations on what to buy.
+        Han Market is a must-visit destination for anyone exploring Da Nang. It is a vibrant and colorful place that offers a unique shopping experience and delicious local cuisine. Whether you’re looking for souvenirs, fresh produce or simply want to immerse yourself in the local culture, Han Market has got you covered!',
+        ' Happy_trips',
+        'Destination ',
+        '2023-12-03'),
+        
+(6,'10 Travel Skin Care Tips','If you are forever dipped in wanderlust, you need to know some travel skin care tips!Traveling is stressful, even when you are flying to some exotic location. All of the stress associated with travel can ...','10 Essential Skin Care Tips To Follow While Traveling
+        Skin care tips to follow while traveling
+        1. Carry Facial Wipes Or Towelettes
+        If you do not want to carry a facial cleanser or use the cleanser provided by the hotel, pre-moistened facial wipes or makeup removing towelettes are your best option.
+
+        Carry them in a ziplock bag. You can use them anywhere – in the airplane, while traveling in a bus or car, while sitting at the beach, or in your hotel room. When going on vacation, make sure to carry good-quality facial wipes that match your skin type and issues.
+
+        Make sure to carry good-quality facial wipes.
+
+        2. Carry A Facial Mist Spray
+        Woman applying facial mist
+        This is a must-have for everyone! Whether you are on a weekend trip or a long vacay, never forget to carry a facial mist. It is hydrating and will keep your skin refreshed throughout your trip. When you spritz it on your face, you add moisture to your skin. This is especially helpful if you have dry and combination skin or if you are traveling to a colder climate.
+
+        3. Carry Your Favorite Facial Cleanser
+        A facial cleanser is more important than your serums and under eye creams. A daily cleanser makes sure that at the end of the day, your skin is devoid of dirt, pollution, and impurities. Unclean skin is a strict no-no wherever you are!
+
+        4. Do not Forget Moisturizer
+        A good face moisturizer helps maintain your skin is health. It keeps your skin hydrated, which prevents breakouts and skin issues caused by excessive dryness. Remember to moisturize your skin before you board your flight. The air inside planes is drying and can damage your skin.
+
+        5. Do not Ditch SPF
+        Ask anyone which product they can not do without, and they will tell you the secret – a good sunscreen. Sunscreen goes a long way in taking care of your skin and the way it looks. It is especially an important part of morning skin care routines. However, when traveling, remember to reapply your SPF every two hours or every time you need to wipe your face clean.
+
+        6. Pack Some Sheet Masks
+        Sheet masks do not take up any extra space in your luggage and are great for your skin. These treatment-soaked paper-thin sheets are a great alternative for the serums and special creams that you will miss while traveling and are great for skin hydration.
+
+        7. Avoid Touching Your Face Often
+        Keeping your hands off your face helps minimize breakouts. Strictly abide by this rule when traveling. This is because you might pick up unknown bacteria that can cause multiple skin issues. Wash your hands with an antibacterial hand wash or sanitizer as much as possible.
+
+        8. Skip Makeup
+        Whether you are about to board your flight or check out some tourist spots, makeup is a strict no-no. Many prefer using a tinted moisturizer while traveling, but it is better to stick to your daily day cream and SPF to let your skin breathe. This is because the changing weather conditions and atmosphere may cause your skin to break out.
+
+        9. Carry A Good Eye Cream
+        Woman applying eye cream
+        If you are constantly battling eye puffiness, carry a good under-eye cream with you. As an alternative, you may also wrap crushed ice in a washcloth (if you don’t have an ice pack) and apply it on your eyes. This will rejuvenate your eyes immediately.
+
+        10. Do not Compromise On Your Beauty Sleep
+        Not getting enough sleep while traveling can make your skin more prone to issues. So, try to get a good night’s sleep even when you are traveling.
+
+        Now that we have covered all the skin care tips you should keep in mind while traveling, let is check out some post-travel tips as well to ensure your skin stays healthy and glowing.', ' Happy_Trips', ' Reisetipps', '2024-11-21'),
+         (7,'Plan Your First Trip to Vietnam','Visiting Vietnam offers an unparalleled experience, combining stunning landscapes, rich cultural heritage, and exquisite cuisine. Travel Off Path, a world-leading indie travel news source has named Vietnam the safest country to visit in Asia for 2024....', 'Visiting Vietnam offers an unparalleled experience, combining stunning landscapes, rich cultural heritage, and exquisite cuisine. Travel Off Path, a world-leading indie travel news source has named Vietnam the safest country to visit in Asia for 2024.
+
+        This recognition is based on the latest Global Law and Order Index, which ranked Vietnam as the most peaceful state in Asia and seventh worldwide, due to its low crime rates and impressive political stability.
+
+        From the breathtaking mountains of Sapa to the vibrant streets of Hanoi, Vietnam is diverse attractions captivate every traveler. As you plan your first trip to Vietnam, consider travel tips for Vietnam, visa requirements, and the best time to visit Vietnam to avoid unexpected surprises and enhance your adventure. This guide will provide valuable tips and insights for planning a memorable journey to Vietnam.
+
+        Visa Requirements for Your First Trip to Vietnam: A Comprehensive Guide
+        As you embark on your journey to visiting Vietnam, understanding the visa requirements is crucial for a smooth entry into the country. Vietnam offers various visa options depending on your nationality and the length of your stay. For more information about overview of visas and transportation for those planning to visit Vietnam, you can check at: Travel to Vietnam • Oxalis Adventure.
+
+        Vietnam has a diverse visa policy, catering to different travelers:
+
+        Visa Exemptions: Citizens of certain countries are exempt from needing a visa for short stays. Check if your country is on the exemption list.
+        Visa on Arrival (VOA): This option is available for specific nationalities and requires a pre-approval letter.
+        E-visas (Electronic Visas): This convenient option allows you to apply for a visa online and receive it electronically. It is available for citizens of many countries.
+        Embassy Consulate Visas: If you don not qualify for other options, you can apply for a visa at the Vietnamese embassy or consulate in your home country.
+        For detailed information on visa requirements in Vietnam, including a list of exempt countries and the application process for different visa types, please refer to the official website of the Vietnam Immigration Department.
+
+        Upon arrival in Vietnam, you will need to present the following documents:
+
+        Valid Passport: Ensure your passport is valid for at least six months beyond your intended stay.
+        Visa (if required): Have your visa ready, whether itis a printed e-visa, a VOA approval letter, or a visa stamped in your passport.
+        Return Flight Ticket: You might be asked to show proof of onward travel.
+        Pro Tip for Planning a Trip to Vietnam:
+
+        Keep a copy of your passport and visa information, as well as the contact details of your embassy or consulate in Vietnam, in case of emergencies.
+
+        When entering Vietnam, you will need to fill out a customs declaration form. Declare any goods that exceed the duty-free allowance or are prohibited.
+
+        Visa on Arrival (VOA) is for certain nationalities and needs a pre-approved letter. Source: vietnamembassy-uae.org.
+        Visa on Arrival (VOA) is for certain nationalities and needs a pre-approved letter. Source: vietnamembassy-uae.org.
+
+        Choosing the Best Time for the First Trip to Vietnam
+        Vietnam is diverse climate and distinct regional seasons offer a unique experience year-round, but understanding the weather patterns is key to planning your perfect trip to Vietnam.
+
+        Northern Vietnam: Summers are hot and humid, while winters are cool and dry. Spring (March-April) and autumn (September-November) boast pleasant weather, ideal for visiting Vietnam is iconic sites like Ha Long Bay.
+        Central Vietnam: This region experiences a harsher climate with intense heat and occasional typhoons. The dry season from February to August is perfect for beach vacations in destinations like Da Nang and Hoi An.
+        Southern Vietnam: With two distinct seasons, the dry season (December-April) is ideal for exploring the Mekong Delta and Ho Chi Minh City. The wet season (May-November) brings heavy rainfall, but it is also when the countryside is lush and green.
+        For specific information for climate and best places to visit in Vietnam in each season, check out at: Best Time to Visit Vietnam: Weather and Climate Guide for Travelers.
+
+        Note:
+
+        Avoiding Peak Season: If you are looking for budget-friendly options and fewer crowds, consider traveling to Vietnam outside the peak season (July-August).
+        Festival Season: Experience the vibrant Vietnamese culture during festive periods like Tet Nguyen Dan (Lunar New Year) in January or February, or other regional festivals throughout the year.
+        By considering these Vietnam travel tips, you can tailor your travel to Vietnam to your preferences and ensure an unforgettable experience. Remember to check the specific weather conditions for your chosen destinations and plan your itinerary accordingly.
+
+        Vietnam is diverse climate and distinct regional seasons offer year-round uniqueness.
+        Vietnam is diverse climate and distinct regional seasons offer year-round uniqueness.
+
+        Top 10+ Best Places to Visit in Vietnam for first timer
+        Vietnam, a land of captivating beauty and rich cultural heritage, boasts a diverse landscape stretching along the Indochinese Peninsula is eastern coast. With its extensive coastline bordering the East Sea, Vietnam offers many stunning beaches and coastal attractions. The country is topography is equally diverse, ranging from majestic mountains in the north to fertile deltas in the south, providing visitors with many popular destinations in Vietnam to explore.
+
+        Having weathered centuries of historical events, Vietnam is cultural tapestry is woven with unique traditions, customs, and architectural marvels. From ancient temples and bustling cities to serene countryside and vibrant floating markets, traveling to Vietnam is an enriching experience that caters to all interests.
+
+        Best Places in Northern Vietnam to Visit:
+        Hanoi: The capital city entices visitors with its charming Old Quarter, historical landmarks like the Temple of Literature and Ho Chi Minh Mausoleum, and delectable street food.
+        Ha Long Bay: This UNESCO World Heritage site is a breathtaking natural wonder, offering cruises, cave exploration, kayaking, and swimming opportunities.
+        Sapa: Nestled in the Hoang Lien Son mountain range, Sapa is renowned for its terraced rice fields, ethnic minority villages, and challenging trekking routes to the peak of Fansipan, Indochina is highest mountain.
+        Ninh Binh: This region is home to the stunning Trang An Landscape Complex, the picturesque Tam Coc-Bich Dong caves, and the majestic Bai Dinh Pagoda.
+        Northern Vietnam is known for its stunning landscapes and rich cultural heritage. Source: Internet
+        Northern Vietnam is known for its stunning landscapes and rich cultural heritage. Source: Internet
+
+        Best Places in Central Vietnam to Visit:
+        Hue: The former imperial capital boasts the magnificent Imperial Citadel, royal tombs, the iconic Thien Mu Pagoda, and the scenic Perfume River.
+        Hoi An: This enchanting ancient town is a UNESCO World Heritage site, featuring well-preserved architecture, the Japanese Covered Bridge, traditional craft villages, and the beautiful An Bang Beach.
+        Da Nang: A vibrant coastal city known for the Ba Na Hills resort, the Marble Mountains, the Dragon Bridge, and the pristine My Khe Beach.
+        Phong Nha-Ke Bang National Park: This UNESCO-listed park is home to the world is largest cave, Son Doong, along with other spectacular caves like Tu Lan, En Cave, Phong Nha Cave, Paradise Cave, and the Chay River-Dark Cave system.
+        Hang En Cave in Phong Nha-Ke Bang National Park
+        Hang En Cave in Phong Nha-Ke Bang National Park
+
+        Best Places in Southern Vietnam to Visit:
+        Ho Chi Minh City: The bustling metropolis offers historical sites like the Reunification Palace and Notre Dame Cathedral, vibrant markets like Ben Thanh, and the poignant Cu Chi Tunnels.
+        Mekong Delta: This vast river network is known for its floating markets, lush orchards, traditional villages, and unique cultural experiences.
+        Phu Quoc: Vietnam is largest island is a tropical paradise with stunning beaches, Phu Quoc National Park, the Hon Thom cable car, and the charming Ham Ninh fishing village.
+        By planning your itinerary carefully and considering the Vietnam travel tips outlined in this guide, you can make the most of your trip to Vietnam and create lasting memories.
+
+        Southern Vietnam is known for its vibrant culture, lush landscapes, and bustling cities. Source: Vietnam Tourism
+        Southern Vietnam is known for its vibrant culture, lush landscapes, and bustling cities. Source: Vietnam Tourism
+
+        Money and Communication in Vietnam: Essential Tips for Travelers
+        The official currency of Vietnam is the Vietnamese Dong (VND). As of June 2024, the exchange rate is approximately 1 USD = 25,454 VND. However, it is always recommended to check the current rates before your trip.
+
+        Where to Exchange Vietnamese Money:
+        Airports: Currency exchange counters are available at major airports like Noi Bai International Airport (Hanoi) and Tan Son Nhat International Airport (Ho Chi Minh City). However, the exchange rates might not be the most favorable.
+        Banks: Banks offer reliable exchange services with competitive rates. You can find branches of major banks in cities and towns across Vietnam.
+        Payment Methods in Vietnam:
+        Cash: Cash is the most widely accepted form of payment in Vietnam, especially in smaller towns and local markets.
+        Credit Cards: Major credit cards like Visa, Mastercard, and American Express are accepted in larger cities, hotels, restaurants, and tourist shops. However, it is always a good idea to carry some cash for smaller establishments and street vendors.
+        Mobile Payment Apps: Mobile payment apps like MoMo, ZaloPay, and ViettelPay are gaining popularity, especially among the younger generation. While not universally accepted, they are convenient for cashless transactions in many places.
+        ATMs:
+        ATMs are readily available throughout Vietnam, even in smaller towns. Most ATMs: Vietcombank, BIDV, Agribank, Techcombank,... accept international cards and offer instructions in English. However, be aware of withdrawal fees, which can vary depending on your bank and the ATM operator.
+
+        Safety Tip: When using ATMs, choose well-lit and secure locations, and be cautious of your surroundings. Cover the keypad when entering your PIN to prevent unauthorized access.
+        SIM Cards and Communication:
+        Staying connected in Vietnam is easy with local SIM cards. Major mobile network providers like Viettel, Vinaphone, and MobiFone offer affordable data plans and SIM cards that can be purchased at airports, and mobile phone shops. These SIM cards provide reliable coverage throughout the country, allowing you to access the internet, make calls, and use messaging apps.
+
+        By understanding the currency exchange, payment methods, and communication options in Vietnam, you will be well-prepared for your travels and can focus on enjoying your trip to Vietnam to the fullest.','Happy_Trips', 'Reisetipps', '2021-09-21'),
+       
+		(8,'The Beginner is Guide to Exploring Vietnam','Now here is a country that breaks the mold of your typical Asian destination. Vietnam is not just famous for its stunning landscape and unique culture. It gets way quirkier than that—we were talking egg coffee ...', '
+		Settling into Your Hotel in Vietnam
+
+		Step 1: Check-In
+		As you step into the hotel, take a deep breath and soak in the atmosphere—you’re officially in Vietnam. Head to the front desk with your booking confirmation and passport in hand.
+
+		The staff will likely ask for your passport for verification, but don’t hesitate to remind them to return it once the check-in process is complete. Some hotels might also ask for your visa.
+
+		Pro Tip:If you’ve arrived early and your room isn’t ready, many hotels in Vietnam offer early check-in or will store your luggage until check-in time. This way, you can start exploring the city without dragging your suitcase along.
+
+		Step 2: Get Comfortable
+		Before you rush out to grab some phở, take a moment to unwind. Check out the amenities available to you, whether it’s a mini-fridge stocked with local snacks or a beautiful view of Hoan Kiem Lake.
+
+		Familiarize yourself with the room’s features, such as air conditioning (essential due to Vietnam’s humidity!), television, and Wi-Fi access. If you can’t find the Wi-Fi password in your room, call the front desk and ask for it.
+
+		Pro Tip: Many hotels in Vietnam offer free welcome drinks, so check if yours does. It’s a lovely way to start your stay and experience local hospitality.
+
+		Step 3: Familiarize Yourself with Your Surroundings
+		Once you’ve settled in (and perhaps had a shower or a nap), it’s time to step out and explore your new neighborhood. Take note of the hotel’s location and nearby attractions. Vietnam is filled with charming streets, bustling markets, and tempting street food stalls. A short walk around the block will help you get your bearings and might even lead you to hidden gems.
+
+		Before heading out, grab your hotel’s business card from the front desk just in case you lose your way and need help getting back. The card contains the hotel’s address and contact details. You can show it to a local for directions or hand it to a taxi driver if your hotel is not within walking distance.
+
+		Nearby Spots to Remember:
+		- Restaurants, Markets, and Street Food Stalls: Seek out local eateries to indulge in authentic Vietnamese cuisine. Ask the staff for recommendations as they often know the best local spots.
+		- Cafés: Hanoi is famous for its coffee culture. Find a nearby café to sip on traditional Vietnamese coffee or a refreshing iced coffee with condensed milk.
+		- Transportation: Familiarize yourself with nearby bus stops and download ride-hailing apps—most importantly, Grab—to avoid overpriced taxis. We’ll be covering transportation apps in more detail later in this blog.
+		- ATMs/Pharmacies/Grocery Stores: Keep note of these amenities so you can stop by when needed. Popular ATMs include Vietcombank, Techcombank, and BIDV. Popular grocery chains include VinMart, Co.opmart, Big C, and Lotte Mart. Pharmacity is the largest pharmacy chain in Vietnam, with over 1,000 stores nationwide.
+
+		Pro Tip: Chat with the hotel staff about their favorite local attractions. They often have insider tips and may share secret spots not mentioned in guidebooks.
+
+		Step 4: Set Up Your Base Camp
+		Make sure you have essential items ready for your adventures—comfortable shoes for walking, a power bank for your devices, sunscreen, a hat, mosquito repellent, and a reusable water bottle to stay hydrated while you explore Vietnam’s lively streets.
+
+		2: What to Know Before You Step Outside in Vietnam
+
+		I. Get Your Local SIM / eSIM 
+		You’ll need a mobile data connection to map out your next phở stop or translate menu items (e.g., “bánh mì” and “bánh bao” can sound similar when you’re hangry). If you didn’t grab an eSIM or SIM card at the airport, you can still get one outside.
+
+		It’s recommended to stick with the major telecom providers in Vietnam for the best coverage and easy assistance if you encounter any issues:
+		- Viettel: The largest provider, known for extensive coverage and reliable service, especially in remote areas.
+		- Mobifone: Offers good speed and coverage, particularly in urban areas.
+		- Vinaphone: Known for competitive pricing and good customer service.
+
+		Where to Get a Local SIM in Vietnam  
+		Look for official brand kiosks or stores to avoid issues with activation or service. You’ll find these kiosks in shopping malls, busy markets, and popular tourist spots. If you’re unsure, just ask your hotel staff—they’ll likely know where to find the nearest kiosks.
+
+		Documents You’ll Need  
+		To buy a SIM card in Vietnam, keep your passport handy. Vietnamese law requires all SIM cards to be registered to a passport for security reasons. You’ll also need to fill out a simple registration form, which typically asks for:
+		- Your full name
+		- Passport number
+		- Nationality
+		- Address in Vietnam (if applicable)
+		- Contact number (if you have one)
+
+		The process usually takes just a few minutes. The staff will guide you, and you’ll walk away with a working SIM card in no time.
+
+		Data Plans and Pricing 
+		- Validity: Plans generally range from 7 days to 30 days, with some providers offering longer options.
+		- Data Packages: Prices typically start at around 100,000 VND (~$4) for basic packages, offering 3-5 GB of data.
+		-Voice Calls: Basic packages often don’t include voice call minutes, but you can usually add domestic calling packages. International calls may require additional credit.
+
+		Speed and Performance 
+		- Network Speed: You can expect decent 4G LTE speeds in urban areas, averaging around 10-30 Mbps, which is sufficient for browsing, social media, and streaming. Rural areas may experience slower speeds.
+		- Coverage: All providers offer widespread coverage, but you might encounter network drops in remote areas or mountainous regions.
+
+		Alternative: eSIM 
+		If your device supports eSIM technology, you can opt for a digital SIM (eSIM) from the same providers. This eliminates the need for a physical card and allows you to activate the eSIM online before your trip. With an eSIM, you can enjoy seamless connectivity as soon as you arrive, provided it’s compatible with your pho
+
+		','Happy_Trips', 'Reisetipps','2022-11-01'),
+
+		(9,'7 places in Vietnam for families', 'Picking the right destination for a family holiday can be tricky, but the pay-off is well worth it. Sharing a gorgeous view with those closest to you, or watching the kids be amazed by new experiences is simply wonderful...', 'Want to make those memories in Vietnam? These seven accessible spots guarantee an unforgettable vacation, one you will reminisce about for years to come. Check them out below. 
+		Mai Châu vietnam for families
+
+		Only two hours from Hanoi, Mai Châu is easy to reach yet full of rewards. Spend a few nights in a traditional stilt house homestay to make the most of this charming valley. Check your stress at the door -- these spectacular rice paddies will help even the busiest parents find some peace of mind. Take the family hiking in Pù Luông Nature Reserve, or cycle along the trails that cut through waving rice fields. A White Thai textile workshop is a great opportunity to broaden children is perspectives and learn more about ethnic cultures in Northern Vietnam. 
+
+		Sapa vietnam travel for families
+		By now you have probably heard of the incredible landscapes in Sapa. If the mountains surrounding this town seem intimidating for a family trip, dont not be deterred. There are countless ways for families to explore Sapa in comfort. Admire the rice terraces from the comfort of a mountain lodge, take an easy walk for a picnic by a waterfall, or ride the 15-minute cable car to the top of Mt. Fansipan, for glorious views of clouds and scenery below. Sapa boasts a number of sustainable tours and workshops with ethnic minorities, which offer plenty of teachable moments for future responsible travellers. 
+
+		Hội An family holiday vietnam
+		Hội An is a lot more than the UNESCO-listed Ancient Town. Those who venture to its outskirts will find a peaceful way of life in the Vietnamese countryside, that you can not help but fall in love with. Your family can choose to spend a few days on An Bàng Beach or in the rice paddies in Cam Thanh, and experience Hội An in very different ways. A beach day means jumping the waves and dining on fresh seafood with your toes in the sand. The countryside brings adventures through rice fields and vegetable villages, which you can visit on foot or by bicycle. Hoi An is also a great place to introduce your loved ones to Vietnamese cuisine, with many easy and engaging classes for cooks of all ages and skill levels. 
+
+		Nha Trang places for families vietnam
+		Sunny Nha Trang is a fool-proof choice for family beach holidays. The Cam Ranh International Airport makes getting here amazingly simple, and from there it is a short ride to this sunny coastal city. Book a snorkeling tour and visit Hòn Mun Island to see colourful marine life, and learn more about Nha Trang’s fishing roots at the excellent Oceanographic Museum. Parents looking to unwind should give Nha Trang’s warm mud bath and hot spring resorts a try. Afterward you can jump in one of the swimming pools, or book a private room for a full day of relaxation. Hòn Bà Nature Reserve, about two hours from Nha Trang City, is where you can lay out a picnic blanket right next to a foaming waterfall.
+
+		Mũi Né family holiday vietnam
+		Learning to kitesurf in a day? Surely even the most uninterested teenagers will want to give this addictive sport a try. The coastal town of Mũi Né is a quick train ride or four-hour drive from Ho Chi Minh City, and is the home of kitesurfing in Vietnam. In fact, any type of watersport can be found in Mũi Né. The red and white sand dunes just out of town are a massive sand surfing playground. Children can exhaust their energy reserves by riding makeshift sand surfboards to the bottom of the dunes again and again. Or drift over these awe-inspiring dunes on an ATV. For extra convenience, stay close to the waters at one of Mũi Néis many resorts along the shoreline.
+
+		Phú Quốc Vietnam with family
+		Airports across Asia have direct flights to Phú Quốc, which makes a stay on this idyllic island equal parts tempting and accessible. Phú Quốc is especially suitable for families, with a wide variety of places to stay, from five-star resorts with private pool villas to eco-friendly guest houses on the sand. Visit fishing villages and bee farms to immerse in local culture, take the kids on the world is longest oversea cable car ride, and spend days surrounded by sandy beaches and turquoise waters. Family-friendly resorts on Long Beach and Ông Lang Beach are more relaxed than those around Dương Đông Town. Late in the year, keep an eye out for the island is famous purple sunsets. ', 'Happy_Trips', ' Destination' , '2024-04-12'); 
+
+
+INSERT INTO Blog_image (blog_id, image_url) 
+VALUES 
+    (1, 'images/Tietkiem.jpg'),
+    (2, 'images/Best_destination.jpg'),
+    (3, 'images/prepa.jpeg'),
+    (4, 'images/hà_giang.jpg'),
+	(5, 'images/Đà_nẵng.jpg'),
+    (6, 'images/skin.jpg'),
+    (7, 'images/plan_firs.jpeg'),
+    (8, 'images/Beginer.jpeg'),
+    (9, 'images/vietnam travel for families.jpg
+');
 
 

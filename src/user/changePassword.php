@@ -45,38 +45,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-
-    // Kiểm tra mật khẩu cũ
-    if ($user['password'] === md5($old_password)) {
-        // Kiểm tra mật khẩu mới và xác nhận
-        if ($new_password === $confirm_password) {
-            $hashed_password = md5($new_password);
-
-            // Cập nhật mật khẩu
-            $query = "UPDATE User SET password = ? WHERE user_id = ?";
-            $update_stmt = $mysqli->prepare($query);
-            $update_stmt->bind_param("si", $hashed_password, $user_id);
-
-            if ($update_stmt->execute()) {
-                setFlashData('msg', 'Đã cập nhật mật khẩu thành công!');
-                setFlashData('msg_type', 'success');
-                header('Location: ../index.php');
-                exit();
+    
+    if ($result->num_rows > 0) { // Kiểm tra nếu có bản ghi
+        if ($user['password'] === md5($old_password)) {
+            // Mật khẩu cũ đúng, thực hiện kiểm tra tiếp
+            if ($new_password === $confirm_password) {
+                $hashed_password = md5($new_password);
+                $query = "UPDATE User SET password = ? WHERE user_id = ?";
+                $update_stmt = $mysqli->prepare($query);
+                $update_stmt->bind_param("si", $hashed_password, $user_id);
+    
+                if ($update_stmt->execute()) {
+                    setFlashData('msg', 'Đã cập nhật mật khẩu thành công!');
+                    setFlashData('msg_type', 'success');
+                    header('location: ../index.php');
+                    exit();
+                } else {
+                    setFlashData('msg', 'Lỗi cập nhật mật khẩu. Vui lòng thử lại!');
+                    setFlashData('msg_type', 'danger');
+                }
             } else {
-                setFlashData('msg', 'Lỗi cập nhật mật khẩu. Vui lòng thử lại!');
+                setFlashData('msg', 'Mật khẩu mới và xác nhận không khớp!');
                 setFlashData('msg_type', 'danger');
             }
         } else {
-            setFlashData('msg', 'Mật khẩu mới và mật khẩu cũ không khớp!');
+            setFlashData('msg', 'Mật khẩu cũ không đúng!');
             setFlashData('msg_type', 'danger');
         }
     } else {
-        setFlashData('msg', 'Mật khẩu cũ không khớp!');
+        setFlashData('msg', 'Không tìm thấy người dùng!');
         setFlashData('msg_type', 'danger');
     }
-
-    header('Location: change_password.php');
-    exit();
+    header('Location: changePassword.php');
+    exit();  
 }
 ?>
 
@@ -116,15 +117,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ?>
                     <div class="mb-3">
                         <label for="current-password" class="form-label"><i class="bi bi-key"></i>Old Password</label>
-                        <input type="password" name="old_password" class="form-control" id="current-password" placeholder="Enter your old password">
+                        <input type="password" name="old_password" class="form-control" id="current-password" placeholder="Enter your old password" require>
                     </div>
                     <div class="mb-3">
                         <label for="new-password" class="form-label"><i class="bi bi-lock-fill"></i> New Password</label>
-                        <input type="password" name="new_password" class="form-control" id="new-password" placeholder="Enter your new password">
+                        <input type="password" name="new_password" class="form-control" id="new-password" placeholder="Enter your new password" require>
                     </div>
                     <div class="mb-3">
                         <label for="confirm-new-password" class="form-label"><i class="bi bi-lock-fill"></i> Confirm New Password</label>
-                        <input type="password" name="confirm_password" class="form-control" id="confirm-new-password" placeholder="Re-enter your new password">
+                        <input type="password" name="confirm_password" class="form-control" id="confirm-new-password" placeholder="Re-enter your new password" require>
                     </div>
                     <div class="btn-changePassword d-flex justify-content-between">
                         <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i> Update</button>
