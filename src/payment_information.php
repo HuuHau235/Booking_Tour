@@ -66,7 +66,8 @@ if (!class_exists('QRcode')) {
 
 // Dữ liệu QR
 $qrData = "Bank Name: MB BANK\nAccount Number: 0312 455 602\nAccount Holder: Happy Trips\nAmount: " . 
-          number_format($tour['price'] * $booking['num_people'], 2) . " USD";
+          $tour['price'] . " USD";
+
 
 
 ?>
@@ -167,7 +168,11 @@ $qrData = "Bank Name: MB BANK\nAccount Number: 0312 455 602\nAccount Holder: Hap
                                     </tr>
                                 </table>
                                 <div class="text-center">
-                                    <img src="qrcodes/payment_qr_<?php echo $user_id; ?>.png" alt="QR Code">
+                                    <?php
+                                        $qrFilePath = __DIR__ . "/qrcodes/payment_qr_$user_id.png";
+                                        QRcode::png($qrData, $qrFilePath, QR_ECLEVEL_L, 10);
+                                    ?>
+                                    <img src="qrcodes/payment_qr_<?php echo $user_id; ?>.png" alt="QR Code" style="width:250px; height:250px;">
                                     <p>Scan this QR code to complete the payment</p>
                                 </div>
                             </div>
@@ -183,7 +188,7 @@ $qrData = "Bank Name: MB BANK\nAccount Number: 0312 455 602\nAccount Holder: Hap
         function toggleBankTransferInfo() {
             const paymentMethod = document.getElementById('paymentMethod').value;
             const bankTransferInfo = document.getElementById('bankTransferInfo');
-            if (paymentMethod === 'bank_transfer') {
+            if (paymentMethod === 'bank transfer') {
                 bankTransferInfo.style.display = 'block';
             } else {
                 bankTransferInfo.style.display = 'none';

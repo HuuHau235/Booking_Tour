@@ -100,8 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $stmt->bind_param("iiis", $tour_id, $user_id, $num_people, $special_requests);
 
           if ($stmt->execute()) {
-            header("Location: payment_information.php?booking_id=" . $stmt->insert_id);
-        } else {
+              header ('location: payment_information.php');
+          } else {
               echo "<p>Đặt tour thất bại: " . $stmt->error . "</p>";
           }
       }
@@ -189,7 +189,7 @@ $conn->close();
                   </div>
                   <div class="modal-body">
                     <!-- dd -->
-                  <form action="payment_information.php" id="formRequest" method="POST"> 
+                  <form id="formRequest" method="POST"> 
                   <input type="hidden" name="form_type" value="booking">
                       <div class="row">
                           <div class="col-md-4 mb-3">

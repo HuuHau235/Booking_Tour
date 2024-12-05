@@ -45,18 +45,17 @@
             <li class="nav-item">
               <a class="nav-link" href="index_blog.php">Blog</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tour_random.php">Special Tour</a>
+            </li>
           </ul>
           
           <!-- Icon tài khoản bên phải -->
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
+                <i id="icon_user" class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
               </a>
-              <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="user/register.php" id="openRegisterBtn">Register</a></li>
-                <li><a class="dropdown-item" href="user/log_in.php" id="openLoginBtn">Log in</a></li>
-              </ul>
             </li>
           </ul>
         </div>
@@ -176,6 +175,27 @@ suggestionList.addEventListener('click', function (event) {
     suggestionList.style.display = 'none'; // Ẩn danh sách sau khi chọn
   }
 });
+
+// XỬ LÝ KHI CLICK VÀO ICON_USER TRÊN HEADER
+document.getElementById('icon_user').addEventListener('click', () => {
+    fetch('./user/check_login_status.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.logged_in) {
+                // Nếu đã đăng nhập
+                window.location.href = './user/update_info.php'; // Điều hướng tới trang thay đổi thông tin
+            } else {
+                // Nếu chưa đăng nhập
+                if (confirm('Bạn chưa đăng nhập. Vui lòng đăng nhập vào tài khoản của bạn. Nhấn "OK" để tới trang đăng nhập.')) {
+                    window.location.href = './user/log_in.php'; // Điều hướng tới trang đăng nhập
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi khi gọi API:', error);
+        });
+});
+
 </script>
 </body>
 </html>

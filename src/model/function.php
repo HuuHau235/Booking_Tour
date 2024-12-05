@@ -1,8 +1,8 @@
 <?php
 // Bao gồm các tệp PHPMailer
-require_once('../model/phpmailer/Exception.php');
-require_once('../model/phpmailer/PHPMailer.php');
-require_once('../model/phpmailer/SMTP.php');
+require_once('phpmailer/Exception.php');
+require_once('phpmailer/PHPMailer.php');
+require_once('phpmailer/SMTP.php');
 
 // Hàm gửi email sử dụng PHPMailer với Gmail và mật khẩu ứng dụng
 function sendMail($to, $subject, $content){
