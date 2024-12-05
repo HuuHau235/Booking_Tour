@@ -609,7 +609,7 @@ CREATE TABLE Booking (
     tour_id INT NOT NULL, 
     user_id INT NOT NULL,
     num_people INT NOT NULL,
-	Special requirements varchar(100),
+	Special_requirements varchar(100),
     FOREIGN KEY (tour_id) REFERENCES Tour(tour_id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE 
 );
