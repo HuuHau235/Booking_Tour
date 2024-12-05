@@ -45,6 +45,9 @@
             <li class="nav-item">
               <a class="nav-link" href="index_blog.php">Blog</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tour_random.php">Special Tour</a>
+            </li>
           </ul>
           
           <!-- Icon tài khoản bên phải -->
