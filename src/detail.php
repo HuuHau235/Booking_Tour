@@ -100,8 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $stmt->bind_param("iiis", $tour_id, $user_id, $num_people, $special_requests);
 
           if ($stmt->execute()) {
-              echo "<p></p>";
-          } else {
+            header("Location: payment_information.php?booking_id=" . $stmt->insert_id);
+        } else {
               echo "<p>Đặt tour thất bại: " . $stmt->error . "</p>";
           }
       }

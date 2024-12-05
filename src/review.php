@@ -60,8 +60,8 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
 <form method="POST">
     <input type="hidden" name="form_type" value="review">
     <div class="mb-3">
-        <label for="reviewRating" class="form-label">Xếp hạng:</label>
-        <select class="form-select" id="reviewRating" name="rating" required>
+    <label for="reviewRating" class="form-label" style="color: black;">Xếp hạng:</label>
+    <select class="form-select" id="reviewRating" name="rating" required>
             <option value="" disabled selected>Chọn đánh giá</option>
             <option value="1">⭐</option>
             <option value="2">⭐⭐</option>
@@ -71,8 +71,8 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
         </select>
     </div>
     <div class="mb-3">
-        <label for="reviewContent" class="form-label">Nội dung đánh giá:</label>
-        <textarea class="form-control" id="reviewContent" name="comment" rows="3" required></textarea>
+    <label for="reviewContent" class="form-label" style="color: black;">Nội dung đánh giá:</label>
+    <textarea class="form-control" id="reviewContent" name="comment" rows="3" required></textarea>
     </div>
     <button type="submit" class="btn btn-success">Gửi đánh giá</button>
 </form>
