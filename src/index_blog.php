@@ -23,10 +23,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Tour</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Destination</a></li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="about_us.php">About us</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="list_tour.php">Tour</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="tour_random.php">Special Tour</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Blogs

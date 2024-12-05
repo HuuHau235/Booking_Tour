@@ -814,7 +814,6 @@ VALUES
         Cao Dai cathedral at Tay Ninh
         Ho Chi Minh is a heady city of nine million people and eight million motorbikes. It has brilliant street food, is draped in a fantastic array of fairy lights and is fuelled by a growing craft beer, spirit and cocktail scene and a thrilling, infectious energy. What two decades ago was a fairly low-rise city has now been dwarfed by an army of high rises. Don’t miss exploring the city on the back of a motorbike, visiting the top sites, and taking a trip out to the Viet Cong tunnels at Cu Chi and the fantastically decorated Cao Dai cathedral at Tay Ninh. Sampling the food and coffee goes without saying.
 
-        Make it happen
         The Park Hyatt Saigon is not the best-looking from the outside. Step inside, though, and it is a dazzler. Its restaurants and bars are top city addresses and the lovely pool is a boon on humid days. It’s right in the heart of the city, too, just behind the opera house.
         Riviera Travel is 16-day Vietnam and Cambodia tour three night-stay in Ho Chi Minh City ensures plenty of time to take in the sites and the food and explore the tunnels at Cu Chi',
          'Happy_Trips', 
@@ -912,40 +911,8 @@ VALUES
         9. Yen Minh Pine Forest
         If you have fallen in love with the Yen Minh Pine Forest, located just about 40 kilometers from the twin mountains of Quan Ba, upon arriving at this tourist destination in Ha Giang, the cool air and the towering green pine trees on the hillsides will amaze you. Of course, during this journey, you will not hesitate to explore this wonderful pine forest with friendly guides or team up with fellow travelers for some forest adventures and photo ops, won not you?
 
-
         10. Quan Ba Twin Mountains
         For a long time, the name Quan Ba Twin Mountains has been frequently mentioned by tourists on budget tours to Ha Giang. Regardless of the season, the landscape of Quan Ba Twin Mountains never fails to mesmerize visitors. Especially during the rice harvest season, Quan Ba Twin Mountains appear like a fairy donning a new gown. Standing atop the mountain and gazing downwards, you wll witness a shimmering golden hue enveloping the land and sky. So, if you ever visit Ha Giang, don not forget to explore this beautiful mountain range resembling the ample bosom of a maiden!
-
-
-        11. Forbidden Mountain
-        Forbidden Mountain is considered a famous tourist destination in Ha Giang, standing proudly amidst the earth and sky. Upon one visit, you will be captivated by the majestic mountain cliffs that seem to touch the clouds. In the past, the journey to Forbidden Mountain was extremely perilous and challenging due to the lack of tourism development. However, with the construction of a large television tower on the mountain, the path has become much safer and more accessible.
-
-
-        The scenery on both sides of the road is quite rugged and mysterious, so if you go by motorbike or car, stop halfway up the mountain and stroll to admire the high mountains. Moreover, this place is also a sacred land for local residents. Following the winding staircases among the mountains, you will reach a deep cave called the skylight, which is closely associated with a legend about battles in the years 1870-1875 between the yellow flag army and the white flag army.
-
-        ⇒Budget-Friendly 5-Day 4-Night Tour from Cao Bang to Ha Giang
-
-        12. Lung Khuy Cave
-        Dubbed as the number one cave of Ha Giang, Lung Khuy Cave boasts a pristine beauty with numerous magnificent stalactites and peculiar shapes that stimulate the imagination of travelers. Visitors can easily navigate through the cave as the pathways are constructed with sturdy iron frames.
-
-
-        You can observe on the cave ceiling the stalactites formed over hundreds of years. The multi-colored lights make it easy for us to observe the magical stalactites with various shapes, stimulating the imagination of travelers. With its pristine beauty, Lung Khuy Cave is rated as one of the most beautiful caves in the Dong Van Karst Plateau.
-
-        13. The Lonely Tree
-        The Lonely Tree in Ha Giang is one of the most beautiful lonely trees in Vietnam. Its location is in the area of Can Ty commune, Quan Ba district, on the way from Quan Ba to Dong Van. The special feature of this Ha Giang lonely tree is its large size, with the trunk standing tall with one side facing the mountain pass and the other side facing the deep abyss. Therefore, it is gradually becoming a popular check-in spot in Ha Giang, attracting many young people and adventure travelers.
-
-
-        14. Pho Cao
-        Pho Cao is renowned as the humble and serene land of the mountains and forests of Ha Giang, where there are no modern facilities to weary you in daily life. It is a valley in the northwest highlands, belonging to Dong Van district, Ha Giang province. Visitors who come to Pho Cao will feel the pristine and rustic charm of this place. The majority of Pho Cao residents are Mong ethnic people, and despite their impoverished lives, they are very friendly. They welcome guests from afar with warm smiles, always opening their doors to invite guests into their homes.
-
-
-        The Mong ethnic group makes up over 90% of Pho Cao is population, so this land also carries the strong cultural characteristics of the Mong people. The beauty of Pho Cao is created by the vast fields of buckwheat flowers and the small wall houses nestled against the mountainside. The rows of houses are built from large stone blocks taken from the Dong Van Karst Plateau, stacked into solid and sturdy structures, capable of withstanding weather and natural disasters. This unique characteristic has made Pho Cao one of the most attractive destinations in Ha Giang in the eyes of tourists.
-
-        15. Pao is House
-        The famous house featured in the movie Pao is Story is chosen as a destination by many budget travelers on cheap Ha Giang tours. Pao is House was built about 80 years ago and is a traditional house of the Mong ethnic people. From the entrance gate, visitors can feel the different architectural style here, with a wooden gate, stone pillars and walls, and yin-yang tiled roofs bearing the marks of time.
-
-
-        Right after the house gate stands a forest peach tree, creating a solemn atmosphere. When spring arrives and the flowers bloom, the scenery here transforms into a beautiful painting. If you have the opportunity to visit Ha Giang, don not forget to visit Pao is house to experience the difference in landscapes of the Northeast highlands.
 
         ','Happy_Trips','Destination', '2022-11-30'),
        
@@ -963,10 +930,6 @@ VALUES
 
         One unique feature that sets My Khe Beach in Da Nang that is different from other beaches in Vietnam is its cleanliness. The local government invests heavily in keeping this treasure spot free from pollution, so visitors can enjoy pristine waters without worrying about litter or debris ruining their fun. If you’re interested in history, you can visit nearby sites like the Marble Mountains or Linh Ung Pagoda located on Son Tra Peninsula, a favorite destination in Da Nang. These attractions offer incredible views of Da Nang Bay while also providing insight into Vietnamese culture and spirituality.
 
-        Maps: https://maps.app.goo.gl/rVactvktdptpvqmT9
-
-        Marble Mountains
-        Triptych image showcasing the best places to visit in Da Nang. Left: People exploring a large cave. Top right: Aerial view of a rocky hill with buildings below. Bottom right: Sunlight streaming into a cave with temple structures, all promoting House Rental Danang.
 
         Marble Mountains
 
@@ -983,10 +946,6 @@ VALUES
         Hoa Son (Fire Mountain) has unique tunnels that were used by Viet Cong soldiers during the Vietnam War era making it an interesting historical site to visit Da Nang for those interested in learning more about Vietnam’s past.
         Visitors can explore these mountains by themselves or join a guided tour to learn more about the history and culture of each mountain. Tickets are available at the entrance gate with different prices depending on the type of tour and activities.
 
-        Maps: https://maps.app.goo.gl/akhRuumceNoimKwL7
-
-        Ba Na Hills
-        Two images: The top shows a pedestrian bridge held by giant stone hands in a lush, hilly area. The bottom shows colorful cable cars labeled "Sun World" with a castle-like structure in the background, highlighting two of the best places to visit in Da Nang.
 
         Ba Na Hills
 
@@ -1000,15 +959,9 @@ VALUES
 
         During peak season (from May-August), it can get crowded so it is best to arrive early in order to avoid long lines or waiting times for attractions. You may also want to consider visiting during off-season months when crowds are smaller and ticket prices are lower.
 
-        Maps: https://maps.app.goo.gl/3ooaj6sjkaGjGYvYA
-
-        You can buy your ticket at this location: https://maps.app.goo.gl/2SnECcjPxJPUp6vw7
-
         Read more: When is the Best Time to Visit Danang? An overview of monthly weather in Danang
 
-        Dragon Bridge
-        A vibrant nighttime cityscape of Da Nang, Vietnam, showcases some of the best places to visit in Da Nang with illuminated bridges and buildings adorned with colorful lights and fireworks dancing above the river.
-
+       
         Dragon Bridge
 
         As one of the most iconic landmarks in Da Nang, Vietnam, the Dragon Bridge is a must-see attraction for any traveler visiting the city. This impressive bridge not only serves as a functional transportation route but also stands out as a symbol of Vietnamese culture and architecture.
@@ -1019,11 +972,7 @@ VALUES
 
         In addition to admiring its exterior beauty, there are plenty of things to do around Dragon Bridge such as exploring nearby restaurants or cafes for some local Vietnamese cuisine. Don’t forget to try some Banh Xeo, a savory pancake filled with shrimp and bean sprouts that’s popular in Da Nang. If you’re interested in learning more about Vietnamese history and culture, take a stroll down Tran Hung Dao Street towards the Museum of Cham Sculpture which showcases ancient artifacts from Cham civilization that once lived here before being conquered by Vietnam in 1471 AD.
 
-        Maps: https://maps.app.goo.gl/f43s4oYuyQjZnYTQ9
-
-        Son Tra Peninsula
-        Aerial view of a large statue in a coastal area with surrounding buildings (left). Stone statue of an elderly man playing a board game (right). House Rental Danang company details included in the image. One of the Best Places to Visit in Da nang.
-
+       
         Son Tra Peninsula
 
         The Son Tra Peninsula, also known as Monkey Mountain, is a hidden gem that should not be missed when visiting Da Nang. With its pristine beaches, dense forests, and unique wildlife, it offers visitors an unforgettable experience.
@@ -1034,11 +983,7 @@ VALUES
 
         Another must-visit location on Son Tra Peninsula is Tien Sa Beach with its crystal-clear waters perfect for swimming or snorkeling. The beach also boasts some excellent seafood restaurants where visitors can enjoy fresh catches from local fishermen while taking in stunning ocean views. It’s important to note that since much of Son Tra Peninsula falls within protected areas or military zones access may be limited depending on regulations at any given time so it’s best to check before planning your trip.
 
-        Maps: https://maps.app.goo.gl/P7dBRB3dGiJ4ynZCA
-
-        Han Market
-        Exterior and interior views of Chợ Hàn market in Danang, one of the best places to visit in Da Nang, displaying the entrance and various stalls inside.
-
+        
         Han Market
 
         As you explore the bustling city of Da Nang, you will inevitably come across Han Market in the morning. This vibrant market is a one-stop shop for all your souvenir and street food needs for tourists to enjoy. The place is where tourists flock, but it’s also where locals go to buy fresh produce and other necessities. The market has been around since the French colonial period and has undergone several renovations over the years. It’s located in the heart of Da Nang, making it easily accessible to visitors staying in nearby hotels or apartments.
@@ -1123,9 +1068,6 @@ VALUES
 
         When entering Vietnam, you will need to fill out a customs declaration form. Declare any goods that exceed the duty-free allowance or are prohibited.
 
-        Visa on Arrival (VOA) is for certain nationalities and needs a pre-approved letter. Source: vietnamembassy-uae.org.
-        Visa on Arrival (VOA) is for certain nationalities and needs a pre-approved letter. Source: vietnamembassy-uae.org.
-
         Choosing the Best Time for the First Trip to Vietnam
         Vietnam is diverse climate and distinct regional seasons offer a unique experience year-round, but understanding the weather patterns is key to planning your perfect trip to Vietnam.
 
@@ -1139,9 +1081,6 @@ VALUES
         Avoiding Peak Season: If you are looking for budget-friendly options and fewer crowds, consider traveling to Vietnam outside the peak season (July-August).
         Festival Season: Experience the vibrant Vietnamese culture during festive periods like Tet Nguyen Dan (Lunar New Year) in January or February, or other regional festivals throughout the year.
         By considering these Vietnam travel tips, you can tailor your travel to Vietnam to your preferences and ensure an unforgettable experience. Remember to check the specific weather conditions for your chosen destinations and plan your itinerary accordingly.
-
-        Vietnam is diverse climate and distinct regional seasons offer year-round uniqueness.
-        Vietnam is diverse climate and distinct regional seasons offer year-round uniqueness.
 
         Top 10+ Best Places to Visit in Vietnam for first timer
         Vietnam, a land of captivating beauty and rich cultural heritage, boasts a diverse landscape stretching along the Indochinese Peninsula is eastern coast. With its extensive coastline bordering the East Sea, Vietnam offers many stunning beaches and coastal attractions. The country is topography is equally diverse, ranging from majestic mountains in the north to fertile deltas in the south, providing visitors with many popular destinations in Vietnam to explore.
@@ -1170,27 +1109,8 @@ VALUES
         Phu Quoc: Vietnam is largest island is a tropical paradise with stunning beaches, Phu Quoc National Park, the Hon Thom cable car, and the charming Ham Ninh fishing village.
         By planning your itinerary carefully and considering the Vietnam travel tips outlined in this guide, you can make the most of your trip to Vietnam and create lasting memories.
 
-        Southern Vietnam is known for its vibrant culture, lush landscapes, and bustling cities. Source: Vietnam Tourism
-        Southern Vietnam is known for its vibrant culture, lush landscapes, and bustling cities. Source: Vietnam Tourism
 
-        Money and Communication in Vietnam: Essential Tips for Travelers
-        The official currency of Vietnam is the Vietnamese Dong (VND). As of June 2024, the exchange rate is approximately 1 USD = 25,454 VND. However, it is always recommended to check the current rates before your trip.
-
-        Where to Exchange Vietnamese Money:
-        Airports: Currency exchange counters are available at major airports like Noi Bai International Airport (Hanoi) and Tan Son Nhat International Airport (Ho Chi Minh City). However, the exchange rates might not be the most favorable.
-        Banks: Banks offer reliable exchange services with competitive rates. You can find branches of major banks in cities and towns across Vietnam.
-        Payment Methods in Vietnam:
-        Cash: Cash is the most widely accepted form of payment in Vietnam, especially in smaller towns and local markets.
-        Credit Cards: Major credit cards like Visa, Mastercard, and American Express are accepted in larger cities, hotels, restaurants, and tourist shops. However, it is always a good idea to carry some cash for smaller establishments and street vendors.
-        Mobile Payment Apps: Mobile payment apps like MoMo, ZaloPay, and ViettelPay are gaining popularity, especially among the younger generation. While not universally accepted, they are convenient for cashless transactions in many places.
-        ATMs:
-        ATMs are readily available throughout Vietnam, even in smaller towns. Most ATMs: Vietcombank, BIDV, Agribank, Techcombank,... accept international cards and offer instructions in English. However, be aware of withdrawal fees, which can vary depending on your bank and the ATM operator.
-
-        Safety Tip: When using ATMs, choose well-lit and secure locations, and be cautious of your surroundings. Cover the keypad when entering your PIN to prevent unauthorized access.
-        SIM Cards and Communication:
-        Staying connected in Vietnam is easy with local SIM cards. Major mobile network providers like Viettel, Vinaphone, and MobiFone offer affordable data plans and SIM cards that can be purchased at airports, and mobile phone shops. These SIM cards provide reliable coverage throughout the country, allowing you to access the internet, make calls, and use messaging apps.
-
-        By understanding the currency exchange, payment methods, and communication options in Vietnam, you will be well-prepared for your travels and can focus on enjoying your trip to Vietnam to the fullest.','Happy_Trips', 'Reisetipps', '2021-09-21'),
+         ','Happy_Trips', 'Reisetipps', '2021-09-21'),
        
 		(8,'The Beginner is Guide to Exploring Vietnam','Now here is a country that breaks the mold of your typical Asian destination. Vietnam is not just famous for its stunning landscape and unique culture. It gets way quirkier than that—we were talking egg coffee ...', '
 		Settling into Your Hotel in Vietnam
@@ -1295,5 +1215,43 @@ VALUES
     (8, 'images/Beginer.jpeg'),
     (9, 'images/vietnam travel for families.jpg
 ');
+
+DROP TABLE IF EXISTS GuideImage;
+
+CREATE TABLE Guide (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Unique ID for the guide
+    name VARCHAR(100) NOT NULL,        -- Name of the guide
+    role VARCHAR(50) NOT NULL          -- Role (e.g., "Tourist Guide", "Local Expert", ...)
+);
+
+-- 1. Drop the Image table if it exists
+DROP TABLE IF EXISTS Image;
+
+-- 2. Create the Image table to store guide images
+CREATE TABLE Image (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique ID for each image
+    guide_id INT NOT NULL,               -- Guide ID related to the image
+    file_path VARCHAR(255) NOT NULL,     -- File path or URL of the image
+    CONSTRAINT fk_guide_id FOREIGN KEY (guide_id) REFERENCES Guide(id) ON DELETE CASCADE
+    -- Foreign key constraint ensures the image is only linked to valid guides
+);
+
+-- Insert data into the Guide table
+INSERT INTO Guide (name, role)
+VALUES 
+    ('Trần Hữu Nam', 'Manager'), 
+    ('Hoàng Thị Khánh Linh', 'Tourist Guide'), 
+    ('Nguyễn Thúc Thuỷ Tiên', 'Tourist Guide'), 
+    ('Nguyễn Thị Kim Châu', 'Tourist Guide'),
+    ('Hoàng Long', 'Tourist Guide');
+
+-- Insert images into the Image table for the guides
+INSERT INTO Image (guide_id, file_path)
+VALUES 
+    (1, '../images/guide1.jpg'),
+    (2, '../images/guide2.jpg'),
+    (3, '../images/guide3.jpg'),
+    (4, '../images/guide4.jpg'),
+    (5, '../images/guide5.jpg');
 
 
