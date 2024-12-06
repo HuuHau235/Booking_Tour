@@ -20,12 +20,12 @@
                             <!-- Money input -->
                             <div class="mb-3">
                                 <label for="money" class="form-label"><i class="bi bi-currency-exchange"></i>Tour Price (VND)</label>
-                                <input type="number" class="form-control" id="money" name="money" placeholder="Enter your desired amount" required>
+                                <input type="number" min="1" class="form-control" id="money" name="money" placeholder="Enter your desired amount" required>
                             </div>
                             <!-- Duration input -->
                             <div class="mb-3">
                                 <label for="duration" class="form-label"><i class="bi bi-calendar-check-fill"></i> Duration (Days)</label>
-                                <input type="number" class="form-control" id="duration" name="duration" placeholder="Enter the number of days" required>
+                                <input type="number" min="1" max="8" class="form-control" id="duration" name="duration" placeholder="Enter the number of days" required>
                             </div>
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-custom w-100">Find Tour</button>
