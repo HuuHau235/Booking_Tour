@@ -1202,7 +1202,6 @@ id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique ID for each image
 INSERT INTO Guide (name, role)
 VALUES 
     ('Trần Hữu Nam', 'Manager'), 
-    ('Hoàng Thị Khánh Linh', 'Tourist Guide'), 
     ('Nguyễn Thúc Thuỷ Tiên', 'Tourist Guide'), 
     ('Nguyễn Thị Kim Châu', 'Tourist Guide'),
     ('Hoàng Long', 'Tourist Guide');
@@ -1210,11 +1209,11 @@ VALUES
 -- Insert images into the Image table for the guides
 INSERT INTO Image (guide_id, file_path)
 VALUES 
-    (1, '../images/guide1.jpg'),
-    (2, '../images/guide2.jpg'),
-    (3, '../images/guide3.jpg'),
-    (4, '../images/guide4.jpg'),
-    (5, '../images/guide5.jpg');
+    (1, './images/Guide1.1.jpg'),
+    (2, './images/Guide2.jpg'),
+    (3, './images/Guide3.jpg'),
+    (4, './images/Guide4.jpg'),
+    (5, './images/Guide5.jpg');
 
 
 ALTER TABLE `Tour` ADD `city` VARCHAR(255);
