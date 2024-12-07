@@ -97,83 +97,42 @@
         </div>
       </div>
     </div>
-
-  <div id="search-bar">
-    <input type="text" class="search-input" id="searchInput" placeholder="Search">
-    <ul class="dropdown-menu" id="suggestionList" style="display: none">
-      <li><a class="dropdown-item" href="#">Hội An</a></li>
-      <li><a class="dropdown-item" href="#">Đà Nẵng</a></li>
-      <li><a class="dropdown-item" href="#">Huế</a></li>
-      <li><a class="dropdown-item" href="#">Đà Lạt</a></li>
-      <li><a class="dropdown-item" href="#">Hà Nội</a></li>
-      <li><a class="dropdown-item" href="#">Quảng Bình</a></li>
-      <li><a class="dropdown-item" href="#">Nha Trang</a></li>
-      <li><a class="dropdown-item" href="#">Bắc Giang</a></li>
-    </ul>
-    <select class="search-select">
-      <option>Activity</option>
-      <option>Adventure</option>
-      <option>Vacation</option>
-      <option>Explore</option>
-    </select>
-    <select class="search-select">
-      <option>Duration</option>
-      <option>1 Day Tour</option>
-      <option>2-4 Day Tour</option>
-      <option>5-7 Day Tour</option>
-      <option>7+ Day Tour</option>
-    </select>
-    <input type="date" class="search-input">
-    <button class="search-button">Search</button>
-  </div>
-</div>
+<?php
+    // Lấy các tham số tìm kiếm từ URL (query string)
+$searchTerm = isset($_GET['searchTerm']) ? $_GET['searchTerm'] : '';
+$activity = isset($_GET['activity']) ? $_GET['activity'] : '';
+$duration = isset($_GET['duration']) ? $_GET['duration'] : '';
+$date = isset($_GET['date']) ? $_GET['date'] : '';
+?>
+   <form id="searchForm" method="GET" action="search_results.php">
+    <div id="search-bar">
+        <input type="text" class="search-input" id="searchInput" name="searchTerm" value="<?php echo htmlspecialchars($searchTerm); ?>" placeholder="Search">
+        <!-- Các trường chọn lựa -->
+        <select class="search-select" name="activity">
+            <option value="">Activity</option>
+            <option value="adventure" <?php if ($activity == 'adventure') echo 'selected'; ?>>Adventure</option>
+            <option value="relaxation" <?php if ($activity == 'relaxation') echo 'selected'; ?>>Relaxation</option>
+            <option value="exploration" <?php if ($activity == 'exploration') echo 'selected'; ?>>Exploration</option>
+        </select>
+        <select class="search-select" name="duration">
+            <option value="">Duration</option>
+            <option value="1" <?php if ($duration == '1') echo 'selected'; ?>>1 Day Tour</option>
+            <option value="2-3" <?php if ($duration == '2-3') echo 'selected'; ?>>2-3 Day Tour</option>
+            <option value="4-5" <?php if ($duration == '4-5') echo 'selected'; ?>>4-5 Day Tour</option>
+            <option value="6-7" <?php if ($duration == '6-7') echo 'selected'; ?>>6-7 Day Tour</option>
+            <option value="8+" <?php if ($duration == '8+') echo 'selected'; ?>>8+ Day Tour</option>
+        </select>
+        <input type="date" class="search-input" name="date" value="<?php echo htmlspecialchars($date); ?>">
+        <button class="search-button" type="submit">Search</button>
+    </div>
+</form>
 
 <script>
- const searchInput = document.getElementById('searchInput');
-const suggestionList = document.getElementById('suggestionList');
-const suggestions = suggestionList.querySelectorAll('.dropdown-item');
+const searchInput = document.getElementById('searchInput');
 
-// Hiển thị danh sách gợi ý khi focus
-searchInput.addEventListener('focus', function () {
-  updateSuggestions(); // Kiểm tra và cập nhật danh sách mỗi khi focus
-});
-
-// Lọc danh sách gợi ý khi nhập
+// Lắng nghe sự kiện nhập liệu (input) để lọc gợi ý
 searchInput.addEventListener('input', function () {
   updateSuggestions();
-});
-
-// Cập nhật danh sách gợi ý
-function updateSuggestions() {
-  const filter = searchInput.value.trim().toLowerCase();
-  let hasMatch = false;
-
-  suggestions.forEach((item) => {
-    if (item.textContent.toLowerCase().includes(filter)) {
-      item.style.display = 'block'; // Hiển thị mục phù hợp
-      hasMatch = true;
-    } else {
-      item.style.display = 'none'; // Ẩn mục không phù hợp
-    }
-  });
-
-  // Ẩn danh sách nếu không có mục nào phù hợp
-  suggestionList.style.display = hasMatch ? 'block' : 'none';
-}
-
-// Ẩn danh sách khi nhấp ra ngoài
-document.addEventListener('click', function (event) {
-  if (!searchInput.contains(event.target) && !suggestionList.contains(event.target)) {
-    suggestionList.style.display = 'none';
-  }
-});
-
-// Xử lý sự kiện chọn gợi ý
-suggestionList.addEventListener('click', function (event) {
-  if (event.target.classList.contains('dropdown-item')) {
-    searchInput.value = event.target.textContent; // Điền vào ô tìm kiếm
-    suggestionList.style.display = 'none'; // Ẩn danh sách sau khi chọn
-  }
 });
 
 // XỬ LÝ KHI CLICK VÀO ICON_USER TRÊN HEADER
@@ -195,6 +154,41 @@ document.getElementById('icon_user').addEventListener('click', () => {
             console.error('Lỗi khi gọi API:', error);
         });
 });
+
+ // Lấy các phần tử HTML cần thiết
+const searchButton = document.querySelector('.search-button');
+const searchInput = document.querySelector('#searchInput'); // Chắc chắn rằng bạn đã chọn đúng input
+const activitySelect = document.querySelector('.search-select:nth-of-type(1)');
+const durationSelect = document.querySelector('.search-select:nth-of-type(2)');
+const dateInput = document.querySelector('input[type="date"]');
+
+// Lắng nghe sự kiện khi nhấn nút "Search"
+searchButton.addEventListener("click", function (e) {
+  e.preventDefault(); // Ngừng hành động mặc định của nút (nếu có)
+
+  // Lấy giá trị từ các trường tìm kiếm
+  const searchTerm = searchInput.value.trim(); // Tên tìm kiếm
+  const activity = activitySelect.value; // Loại hoạt động
+  const duration = durationSelect.value; // Thời gian tour
+  const date = dateInput.value; // Ngày chọn
+
+  // Kiểm tra nếu ít nhất một trường được điền
+  if (searchTerm || activity !== "Activity" || duration !== "Duration" || date) {
+    const searchParams = new URLSearchParams();
+
+    // Thêm tham số vào URL nếu có giá trị
+    if (searchTerm) searchParams.append("search", searchTerm);
+    if (activity !== "Activity") searchParams.append("activity", activity);
+    if (duration !== "Duration") searchParams.append("duration", duration);
+    if (date) searchParams.append("date", date);
+
+    // Chuyển đến trang tìm kiếm và truyền tham số tìm kiếm qua URL
+    window.location.href = `search_results.php?${searchParams.toString()}`;
+  } else {
+    alert("Please fill in at least one search field!"); // Cảnh báo nếu không điền thông tin
+  }
+});
+
 
 </script>
 </body>

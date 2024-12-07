@@ -75,7 +75,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 (1, 2, 'DAY 2: TOURING TAM DAO - RETURN TO HANOI (B, L).
         08:00: Breakfast at the restaurant. Then, the guide takes guests to conquer the TV Tower at the top of Thien Nhi Mountain. Though challenging, the path is romantic and scenic, adorned with wildflowers such as orchids and Mexican sunflowers.
         12:00: Check out from the hotel and enjoy lunch with Tam Dao specialty dishes.
-        Afternoon: Visit the Lady Chua Thuong Ngan Temple amidst the dreamy Tam Dao landscape. Guests can freely explore and participate in a ceremonial offering.
+Afternoon: Visit the Lady Chua Thuong Ngan Temple amidst the dreamy Tam Dao landscape. Guests can freely explore and participate in a ceremonial offering.
         15:30: End the tour and depart for Hanoi.
         18:30: Arrive in Hanoi. The guide and driver return guests to the initial meeting point, express gratitude, and bid farewell. The 2-day 1-night Tam Dao tour concludes.'),
 
@@ -98,7 +98,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
         Noon: Lunch at Con Se Tre restaurant in Nha Trang Bay. After lunch, the boat returns guests to the mainland, and they return to the hotel to rest.
         15:30: Guests visit Vinpearl Land, taking a round-trip cable car ride. Enjoy various activities:
         + Outdoor thrilling rides like the Moon Swing and Roller Coaster.
-        + Indoor games such as racing games and bumper cars.
++ Indoor games such as racing games and bumper cars.
         + 4D movies, water music performances, the Aquarium, and the Water Park.
         Evening: Guests are free to dine and explore Vinpearl Land. At 21:00, take the cable car back to the mainland. The bus takes guests back to the hotel.'),
 
@@ -124,7 +124,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 (5, 2, 'DAY 2: DA NANG - VISIT ANCIENT TOWN HOI AN - QUANG NAM (BREAKFAST, LUNCH, DINNER)
 		Morning: Guests are free to explore, swim, and have breakfast at the hotel.
 		08:00 AM: The bus picks up guests to visit Non Nuoc Tourist Area - Marble Mountains. Guests can climb to explore Huyen Khong Cave, Tam Thai Pagoda, and Linh Ung Pagoda, and visit the Non Nuoc Stone Carving Village.
-		Continue the journey to Hoi An Ancient Town, recognized as a UNESCO World Heritage Site in November 1999. Guests visit Phuc Kien Assembly Hall (or Guangdong Assembly Hall), the Japanese Covered Bridge, Tan Ky Ancient House (or Phung Hung Ancient House).
+Continue the journey to Hoi An Ancient Town, recognized as a UNESCO World Heritage Site in November 1999. Guests visit Phuc Kien Assembly Hall (or Guangdong Assembly Hall), the Japanese Covered Bridge, Tan Ky Ancient House (or Phung Hung Ancient House).
 		Lunch: The bus takes guests to a restaurant to enjoy local specialties.
 		(Optional: If guests choose to visit Cu Lao Cham Island, the bus will take the group to Cua Dai Beach. Guests will board a boat to Cu Lao Cham, swim, and have lunch on the island. Afterward, return to Da Nang. (Additional charge: 580,000 VND per person for Cu Lao Cham).)
 		Afternoon: Guests are free to rest at the hotel, stroll around Da Nang City, and swim at My Khe Beach.
@@ -146,7 +146,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
         
 (6, 2, 'DAY 2: DA NANG - VISIT ANCIENT TOWN HOI AN - QUANG NAM (BREAKFAST, LUNCH, DINNER)
 		Morning: Guests are free to explore, swim, and have breakfast at the hotel.
-		08:00 AM: The bus picks up guests to visit Non Nuoc Tourist Area - Marble Mountains. Guests can climb to explore Huyen Khong Cave, Tam Thai Pagoda, and Linh Ung Pagoda, and visit the Non Nuoc Stone Carving Village.
+08:00 AM: The bus picks up guests to visit Non Nuoc Tourist Area - Marble Mountains. Guests can climb to explore Huyen Khong Cave, Tam Thai Pagoda, and Linh Ung Pagoda, and visit the Non Nuoc Stone Carving Village.
 		Continue the journey to Hoi An Ancient Town, recognized as a UNESCO World Heritage Site in November 1999. Guests visit Phuc Kien Assembly Hall (or Guangdong Assembly Hall), the Japanese Covered Bridge, Tan Ky Ancient House (or Phung Hung Ancient House).
 		Lunch: The bus takes guests to a restaurant to enjoy local specialties.
 		(Optional: If guests choose to visit Cu Lao Cham Island, the bus will take the group to Cua Dai Beach. Guests will board a boat to Cu Lao Cham, swim, and have lunch on the island. Afterward, return to Da Nang. (Additional charge: 580,000 VND per person for Cu Lao Cham).)
@@ -168,7 +168,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		Morning: Guests are free to wake up early, enjoy the sunrise, and swim. Breakfast is served at the hotel.
 		08:00: The vehicle and guide pick up guests to visit Tay Son, Binh Dinh, a famous place tied to the historical Tay Son period.
 		Visitors will explore the Quang Trung Museum and the Temple of Tay Son Tam Kiet, learning about the life and legacy of the three Tay Son brothers (Nguyen Nhac, Nguyen Hue, Nguyen Lu). Enjoy performances of martial arts, Tay Son war drums, and Gong performances.
-		11:30: Lunch at a restaurant, followed by a return to the hotel in Quy Nhon to rest.
+11:30: Lunch at a restaurant, followed by a return to the hotel in Quy Nhon to rest.
 		Afternoon: Relax at the beach or stroll around Quy Nhon.
 		Evening: Dinner at a restaurant, then overnight at the hotel in Quy Nhon.'),
         
@@ -195,7 +195,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		18:00: Arrival in Hanoi. The guide and vehicle drop guests at the original pick-up point. Tour Pro expresses gratitude, says goodbye, and looks forward to welcoming guests again.'),
 
 (9, 1, 'Day 1: MORNING: HANOI - CHIEM BAI, VISIT CAO LINH PAGODA - HAI PHONG.
-		07:00: The high-quality tourist car and professional tour guide from Tour Pro pick up guests at the requested meeting point in Hanoi, then depart for Cao Linh Pagoda in Hai Phong.
+07:00: The high-quality tourist car and professional tour guide from Tour Pro pick up guests at the requested meeting point in Hanoi, then depart for Cao Linh Pagoda in Hai Phong.
 		08:00: The car moves along the Hanoi - Hai Phong expressway (National Road 5B). On the way, the car stops for a break, and guests can have breakfast or rest at the V52 Hai Duong rest stop.
 		09:30: Guests arrive at Cao Linh Pagoda, a pagoda with scenic views and distinctive architecture in Hai Phong. The first destination in the spring tour, where guests will visit, worship, and perform ceremonies...
 		11:00: Guests board the car to a nearby restaurant close to the historical site of Bach Dang River for lunch, enjoying many dishes with the rich flavors of the port city.'),
@@ -214,7 +214,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		22:00: Guests return to the hotel for the night.'),
 (10, 2, 'DAY 2: HALONG - SUN WORLD - VISIT THE BAY (BREAKFAST, LUNCH, DINNER).
 		Morning: Guests can wake up early to take a stroll and watch the sunrise or swim. Afterward, guests will have breakfast at the restaurant.
-		08:00: The bus and guide pick up guests to start the tour of Ha Long Bay, "one of the natural wonders of the world". Guests will visit the following sites: Thien Cung Cave, Lu Huong Island, Dog Stone Island, and Fighting Rooster Island...
+08:00: The bus and guide pick up guests to start the tour of Ha Long Bay, "one of the natural wonders of the world". Guests will visit the following sites: Thien Cung Cave, Lu Huong Island, Dog Stone Island, and Fighting Rooster Island...
 		11:30: Guests will have lunch at a restaurant, then return to the hotel to rest.
 		Afternoon: Guests have free time to enjoy activities at the SunWorld Ha Long Park complex - covering 214 hectares, SunWorld Ha Long Park includes three main areas for entertainment and sightseeing:
 		- Activities at Ba Deo Peak - Queen Cable Car
@@ -254,7 +254,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		08:00: The guide leads guests on an excursion to visit and explore Titop Island, where guests can swim, enjoy the beach, or climb the mountain.
 		11:00: Guests check out of their cabins and prepare their personal belongings. The cruise docks, and a bus will take guests back to a restaurant.
 		Afternoon: Guests will have lunch and relax at a restaurant on the mainland. After lunch, the bus and guide from Tour Pro will take guests back to the departure point.
-		16:30: The bus will take guests back to Hanoi or their desired location. End of the 2-day 1-night Ha Long Bay cruise tour. The guide bids farewell and hopes to meet again!'),
+16:30: The bus will take guests back to Hanoi or their desired location. End of the 2-day 1-night Ha Long Bay cruise tour. The guide bids farewell and hopes to meet again!'),
 
 (12, 1, 'Day 1: 8:00-8:30: The guide and driver will pick up guests at their hotel in the Old Quarter. The pickup time depends on the location of the hotel.
 		8:45: The group visits Tran Quoc Pagoda, the oldest pagoda in Hanoi, built in the 6th century. Here, guests can see one of the largest Bodhi trees in Vietnam.
@@ -274,7 +274,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 
 (13, 1, 'Day 1: 8:00-8:30: The guide and driver will pick up guests at their hotel in the Old Quarter. The pickup time depends on the location of the hotel.
 		8:45: The group visits Tran Quoc Pagoda, the oldest pagoda in Hanoi, built in the 6th century. Here, guests can see one of the largest Bodhi trees in Vietnam.
-		9:30: The group will visit the Ho Chi Minh Mausoleum complex. Guests will have the chance to view the embalmed body of President Ho Chi Minh, visit the Presidential Palace, and see where he lived and worked from 1954 to 1969. Then, the group will visit One Pillar Pagoda, built in 1048 under King Ly Thai Tong.
+9:30: The group will visit the Ho Chi Minh Mausoleum complex. Guests will have the chance to view the embalmed body of President Ho Chi Minh, visit the Presidential Palace, and see where he lived and worked from 1954 to 1969. Then, the group will visit One Pillar Pagoda, built in 1048 under King Ly Thai Tong.
 		11:15: The group will visit the Vietnam Museum of Ethnology, which houses many artifacts related to clothing, culture, history, and customs of the 54 ethnic groups in Vietnam. This is an important cultural and ethnological point of interest.
 		Note: The group will visit the Vietnam Womens Museum instead of the Ethnology Museum if it is closed on Mondays.
 		12:30: The group will have lunch at a restaurant in the Old Quarter with a special menu (menu included).
@@ -298,7 +298,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 
 (14, 2, 'DAY 2: DANANG - HOI AN ANCIENT TOWN - QUANG NAM (BREAKFAST, LUNCH, DINNER).
 		Morning: Free time for a walk, swim, and breakfast at the hotel.
-		08:00: The car will pick you up and take you to Hoi An Ancient Town. You will visit the beautiful town with its peaceful streets, walk along the old streets with ancient architecture, and visit historical sites such as Japanese Bridge, Tan Ky Old House, and Hoi An Museum.
+08:00: The car will pick you up and take you to Hoi An Ancient Town. You will visit the beautiful town with its peaceful streets, walk along the old streets with ancient architecture, and visit historical sites such as Japanese Bridge, Tan Ky Old House, and Hoi An Museum.
 		12:30: Lunch at a restaurant in Hoi An. 
 		Afternoon: The group will head to Quang Nam to visit the traditional handicraft villages such as Thanh Ha Pottery Village and Tra Que Vegetable Village. 
 		16:30: Return to Danang.
@@ -327,7 +327,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 (15, 2, 'DAY 2: DANANG - HOI AN ANCIENT TOWN - QUANG NAM (BREAKFAST, LUNCH, DINNER).
 		Morning: Free time for sightseeing, swimming, and breakfast at the hotel.
 		08:00: The car will pick you up and head to visit the Non Nuoc - Marble Mountains. You will climb the mountain to visit Huyen Khong Cave, Tam Thai Pagoda, Linh Ung Pagoda, and continue to visit the Non Nuoc Stone Carving Village.
-		The journey continues as the car and guide take you to visit Hoi An Ancient Town - recognized by UNESCO as a World Cultural Heritage site in November 1999, visiting Phuoc Kien Assembly Hall (or Quang Dong Assembly Hall), Japanese Bridge, Tan Ky Old House (or Phung Hung Old House).
+The journey continues as the car and guide take you to visit Hoi An Ancient Town - recognized by UNESCO as a World Cultural Heritage site in November 1999, visiting Phuoc Kien Assembly Hall (or Quang Dong Assembly Hall), Japanese Bridge, Tan Ky Old House (or Phung Hung Old House).
 		12:00: Lunch at a restaurant, enjoy local specialties. (Optional: If you choose to visit Cu Lao Cham, the afternoon will include a boat ride to Cu Lao Cham island, where you can swim and have lunch. The boat will return to the mainland, and you will return to Danang (Cu Lao Cham option adds 580,000 VND).
 		Afternoon: Free time to relax at the hotel, stroll around Danang, swim at My Khe beach.
 		Evening: The car will take you to dinner at the restaurant. Overnight in Danang (hotel located on My Khe Beach).'),
@@ -351,7 +351,6 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		Afternoon: Free time for sightseeing and swimming at My Khe beach.
 		17:00: The car will take the group to visit Son Tra Peninsula, with beautiful and majestic temples, offering incense and praying at Linh Ung Pagoda.
 		19:00: Dinner at the restaurant, then free time to stroll and admire My Khe beach at night, overnight at the hotel.'),
-
 (16, 2, 'DAY 2: DANANG - HOI AN ANCIENT TOWN - QUANG NAM (BREAKFAST, LUNCH, DINNER).
 		Morning: Free time for sightseeing, swimming, and breakfast at the hotel.
 		08:00: The car will pick you up and head to visit the Non Nuoc - Marble Mountains. You will climb the mountain to visit Huyen Khong Cave, Tam Thai Pagoda, Linh Ung Pagoda, and continue to visit the Non Nuoc Stone Carving Village.
@@ -376,7 +375,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 (17, 1, 'Day 1: From Hanoi - Hue Tourism - Thua Thien Hue (Meals: B, L, D). 
 		Morning: Depart from the meeting point, Tour Po picks up guests for the flight to Phu Bai Airport, Thua Thien Hue. 
 		Flight VN1543 departs at 07:45 from Noi Bai International Airport.
-		09:00: Arrival in Hue City. The guide will take guests to visit the Imperial City of Hue, which is associated with the history of 13 emperors of the Nguyen Dynasty, the last feudal dynasty of Vietnam. Visit significant areas: Ngo Mon Gate, Thai Hoa Palace, Forbidden Purple City, The Mieu, Hien Lam Cac, Nine Dynastic Urns...
+09:00: Arrival in Hue City. The guide will take guests to visit the Imperial City of Hue, which is associated with the history of 13 emperors of the Nguyen Dynasty, the last feudal dynasty of Vietnam. Visit significant areas: Ngo Mon Gate, Thai Hoa Palace, Forbidden Purple City, The Mieu, Hien Lam Cac, Nine Dynastic Urns...
 		11:30: Guests enjoy a lunch with many Hue specialties. Afterward, check in at the hotel and rest in Hue City.
 		Afternoon: Rest and relax, visit the local market, or enjoy swimming at Thuan An Beach in Hue.
 		18:00: Dinner at a local restaurant. After dinner, the guide will take guests to the Huong River pier for a boat ride and enjoy traditional Hue singing.
@@ -405,7 +404,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		Morning: Buffet breakfast at the resort, followed by free time to relax, swim, or explore Sam Son Beach. Guests can buy local seafood and souvenirs.
 		09:00: Visit Trống Mái Island, Cô Tiên Pagoda, and Độc Cước Temple in Sam Son.
 		11:30: Check-out from the hotel, followed by lunch at a local restaurant.
-		13:00: Return to Hanoi with a stop at Ham Rong Bridge and Thanh Liêm (Ha Nam) to buy local specialties like coconut, pineapple, and nem chua.
+13:00: Return to Hanoi with a stop at Ham Rong Bridge and Thanh Liêm (Ha Nam) to buy local specialties like coconut, pineapple, and nem chua.
 		17:30: Arrive in Hanoi, and the tour concludes with the guide saying goodbye.'),
 
 (19, 1, 'Day 1: Departure from Hanoi - Nha Trang - Khanh Hoa (Meals: B, L, D).
@@ -435,7 +434,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		09:10: Arrival at Cam Ranh Airport. Transfer to Nha Trang City. Visit Ponagar Cham Towers, an ancient Cham architecture, and enjoy famous sights like Xom Bong Bridge, Ha Ra Bridge, and Co Tien Mountain. Continue with a visit to Long Son Pagoda.
 		11:30: Lunch at a local restaurant, followed by hotel check-in and rest.
 		Afternoon: Free time for rest, strolling, or swimming at Nha Trang Beach.
-		Evening: Dinner at a local restaurant, enjoying the local specialties. After dinner, free time to explore Nha Trang at night, visit the night market, Phu Dong Park, Four Seasons Coffee, or Thap Ba seafood area.
+Evening: Dinner at a local restaurant, enjoying the local specialties. After dinner, free time to explore Nha Trang at night, visit the night market, Phu Dong Park, Four Seasons Coffee, or Thap Ba seafood area.
 		22:00: Overnight at a hotel in Nha Trang.'),
 
 (20, 2, 'Day 2: Nha Trang City - Nha Trang Island Beach Tour (Meals: B, L, D).
@@ -464,7 +463,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		Morning: Free time to enjoy the sunrise, stroll, or swim at the beach, followed by breakfast at the hotel.
 		08:00: Transfer to the port for a boat trip around Nha Trang Bay. Guests can enjoy the scenery, visit small islands, walk on the beach, and taste local island dishes.
 		12:00: Lunch at a restaurant on the island, serving local dishes.
-		Afternoon: End of the island exploration tour. Return to the hotel for rest or stroll around Nha Trang City.
+Afternoon: End of the island exploration tour. Return to the hotel for rest or stroll around Nha Trang City.
 		19:00: Dinner at a local restaurant, followed by free time for shopping at the night market.'),
 
 (21, 3, 'Day 3: Nha Trang - Fun at Vinpearl Land (Meals: B, L).
@@ -488,7 +487,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 		08:00: The bus and guide will take guests to visit Na Nhai Village (Cao Thang Village), home to the Dao Thanh Y ethnic group, where guests can explore and learn about the unique cultural traits of the area.
 		The journey continues as the guide takes guests to conquer milestone 1300, which marks the border between Binh Lieu, Lang Son, and China. This location is known for its breathtaking views, similar to “Matcha Hill.”
 		11:30: Guests check out from the hotel and have lunch at a restaurant to enjoy the flavors of Binh Lieu.
-		12:30: After lunch, guests board the bus to return to Hanoi. On the way back, the group stops at the Binh Lieu market, where guests can buy local agricultural products and medicinal herbs as souvenirs for family and friends.
+12:30: After lunch, guests board the bus to return to Hanoi. On the way back, the group stops at the Binh Lieu market, where guests can buy local agricultural products and medicinal herbs as souvenirs for family and friends.
 		17:30: The group arrives at the pick-up point in Hanoi, or as requested. The Tour Pro guide bids farewell and thanks the guests for their participation.'),
 
 (23, 1, 'DAY 1: DEPARTURE FROM HANOI - TOUR TO QUANG NGAI - HOANG HAU BEACH (MEALS: LUNCH, DINNER).
@@ -509,7 +508,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 (24, 1, 'DAY 1: HANOI - SAIGON - MY THO - TIEN GIANG - BEN TRE - TOUR TO CAN THO (MEALS: BREAKFAST, LUNCH, DINNER).
 		03:30: The bus and guide pick up the group at the meeting point to head to Noi Bai airport for the VJ143 flight to Ho Chi Minh City at 06:00.
 		08:00: Upon arrival at Tan Son Nhat airport, the bus and guide will take the group to My Tho - Tien Giang. The bus will take the group to the 3/2 pier, where guests board the boat to enjoy a scenic tour of the four islands: Long, Lan, Qui, Phung, and visit the fish port and fishing village along the river.
-		Upon arrival at Thoi Son Island, guests can stroll through the village, visit fruit orchards, enjoy seasonal fruits, and listen to southern traditional music. The group will also visit the beekeeping farm, enjoy honey tea, and taste banana wine.
+Upon arrival at Thoi Son Island, guests can stroll through the village, visit fruit orchards, enjoy seasonal fruits, and listen to southern traditional music. The group will also visit the beekeeping farm, enjoy honey tea, and taste banana wine.
 		Guests will take small boats to explore the coconut groves along the river, experiencing the local life. Continuing down the Tien River, guests will visit Tan Thach (Ben Tre), where they can explore a coconut candy workshop and local handicraft villages. Lunch is served at a restaurant.
 		Afternoon: After lunch, the group returns to the mainland and heads to Can Tho. Upon arrival in Can Tho, guests check in at the hotel and relax.
 		Evening: Dinner on a boat, enjoying the view of the Mekong River, followed by free time to explore Ninh Kieu Pier and the city of Can Tho at night.'),
@@ -530,7 +529,7 @@ INSERT INTO `itinerary` (tour_id, day, description) VALUES
 
 (25, 1, 'DAY 1: DEPARTURE FROM HANOI - FLC LY SON RESORT - THANH HOA (MEALS: BREAKFAST, LUNCH, DINNER).
 		07:30: The bus and guide from Tour.Pro.Vn pick up the group from the designated meeting point and head to FLC Sam Son Resort, Thanh Hoa.
-		08:30: The bus stops at Ha Nam, where guests have free time to rest and have breakfast (self-pay).
+08:30: The bus stops at Ha Nam, where guests have free time to rest and have breakfast (self-pay).
 		12:30: Guests arrive at FLC Sam Son Resort, check in, and have lunch at the resort restaurant. Afterward, guests have free time to relax or explore the resort, swim, or enjoy the beach.
 		Evening: Dinner at the resort restaurant, and guests have free time to explore Sam Son.'),
 
@@ -647,8 +646,8 @@ CREATE TABLE Blog_image (
 --  Thêm dữ liệu vào bảng 'blog' 
 INSERT INTO Blogs (id,title,excerpt, content, author, category, post_date)
 VALUES
-     (1,'18 tips for traveling on a budget', 'Ever wondered how to travel for cheap? If so, here is good news: There are lots of ways to economize while still checking destinations off your travel bucket list.Whether you’re thinking about ...', '1. Plan early to optimize your travel budget
-        It can be a good idea to start planning your travel at least 10 months in advance—that includes starting to track the price of flights. There are a number of websites, like Capital One Travel, that allow travelers to set fare alerts and watch for the best time to buy plane tickets. 
+     (1,'14 tips for traveling on a budget', 'Ever wondered how to travel for cheap? If so, here is good news: There are lots of ways to economize while still checking destinations off your travel bucket list.Whether you’re thinking about ...', '1. Plan early to optimize your travel budget
+It can be a good idea to start planning your travel at least 10 months in advance—that includes starting to track the price of flights. There are a number of websites, like Capital One Travel, that allow travelers to set fare alerts and watch for the best time to buy plane tickets. 
 
         Another important planning step is to assemble any documentation you will need. You may want to get a passport well in advance, if you dont already have one—or renew yours if it is close to expiring. If you have to rush the process, the fees can rack up quickly. And if you need travel visas, you’ll probably want to make sure those are in order, too.
 
@@ -666,7 +665,7 @@ VALUES
         For example, say you want to fly from California to Venice but the price is high. Instead, you could fly to Budapest and spend two days there, then fly with a low-cost airline from Budapest to Venice. That option could cost less than a ticket directly to Venice. This strategy can also be a way to add another destination to your vacation—and one that you may not have thought about before.
 
         4. Combine destinations 
-        Are there several places on your travel wish list? If your vacation time is flexible, you could combine numerous destinations into one trip. That may save overall flight time and money compared to visiting one destination. If you have a destination that you know is not budget-friendly, consider combining the trip with another cheaper destination to visit. This could allow you to check items off your bucket list without breaking the bank. 
+Are there several places on your travel wish list? If your vacation time is flexible, you could combine numerous destinations into one trip. That may save overall flight time and money compared to visiting one destination. If you have a destination that you know is not budget-friendly, consider combining the trip with another cheaper destination to visit. This could allow you to check items off your bucket list without breaking the bank. 
 
         Heading to the Caribbean? Think about visiting several islands. Have you wanted to see London, Stockholm and Rome? Consider seeing all of them on the same trip. Check out low-cost airlines around the world that might be fairly economical for short one-way trips. Or go even farther. You might want to come up with an itinerary that touches 6 or 7 countries on 4 continents in just a few weeks.
 
@@ -686,8 +685,7 @@ VALUES
 
         8. Pay in local currency to avoid fees
         Some credit card companies charge foreign transaction fees when you make a purchase in a foreign currency using their card. Typically, the fee is about 3% of the purchase.
-
-        Whether you are charged a foreign transaction fee can depend on your credit card. Some card issuers do not charge those fees—that includes Capital One is U.S.-issued credit cards.
+Whether you are charged a foreign transaction fee can depend on your credit card. Some card issuers do not charge those fees—that includes Capital One is U.S.-issued credit cards.
 
         In addition to bringing a credit card on your trip, you may want to carry both cash and a bank debit card for getting cash at ATMs.
 
@@ -715,38 +713,11 @@ VALUES
         14. Try traveling locally
         If you need to travel on a budget, consider seeing local sights rather than planning a trip far from home. Taking day trips in your area can be a rewarding experience that is affordable, too. 
 
-        Or you could take a weeklong staycation with all kinds of options for enjoying your free time—everything from camping in the backyard with the kids to starting to learn a new language. 
-
-        15. Dine creatively
-        Creative dining can be a big part of an affordable family vacation.
-
-        For example, consider picnicking outdoors or cooking in the kitchen of your hotel room or short-term rental. These options might be more kid friendly than sit-down meals in restaurants—and more economical. Eating simply can help extend your vacation money and allow you to spend it on other things, like must-see attractions.
-
-        16. Cook some meals yourself
-        If you are taking a trip that will last several days, you will naturally want to eat out and sample the local cuisine. But you can economize by shopping at a nearby supermarket and making some meals yourself from fresh, local ingredients. 
-
-        You may also want to carry a water bottle with you on your travels. That way, you can avoid buying bottled water and other drinks while you are out and about.
-
-        A photo of a person economizing by eating a meal they made for themselves while on a vacation.
-        17. Work while traveling
-        Does your job accommodate remote work? If so, working while traveling can be a great way to see new sights without officially taking time off. 
-
-        If you have flexibility in where you live and work, consider seasonal employment—for instance, waiting on tables or maintaining the grounds at a youth hostel. Living in a different part of the country—or halfway around the world—can give you great life experiences and make seeing new places more affordable. 
-
-        18. Travel where your money goes the furthest
-        Some destinations just tend to be more expensive to visit than others. So adhering to your budget might mean traveling where your money goes the furthest. 
-
-        You could think about what is important to you and prioritize your spending accordingly. Are great accommodations a must? Or are you more interested in experiencing the local cuisine? The key to traveling on a budget may be knowing yourself and deciding where to save—and where to splurge. 
-
-        Budget travel tips in a nutshell
-        If you need to travel on a budget, there are ways to make that happen. Creating a budget and sticking to it can help you economize. So can using money-saving strategies like booking hotels and flights early and avoiding foreign transaction fees.
-
-        While you are exploring ways to save on your next trip, you could also consider a travel rewards credit card from Capital One. You will earn unlimited miles on every purchase you make—then you can use them for flights, hotels, rental cars and more.',
+        Or you could take a weeklong staycation with all kinds of options for enjoying your free time—everything from camping in the backyard with the kids to starting to learn a new language. ',
              'Happy_Trips',
              'Reisetipps',
              '2024-11-01'),
-
-        (2,'10 of the best places to visit in Vietnam', 'Enjoy Hanoi and Halong Bay — then step beyond the tourist trail to find more magic in the highlands, islands, history and culture of this captivating nation....', ' With 99 million souls and a coastline that wrinkles 2,000 miles along the country from north to south, there are plenty of people to meet and a lot to see, do and eat in Vietnam. I first visited in 2004 and have returned many times since. It is easy to follow the tourist trail of historic Hanoi, ethereal Halong Bay, shopping emporium Hoi An and buzzy Ho Chi Minh City, but push a little further and you will be rewarded with some dazzling and memorable experiences.
+(2,'10 of the best places to visit in Vietnam', 'Enjoy Hanoi and Halong Bay — then step beyond the tourist trail to find more magic in the highlands, islands, history and culture of this captivating nation....', ' With 99 million souls and a coastline that wrinkles 2,000 miles along the country from north to south, there are plenty of people to meet and a lot to see, do and eat in Vietnam. I first visited in 2004 and have returned many times since. It is easy to follow the tourist trail of historic Hanoi, ethereal Halong Bay, shopping emporium Hoi An and buzzy Ho Chi Minh City, but push a little further and you will be rewarded with some dazzling and memorable experiences.
 
         Mine have been when I have gone the extra mile, quite literally: a magical three-day cruise to the outer battlements of Halong Bay; a thrilling motorbike trip through the sugarloaf peaks and beyond in remote mountainous Ha Giang; meeting the last wild elephant catcher in Yok Don National Park. Taking in the elaborate mausoleums and sites of Vietnam is last imperial dynasty deepened my understanding; sighting the endemic, critically endangered Cat Ba langur on Cat Ba island was exciting; and I loved exploring the history, food and pristine beaches of Con Dao island. And of course the irresistible, fragrant food, delicious coffee, craft cocktails and beer will lead you everywhere. These are the best places to visit in Vietnam.
         If you only have . . .
@@ -759,7 +730,7 @@ VALUES
         Street food vendors in the night markets of Hanoi is Old Quarter
         Hanoi is noisy, traffic-choked and beautiful all at once. The thousand-year-old city of lakes, founded on a bend of the Red River, is full of history, charm, museums, shops, markets and wonderful street food. Don’t miss the Old Quarter, the heart of the city, where you’ll find lots of food, hotels and temples cheek-by-jowl with shops. Learn how to dodge the motorbikes while on a street-food tour or exploring the ochre-hued French colonial villas, Ho Chi Minh is Mausoleum, the Temple of Literature, the “Hanoi Hilton” prison museum of Hoa Lo and the Vietnam Museum of Ethnology.
         Make it happen
-        The Sofitel Legend Metropole is where Graham Greene stayed in 1951 while working for Paris Match. Its the citys top address and is elegant throughout
+The Sofitel Legend Metropole is where Graham Greene stayed in 1951 while working for Paris Match. Its the citys top address and is elegant throughout
 
         2. Ha Giang
         Ha Giang is Vietnam is northernmost region, pushing up against the border with China. Its an otherworldly landscape of sugarloaf peaks, mountain passes and rice paddies carved into impossibly steep mountains. Find villages of Red Dzao, Flower Hmong and other local minorities, markets, eco-stays and a window into a rural world of timeless traditions such as weaving. Don’t miss the palace of the Hmong king who raked in revenue from opium farming. En route, stop at the dazzling rice paddy region of Mu Cang Chai.
@@ -774,7 +745,7 @@ VALUES
         Boats — from junks to elegant luxury vessels — cruise through the waters of Unesco-protected Halong Bay, which is studded with thousands of craggy limestone outcrops. It is an ethereal landscape and with each turn of weather can bring dense fog or crisp blue skies. It wont matter — its all enchanting. To make the most of it, head out on a boat for at least two nights to cruise to the outer “fortress” of towers — Bai Tu Long Bay. It’s more magical and it escapes the crowds of one-day and one-night boats.
 
         5. Hue and the DMZ
-        Hue was the cultural and political power base of the Nguyen emperors, Vietnam is last imperial dynasty. They built a citadel, gilded in bronze, enamel and lacquer, with gates for themselves, elephants and their minions, based on the Forbidden City of Beijing. They lived in extravagant regal splendour surrounded by concubines and eunuchs. And they fashioned their last resting places, all gothic-meets-Confucius and geomantic in design, landscaped with streams, statues and elaborate graves that trace the serpentine route of Hue’s Perfume River. This city is often overlooked in favour of Hoi An as a central Vietnam stop, but don’t miss it. The thousand-plus dishes of the imperial household are still eaten, too. From here, explore the Demilitarized Zone marking the border established in 1954 between the communist north and the US-backed south.
+Hue was the cultural and political power base of the Nguyen emperors, Vietnam is last imperial dynasty. They built a citadel, gilded in bronze, enamel and lacquer, with gates for themselves, elephants and their minions, based on the Forbidden City of Beijing. They lived in extravagant regal splendour surrounded by concubines and eunuchs. And they fashioned their last resting places, all gothic-meets-Confucius and geomantic in design, landscaped with streams, statues and elaborate graves that trace the serpentine route of Hue’s Perfume River. This city is often overlooked in favour of Hoi An as a central Vietnam stop, but don’t miss it. The thousand-plus dishes of the imperial household are still eaten, too. From here, explore the Demilitarized Zone marking the border established in 1954 between the communist north and the US-backed south.
 
         Original Travel is 12-day An intro to Vietnam, North to South includes an in-depth tour of Hue is imperial past as well as other significant buildings
         originaltravel.co.uk
@@ -796,7 +767,7 @@ VALUES
 
         8. Ninh Van Bay
         The beach at Ninh Van Bay
-        Ninh Van Bay is a divine little hideaway close to the major seaside resort of Nha Trang. Escape from the city to this peninsula, just north, for some serious beach time. An Lam Retreats Ninh Van Bay is dreamy with a boho vibe, while Six Senses Ninh Van Bay is on a sublime stretch of sand with villas tucked away between and behind huge boulders. It’s just you, the beach, the restaurant and your butler at Six Senses Ninh Van Bay. The waterfalls and forests of the peninsula can be explored too.
+Ninh Van Bay is a divine little hideaway close to the major seaside resort of Nha Trang. Escape from the city to this peninsula, just north, for some serious beach time. An Lam Retreats Ninh Van Bay is dreamy with a boho vibe, while Six Senses Ninh Van Bay is on a sublime stretch of sand with villas tucked away between and behind huge boulders. It’s just you, the beach, the restaurant and your butler at Six Senses Ninh Van Bay. The waterfalls and forests of the peninsula can be explored too.
 
         Make it happen
         Six Senses Ninh Van Bay is a barefoot getaway with villas and their private pools perched on huge biscuit-coloured boulders facing the sea. It’s boho, supremely beautiful and comes with butler service
@@ -820,7 +791,7 @@ VALUES
          'Destination', 
          '2023-11-19'),
          
-         (3,'5 Travel-ready packing tips for travelling on short notice', 'Are you ready to grab an attractive travel deal at a moment is notice? Are you occasionally asked to pack your bags for an unexpected trip..', '5 Travel-ready packing tips
+(3,'5 Travel-ready packing tips for travelling on short notice', 'Are you ready to grab an attractive travel deal at a moment is notice? Are you occasionally asked to pack your bags for an unexpected trip..', '5 Travel-ready packing tips
         You may be a consummate planner who starts packing several weeks before a trip. In that case, the following tips will undoubtedly enhance your approaches to planning and preparation. If you’re a last-minute packer, integrating some of these strategies will allow you to pack faster and smarter. If you agree, please let me know in the comments.
 
         1. Identify a consistent place to stow travel gear
@@ -840,7 +811,7 @@ VALUES
         An expired or damaged passport is a liability. Or one that is not valid for at least six months beyond an intended stay or has enough empty pages to be stamped. So is a soon-to-be expired prescription for medication that’s vital to your well-being. These are scenarios that may be difficult to overcome without adequate notice.
 
         3. Work with a packing list
-        I find a master packing list works best, unlike separate lists by season, destination, or type of trip. As much as 80 per cent of what you’ll pack applies to all trips, so create an electronic version. My obsessively comprehensive list has every possibility for past and future trips, including brand names, sizes, and weight in some cases. It’s amended regularly to eliminate discards and add new products.
+I find a master packing list works best, unlike separate lists by season, destination, or type of trip. As much as 80 per cent of what you’ll pack applies to all trips, so create an electronic version. My obsessively comprehensive list has every possibility for past and future trips, including brand names, sizes, and weight in some cases. It’s amended regularly to eliminate discards and add new products.
 
         Print a copy and check off items as they are packed. Working with a hard copy offers more opportunities to quickly add handwritten notes or flag items to be packed within the last few hours of departure. Having a checklist for reference makes last-minute packing more efficient and less stressful.
 
@@ -853,14 +824,13 @@ VALUES
         Travelling without emergency medical insurance coverage is never a risk worth taking. Does your existing policy make you travel-ready? Is it valid for the length of your trip and covers pre-existing conditions related to recent health issues?
 
         If your policy has lapsed, how quickly will you be able to obtain coverage online or over the phone? Do you travel enough to make an annual multi-trip plan a worthwhile investment? You may be surprised to discover that an annual plan may be slightly more expensive than a single-trip one.
-        ', 'Happy_Tríp', 'Reisetipps', '2023-09-25'),
+        ', 'Happy_Trips', 'Reisetipps', '2023-09-25'),
 
         (4,'Top 10 Most Beautiful and Famous Tourist Destinations in Hà Giang', 'A busy life sometimes makes you forget about relaxation. Travel to find balance and joy again. This article will help you choose a suitable trip,
         For those...','The Most Famous Tourist Destinations in Hà Giang
         1. Hoàng Su Phì
         Hoàng Su Phì is a renowned tourist destination in Hà Giang known for its stunning terraced rice fields that turn golden every harvest season. Here, you not only get to admire the landscapes but also have the opportunity to learn about the local people is livelihoods, customs, and culture. The terraced fields here are often likened to shining golden staircases leading to heaven.
-
-        Immerse yourself in the breathtaking scenery at dawn and dusk, where you can feel the tranquility and peace in your soul. In this vast area of forests and mountains, expansive terraced fields, and glimpses of stilt houses in the hazy smoke, visitors are captivated. When traveling to Hoàng Su Phì, Hà Giang, tourists often visit villages like Luốc, Nậm Ty, Sán Sả Hồ, Phùng, Hồ Thầu, and Thông Nguyên.
+Immerse yourself in the breathtaking scenery at dawn and dusk, where you can feel the tranquility and peace in your soul. In this vast area of forests and mountains, expansive terraced fields, and glimpses of stilt houses in the hazy smoke, visitors are captivated. When traveling to Hoàng Su Phì, Hà Giang, tourists often visit villages like Luốc, Nậm Ty, Sán Sả Hồ, Phùng, Hồ Thầu, and Thông Nguyên.
 
         Among them, Bản Luốc and Bản Phùng are two prominent terraced field viewing spots in Hoàng Su Phì, resembling stacked layers of white silver when viewed from below. The Hoàng Su Phì terraced fields have been recognized as a national monument since 2012. According to travel tips for Hoàng Su Phì, you should visit during the harvest season (September - October) to witness the magnificent scenery like a golden carpet of newly harvested rice.
 
@@ -879,8 +849,7 @@ VALUES
         4. Tham Ma Slope
         For novice drivers, tackling the Tham Ma Slope to reach the Dong Van Karst Plateau might seem daunting. In the past, this slope was used to test the skill of horses carrying goods and food. Nowadays, itis particularly attractive to adventurous souls and travelers from far and wide.
 
-
-        During the journey to conquer this slope, you will experience a fresh and pristine environment while admiring the majestic natural scenery and the winding, beautiful road. Is not that why many people want to stay in Ha Giang longer?
+During the journey to conquer this slope, you will experience a fresh and pristine environment while admiring the majestic natural scenery and the winding, beautiful road. Is not that why many people want to stay in Ha Giang longer?
 
         5. Pho Bang
         Somewhere in the remote area of Ha Giang lies a town that has been asleep for hundreds of years called Pho Bang. This beautiful tourist destination in Ha Giang is located in the Yen Minh area, where you can admire unique, ancient architectural beauty and history.
@@ -905,7 +874,7 @@ VALUES
         Perched atop a small hill and recognized as a national heritage site since 1993, the mansion offers panoramic views of the stunning valley from above. Visiting the mansion, you have the opportunity to admire the beauty of Ha Giang from a different perspective.
 
         8. Lung Cu Flagpole
-        When it comes to the must-visit spots in Ha Giang, Lung Cu Flagpole surely cannot be missed. With an altitude of over 2000 meters above sea level, you can witness the beautiful national flag amidst the mountains and forests, capturing memorable photos filled with radiant smiles and amazing experiences. The Lolo people inhabit Lung Cu, known for their friendliness and hospitality, so you need not worry if you plan to embark on an adventure to this place.
+When it comes to the must-visit spots in Ha Giang, Lung Cu Flagpole surely cannot be missed. With an altitude of over 2000 meters above sea level, you can witness the beautiful national flag amidst the mountains and forests, capturing memorable photos filled with radiant smiles and amazing experiences. The Lolo people inhabit Lung Cu, known for their friendliness and hospitality, so you need not worry if you plan to embark on an adventure to this place.
 
 
         9. Yen Minh Pine Forest
@@ -923,8 +892,7 @@ VALUES
         My Khe Beach – The 1st place to visit in Da Nang
 
         Da Nang is a coastal city located in the middle of Vietnam, and one of its most famous attractions is My Khe Beach. This pristine stretch of sand has been recognized by Forbes Magazine as one of the most beautiful beaches in the world, and it’s easy to see why. My Khe Beach has a long history dating back to the Vietnam War when American soldiers would come here for rest and relaxation. Today, it’s a popular destination for both locals and tourists who come to enjoy its crystal-clear waters, soft white sand, and breathtaking views.
-
-        Located just six kilometers from Da Nang’s city center, My Khe Beach is easily accessible by taxi or motorbike. The best time to visit is from May to August when the weather is warm and sunny with calm waters perfect for swimming or water sports like jet skiing or parasailing.
+Located just six kilometers from Da Nang’s city center, My Khe Beach is easily accessible by taxi or motorbike. The best time to visit is from May to August when the weather is warm and sunny with calm waters perfect for swimming or water sports like jet skiing or parasailing.
 
         For those who prefer a more relaxed experience with attractions in Da Nang, there are also plenty of sun loungers available for rent where you can soak up some rays while enjoying refreshing drinks from nearby beach bars. You can also take leisurely strolls along the beach while admiring picturesque views of Son Tra Peninsula’s lush greenery in the distance.
 
@@ -942,7 +910,7 @@ VALUES
         Thuy Son (Water Mountain) is the largest mountain among all five by the sea. It has several caves like Huyen Khong Cave which is famous for an ancient Buddhist temple with natural light from a hole in the ceiling where visitors can witness Buddhist ceremonies.
         Kim Son (Metal Mountain) is said to be one of the places that represent metal or iron in Da Nang for  its steep cliffs made for adventurous tourists to climb up to enjoy stunning views of Da Nang city or Non Nuoc Beach.
         Moc Son (Wood Mountain) has various beautiful pagodas built since the 17th century such as Am Phu Pagoda in Vietnam that means “Hell” or “Underworld” Pagoda decorated with sculptures depicting scenes from hell according to Buddhism beliefs.
-        Thuy Long Son (Dragon Mountain) offers one of the best panoramic views around Da Nang city as it stands at an altitude of about 600 meters above sea level. This mountain also includes several pagodas like Tam Thai Pagoda where visitors can enjoy incense burning ceremonies or learn about ancient Vietnamese architecture.
+Thuy Long Son (Dragon Mountain) offers one of the best panoramic views around Da Nang city as it stands at an altitude of about 600 meters above sea level. This mountain also includes several pagodas like Tam Thai Pagoda where visitors can enjoy incense burning ceremonies or learn about ancient Vietnamese architecture.
         Hoa Son (Fire Mountain) has unique tunnels that were used by Viet Cong soldiers during the Vietnam War era making it an interesting historical site to visit Da Nang for those interested in learning more about Vietnam’s past.
         Visitors can explore these mountains by themselves or join a guided tour to learn more about the history and culture of each mountain. Tickets are available at the entrance gate with different prices depending on the type of tour and activities.
 
@@ -963,8 +931,7 @@ VALUES
 
        
         Dragon Bridge
-
-        As one of the most iconic landmarks in Da Nang, Vietnam, the Dragon Bridge is a must-see attraction for any traveler visiting the city. This impressive bridge not only serves as a functional transportation route but also stands out as a symbol of Vietnamese culture and architecture.
+As one of the most iconic landmarks in Da Nang, Vietnam, the Dragon Bridge is a must-see attraction for any traveler visiting the city. This impressive bridge not only serves as a functional transportation route but also stands out as a symbol of Vietnamese culture and architecture.
 
         The Dragon Bridge stretches across the Han River, connecting Da Nang is main city center to its eastern districts. The bridge’s unique design features two dragon heads at each end that can breathe fire or water during special events at night. This feature alone is enough to captivate visitors and make them feel like they are witnessing something truly magical.
 
@@ -978,8 +945,7 @@ VALUES
         The Son Tra Peninsula, also known as Monkey Mountain, is a hidden gem that should not be missed when visiting Da Nang. With its pristine beaches, dense forests, and unique wildlife, it offers visitors an unforgettable experience.
 
         The peninsula is located just a few kilometers northeast of Da Nang city center and covers an area of over 4,400 hectares. It was designated a nature reserve in 1977 to protect its diverse flora and fauna. The peninsula’s highest peak stands at 693 meters above sea level to walk, offering breathtaking views of the surrounding landscape. One of the most notable features of Son Tra Peninsula is the red-shanked douc langur monkey. This rare primate species can only be found in Vietnam and Laos and is considered endangered due to habitat loss and hunting. The peninsula’s forested areas provide a safe haven for these amazing creatures.
-
-        Visitors can explore the peninsula by following one of the many hiking trails that lead through the forested hillsides. Along the way, hikers will have opportunities to spot monkeys swinging from tree to tree or take in sweeping views of pristine beaches below. One popular destination on Son Tra Peninsula is also an amazing spot in this city, which is Linh Ung Pagoda, which features a towering statue of Lady Buddha that stands over 70 meters tall. Visitors can climb up inside her body for panoramic views over My Khe Beach and Da Nang Bay.
+Visitors can explore the peninsula by following one of the many hiking trails that lead through the forested hillsides. Along the way, hikers will have opportunities to spot monkeys swinging from tree to tree or take in sweeping views of pristine beaches below. One popular destination on Son Tra Peninsula is also an amazing spot in this city, which is Linh Ung Pagoda, which features a towering statue of Lady Buddha that stands over 70 meters tall. Visitors can climb up inside her body for panoramic views over My Khe Beach and Da Nang Bay.
 
         Another must-visit location on Son Tra Peninsula is Tien Sa Beach with its crystal-clear waters perfect for swimming or snorkeling. The beach also boasts some excellent seafood restaurants where visitors can enjoy fresh catches from local fishermen while taking in stunning ocean views. It’s important to note that since much of Son Tra Peninsula falls within protected areas or military zones access may be limited depending on regulations at any given time so it’s best to check before planning your trip.
 
@@ -993,11 +959,11 @@ VALUES
         If you’re planning on shopping at Han Market, be prepared to haggle! Bargaining is a normal part of Vietnamese culture and expected at markets like this one. However, make sure to do so respectfully without insulting or offending the sellers. While wandering through Han Market’s maze-like corridors filled with stalls and shops can be overwhelming at times – there are a few tips that can help make your experience more enjoyable:
 
         Firstly: Visit early in the day when crowds are thinner if possible since it gets busy later on.
-        Secondly: Try not to carry too much cash with you since pickpocketing may occur.
+Secondly: Try not to carry too much cash with you since pickpocketing may occur.
         Thirdly: Take note of where you entered since navigating through this maze-like market may throw off your sense of direction.
         Lastly: Do not be afraid to ask the vendors questions about their products or for recommendations on what to buy.
         Han Market is a must-visit destination for anyone exploring Da Nang. It is a vibrant and colorful place that offers a unique shopping experience and delicious local cuisine. Whether you’re looking for souvenirs, fresh produce or simply want to immerse yourself in the local culture, Han Market has got you covered!',
-        ' Happy_trips',
+        ' Happy_Trips',
         'Destination ',
         '2023-12-03'),
         
@@ -1021,7 +987,7 @@ VALUES
         A good face moisturizer helps maintain your skin is health. It keeps your skin hydrated, which prevents breakouts and skin issues caused by excessive dryness. Remember to moisturize your skin before you board your flight. The air inside planes is drying and can damage your skin.
 
         5. Do not Ditch SPF
-        Ask anyone which product they can not do without, and they will tell you the secret – a good sunscreen. Sunscreen goes a long way in taking care of your skin and the way it looks. It is especially an important part of morning skin care routines. However, when traveling, remember to reapply your SPF every two hours or every time you need to wipe your face clean.
+Ask anyone which product they can not do without, and they will tell you the secret – a good sunscreen. Sunscreen goes a long way in taking care of your skin and the way it looks. It is especially an important part of morning skin care routines. However, when traveling, remember to reapply your SPF every two hours or every time you need to wipe your face clean.
 
         6. Pack Some Sheet Masks
         Sheet masks do not take up any extra space in your luggage and are great for your skin. These treatment-soaked paper-thin sheets are a great alternative for the serums and special creams that you will miss while traveling and are great for skin hydration.
@@ -1043,8 +1009,7 @@ VALUES
          (7,'Plan Your First Trip to Vietnam','Visiting Vietnam offers an unparalleled experience, combining stunning landscapes, rich cultural heritage, and exquisite cuisine. Travel Off Path, a world-leading indie travel news source has named Vietnam the safest country to visit in Asia for 2024....', 'Visiting Vietnam offers an unparalleled experience, combining stunning landscapes, rich cultural heritage, and exquisite cuisine. Travel Off Path, a world-leading indie travel news source has named Vietnam the safest country to visit in Asia for 2024.
 
         This recognition is based on the latest Global Law and Order Index, which ranked Vietnam as the most peaceful state in Asia and seventh worldwide, due to its low crime rates and impressive political stability.
-
-        From the breathtaking mountains of Sapa to the vibrant streets of Hanoi, Vietnam is diverse attractions captivate every traveler. As you plan your first trip to Vietnam, consider travel tips for Vietnam, visa requirements, and the best time to visit Vietnam to avoid unexpected surprises and enhance your adventure. This guide will provide valuable tips and insights for planning a memorable journey to Vietnam.
+From the breathtaking mountains of Sapa to the vibrant streets of Hanoi, Vietnam is diverse attractions captivate every traveler. As you plan your first trip to Vietnam, consider travel tips for Vietnam, visa requirements, and the best time to visit Vietnam to avoid unexpected surprises and enhance your adventure. This guide will provide valuable tips and insights for planning a memorable journey to Vietnam.
 
         Visa Requirements for Your First Trip to Vietnam: A Comprehensive Guide
         As you embark on your journey to visiting Vietnam, understanding the visa requirements is crucial for a smooth entry into the country. Vietnam offers various visa options depending on your nationality and the length of your stay. For more information about overview of visas and transportation for those planning to visit Vietnam, you can check at: Travel to Vietnam • Oxalis Adventure.
@@ -1070,8 +1035,7 @@ VALUES
 
         Choosing the Best Time for the First Trip to Vietnam
         Vietnam is diverse climate and distinct regional seasons offer a unique experience year-round, but understanding the weather patterns is key to planning your perfect trip to Vietnam.
-
-        Northern Vietnam: Summers are hot and humid, while winters are cool and dry. Spring (March-April) and autumn (September-November) boast pleasant weather, ideal for visiting Vietnam is iconic sites like Ha Long Bay.
+Northern Vietnam: Summers are hot and humid, while winters are cool and dry. Spring (March-April) and autumn (September-November) boast pleasant weather, ideal for visiting Vietnam is iconic sites like Ha Long Bay.
         Central Vietnam: This region experiences a harsher climate with intense heat and occasional typhoons. The dry season from February to August is perfect for beach vacations in destinations like Da Nang and Hoi An.
         Southern Vietnam: With two distinct seasons, the dry season (December-April) is ideal for exploring the Mekong Delta and Ho Chi Minh City. The wet season (May-November) brings heavy rainfall, but it is also when the countryside is lush and green.
         For specific information for climate and best places to visit in Vietnam in each season, check out at: Best Time to Visit Vietnam: Weather and Climate Guide for Travelers.
@@ -1090,7 +1054,7 @@ VALUES
         Best Places in Northern Vietnam to Visit:
         Hanoi: The capital city entices visitors with its charming Old Quarter, historical landmarks like the Temple of Literature and Ho Chi Minh Mausoleum, and delectable street food.
         Ha Long Bay: This UNESCO World Heritage site is a breathtaking natural wonder, offering cruises, cave exploration, kayaking, and swimming opportunities.
-        Sapa: Nestled in the Hoang Lien Son mountain range, Sapa is renowned for its terraced rice fields, ethnic minority villages, and challenging trekking routes to the peak of Fansipan, Indochina is highest mountain.
+Sapa: Nestled in the Hoang Lien Son mountain range, Sapa is renowned for its terraced rice fields, ethnic minority villages, and challenging trekking routes to the peak of Fansipan, Indochina is highest mountain.
         Ninh Binh: This region is home to the stunning Trang An Landscape Complex, the picturesque Tam Coc-Bich Dong caves, and the majestic Bai Dinh Pagoda.
         Northern Vietnam is known for its stunning landscapes and rich cultural heritage. Source: Internet
         Northern Vietnam is known for its stunning landscapes and rich cultural heritage. Source: Internet
@@ -1117,8 +1081,7 @@ VALUES
 
 		Step 1: Check-In
 		As you step into the hotel, take a deep breath and soak in the atmosphere—you’re officially in Vietnam. Head to the front desk with your booking confirmation and passport in hand.
-
-		The staff will likely ask for your passport for verification, but don’t hesitate to remind them to return it once the check-in process is complete. Some hotels might also ask for your visa.
+The staff will likely ask for your passport for verification, but don’t hesitate to remind them to return it once the check-in process is complete. Some hotels might also ask for your visa.
 
 		Pro Tip:If you’ve arrived early and your room isn’t ready, many hotels in Vietnam offer early check-in or will store your luggage until check-in time. This way, you can start exploring the city without dragging your suitcase along.
 
@@ -1143,7 +1106,7 @@ VALUES
 		Pro Tip: Chat with the hotel staff about their favorite local attractions. They often have insider tips and may share secret spots not mentioned in guidebooks.
 
 		Step 4: Set Up Your Base Camp
-		Make sure you have essential items ready for your adventures—comfortable shoes for walking, a power bank for your devices, sunscreen, a hat, mosquito repellent, and a reusable water bottle to stay hydrated while you explore Vietnam’s lively streets.
+Make sure you have essential items ready for your adventures—comfortable shoes for walking, a power bank for your devices, sunscreen, a hat, mosquito repellent, and a reusable water bottle to stay hydrated while you explore Vietnam’s lively streets.
 
 		2: What to Know Before You Step Outside in Vietnam
 
@@ -1179,8 +1142,7 @@ VALUES
 
 		Alternative: eSIM 
 		If your device supports eSIM technology, you can opt for a digital SIM (eSIM) from the same providers. This eliminates the need for a physical card and allows you to activate the eSIM online before your trip. With an eSIM, you can enjoy seamless connectivity as soon as you arrive, provided it’s compatible with your pho
-
-		','Happy_Trips', 'Reisetipps','2022-11-01'),
+','Happy_Trips', 'Reisetipps','2022-11-01'),
 
 		(9,'7 places in Vietnam for families', 'Picking the right destination for a family holiday can be tricky, but the pay-off is well worth it. Sharing a gorgeous view with those closest to you, or watching the kids be amazed by new experiences is simply wonderful...', 'Want to make those memories in Vietnam? These seven accessible spots guarantee an unforgettable vacation, one you will reminisce about for years to come. Check them out below. 
 		Mai Châu vietnam for families
@@ -1194,7 +1156,7 @@ VALUES
 		Hội An is a lot more than the UNESCO-listed Ancient Town. Those who venture to its outskirts will find a peaceful way of life in the Vietnamese countryside, that you can not help but fall in love with. Your family can choose to spend a few days on An Bàng Beach or in the rice paddies in Cam Thanh, and experience Hội An in very different ways. A beach day means jumping the waves and dining on fresh seafood with your toes in the sand. The countryside brings adventures through rice fields and vegetable villages, which you can visit on foot or by bicycle. Hoi An is also a great place to introduce your loved ones to Vietnamese cuisine, with many easy and engaging classes for cooks of all ages and skill levels. 
 
 		Nha Trang places for families vietnam
-		Sunny Nha Trang is a fool-proof choice for family beach holidays. The Cam Ranh International Airport makes getting here amazingly simple, and from there it is a short ride to this sunny coastal city. Book a snorkeling tour and visit Hòn Mun Island to see colourful marine life, and learn more about Nha Trang’s fishing roots at the excellent Oceanographic Museum. Parents looking to unwind should give Nha Trang’s warm mud bath and hot spring resorts a try. Afterward you can jump in one of the swimming pools, or book a private room for a full day of relaxation. Hòn Bà Nature Reserve, about two hours from Nha Trang City, is where you can lay out a picnic blanket right next to a foaming waterfall.
+Sunny Nha Trang is a fool-proof choice for family beach holidays. The Cam Ranh International Airport makes getting here amazingly simple, and from there it is a short ride to this sunny coastal city. Book a snorkeling tour and visit Hòn Mun Island to see colourful marine life, and learn more about Nha Trang’s fishing roots at the excellent Oceanographic Museum. Parents looking to unwind should give Nha Trang’s warm mud bath and hot spring resorts a try. Afterward you can jump in one of the swimming pools, or book a private room for a full day of relaxation. Hòn Bà Nature Reserve, about two hours from Nha Trang City, is where you can lay out a picnic blanket right next to a foaming waterfall.
 
 		Mũi Né family holiday vietnam
 		Learning to kitesurf in a day? Surely even the most uninterested teenagers will want to give this addictive sport a try. The coastal town of Mũi Né is a quick train ride or four-hour drive from Ho Chi Minh City, and is the home of kitesurfing in Vietnam. In fact, any type of watersport can be found in Mũi Né. The red and white sand dunes just out of town are a massive sand surfing playground. Children can exhaust their energy reserves by riding makeshift sand surfboards to the bottom of the dunes again and again. Or drift over these awe-inspiring dunes on an ATV. For extra convenience, stay close to the waters at one of Mũi Néis many resorts along the shoreline.
@@ -1229,7 +1191,7 @@ DROP TABLE IF EXISTS Image;
 
 -- 2. Create the Image table to store guide images
 CREATE TABLE Image (
-    id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique ID for each image
+id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique ID for each image
     guide_id INT NOT NULL,               -- Guide ID related to the image
     file_path VARCHAR(255) NOT NULL,     -- File path or URL of the image
     CONSTRAINT fk_guide_id FOREIGN KEY (guide_id) REFERENCES Guide(id) ON DELETE CASCADE
@@ -1255,3 +1217,30 @@ VALUES
     (5, '../images/guide5.jpg');
 
 
+ALTER TABLE `Tour` ADD `city` VARCHAR(255);
+
+UPDATE `Tour` SET `city` = 'Tam Dao' WHERE `tour_id` = 1;
+UPDATE `Tour` SET `city` = 'Bac Giang' WHERE `tour_id` = 2;
+UPDATE `Tour` SET `city` = 'Da Lat' WHERE `tour_id` = 3;
+UPDATE `Tour` SET `city` = 'Da Lat' WHERE `tour_id` = 4;
+UPDATE `Tour` SET `city` = 'Da Nang' WHERE `tour_id` = 5;
+UPDATE `Tour` SET `city` = 'Da Nang' WHERE `tour_id` = 6;
+UPDATE `Tour` SET `city` = 'Quy Nhon' WHERE `tour_id` = 7;
+UPDATE `Tour` SET `city` = 'Sapa' WHERE `tour_id` = 8;
+UPDATE `Tour` SET `city` = 'Hai Phong' WHERE `tour_id` = 9;
+UPDATE `Tour` SET `city` = 'Quang Ninh' WHERE `tour_id` = 10;
+UPDATE `Tour` SET `city` = 'Quang Ninh' WHERE `tour_id` = 11;
+UPDATE `Tour` SET `city` = 'Hanoi' WHERE `tour_id` = 12;
+UPDATE `Tour` SET `city` = 'Hanoi' WHERE `tour_id` = 13;
+UPDATE `Tour` SET `city` = 'Hoi An' WHERE `tour_id` = 14;
+UPDATE `Tour` SET `city` = 'Hoi An' WHERE `tour_id` = 15;
+UPDATE `Tour` SET `city` = 'Hoi An' WHERE `tour_id` = 16;
+UPDATE `Tour` SET `city` = 'Hue' WHERE `tour_id` = 17;
+UPDATE `Tour` SET `city` = 'Quang Ngai' WHERE `tour_id` = 18;
+UPDATE `Tour` SET `city` = 'Nha Trang' WHERE `tour_id` = 19;
+UPDATE `Tour` SET `city` = 'Nha Trang' WHERE `tour_id` = 20;
+UPDATE `Tour` SET `city` = 'Nha Trang' WHERE `tour_id` = 21;
+UPDATE `Tour` SET `city` = 'Quang Binh' WHERE `tour_id` = 22;
+UPDATE `Tour` SET `city` = 'Quang Ngai' WHERE `tour_id` = 23;
+UPDATE `Tour` SET `city` = 'Ho Chi Minh City' WHERE `tour_id` = 24;
+UPDATE `Tour` SET `city` = 'Sa Pa' WHERE `tour_id` = 25;
