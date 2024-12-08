@@ -3,23 +3,34 @@ $servername = "localhost";
 
 // Kết nối cơ sở dữ liệu
 $username = "root";
-$password = "";
+$password = "kimhien123";
 $dbname = "HappyTrips";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Kết nối thất bại: " . $conn->connect_error);
 }
 
-// Hàm xử lý giá (price range)
+// Hàm xử lý giá (price filter)
 function buildPriceFilter($priceInput) {
     $priceFilter = ['condition' => '', 'paramTypes' => '', 'paramValues' => []];
-    $priceRange = explode('-', $priceInput);
+    $priceInput = trim($priceInput); // Xóa khoảng trắng thừa
 
-    if (count($priceRange) === 2) {
-        $priceFilter['condition'] = "t.price BETWEEN ? AND ?";
-        $priceFilter['paramTypes'] = 'ii';
-        $priceFilter['paramValues'] = [(int)$priceRange[0], (int)$priceRange[1]];
+    // Kiểm tra nếu nhập khoảng giá (ví dụ: "1000000-2000000")
+    if (strpos($priceInput, '-') !== false) {
+        $priceRange = explode('-', $priceInput);
+        if (count($priceRange) === 2 && is_numeric($priceRange[0]) && is_numeric($priceRange[1]) && (int)$priceRange[0] <= (int)$priceRange[1]) {
+            $priceFilter['condition'] = "t.price BETWEEN ? AND ?";
+            $priceFilter['paramTypes'] = 'ii';
+            $priceFilter['paramValues'] = [(int)$priceRange[0], (int)$priceRange[1]];
+        }
     }
+    // Kiểm tra nếu nhập một giá duy nhất (ví dụ: "3000000")
+    elseif (is_numeric($priceInput)) {
+        $priceFilter['condition'] = "t.price = ?";
+        $priceFilter['paramTypes'] = 'i';
+        $priceFilter['paramValues'] = [(int)$priceInput];
+    }
+
     return $priceFilter;
 }
 
@@ -28,7 +39,7 @@ function buildFilters($postData) {
     $filters = ['conditions' => [], 'paramTypes' => '', 'paramValues' => []];
 
     // Lọc theo tên tour
-    if (!empty($postData['tour']) && $postData['tour'] != 'all') {
+    if (!empty($postData['tour']) && strtolower($postData['tour']) !== 'all') {
         $filters['conditions'][] = "t.name LIKE ?";
         $filters['paramTypes'] .= 's';
         $filters['paramValues'][] = '%' . $postData['tour'] . '%';
@@ -45,7 +56,7 @@ function buildFilters($postData) {
     }
 
     // Lọc theo loại tour
-    if (!empty($postData['type']) && $postData['type'] != 'all') {
+    if (!empty($postData['type']) && strtolower($postData['type']) !== 'all') {
         $filters['conditions'][] = "t.type = ?";
         $filters['paramTypes'] .= 's';
         $filters['paramValues'][] = $postData['type'];
@@ -74,7 +85,7 @@ function getTours($conn, $filters) {
     }
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
-        die("Lỗi chuẩn bị truy vấn: " . $conn->error);
+        die("Lỗi chuẩn bị truy vấn: " . $conn->error . "\nSQL: " . $sql);
     }
     if (!empty($filters['paramTypes'])) {
         $stmt->bind_param($filters['paramTypes'], ...$filters['paramValues']);
@@ -99,6 +110,16 @@ $tours = getTours($conn, $filters);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/list_tour.css">
     <style>
+        .sticky-filter {
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
         .card {
             display: flex;
             flex-direction: column;
@@ -123,12 +144,11 @@ $tours = getTours($conn, $filters);
     </style>
 </head>
 <body>
-
     <?php include 'hea.php'; ?>
     <div class="container py-5">
         <div class="row">
             <div class="col-md-3">
-                <div id="sticky-filter">
+                <div class="sticky-filter">
                     <form method="POST" action="">
                         <div class="mb-3 d-flex">
                             <input type="search" name="search" class="form-control me-2" placeholder="Search...">
@@ -137,7 +157,7 @@ $tours = getTours($conn, $filters);
                         <div class="mb-3">
                             <label for="tour" class="form-label">Tour</label>
                             <select id="tour" name="tour" class="form-select">
-                            <option value="All">All</option>
+                            <option value="all">All</option>
                             <option value="Hà Nội">Hà Nội</option>
                             <option value="Hải Phòng">Hải Phòng</option>
                             <option value="Bắc Giang">Bắc Giang</option>
@@ -159,7 +179,7 @@ $tours = getTours($conn, $filters);
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input type="text" id="price" name="price" class="form-control" placeholder="e.g. 100-500">
+                            <input type="text" id="price" name="price" class="form-control" placeholder="e.g. 1000000-2000000 or 3000000">
                         </div>
                         <div class="mb-3">
                             <label for="type" class="form-label">Tour Type</label>
@@ -187,24 +207,20 @@ $tours = getTours($conn, $filters);
                                     <?php endif; ?>
                                     <div class="card-body">
                                         <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
-                                        <p class="card-text"><?= htmlspecialchars(substr($row['description'], 0, 100)) . '...'; ?></p>
+                                        <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
                                         <p><strong>Price:</strong> <?= number_format($row['price'], 0, '.', ','); ?>₫</p>
                                         <p><strong>Type:</strong> <?= htmlspecialchars($row['type']); ?></p>
-                                        <a href="detail.php?tour_id=<?= htmlspecialchars($row['tour_id']); ?>" 
-                                           class="btn btn-primary">Detail</a>
+                                        <a href="detail.php?tour_id=<?= $row['tour_id']; ?>" class="btn btn-primary">More details</a>
                                     </div>
                                 </div>
                             </div>
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <p class="text-center">Không có tour nào phù hợp.</p>
+                        <p>No tours found</p>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
-    <?php include 'footer.php'; ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-<?php $conn->close(); ?>

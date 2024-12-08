@@ -31,7 +31,7 @@
                     <li><i class="fa fa-globe"></i>First Clour Flights</li>
                     <li><i class="fa fa-globe"></i>Packages</li>
                   </ul>
-                <button class="btn btn-primary" style="background-color: #ff9800 ; border-radius: 20px;">Learn More</button>
+                <a href="about_us.php" class="btn">Learn More</a>
               </div>
               <div class="col-lg-6">
                 <iframe
@@ -95,46 +95,6 @@
                   </div>
                   <span class="price-badge">$220</span>
                 </div>
-
-                <!-- Card 5 -->
-                <div class="card">
-                  <img src="./assets/images/danang.png" class="card-img" alt="Da Nang">
-                  <div class="card-img-over">
-                    <h5 class="card-title">2 days 3 nights trip to Da Nang</h5>
-                    <p class="card-text">⭐⭐⭐⭐</p>
-                  </div>
-                  <span class="price-badge">$350</span>
-                </div>
-      
-                <!-- Card 6 -->
-                <div class="card">
-                  <img src="./assets/images/haiphong.png" class="card-img" alt="Hai Phong">
-                  <div class="card-img-over">
-                    <h5 class="card-title">2 days 3 nights trip to Hai Phong</h5>
-                    <p class="card-text">⭐⭐⭐⭐</p>
-                  </div>
-                  <span class="price-badge">$230</span>
-                </div>
-      
-                <!-- Card 7 -->
-                <div class="card">
-                  <img src="./assets/images/sapa.png" class="card-img" alt="Sa Pa">
-                  <div class="card-img-over">
-                    <h5 class="card-title">2 days 3 nights trip to Sa Pa</h5>
-                    <p class="card-text">⭐⭐⭐⭐⭐</p>
-                  </div>
-                  <span class="price-badge">$270</span>
-                </div>
-      
-                <!-- Card 8 -->
-                <div class="card">
-                  <img src="./assets/images/hoian.png" class="card-img" alt="Hoi An">
-                  <div class="card-img-over">
-                    <h5 class="card-title">2 days 3 nights trip to Hoi An</h5>
-                    <p class="card-text">⭐⭐⭐⭐⭐</p>
-                  </div>
-                  <span class="price-badge">$220</span>
-                </div>
               </div>     
             </div>
           </section>
@@ -190,7 +150,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn">Book Now</a>
+                                    <a href="payment_information.php" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -214,7 +174,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn">Book Now</a>
+                                    <a href="payment_information.php" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -238,7 +198,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn">Book Now</a>
+                                    <a href="payment_information.php" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -263,7 +223,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn">Book Now</a>
+                                    <a href="payment_information.php" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -287,7 +247,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn">Book Now</a>
+                                    <a href="payment_information.php" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
@@ -311,13 +271,12 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>From <span class="price">500.000VNĐ</span> / Person</span>
-                                    <a href="#" class="btn">Book Now</a>
+                                    <a href="payment_information.php" class="btn">Book Now</a>
                                 </div>
                             </p>
                         </div>
                     </div>
                 </div>
-                <!-- Add more cards as needed -->
             </div>
         </div>
         </section>
@@ -459,7 +418,7 @@
                       <p class="card-text text-muted">
                         Tam Dao - Vinh Phuc, is a cool-climate tourist spot with stunning mountains.
                       </p>
-                      <a href="#" class="btn">Book now</a>
+                      <a href="payment_information.php" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -480,7 +439,7 @@
                       <p class="card-text text-muted">
                         Ly Son - Quang Ngai, is famed for its pristine nature and clear beaches.
                       </p>
-                      <a href="#" class="btn">Book now</a>
+                      <a href="payment_information.php" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -501,7 +460,7 @@
                       <p class="card-text text-muted">
                         Cau Vang, is famed for its pristine nature and clear beaches.
                       </p>
-                      <a href="#" class="btn">Book now</a>
+                      <a href="payment_information.php" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -525,7 +484,7 @@
                       <p class="card-text text-muted">
                         Guests are free to swim and observe coral and marine life while snorkeling.
                       </p>
-                      <a href="#" class="btn">Book now</a>
+                      <a href="payment_information.php" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -546,7 +505,7 @@
                       <p class="card-text text-muted">
                         Quang Binh is a coastal province in the south of the North Central Coast.
                       </p>
-                      <a href="#" class="btn">Book now</a>
+                      <a href="payment_information.php" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
@@ -567,7 +526,7 @@
                       <p class="card-text text-muted">
                         Sa Pa (also spelled Sapa) is a town in Lao Cai province, Vietnam.
                       </p>
-                      <a href="#" class="btn">Book now</a>
+                      <a href="payment_information.php" class="btn">Book now</a>
                     </div>
                   </div>
                 </div>
