@@ -1243,3 +1243,34 @@ UPDATE `Tour` SET `city` = 'Quang Binh' WHERE `tour_id` = 22;
 UPDATE `Tour` SET `city` = 'Quang Ngai' WHERE `tour_id` = 23;
 UPDATE `Tour` SET `city` = 'Ho Chi Minh City' WHERE `tour_id` = 24;
 UPDATE `Tour` SET `city` = 'Sa Pa' WHERE `tour_id` = 25;
+
+
+ALTER TABLE Tour
+ADD COLUMN latitude FLOAT,
+ADD COLUMN longitude FLOAT;
+
+UPDATE `Tour` SET latitude = 21.4558, longitude = 105.6583 WHERE tour_id = 1; -- Tam Dao
+UPDATE `Tour` SET latitude = 21.2916, longitude = 106.6155 WHERE tour_id = 2; -- Tay Yen Tu
+UPDATE `Tour` SET latitude = 11.9404, longitude = 108.4583 WHERE tour_id = 3; -- Da Lat
+UPDATE `Tour` SET latitude = 11.9404, longitude = 108.4583 WHERE tour_id = 4; -- Xuan Huong (Da Lat)
+UPDATE `Tour` SET latitude = 16.0471, longitude = 108.2068 WHERE tour_id = 5; -- Da Nang (Dragon Bridge)
+UPDATE `Tour` SET latitude = 16.0488, longitude = 108.1145 WHERE tour_id = 6; -- Da Nang (Golden Bridge)
+UPDATE `Tour` SET latitude = 13.7750, longitude = 109.2347 WHERE tour_id = 7; -- Eo Gio (Quy Nhon)
+UPDATE `Tour` SET latitude = 22.3043, longitude = 103.7708 WHERE tour_id = 8; -- Fansipan
+UPDATE `Tour` SET latitude = 20.8449, longitude = 106.6881 WHERE tour_id = 9; -- Hai Phong
+UPDATE `Tour` SET latitude = 20.9101, longitude = 107.1839 WHERE tour_id = 10; -- Ha Long
+UPDATE `Tour` SET latitude = 20.9540, longitude = 107.0422 WHERE tour_id = 11; -- Ha Long (Long Cave)
+UPDATE `Tour` SET latitude = 21.0285, longitude = 105.8542 WHERE tour_id = 12; -- Hanoi (Hoan Kiem Lake)
+UPDATE `Tour` SET latitude = 21.0333, longitude = 105.8500 WHERE tour_id = 13; -- Hanoi Old Quarter
+UPDATE `Tour` SET latitude = 15.8801, longitude = 108.3380 WHERE tour_id = 14; -- Hoi An (Lantern Town)
+UPDATE `Tour` SET latitude = 15.8801, longitude = 108.3380 WHERE tour_id = 15; -- Hoi An (Culture)
+UPDATE `Tour` SET latitude = 15.8801, longitude = 108.3380 WHERE tour_id = 16; -- Hoi An (Bridge Pagoda)
+UPDATE `Tour` SET latitude = 16.4674, longitude = 107.5905 WHERE tour_id = 17; -- Hue
+UPDATE `Tour` SET latitude = 15.3664, longitude = 109.1044 WHERE tour_id = 18; -- Ly Son
+UPDATE `Tour` SET latitude = 12.2451, longitude = 109.1943 WHERE tour_id = 19; -- Nha Trang
+UPDATE `Tour` SET latitude = 12.2451, longitude = 109.1943 WHERE tour_id = 20; -- Nha Trang (Sunset)
+UPDATE `Tour` SET latitude = 12.2451, longitude = 109.1943 WHERE tour_id = 21; -- Nha Trang (Beach)
+UPDATE `Tour` SET latitude = 17.4670, longitude = 106.6226 WHERE tour_id = 22; -- Quang Binh
+UPDATE `Tour` SET latitude = 15.1215, longitude = 108.8018 WHERE tour_id = 23; -- Quang Ngai
+UPDATE `Tour` SET latitude = 10.7769, longitude = 106.7009 WHERE tour_id = 24; -- Saigon
+UPDATE `Tour` SET latitude = 22.3352, longitude = 103.8448 WHERE tour_id = 25; -- Sa Pa

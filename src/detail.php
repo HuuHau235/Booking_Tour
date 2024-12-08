@@ -339,6 +339,7 @@ $conn->close();
     </div>  
     <?php include 'review.php'; ?>
     <?php include 'similar_tour.php'; ?>
+    <?php include 'map.php'; ?>
     <?php include 'footer.php'; ?>
 
 <script src="js/detail.js"></script>

@@ -183,7 +183,6 @@ $qrData = "Bank Name: MB BANK\nAccount Number: 0312 455 602\nAccount Holder: Hap
             </div>
         </div>
     </div>
-
     <script>
         function toggleBankTransferInfo() {
             const paymentMethod = document.getElementById('paymentMethod').value;
