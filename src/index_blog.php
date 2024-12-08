@@ -13,29 +13,119 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/index_blog.css">
+    <style> 
+       .header_blogs {
+        background-image: url("./images/blogs_header.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 600px;
+        color: white;
+        font-family: "Tinos", serif !important;
+        padding-top: 10px; 
+        margin-bottom: 30px; 
+    }
+    .navbar-section {
+        background-color: #5EA1A3;
+        height: 100px;
+        padding-top:  4px;
+        width: 100%;
+        position: fixed; /* Đảm bảo navbar không bị cuộn */
+        top: 0; /* Gắn navbar ở đầu trang */
+        left: 0; /* Vị trí bên trái */
+        z-index: 900; /* Đảm bảo navbar nằm trên tất cả các phần tử khác */
+        margin-bottom: 50px;
+        
+    }
+    .navbar .nav-link {
+        color: white !important;
+        /* Màu chữ trên thanh điều hướng */
+        font-weight: 600;
+        transition: color 0.3s ease;
+        /* Hiệu ứng khi hover */
+        font-size: 26px;
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+    .navbar .nav-link:hover {
+        color: orangered!important;
+        /* Màu vàng khi hover */
+    }
+
+    .navbar-toggler {
+        border-color: white;
+        /* Màu viền nút toggle */
+    }
+
+
+    .custom-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Thay bằng 'flex-start' hoặc 'flex-end' nếu muốn đổi vị trí */
+    }
+
+    .brand-logo {
+        width: 210px; /* Điều chỉnh kích thước logo */
+        height: auto;
+        margin-top: 18px;
+    }
+
+    .custom-brand img:hover {
+        transform: scale(1.2); /* Phóng to logo 20% */
+        transition: transform 0.3s ease; /* Hiệu ứng mượt mà */
+    }
+
+    /* Thanh điều hướng */
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Thay bằng 'space-between' nếu muốn khoảng cách đều */
+    }
+
+    .navbar {
+        height: 100px;
+        padding-top:  4px;
+        width: 100%;
+        position: fixed; /* Đảm bảo navbar không bị cuộn */
+        top: 0; /* Gắn navbar ở đầu trang */
+        left: 0; /* Vị trí bên trái */
+        z-index: 900; /* Đảm bảo navbar nằm trên tất cả các phần tử khác */
+        margin-bottom: 20px;
+    }
+    .text {
+        font-size: 85px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 220px;
+        animation: fadeIn 2s ease-in-out;
+    }
+</style>
 </head>
 <body>
 <div class="header_blogs">
-    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-section">
+        <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="custom-brand">
+                <img
+                    class="brand-logo"
+                    src="./images_blog/Logo.png"
+                    alt="Gogo" />
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="about_us.php">About us</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="list_tour.php">Tour</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="tour_random.php">Special Tour</a>
-                    </li>
-                    <li class="nav-item dropdown">
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="about_us.php">About us</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="list_tour.php">Tour</a>
+                </li>
+                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Blogs
                         </a>
@@ -45,17 +135,23 @@
                             <li><a class="dropdown-item" href="index_blog.php?category=Destination">Destination</a></li>
                         </ul>
                     </li>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i id="icon_user" class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
-                        </a>
-                        </li>
-                    </ul>
-                </ul>
+                <li class="nav-item">
+                <a class="nav-link" href="tour_random.php">Special Tour</a>
+                </li>
+            </ul>
+            
+            <!-- Icon tài khoản bên phải -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i id="icon_user" class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
+                </a>
+                </li>
+            </ul>
             </div>
         </div>
-    </nav>
+        </nav>
+    </div>
     <div class="text animate__animated animate__fadeInDown">Welcome to our blogs</div>
 </div>
 
