@@ -3,7 +3,7 @@ $servername = "localhost";
 
 // Kết nối cơ sở dữ liệu
 $username = "root";
-$password = "kimhien123";
+$password = "";
 $dbname = "HappyTrips";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
