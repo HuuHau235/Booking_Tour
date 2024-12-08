@@ -48,7 +48,7 @@ $conn->close();
                     <h3><?= $tour['tour_name'] ?></h3>
                     <p><?= $tour['description'] ?></p>
                     <div class="tour-price">
-                        <span class="new-price"><?= number_format($tour['price'], 0, ',', '.') ?>đ</span>
+                        <span class="new-price"><?= number_format($tour['price']) ?>đ</span>
                     </div>
                     <a href="detail.php?tour_id=<?= $tour['tour_id'] ?>" class="btn btn-primary">Detail</a>
                 </div>

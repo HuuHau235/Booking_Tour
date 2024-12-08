@@ -177,7 +177,7 @@ $conn->close();
                 <li><i class="bi bi-geo-alt"></i> <strong>Type:</strong> <?= $tour['type'] ?></li>
               </ul>
               <div class="mb-3">
-                <span class="text-danger fs-4 fw-bold"><?= number_format($tour['price'], 0, ',', '.') ?>₫</span>
+                <span class="text-danger fs-4 fw-bold"><?= number_format($tour['price']) ?>₫</span>
               </div>
                 <button class="btn btn-danger w-100 mb-2" id="openForm">Send request</button>
                 <div id="requestForm" class="modal" style="display: none;">
