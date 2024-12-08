@@ -43,26 +43,26 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
     <?php if ($successMessage): ?>
         <div class="alert alert-success"><?php echo htmlspecialchars($successMessage); ?></div>
     <?php endif; ?>
-    <button id="showReviewsButton" class="btn btn-primary mb-3">Ẩn tất cả đánh giá</button>
+    <button id="showReviewsButton" class="btn btn-primary mb-3">Hide all reviews</button>
     <ul class="list-group mb-3 reviews-list" id="reviewsList">
         <?php if ($result && $result->num_rows > 0): ?>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <li class="list-group-item">
                     <strong>Name: </strong><?php echo htmlspecialchars($row['name']); ?><br>
-                    <strong>Xếp hạng: </strong><?php echo str_repeat('⭐', $row['rating']); ?><br>
-                    <strong>Nội dung: </strong><?php echo htmlspecialchars($row['comment']); ?><br>
+                    <strong>Rating: </strong><?php echo str_repeat('⭐', $row['rating']); ?><br>
+                    <strong>Content: </strong><?php echo htmlspecialchars($row['comment']); ?><br>
                 </li>
             <?php endwhile; ?>
         <?php else: ?>
-            <li class="list-group-item">Chưa có đánh giá nào!</li>
+            <li class="list-group-item">No reviews yet!</li>
         <?php endif; ?>
     </ul>
 <form method="POST">
     <input type="hidden" name="form_type" value="review">
     <div class="mb-3">
-        <label for="reviewRating" class="form-label">Xếp hạng:</label>
-        <select class="form-select" id="reviewRating" name="rating" required>
-            <option value="" disabled selected>Chọn đánh giá</option>
+    <label for="reviewRating" class="form-label" style="color: black;">Rating:</label>
+    <select class="form-select" id="reviewRating" name="rating" required>
+            <option value="" disabled selected>Select review</option>
             <option value="1">⭐</option>
             <option value="2">⭐⭐</option>
             <option value="3">⭐⭐⭐</option>
@@ -71,10 +71,10 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
         </select>
     </div>
     <div class="mb-3">
-        <label for="reviewContent" class="form-label">Nội dung đánh giá:</label>
-        <textarea class="form-control" id="reviewContent" name="comment" rows="3" required></textarea>
+    <label for="reviewContent" class="form-label" style="color: black;">Review content:</label>
+    <textarea class="form-control" id="reviewContent" name="comment" rows="3" required></textarea>
     </div>
-    <button type="submit" class="btn btn-success">Gửi đánh giá</button>
+    <button type="submit" class="btn btn-success">Submit a review</button>
 </form>
 </div>
 </section>

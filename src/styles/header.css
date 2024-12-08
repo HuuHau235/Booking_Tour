@@ -236,6 +236,7 @@ dropdown-menu li {
     border: 1px solid #ddd;
     border-radius: 5px;
     width: 150px;
+    
 }
 
 #search-bar .search-btn {
@@ -270,7 +271,7 @@ dropdown-menu li {
     border-radius: 3px;
     background: white;
     color: black;
-    width: 150px;
+    width: 200px;
     box-shadow: 0 6px 12px rgba(253, 247, 247, 0.5);
 
 }
@@ -281,7 +282,7 @@ dropdown-menu li {
     border-radius: 3px;
     background: white;
     color: black;
-    width: 120px;
+    width: 150px;
     box-shadow: 0 6px 12px rgba(253, 247, 247, 0.5);
 }
 

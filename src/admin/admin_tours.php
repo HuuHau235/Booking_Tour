@@ -137,7 +137,7 @@ $result = $conn->query($sql);
                 <th>Giá (VND)</th>
                 <th>Ngày bắt đầu</th>
                 <th>Ngày kết thúc</th>
-                <th>Thời lượng</th>
+                <th>Thời gian</th>
                 <th>Loại</th>
                 <th>Hành động</th>
             </tr>
@@ -176,8 +176,8 @@ $result = $conn->query($sql);
 <!-- Modal Thêm/Sửa Tour -->
 <div class="modal fade" id="tourModal" tabindex="-1" aria-labelledby="tourModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="POST">
-            <div class="modal-content">
+        <div class="modal-content">
+            <form action="" method="POST">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tourModalLabel">Thêm/Sửa Tour</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -185,36 +185,43 @@ $result = $conn->query($sql);
                 <div class="modal-body">
                     <input type="hidden" name="tour_id" id="tour_id">
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
                     <div class="mb-3">
                         <label for="tourName" class="form-label">Tên Tour</label>
-                        <input type="text" name="tourName" id="tourName" class="form-control" required>
+                        <input type="text" class="form-control" id="tourName" name="tourName" required>
                     </div>
+
                     <div class="mb-3">
-                        <label for="tourDescription" class="form-label">Mô tả</label>
-                        <textarea name="tourDescription" id="tourDescription" class="form-control" required></textarea>
+                        <label for="tourDescription" class="form-label">Mô Tả</label>
+                        <textarea class="form-control" id="tourDescription" name="tourDescription"></textarea>
                     </div>
+
                     <div class="mb-3">
-                        <label for="tourPrice" class="form-label">Giá</label>
-                        <input type="number" name="tourPrice" id="tourPrice" class="form-control" required>
+                        <label for="tourPrice" class="form-label">Giá (VND)</label>
+                        <input type="number" class="form-control" id="tourPrice" name="tourPrice" required>
                     </div>
+
                     <div class="mb-3">
-                        <label for="startDate" class="form-label">Ngày bắt đầu</label>
-                        <input type="date" name="startDate" id="startDate" class="form-control" required>
+                        <label for="startDate" class="form-label">Ngày Bắt Đầu</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" required>
                     </div>
+
                     <div class="mb-3">
-                        <label for="endDate" class="form-label">Ngày kết thúc</label>
-                        <input type="date" name="endDate" id="endDate" class="form-control" required>
+                        <label for="endDate" class="form-label">Ngày Kết Thúc</label>
+                        <input type="date" class="form-control" id="endDate" name="endDate" required>
                     </div>
+
                     <div class="mb-3">
-                        <label for="duration" class="form-label">Thời gian</label>
-                        <input type="number" name="duration" id="duration" class="form-control" readonly required>
+                        <label for="duration" class="form-label">Thời Gian (Ngày)</label>
+                        <input type="number" class="form-control" id="duration" name="duration" required>
                     </div>
+
                     <div class="mb-3">
                         <label for="type" class="form-label">Loại Tour</label>
-                        <select name="type" id="type" class="form-control" required>
-                            <option value="adventure">Mạo hiểm</option>
-                            <option value="relaxation">Thư giãn</option>
-                            <option value="cultural">Văn hóa</option>
+                        <select class="form-control" id="type" name="type" required>
+                            <option value="adventure">Adventure</option>
+                            <option value="relaxation">Relaxation</option>
+                            <option value="culture">Culture</option>
                         </select>
                     </div>
                 </div>
@@ -222,42 +229,32 @@ $result = $conn->query($sql);
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                     <button type="submit" class="btn btn-primary">Lưu</button>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2024 Quản lý Tours</p>
-</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Fill modal with data for edit
-        const tourModal = document.getElementById('tourModal');
-        tourModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            const tourId = button.getAttribute('data-id');
-            const tourName = button.getAttribute('data-name');
-            const tourDescription = button.getAttribute('data-description');
-            const tourPrice = button.getAttribute('data-price');
-            const startDate = button.getAttribute('data-start');
-            const endDate = button.getAttribute('data-end');
-            const duration = button.getAttribute('data-duration');
-            const type = button.getAttribute('data-type');
+    const tourModal = document.getElementById('tourModal');
+    tourModal.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        const modal = tourModal.querySelector('form');
 
-            const modal = tourModal.querySelector('form');
-            modal.querySelector('#tour_id').value = tourId || '';
-            modal.querySelector('#tourName').value = tourName || '';
-            modal.querySelector('#tourDescription').value = tourDescription || '';
-            modal.querySelector('#tourPrice').value = tourPrice || '';
-            modal.querySelector('#startDate').value = startDate || '';
-            modal.querySelector('#endDate').value = endDate || '';
-            modal.querySelector('#duration').value = duration || '';
-            modal.querySelector('#type').value = type || 'adventure';
-        });
-    }); 
+        // Set các giá trị nếu có để sửa
+        if (button.dataset.id) {
+            modal.querySelector('#tour_id').value = button.dataset.id;
+            modal.querySelector('#tourName').value = button.dataset.name;
+            modal.querySelector('#tourDescription').value = button.dataset.description;
+            modal.querySelector('#tourPrice').value = button.dataset.price;
+            modal.querySelector('#startDate').value = button.dataset.start;
+            modal.querySelector('#endDate').value = button.dataset.end;
+            modal.querySelector('#duration').value = button.dataset.duration;
+            modal.querySelector('#type').value = button.dataset.type;
+        } else {
+            modal.reset(); // Đặt lại form khi thêm mới
+        }
+    });
 </script>
 </body>
 </html>

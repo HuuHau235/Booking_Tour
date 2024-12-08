@@ -156,6 +156,10 @@ navbar .nav-item.dropdown .dropdown-toggle::after {
     border: none;
     /* Loại bỏ đường viền nếu cần */
 }
+.side-info .list-css li:hover img {
+    transform: scale(1.1); /* Phóng to ảnh khi hover */
+    filter: brightness(1.2); /* Làm sáng ảnh khi hover */
+}
 
 .dropdown-menu {
     display: none;

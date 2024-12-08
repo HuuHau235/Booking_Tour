@@ -78,13 +78,16 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
               <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About us</a>
+              <a class="nav-link" href="about_us.php">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tour</a>
+              <a class="nav-link" href="list_tour.php">Tour</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index_blog.php">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tour_random.php">Special Tour</a>
             </li>
           </ul>
           
@@ -123,7 +126,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </div>
 
             <!-- Nút quay lại -->
-            <a href="index_blog.php" class="btn btn-secondary back-btn">Quay lại</a>
+            <a href="index_blog.php" class="btn btn-secondary back-btn">Return</a>
         </div>
     </div>
 
@@ -132,82 +135,108 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
  <div class="side-info">
                 <h1 style="text-align: center;">Top Destination</h1>
                 <ul class="list-unstyled mt-3 list-css">
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="19">
+                    <a href="detail.php?tour_id=19" class="tour-link">
                         <img src="./images/nha_trang_beach.jpg" alt="Nha Trang" class="img-fluid me-2" style="width: 170px; height: 110px;">
-                        <div>
-                            <p class="m-0">Nha Trang</p>
+                        </a>
+                      <div>
+                             <p class="m-0">Vibrant Nha Trang</p>
                         </div>
                     </li>
                     <li class="d-flex align-items-center mb-3" id="17">
+                    <a href="detail.php?tour_id=17" class="tour-link">
                         <img src="./images/top_hue.jpg" alt="Huế" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                          </a>
                         <div>
-                            <p class="m-0">Huế</p>
+                            <p class="m-0">Tranquil Hue</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="6">
+                    <a href="detail.php?tour_id=6" class="tour-link">
                         <img src="./images/top_da_nang.jpg" alt="Đà Nẵng" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                        </a>
                         <div>
-                            <p class="m-0">Đà Nẵng</p>
+                            <p class="m-0">Golden in the Sky</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="10">
+                    <a href="detail.php?tour_id=10" class="tour-link">
                         <img src="./images/vinh_ha_long.jpg" alt="Hạ Long" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                       </a>
                         <div>
-                            <p class="m-0">Vinh Hạ Long</p>
+                            <p class="m-0"> Ha Long Wonder</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="25">
+                    <a href="detail.php?tour_id=25" class="tour-link">
                         <img src="./images/top_sapa.jpg" alt="sapa" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                            </a>
                         <div>
-                            <p class="m-0">Sapa</p>
+                            <p class="m-0">Misty Sa Pa</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
-                        <img src="../images/top_hoi_an.jpg" alt="Hội an" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                    <li class="d-flex align-items-center mb-3" id="">
+                    <a href="detail.php?tour_id=15" class="tour-link">
+                        <img src="./images/top_hoi_an.jpg" alt="Hội an" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                             </a>
                         <div>
-                            <p class="m-0">Hội An</p>
+                            <p class="m-0">Hoi An Culture</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
-                        <img src="../images/top_da_lat.jpg" alt="Đà lạt" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                    <li class="d-flex align-items-center mb-3" id="3">
+                    <a href="detail.php?tour_id=3" class="tour-link">
+                        <img src="./images/top_da_lat.jpg" alt="Đà lạt" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                            </a>
                         <div>
-                            <p class="m-0">Đà Lạt</p>
+                            <p class="m-0">Da Lat Fragrance</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="22">
+                    <a href="detail.php?tour_id=22" class="tour-link">
                         <img src="./images/top_quang_binh.jpg" alt="Quảng Bình" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                        </a>
                         <div>
-                            <p class="m-0">Quảng Bình</p>
+                            <p class="m-0">Dreamy Quang Binh</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="24">
+                    <a href="detail.php?tour_id=24" class="tour-link">
                         <img src="./images/top_ho_chi_minh.jpg" alt="Ho chi minh" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                         </a>
                         <div>
-                            <p class="m-0">Hồ Chí Minh</p>
+                            <p class="m-0">Dynamic Saigon</p>
                         </div>
                      </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="9">
+                    <a href="detail.php?tour_id=9" class="tour-link">
                         <img src="./images/top_hai_phong" alt="Hai Phong" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                    </a>
                         <div>
-                            <p class="m-0">Hải Phòng</p>
+                            <p class="m-0">Vibrant Hai Phong</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
+                    <li class="d-flex align-items-center mb-3" id="1">
+                    <a href="detail.php?tour_id=1" class="tour-link">
                         <img src="./images/top_tam_dao.jpg" alt="Tam dao" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                     </a>
                         <div>
-                            <p class="m-0">Tam Đảo</p>
+                            <p class="m-0">The Breath of Tam Dao</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
-                        <img src="./images/top_ly_son" alt="Ly son" class="img-fluid me-2" style="width: 170px; height: 110px;">
-                        <div>
-                            <p class="m-0">Lý Sơn</p>
+                    <li class="d-flex align-items-center mb-3" id="18">
+                    <a href="detail.php?tour_id=18" class="tour-link">
+                    <img src="./images/top_ly_son" alt="Ly son" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                        </a>
+                    <div>
+                            <p class="m-0">Paradise Ly Son</p>
                         </div>
                     </li>
-                    <li class="d-flex align-items-center mb-3" id="17">
-                        <img src="./images/top_quynhon.jpg" alt="quy nhon" class="img-fluid me-2" style="width: 170px; height: 110px;">
-                        <div>
-                            <p class="m-0">Quy Nhơn</p>
+                    <li class="d-flex align-items-center mb-3" id="7">
+                    <a href="detail.php?tour_id=7" class="tour-link">
+                    <img src="./images/top_quynhon.jpg" alt="quy nhon" class="img-fluid me-2" style="width: 170px; height: 110px;">
+                     </a>
+                    <div>
+                            <p class="m-0">Eo Gio Adventure</p>
                         </div>
                     </li>
                     

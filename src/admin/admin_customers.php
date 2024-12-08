@@ -99,7 +99,7 @@ if (!$res) {
                         <?php
                         while ($row = mysqli_fetch_assoc($res)) {
                             echo "<tr>
-                                <td>{$row['id']}</td>
+                                <td>{$row['user_id']}</td>
                                 <td>{$row['name']}</td>
                                 <td>{$row['email']}</td>
                                 <td>{$row['phone']}</td>
@@ -108,9 +108,13 @@ if (!$res) {
                                 <td>" . ($row['role'] == 1 ? "User" : "Admin") . "</td>
                                 <td>
                                     <button class='btn btn-sm btn-info' data-bs-toggle='modal' data-bs-target='#viewCustomerModal' 
-                                    data-customer-name='{$row['name']}' data-customer-email='{$row['email']}' data-customer-phone='{$row['phone']}'>Xem</button>
-                                    <button class='btn btn-sm btn-warning' data-bs-toggle='modal' data-bs-target='#confirmLockModal' data-customer-id='{$row['id']}'>Khóa/Mở</button>
-                                    <button class='btn btn-sm btn-danger' data-bs-toggle='modal' data-bs-target='#confirmDeleteModal' data-customer-id='{$row['id']}'>Xóa</button>
+                                    data-customer-name='{$row['name']}' 
+                                    data-customer-email='{$row['email']}' 
+                                    data-customer-phone='{$row['phone']}'
+                                    data-customer-address='{$row['address']}' 
+                                    data-customer-date='{$row['created_at']}'>Xem</button>
+                                    <button class='btn btn-sm btn-warning' data-bs-toggle='modal' data-bs-target='#confirmLockModal' 
+                                    data-customer-id='{$row['user_id']}'>Khóa/Mở</button>
                                 </td>
                             </tr>";
                         }
@@ -122,7 +126,74 @@ if (!$res) {
     </div>
 
     <!-- Modal Xem thông tin Khách hàng -->
-    <!-- Đoạn Modal không thay đổi từ code của bạn -->
+    <div class="modal fade" id="viewCustomerModal" tabindex="-1" aria-labelledby="viewCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewCustomerModalLabel">Thông tin khách hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Tên:</strong> <span id="customerName"></span></p>
+                    <p><strong>Email:</strong> <span id="customerEmail"></span></p>
+                    <p><strong>Số điện thoại:</strong> <span id="customerPhone"></span></p>
+                    <p><strong>Địa chỉ:</strong> <span id="customerAddress"></span></p>
+                    <p><strong>Ngày tham gia:</strong> <span id="customerDate"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Khóa/Mở tài khoản khách hàng -->
+    <div class="modal fade" id="confirmLockModal" tabindex="-1" aria-labelledby="confirmLockModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmLockModalLabel">Xác nhận khóa/mở tài khoản</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc muốn thay đổi trạng thái tài khoản khách hàng này?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <a id="confirmLockBtn" class="btn btn-warning">Thực hiện</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Xử lý modal Xem thông tin khách hàng
+        const viewCustomerModal = document.getElementById('viewCustomerModal');
+        viewCustomerModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const customerName = button.getAttribute('data-customer-name');
+            const customerEmail = button.getAttribute('data-customer-email');
+            const customerPhone = button.getAttribute('data-customer-phone');
+            const customerAddress = button.getAttribute('data-customer-address');  // Thêm địa chỉ
+            const customerDate = button.getAttribute('data-customer-date');  // Thêm ngày tham gia
+
+            viewCustomerModal.querySelector('#customerName').textContent = customerName;
+            viewCustomerModal.querySelector('#customerEmail').textContent = customerEmail;
+            viewCustomerModal.querySelector('#customerPhone').textContent = customerPhone;
+            viewCustomerModal.querySelector('#customerAddress').textContent = customerAddress;  // Cập nhật địa chỉ
+            viewCustomerModal.querySelector('#customerDate').textContent = customerDate;  // Cập nhật ngày tham gia
+        });
+
+
+        // Xử lý modal Khóa/Mở tài khoản
+        const confirmLockModal = document.getElementById('confirmLockModal');
+        confirmLockModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const userId = button.getAttribute('data-customer-id');
+            const lockBtn = confirmLockModal.querySelector('#confirmLockBtn');
+            lockBtn.href = `lock_unlock_customer.php?id=${userId}`; // Tạo trang xử lý khóa/mở
+        });
+    </script>
 </body>
 </html>
