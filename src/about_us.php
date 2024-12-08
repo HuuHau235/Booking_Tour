@@ -374,12 +374,8 @@ body {
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
+                <i id="icon_user" class="fa fa-user" aria-hidden="true"></i> <!-- Icon tài khoản -->
               </a>
-              <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="#" id="openRegisterBtn">Register</a></li>
-                <li><a class="dropdown-item" href="#" id="openLoginBtn">Log in</a></li>
-              </ul>
             </li>
           </ul>
         </div>
@@ -490,6 +486,8 @@ $result = $conn->query($sql);
         ?>
     </div>
 </div>
+<script src="js/login.js"></script>
+
 <?php
 // Close the database connection
 $conn->close();
