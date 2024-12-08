@@ -1210,10 +1210,9 @@ VALUES
 INSERT INTO Image (guide_id, file_path)
 VALUES 
     (1, './images/Guide1.1.jpg'),
-    (2, './images/Guide2.jpg'),
-    (3, './images/Guide3.jpg'),
-    (4, './images/Guide4.jpg'),
-    (5, './images/Guide5.jpg');
+    (2, './images/Guide3.jpg'),
+    (3, './images/Guide4.jpg'),
+    (4, './images/Guide5.jpg');
 
 
 ALTER TABLE `Tour` ADD `city` VARCHAR(255);

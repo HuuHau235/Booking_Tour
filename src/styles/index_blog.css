@@ -1,39 +1,4 @@
       /* Header Blogs */
-      .header_blogs {
-        background-image: url("../images/blogs_header.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 600px;
-        color: white;
-        font-family: "Tinos", serif !important;
-        padding-top: 10px; 
-        margin-bottom: 100px; 
-    }
-
-    .navbar {
-        background-color: transparent !important;
-        box-shadow: none;
-    }
-
-    .navbar .nav-link {
-        color: white !important;
-        font-weight: 600;
-        transition: color 0.3s ease;
-        font-size: 26px;
-        margin-right: 20px;
-    }
-
-    .navbar .nav-link:hover {
-        color: orangered!important;
-    }
-
-    .navbar-toggler {
-        border-color: white;
-    }
-
-    .navbar-toggler-icon {
-        background-color: white;
-    }
 
     .card {
         margin-bottom: 20px; 
@@ -66,13 +31,6 @@
         }
     }
 
-    .text {
-        font-size: 85px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 150px;
-        animation: fadeIn 2s ease-in-out;
-    }
 
     .card-title {
         font-size: 20px;
