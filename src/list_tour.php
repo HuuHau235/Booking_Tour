@@ -191,7 +191,7 @@ $tours = getTours($conn, $filters);
                                         <p><strong>Price:</strong> <?= number_format($row['price'], 0, '.', ','); ?>₫</p>
                                         <p><strong>Type:</strong> <?= htmlspecialchars($row['type']); ?></p>
                                         <a href="detail.php?tour_id=<?= htmlspecialchars($row['tour_id']); ?>" 
-                                           class="btn btn-primary">Xem chi tiết</a>
+                                           class="btn btn-primary">Detail</a>
                                     </div>
                                 </div>
                             </div>

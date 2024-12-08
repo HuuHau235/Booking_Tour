@@ -111,7 +111,7 @@ if ($conn->connect_error) {
                         <div class="card-body">
                             <h5 class="card-title">' . $row['title'] . '</h5>
                             <p class="card-text">' . $row['excerpt'] . '</p>
-                            <a href="post-detail.php?id=' . $row['blog_id'] . '" class="btn btn-primary">Đọc thêm</a>
+                            <a href="post-detail.php?id=' . $row['blog_id'] . '" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
