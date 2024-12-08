@@ -10,8 +10,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
   <title>Navbar Inside Header</title>
   <link rel="stylesheet" href="./styles/header.css">
 </head>
@@ -126,34 +124,39 @@ $date = isset($_GET['date']) ? $_GET['date'] : '';
         <button class="search-button" type="submit">Search</button>
     </div>
 </form>
-
+<script src="js/login.js"></script>
 <script>
 const searchInput = document.getElementById('searchInput');
-
 // Lắng nghe sự kiện nhập liệu (input) để lọc gợi ý
 searchInput.addEventListener('input', function () {
   updateSuggestions();
 });
-
-// XỬ LÝ KHI CLICK VÀO ICON_USER TRÊN HEADER
-document.getElementById('icon_user').addEventListener('click', () => {
-    fetch('./user/check_login_status.php')
-        .then(response => response.json())
-        .then(data => {
+document.addEventListener('DOMContentLoaded', function () {
+    // XỬ LÝ KHI CLICK VÀO ICON_USER TRÊN HEADER
+    const iconUser = document.getElementById('icon_user');
+    
+    if (iconUser) {
+      iconUser.addEventListener('click', function () {
+        // Gửi yêu cầu kiểm tra trạng thái đăng nhập
+        fetch('./user/check_login_status.php')
+          .then(response => response.json())
+          .then(data => {
             if (data.logged_in) {
-                // Nếu đã đăng nhập
-                window.location.href = './user/update_info.php'; // Điều hướng tới trang thay đổi thông tin
+              // Nếu đã đăng nhập, điều hướng đến trang thay đổi thông tin
+              window.location.href = './user/update_info.php';
             } else {
-                // Nếu chưa đăng nhập
-                if (confirm('Bạn chưa đăng nhập. Vui lòng đăng nhập vào tài khoản của bạn. Nhấn "OK" để tới trang đăng nhập.')) {
-                    window.location.href = './user/log_in.php'; // Điều hướng tới trang đăng nhập
-                }
+              // Nếu chưa đăng nhập, yêu cầu đăng nhập
+              if (confirm('Bạn chưa đăng nhập. Vui lòng đăng nhập vào tài khoản của bạn. Nhấn "OK" để tới trang đăng nhập.')) {
+                window.location.href = './user/log_in.php';
+              }
             }
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.error('Lỗi khi gọi API:', error);
-        });
-});
+          });
+      });
+    }
+  });
 
  // Lấy các phần tử HTML cần thiết
 const searchButton = document.querySelector('.search-button');
@@ -188,8 +191,6 @@ searchButton.addEventListener("click", function (e) {
     alert("Please fill in at least one search field!"); // Cảnh báo nếu không điền thông tin
   }
 });
-
-
 </script>
 </body>
 </html>
