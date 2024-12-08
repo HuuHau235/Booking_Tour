@@ -39,7 +39,7 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
 <body>
 <section id="nhan-xet">
 <div class="container my-5">
-    <h2>Đánh giá Tour</h2>
+    <h2>Reviews Tour</h2>
     <?php if ($successMessage): ?>
         <div class="alert alert-success"><?php echo htmlspecialchars($successMessage); ?></div>
     <?php endif; ?>
@@ -83,10 +83,10 @@ $loginMessage = "Bạn cần đăng nhập để đánh giá.";
         var reviewsList = document.getElementById('reviewsList');
         if (reviewsList.style.display === 'none' || reviewsList.style.display === '') {
             reviewsList.style.display = 'block';
-            this.textContent = 'Ẩn tất cả đánh giá'; 
+            this.textContent = 'Hide all reviews'; 
         } else {
             reviewsList.style.display = 'none';
-            this.textContent = 'Xem tất cả đánh giá'; 
+            this.textContent = 'See all reviews'; 
         }
     });
 </script>
