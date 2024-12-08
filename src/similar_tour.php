@@ -37,6 +37,7 @@ $conn->close();
     <title>HappyTrips</title>
 </head>
 <body>
+<h2 style = "text-align: center;">Similar tours</h2>
     <section id="Tour-du-lich">
         <div class="tour-list">
             <?php foreach ($tours as $tour): ?>

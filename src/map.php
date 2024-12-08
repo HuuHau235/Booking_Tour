@@ -45,7 +45,7 @@ $conn->close();
     </style>
 </head>
 <body>
-    <h1 style="text-align: center;">
+    <h1 style="text-align: center; color: black" >
         Location of Tour: 
         <?php 
             if ($location) {
@@ -83,6 +83,6 @@ $conn->close();
         <?php else: ?>
         console.log("No location data available.");
         <?php endif; ?>
-    </script> <br> <br>
+    </script> <br>
 </body>
 </html>
