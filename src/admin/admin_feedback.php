@@ -1,3 +1,30 @@
+<?php
+// Kết nối với cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "HappyTrips";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Kiểm tra kết nối
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// Truy vấn lấy thông tin đánh giá
+$sql = "SELECT r.id, u.name AS user_name, t.name AS tour_name, r.rating, r.comment, r.created_at
+        FROM Review r
+        JOIN User u ON r.user_id = u.user_id
+        JOIN Tour t ON r.tour_id = t.tour_id
+        ORDER BY r.created_at DESC"; // Sắp xếp theo ngày gửi đánh giá mới nhất
+
+$reviewsResult = $conn->query($sql);
+
+// Đóng kết nối
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +65,12 @@
             text-align: center;
             margin-top: 30px;
         }
+        table th, table td {
+            text-align: center;
+        }
+        .star-rating {
+            color: gold;
+        }
     </style>
 </head>
 <body>
@@ -66,32 +99,48 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Đánh giá</h1>
+            <h1>Quản lý Đánh giá</h1>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>STT</th>
                             <th>Tên Khách hàng</th>
                             <th>Tour</th>
                             <th>Đánh giá</th>
+                            <th>Nội dung</th>
                             <th>Ngày gửi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>Hà Nội - Sapa</td>
-                            <td>⭐⭐⭐⭐⭐</td>
-                            <td>2024-01-20</td>
-                        </tr>
+                        <?php 
+                        $stt = 1; // Biến đếm số thứ tự
+                        if ($reviewsResult->num_rows > 0): ?>
+                            <?php while ($row = $reviewsResult->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?php echo $stt++; ?></td>
+                                    <td><?php echo htmlspecialchars($row['user_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['tour_name']); ?></td>
+                                    <td>
+                                        <?php
+                                            // Hiển thị đánh giá sao
+                                            for ($i = 0; $i < $row['rating']; $i++) {
+                                                echo '⭐';
+                                            }
+                                        ?>
+                                    </td>
+                                    <td><?php echo htmlspecialchars($row['comment']); ?></td>
+                                    <td><?php echo $row['created_at']; ?></td>
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr><td colspan="6">Chưa có đánh giá nào.</td></tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
-            <footer>
-            </footer>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,3 +1,45 @@
+<?php
+// Kết nối với cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "HappyTrips";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Kiểm tra kết nối
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// Xử lý phân trang
+$items_per_page = 10; // Số hóa đơn trên mỗi trang
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = max($page, 1); // Đảm bảo giá trị trang không nhỏ hơn 1
+$offset = ($page - 1) * $items_per_page;
+
+// Xử lý tìm kiếm
+$search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+$search_query = $search ? "WHERE customer_name LIKE '%$search%' OR tour_name LIKE '%$search%'" : '';
+
+// Truy vấn tổng số hóa đơn
+$total_sql = "SELECT COUNT(*) AS total FROM Invoices $search_query";
+$total_result = $conn->query($total_sql);
+$total_rows = $total_result->fetch_assoc()['total'];
+$total_pages = ceil($total_rows / $items_per_page);
+
+// Truy vấn lấy thông tin hóa đơn
+$sql = "SELECT id, customer_name, tour_name, payment_date, amount 
+        FROM Invoices 
+        $search_query 
+        ORDER BY payment_date DESC 
+        LIMIT $items_per_page OFFSET $offset";
+$result = $conn->query($sql);
+
+// Đóng kết nối sau khi xử lý xong
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +109,15 @@
         <!-- Main Content -->
         <div class="main-content">
             <h1>Thanh toán & Hóa đơn</h1>
+
+            <!-- Tìm kiếm -->
+            <form method="GET" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Tìm kiếm khách hàng hoặc tour" value="<?php echo htmlspecialchars($search); ?>">
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                </div>
+            </form>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -79,18 +130,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1001</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>Hà Nội - Sapa</td>
-                            <td>2024-01-15</td>
-                            <td>3,500,000 VNĐ</td>
-                        </tr>
+                        <?php if ($result && $result->num_rows > 0): ?>
+                            <?php while ($row = $result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo htmlspecialchars($row['customer_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['tour_name']); ?></td>
+                                    <td><?php echo $row['payment_date']; ?></td>
+                                    <td><?php echo number_format($row['amount'], 0, ',', '.') . ' VNĐ'; ?></td>
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr><td colspan="5">Không có hóa đơn nào.</td></tr>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
-            <footer>
-            </footer>
+
+            <!-- Phân trang -->
+            <nav>
+                <ul class="pagination">
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>">
+                            <a class="page-link" href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor; ?>
+                </ul>
+            </nav>
+
         </div>
     </div>
 </body>

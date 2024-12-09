@@ -63,7 +63,7 @@
                     <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Thanh toán & Hóa đơn</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá & Phản hồi</a>
+                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá</a>
                 </li>
             </ul>
         </nav>
@@ -113,10 +113,10 @@
                                 <button class="btn btn-info btn-sm" onclick="viewDetails(101)">
                                     <i class="bi bi-info-circle"></i> Chi tiết
                                 </button>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal">
+                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editBooking(101)">
                                     <i class="bi bi-pencil"></i> Sửa
                                 </button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="deleteBooking(101)">
                                     <i class="bi bi-trash"></i> Xóa
                                 </button>
                             </td>
@@ -137,6 +137,62 @@
                 </div>
                 <div class="modal-body" id="detailsContent">
                     <!-- Nội dung chi tiết sẽ được hiển thị ở đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sửa Booking -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Sửa Booking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editBookingForm">
+                        <div class="mb-3">
+                            <label for="editCustomerName" class="form-label">Tên khách hàng</label>
+                            <input type="text" class="form-control" id="editCustomerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editTour" class="form-label">Tour</label>
+                            <input type="text" class="form-control" id="editTour" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editBookingDate" class="form-label">Ngày đặt</label>
+                            <input type="date" class="form-control" id="editBookingDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editStatus" class="form-label">Trạng thái</label>
+                            <select class="form-select" id="editStatus" required>
+                                <option value="Đã xác nhận">Đã xác nhận</option>
+                                <option value="Chưa xác nhận">Chưa xác nhận</option>
+                                <option value="Đã hủy">Đã hủy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Xóa Booking -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Xóa Booking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa booking này?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Xóa</button>
                 </div>
             </div>
         </div>
@@ -188,6 +244,32 @@
             document.getElementById('detailsContent').innerHTML = detailsHTML;
             const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
             detailsModal.show();
+        }
+
+        function editBooking(bookingId) {
+            const bookingDetails = {
+                101: { customer: 'Nguyễn Văn A', tour: 'Hà Nội - Hạ Long', date: '2024-11-20', status: 'Đã xác nhận' },
+            };
+
+            const details = bookingDetails[bookingId];
+            document.getElementById('editCustomerName').value = details.customer;
+            document.getElementById('editTour').value = details.tour;
+            document.getElementById('editBookingDate').value = details.date;
+            document.getElementById('editStatus').value = details.status;
+
+            const form = document.getElementById('editBookingForm');
+            form.onsubmit = function(event) {
+                event.preventDefault();
+                alert(`Booking ${bookingId} đã được sửa`);
+                bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+            };
+        }
+
+        function deleteBooking(bookingId) {
+            document.getElementById('confirmDelete').onclick = function() {
+                alert(`Booking ${bookingId} đã được xóa`);
+                bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
+            };
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
