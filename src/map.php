@@ -1,82 +1,88 @@
 <?php
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "happytrips"; 
+// Kết nối cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "happytrips";  // Thay bằng tên cơ sở dữ liệu của bạn
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Kiểm tra kết nối
 if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$tour_id = isset($_GET['tour_id']) ? $_GET['tour_id'] : 0;
+// Lấy tour_id từ URL (nếu có)
+$tour_id = isset($_GET['tour_id']) ? $_GET['tour_id'] : 1; // Giả sử tour_id mặc định là 1
 
-$sql = "SELECT name, latitude, longitude FROM Tour WHERE tour_id = ?";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $tour_id);
-$stmt->execute();
-
-$result = $stmt->get_result();
+// Lấy thông tin vị trí của tour từ cơ sở dữ liệu
+$get_location_query = "SELECT name, latitude, longitude FROM Tour WHERE tour_id = $tour_id";
+$result = $conn->query($get_location_query);
 
 if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $tourName = $row["name"];
-    $latitude = $row["latitude"];
-    $longitude = $row["longitude"];
+    $location = $result->fetch_assoc();
 } else {
-    echo "Tour không tồn tại.";
-    exit();
+    $location = null;  // Không tìm thấy dữ liệu
 }
 
-$stmt->close();
-
+// Đóng kết nối
 $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vị Trí Tour</title>
+    <title>Tour Location Map</title>
+    <!-- Thêm Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
         #map {
-            height: 400px; 
-            width: 100%;
+            height: 400px; /* Chiều cao bản đồ */
+            width: 100%;   /* Chiều rộng bản đồ */
         }
     </style>
 </head>
 <body>
-    <h2>Vị Trí Của Tour: <?php echo $tourName; ?></h2>
+    <h1 style="text-align: center; color: black" >
+        Location of Tour: 
+        <?php 
+            if ($location) {
+                echo htmlspecialchars($location['name']);
+            } else {
+                echo "No location available for this tour.";
+            }
+        ?>
+    </h1>
     <div id="map"></div>
 
+    <!-- Thêm Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        const latitude = <?php echo $latitude; ?>;
-        const longitude = <?php echo $longitude; ?>;
+        <?php if ($location): ?>
+        // Dữ liệu vị trí từ PHP
+        const tourLocation = {
+            name: "<?php echo htmlspecialchars($location['name']); ?>",
+            latitude: <?php echo $location['latitude']; ?>,
+            longitude: <?php echo $location['longitude']; ?>
+        };
 
-        if (latitude === 0 && longitude === 0) {
-            alert("Không tìm thấy vị trí cho tour này!");
-            return;
-        }
+        // Hàm khởi tạo bản đồ
+        const map = L.map('map').setView([tourLocation.latitude, tourLocation.longitude], 13); // Set center cho bản đồ
 
-        console.log('Tọa độ:', [latitude, longitude]);  
-
-        const map = L.map('map').setView([latitude, longitude], 13);
-
+        // Thêm lớp bản đồ OpenStreetMap vào
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        L.marker([latitude, longitude]).addTo(map)
-            .bindPopup(`<b>${<?php echo json_encode($tourName); ?>}</b>`)
-            .openPopup();
-    </script>
+        // Thêm marker cho vị trí cụ thể
+        const marker = L.marker([tourLocation.latitude, tourLocation.longitude]).addTo(map);
+        marker.bindPopup("<b>" + tourLocation.name + "</b>").openPopup();
+        <?php else: ?>
+        console.log("No location data available.");
+        <?php endif; ?>
+    </script> <br>
 </body>
 </html>
