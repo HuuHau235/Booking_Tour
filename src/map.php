@@ -1,31 +1,26 @@
 <?php
-// Kết nối cơ sở dữ liệu
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "happytrips";  // Thay bằng tên cơ sở dữ liệu của bạn
+$dbname = "happytrips";  
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Kiểm tra kết nối
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Lấy tour_id từ URL (nếu có)
-$tour_id = isset($_GET['tour_id']) ? $_GET['tour_id'] : 1; // Giả sử tour_id mặc định là 1
+$tour_id = isset($_GET['tour_id']) ? $_GET['tour_id'] : 1; 
 
-// Lấy thông tin vị trí của tour từ cơ sở dữ liệu
 $get_location_query = "SELECT name, latitude, longitude FROM Tour WHERE tour_id = $tour_id";
 $result = $conn->query($get_location_query);
 
 if ($result->num_rows > 0) {
     $location = $result->fetch_assoc();
 } else {
-    $location = null;  // Không tìm thấy dữ liệu
+    $location = null; 
 }
 
-// Đóng kết nối
 $conn->close();
 ?>
 
@@ -35,18 +30,23 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Location Map</title>
-    <!-- Thêm Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         #map {
-            height: 400px; /* Chiều cao bản đồ */
-            width: 100%;   /* Chiều rộng bản đồ */
+            height: 400px; 
+            width: 80%;   
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; color: black" >
-        Location of Tour: 
+    <h2 style="text-align: center; color: #fc0000" >
         <?php 
             if ($location) {
                 echo htmlspecialchars($location['name']);
@@ -54,7 +54,7 @@ $conn->close();
                 echo "No location available for this tour.";
             }
         ?>
-    </h1>
+    </h2>
     <div id="map"></div>
 
     <!-- Thêm Leaflet JS -->

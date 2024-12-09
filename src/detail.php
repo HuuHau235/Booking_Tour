@@ -209,6 +209,8 @@ $conn->close();
                           <div class="col-md-4 mb-3">
                               <h5><label for="children" class="form-label">Children (2-8):</label></h5>
                               <select id="children" class="form-select" name="children">
+                                  <option>0</option>
+                                  <option>1</option>
                                   <option>2</option>
                                   <option>3</option>
                                   <option>4</option>
