@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require_once('../../MySQL/Createdatabase.php'); // Kết nối cơ sở dữ liệu
 
 // Truy vấn dữ liệu khách hàng
