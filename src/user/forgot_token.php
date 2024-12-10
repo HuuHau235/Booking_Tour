@@ -134,8 +134,11 @@ if (isPost()) {
                 // bắt đầu gửi 
                 $sendEmail = sendMail($email, $subject, $message);
                 if ($sendEmail){
-                    setFlashData('msg', 'Vui lòng kiểm tra email của bạn để xem hướng dẫn đặt lại mật khẩu!');
-                    setFlashData('msg_type', 'success');
+                    // setFlashData('msg', 'Vui lòng kiểm tra email của bạn để xem hướng dẫn đặt lại mật khẩu!');
+                    // setFlashData('msg_type', 'success');
+                    echo"<script>
+                        alert('Vui lòng kiểm tra email của bạn để xem hướng dẫn đặt lại mật khẩu!');                      
+                    </script>";
                 }
                 else{
                     setFlashData('msg', 'Lỗi hệ thống gửi mail không thành công!Vui lòng thử lại sau nhé!');

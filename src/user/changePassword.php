@@ -56,9 +56,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $update_stmt->bind_param("si", $hashed_password, $user_id);
     
                 if ($update_stmt->execute()) {
-                    setFlashData('msg', 'Đã cập nhật mật khẩu thành công!');
-                    setFlashData('msg_type', 'success');
-                    header('location: ../index.php');
+                    // setFlashData('msg', 'Đã cập nhật mật khẩu thành công!');
+                    // setFlashData('msg_type', 'success');
+                    // header('location: ../index.php');
+                    echo "<script>
+                        alert('Đã cập nhật mật khẩu thành công!');
+                        window.location.href = '../index.php';
+                    </script>";
                     exit();
                 } else {
                     setFlashData('msg', 'Lỗi cập nhật mật khẩu. Vui lòng thử lại!');
