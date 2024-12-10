@@ -26,9 +26,8 @@ function getMsg($msg, $msg_type) {
 $smg = getFlashData('msg');
 $msg_type = getFlashData('msg_type');
 
-// Kiểm tra xem người dùng đã đăng nhập hay chưa
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php'); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+if (!isset($_SESSION['user_id']) || (isset($_SESSION['role']) && $_SESSION['role'] == 2)) {
+    header('Location: log_in.php'); 
     exit;
 }
 

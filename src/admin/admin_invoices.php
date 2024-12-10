@@ -1,5 +1,5 @@
 <?php
-// Kết nối với cơ sở dữ liệu
+// Connect to the database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,28 +7,26 @@ $dbname = "HappyTrips";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Kiểm tra kết nối
 if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Xử lý phân trang
-$items_per_page = 10; // Số hóa đơn trên mỗi trang
+$items_per_page = 10; 
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$page = max($page, 1); // Đảm bảo giá trị trang không nhỏ hơn 1
+$page = max($page, 1); 
 $offset = ($page - 1) * $items_per_page;
 
-// Xử lý tìm kiếm
+// Handle search functionality
 $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
 $search_query = $search ? "WHERE customer_name LIKE '%$search%' OR tour_name LIKE '%$search%'" : '';
 
-// Truy vấn tổng số hóa đơn
+// Query total number of invoices
 $total_sql = "SELECT COUNT(*) AS total FROM Invoices $search_query";
 $total_result = $conn->query($total_sql);
 $total_rows = $total_result->fetch_assoc()['total'];
 $total_pages = ceil($total_rows / $items_per_page);
 
-// Truy vấn lấy thông tin hóa đơn
+// Query invoices
 $sql = "SELECT id, customer_name, tour_name, payment_date, amount 
         FROM Invoices 
         $search_query 
@@ -36,7 +34,7 @@ $sql = "SELECT id, customer_name, tour_name, payment_date, amount
         LIMIT $items_per_page OFFSET $offset";
 $result = $conn->query($sql);
 
-// Đóng kết nối sau khi xử lý xong
+// Close connection after processing
 $conn->close();
 ?>
 
@@ -45,7 +43,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh toán & Hóa đơn</title>
+    <title>Payments & Invoices</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
@@ -89,32 +87,32 @@ $conn->close();
             <h4><i class="bi bi-gear-fill"></i> Admin</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
-                    <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Quản lý Tour</a>
+                    <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Manage Tours</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_booking.php" class="nav-link"><i class="bi bi-book"></i> Quản lý Booking</a>
+                    <a href="admin_booking.php" class="nav-link"><i class="bi bi-book"></i> Manage Bookings</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_customers.php" class="nav-link"><i class="bi bi-person"></i> Quản lý Khách hàng</a>
+                    <a href="admin_customers.php" class="nav-link"><i class="bi bi-person"></i> Manage Customers</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Thanh toán & Hóa đơn</a>
+                    <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Payments & Invoices</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá</a>
+                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Reviews</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Thanh toán & Hóa đơn</h1>
+            <h1>Payments & Invoices</h1>
 
-            <!-- Tìm kiếm -->
+            <!-- Search -->
             <form method="GET" class="mb-4">
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control" placeholder="Tìm kiếm khách hàng hoặc tour" value="<?php echo htmlspecialchars($search); ?>">
-                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    <input type="text" name="search" class="form-control" placeholder="Search by customer or tour" value="<?php echo htmlspecialchars($search); ?>">
+                    <button class="btn btn-primary" type="submit">Search</button>
                 </div>
             </form>
 
@@ -123,10 +121,10 @@ $conn->close();
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tên Khách hàng</th>
+                            <th>Customer Name</th>
                             <th>Tour</th>
-                            <th>Ngày thanh toán</th>
-                            <th>Số tiền</th>
+                            <th>Payment Date</th>
+                            <th>Amount</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,17 +135,17 @@ $conn->close();
                                     <td><?php echo htmlspecialchars($row['customer_name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['tour_name']); ?></td>
                                     <td><?php echo $row['payment_date']; ?></td>
-                                    <td><?php echo number_format($row['amount'], 0, ',', '.') . ' VNĐ'; ?></td>
+                                    <td><?php echo number_format($row['amount'], 0, ',', '.') . ' VND'; ?></td>
                                 </tr>
                             <?php endwhile; ?>
                         <?php else: ?>
-                            <tr><td colspan="5">Không có hóa đơn nào.</td></tr>
+                            <tr><td colspan="5">No invoices found.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
             </div>
 
-            <!-- Phân trang -->
+            <!-- Pagination -->
             <nav>
                 <ul class="pagination">
                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>

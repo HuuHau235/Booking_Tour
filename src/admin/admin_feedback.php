@@ -1,5 +1,5 @@
 <?php
-// Kết nối với cơ sở dữ liệu
+// Connect to the database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,21 +7,21 @@ $dbname = "HappyTrips";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Kiểm tra kết nối
+// Check connection
 if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Truy vấn lấy thông tin đánh giá
+// Query to fetch reviews
 $sql = "SELECT r.id, u.name AS user_name, t.name AS tour_name, r.rating, r.comment, r.created_at
         FROM Review r
         JOIN User u ON r.user_id = u.user_id
         JOIN Tour t ON r.tour_id = t.tour_id
-        ORDER BY r.created_at DESC"; // Sắp xếp theo ngày gửi đánh giá mới nhất
+        ORDER BY r.created_at DESC"; // Sort by the latest review date
 
 $reviewsResult = $conn->query($sql);
 
-// Đóng kết nối
+// Close the connection
 $conn->close();
 ?>
 
@@ -30,7 +30,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đánh giá & Phản hồi</title>
+    <title>Reviews & Feedback</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
@@ -80,50 +80,50 @@ $conn->close();
             <h4><i class="bi bi-gear-fill"></i> Admin</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
-                    <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Quản lý Tour</a>
+                    <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Manage Tours</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_booking.php" class="nav-link"><i class="bi bi-book"></i> Quản lý Booking</a>
+                    <a href="admin_booking.php" class="nav-link"><i class="bi bi-book"></i> Manage Bookings</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_customers.php" class="nav-link"><i class="bi bi-person"></i> Quản lý Khách hàng</a>
+                    <a href="admin_customers.php" class="nav-link"><i class="bi bi-person"></i> Manage Customers</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Thanh toán & Hóa đơn</a>
+                    <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Payments & Invoices</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá</a>
+                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Reviews</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Quản lý Đánh giá</h1>
+            <h1>Manage Reviews</h1>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th>Tên Khách hàng</th>
+                            <th>No</th>
+                            <th>Customer Name</th>
                             <th>Tour</th>
-                            <th>Đánh giá</th>
-                            <th>Nội dung</th>
-                            <th>Ngày gửi</th>
+                            <th>Rating</th>
+                            <th>Comment</th>
+                            <th>Date Submitted</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        $stt = 1; // Biến đếm số thứ tự
+                        $no = 1; // Counter for serial number
                         if ($reviewsResult->num_rows > 0): ?>
                             <?php while ($row = $reviewsResult->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo $stt++; ?></td>
+                                    <td><?php echo $no++; ?></td>
                                     <td><?php echo htmlspecialchars($row['user_name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['tour_name']); ?></td>
                                     <td>
                                         <?php
-                                            // Hiển thị đánh giá sao
+                                            // Display star ratings
                                             for ($i = 0; $i < $row['rating']; $i++) {
                                                 echo '⭐';
                                             }
@@ -134,7 +134,7 @@ $conn->close();
                                 </tr>
                             <?php endwhile; ?>
                         <?php else: ?>
-                            <tr><td colspan="6">Chưa có đánh giá nào.</td></tr>
+                            <tr><td colspan="6">No reviews available.</td></tr>
                         <?php endif; ?>
                     </tbody>
                 </table>

@@ -591,7 +591,7 @@ CREATE TABLE User (
 );
 
 INSERT INTO `User` (`name`, `email`, `password`, `phone`, `address`, `role`, `created_at`)
-VALUES ('Admin', 'admin@example.com', MD5('adminpassword'), '0123456789', '123 Admin Street', 2, NOW());
+VALUES ('Admin', 'admin1@gmail.com', MD5('123'), '0123456789', '123 Admin Street', 2, NOW());
 
         -- Bảng review
 DROP TABLE IF EXISTS `review`;
