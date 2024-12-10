@@ -125,14 +125,14 @@ $result = $mysqli->query($query);
                     </thead>
                     <tbody>
                         <?php while ($row = $result->fetch_assoc()): ?>
-                            <tr>
-                                <td><?php echo $row['booking_id']; ?></td>
-                                <td><?php echo $row['customer_name']; ?></td>
-                                <td><?php echo $row['tour_name']; ?></td>
-                                <td><?php echo $row['booking_date']; ?></td>
-                                <td><?php echo $row['num_people']; ?></td>
-                                <td><?php echo $row['special_requirements']; ?></td>
-                                <td>
+                                <tr>
+                                    <td><?php echo $row['booking_id']; ?></td>
+                                    <td><?php echo $row['customer_name']; ?></td>
+                                    <td><?php echo $row['tour_name']; ?></td>
+                                    <td><?php echo $row['booking_date']; ?></td>
+                                    <td><?php echo $row['num_people']; ?></td>
+                                    <td><?php echo $row['special_requirements']; ?></td>
+                                    <td>
                                     <select class="form-select" onchange="updateBookingStatus(this, <?php echo $row['booking_id']; ?>)">
                                         <option value="Confirmed">Confirmed</option>
                                         <option value="Pending">Pending</option>
@@ -155,20 +155,6 @@ $result = $mysqli->query($query);
     </div>
 
     <!-- Booking Details Modal -->
-    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailsModalLabel">Booking Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="detailsContent">
-                    <!-- Details content will be displayed here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Search and filter bookings
         document.getElementById('searchBooking').addEventListener('input', filterBookings);
@@ -196,7 +182,7 @@ $result = $mysqli->query($query);
 
         function updateBookingStatus(selectElement, bookingId) {
             const newStatus = selectElement.value;
-            // Gửi yêu cầu Ajax đến server để cập nhật trạng thái
+            // Gửi yêu cầu Ajax để cập nhật trạng thái
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'update_booking_status.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -209,8 +195,7 @@ $result = $mysqli->query($query);
         }
 
         function viewDetails(bookingId) {
-            // Có thể gửi Ajax request để lấy chi tiết booking từ server hoặc chuyển hướng trang
-            window.location.href = 'booking_details.php?booking_id=' + bookingId;
+            window.location.href = 'booking_detail.php?booking_id=' + bookingId;
         }
     </script>
 
