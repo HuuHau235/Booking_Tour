@@ -17,15 +17,17 @@
             $_SESSION['email'] = $email; // Initializing Session,Khởi tạo Session cho username
             while($row = mysqli_fetch_assoc($result)) {
                 $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['role'] = $row['role'];
+            } 
+            if ($_SESSION['role'] == 2) {
+                header("location: ../admin/admin_customers.php");
+            } else {
+                header("location: ../index.php?ls=success");
             }
-
-            header("location:../index.php?ls=success");
             exit();
-
         } else {
             $_SESSION['error'] = 'Tên đăng nhập hoặc mật khẩu không hợp lệ!';
-    
-            header("location:log_in.php?error=wrong");
+            header("location: log_in.php?error=wrong");
             exit();
         }
     }  else {
