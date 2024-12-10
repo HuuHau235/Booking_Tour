@@ -1,12 +1,12 @@
 <?php
-require_once('../../MySQL/Createdatabase.php'); // Kết nối cơ sở dữ liệu
+require_once('../../MySQL/Createdatabase.php'); // Database connection
 
-// Truy vấn dữ liệu khách hàng
+// Query customer data
 $sql = "SELECT * FROM User";
 $res = mysqli_query($conn, $sql);
 
 if (!$res) {
-    echo "Lỗi khi truy vấn cơ sở dữ liệu.";
+    echo "Error while querying the database.";
     exit();
 }
 ?>
@@ -16,7 +16,7 @@ if (!$res) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý Khách hàng</title>
+    <title>Customer Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
@@ -60,39 +60,39 @@ if (!$res) {
             <h4><i class="bi bi-gear-fill"></i> Admin</h4>
             <ul class="nav flex-column">
                 <li class="nav-item mb-3">
-                    <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Quản lý Tour</a>
+                    <a href="admin_tours.php" class="nav-link"><i class="bi bi-card-list"></i> Manage Tours</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_booking.php" class="nav-link"><i class="bi bi-book"></i> Quản lý Booking</a>
+                    <a href="admin_booking.php" class="nav-link"><i class="bi bi-book"></i> Manage Bookings</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_customers.php" class="nav-link"><i class="bi bi-person"></i> Quản lý Khách hàng</a>
+                    <a href="admin_customers.php" class="nav-link"><i class="bi bi-person"></i> Manage Customers</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Thanh toán & Hóa đơn</a>
+                    <a href="admin_invoices.php" class="nav-link"><i class="bi bi-receipt"></i> Payments & Invoices</a>
                 </li>
                 <li class="nav-item mb-3">
-                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Đánh giá</a>
+                    <a href="admin_feedback.php" class="nav-link"><i class="bi bi-chat-left-text"></i> Feedback</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Quản lý Khách hàng</h1>
+            <h1>Customer Management</h1>
 
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tên</th>
+                            <th>Name</th>
                             <th>Email</th>
-                            <th>Số điện thoại</th>
-                            <th>Địa chỉ</th>
-                            <th>Ngày tham gia</th>
-                            <th>Quyền</th>
-                            <th>Hành động</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Join Date</th>
+                            <th>Role</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -112,9 +112,7 @@ if (!$res) {
                                     data-customer-email='{$row['email']}' 
                                     data-customer-phone='{$row['phone']}'
                                     data-customer-address='{$row['address']}' 
-                                    data-customer-date='{$row['created_at']}'>Xem</button>
-                                    <button class='btn btn-sm btn-warning' data-bs-toggle='modal' data-bs-target='#confirmLockModal' 
-                                    data-customer-id='{$row['user_id']}'>Khóa/Mở</button>
+                                    data-customer-date='{$row['created_at']}'>View</button>
                                 </td>
                             </tr>";
                         }
@@ -125,42 +123,42 @@ if (!$res) {
         </div>
     </div>
 
-    <!-- Modal Xem thông tin Khách hàng -->
+    <!-- Modal: View Customer Information -->
     <div class="modal fade" id="viewCustomerModal" tabindex="-1" aria-labelledby="viewCustomerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="viewCustomerModalLabel">Thông tin khách hàng</h5>
+                    <h5 class="modal-title" id="viewCustomerModalLabel">Customer Information</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>Tên:</strong> <span id="customerName"></span></p>
+                    <p><strong>Name:</strong> <span id="customerName"></span></p>
                     <p><strong>Email:</strong> <span id="customerEmail"></span></p>
-                    <p><strong>Số điện thoại:</strong> <span id="customerPhone"></span></p>
-                    <p><strong>Địa chỉ:</strong> <span id="customerAddress"></span></p>
-                    <p><strong>Ngày tham gia:</strong> <span id="customerDate"></span></p>
+                    <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
+                    <p><strong>Address:</strong> <span id="customerAddress"></span></p>
+                    <p><strong>Join Date:</strong> <span id="customerDate"></span></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal Khóa/Mở tài khoản khách hàng -->
+    <!-- Modal: Lock/Unlock Customer Account -->
     <div class="modal fade" id="confirmLockModal" tabindex="-1" aria-labelledby="confirmLockModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="confirmLockModalLabel">Xác nhận khóa/mở tài khoản</h5>
+                    <h5 class="modal-title" id="confirmLockModalLabel">Confirm Lock/Unlock Account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bạn có chắc muốn thay đổi trạng thái tài khoản khách hàng này?</p>
+                    <p>Are you sure you want to change the account status for this customer?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <a id="confirmLockBtn" class="btn btn-warning">Thực hiện</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a id="confirmLockBtn" class="btn btn-warning">Proceed</a>
                 </div>
             </div>
         </div>
@@ -168,31 +166,30 @@ if (!$res) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Xử lý modal Xem thông tin khách hàng
+        // Handle viewing customer details
         const viewCustomerModal = document.getElementById('viewCustomerModal');
         viewCustomerModal.addEventListener('show.bs.modal', event => {
             const button = event.relatedTarget;
             const customerName = button.getAttribute('data-customer-name');
             const customerEmail = button.getAttribute('data-customer-email');
             const customerPhone = button.getAttribute('data-customer-phone');
-            const customerAddress = button.getAttribute('data-customer-address');  // Thêm địa chỉ
-            const customerDate = button.getAttribute('data-customer-date');  // Thêm ngày tham gia
+            const customerAddress = button.getAttribute('data-customer-address');
+            const customerDate = button.getAttribute('data-customer-date');
 
             viewCustomerModal.querySelector('#customerName').textContent = customerName;
             viewCustomerModal.querySelector('#customerEmail').textContent = customerEmail;
             viewCustomerModal.querySelector('#customerPhone').textContent = customerPhone;
-            viewCustomerModal.querySelector('#customerAddress').textContent = customerAddress;  // Cập nhật địa chỉ
-            viewCustomerModal.querySelector('#customerDate').textContent = customerDate;  // Cập nhật ngày tham gia
+            viewCustomerModal.querySelector('#customerAddress').textContent = customerAddress;
+            viewCustomerModal.querySelector('#customerDate').textContent = customerDate;
         });
 
-
-        // Xử lý modal Khóa/Mở tài khoản
+        // Handle Lock/Unlock Customer Account
         const confirmLockModal = document.getElementById('confirmLockModal');
         confirmLockModal.addEventListener('show.bs.modal', event => {
             const button = event.relatedTarget;
             const userId = button.getAttribute('data-customer-id');
             const lockBtn = confirmLockModal.querySelector('#confirmLockBtn');
-            lockBtn.href = `lock_unlock_customer.php?id=${userId}`; // Tạo trang xử lý khóa/mở
+            lockBtn.href = `lock_unlock_customer.php?id=${userId}`; // Link to lock/unlock page
         });
     </script>
 </body>
