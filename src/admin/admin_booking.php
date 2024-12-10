@@ -1,3 +1,28 @@
+<?php
+session_start();
+error_reporting(E_ALL ^ E_DEPRECATED);
+
+// Kết nối cơ sở dữ liệu
+$mysqli = new mysqli("localhost", "root", "", "HappyTrips");
+
+// Kiểm tra kết nối
+if ($mysqli->connect_error) {
+    die("Kết nối cơ sở dữ liệu thất bại: " . $mysqli->connect_error);
+}
+
+// Câu truy vấn lấy thông tin booking
+$query = "SELECT b.booking_id, b.user_id, b.num_people, b.special_requirements, 
+                 DATE_FORMAT(b.created_at, '%Y-%m-%d') AS booking_date, 
+                 u.name AS customer_name, t.name AS tour_name
+          FROM Booking b
+          JOIN User u ON b.user_id = u.user_id
+          JOIN Tour t ON b.tour_id = t.tour_id
+          ORDER BY b.booking_id DESC";
+
+// Thực thi câu truy vấn
+$result = $mysqli->query($query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,40 +109,48 @@
             </div>
 
             <!-- Booking Table -->
-            <div class="table-responsive">
-                <table class="table table-striped" id="bookingTable">
+            <?php if ($result->num_rows > 0): ?>
+                <table class="table table-bordered" id="bookingTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Booking ID</th>
                             <th>Customer Name</th>
-                            <th>Tour</th>
+                            <th>Tour Name</th>
                             <th>Booking Date</th>
+                            <th>Number of People</th>
+                            <th>Special Requirements</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>101</td>
-                            <td>John Doe</td>
-                            <td>Hanoi - Halong Bay</td>
-                            <td>2024-11-20</td>
-                            <td>
-                                <select class="form-select" onchange="updateBookingStatus(this, 101)">
-                                    <option value="Confirmed" selected>Confirmed</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Cancelled">Cancelled</option>
-                                </select>
-                            </td>
-                            <td>
-                                <button class="btn btn-info btn-sm" onclick="viewDetails(101)">
-                                    <i class="bi bi-info-circle"></i> Details
-                                </button>
-                            </td>
-                        </tr>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['booking_id']; ?></td>
+                                <td><?php echo $row['customer_name']; ?></td>
+                                <td><?php echo $row['tour_name']; ?></td>
+                                <td><?php echo $row['booking_date']; ?></td>
+                                <td><?php echo $row['num_people']; ?></td>
+                                <td><?php echo $row['special_requirements']; ?></td>
+                                <td>
+                                    <select class="form-select" onchange="updateBookingStatus(this, <?php echo $row['booking_id']; ?>)">
+                                        <option value="Confirmed">Confirmed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="viewDetails(<?php echo $row['booking_id']; ?>)">Details</button>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
-            </div>
+            <?php else: ?>
+                <p>No bookings found.</p>
+            <?php endif; ?>
+
+            <?php $mysqli->close(); ?>
         </div>
     </div>
 
@@ -144,11 +177,11 @@
         function filterBookings() {
             const searchValue = document.getElementById('searchBooking').value.toLowerCase();
             const statusValue = document.getElementById('filterStatus').value;
-            const rows = document.querySelectorAll('tbody tr');
+            const rows = document.querySelectorAll('#bookingTable tbody tr');
 
             rows.forEach(row => {
                 const name = row.children[1].innerText.toLowerCase();
-                const status = row.children[4].querySelector('select').value;
+                const status = row.children[6].querySelector('select').value;
 
                 if (
                     (name.includes(searchValue) || searchValue === '') &&
@@ -163,27 +196,24 @@
 
         function updateBookingStatus(selectElement, bookingId) {
             const newStatus = selectElement.value;
-            alert(`Booking ${bookingId} status has been updated to "${newStatus}"`);
+            // Gửi yêu cầu Ajax đến server để cập nhật trạng thái
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'update_booking_status.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert('Booking status updated to ' + newStatus);
+                }
+            };
+            xhr.send('booking_id=' + bookingId + '&status=' + newStatus);
         }
 
         function viewDetails(bookingId) {
-            const bookingDetails = {
-                101: { customer: 'John Doe', tour: 'Hanoi - Halong Bay', date: '2024-11-20', status: 'Confirmed' },
-            };
-
-            const details = bookingDetails[bookingId];
-            const detailsHTML = `
-                <p><strong>Customer Name:</strong> ${details.customer}</p>
-                <p><strong>Tour:</strong> ${details.tour}</p>
-                <p><strong>Booking Date:</strong> ${details.date}</p>
-                <p><strong>Status:</strong> ${details.status}</p>
-            `;
-
-            document.getElementById('detailsContent').innerHTML = detailsHTML;
-            const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            detailsModal.show();
+            // Có thể gửi Ajax request để lấy chi tiết booking từ server hoặc chuyển hướng trang
+            window.location.href = 'booking_details.php?booking_id=' + bookingId;
         }
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

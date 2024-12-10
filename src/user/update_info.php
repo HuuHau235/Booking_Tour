@@ -66,9 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update_stmt->bind_param('ssssi', $name, $email, $phone, $address, $user_id);
 
     if ($update_stmt->execute()) {
-        setFlashData('msg', 'Đã cập nhật thông tin thành công!');
-        setFlashData('msg_type', 'success');
-        header('Location: ../index.php');
+        // setFlashData('msg', 'Đã cập nhật thông tin thành công!');
+        // setFlashData('msg_type', 'success');
+        // header('Location: ../index.php');
+        echo"<script>
+            confirm('Đã cập nhật thông tin thành công!');
+            window.location.href = '../index.php';
+        </script>";
         exit();
     } else {
         setFlashData('msg', 'Cập nhật thất bại. Vui lòng thử lại!');
